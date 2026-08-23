@@ -1,0 +1,33 @@
+{
+  "name": "nfl-2026-outlook-report",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite --config vite.standalone.config.ts",
+    "build": "npm run build:standalone",
+    "build:standalone:vite": "vite build --config vite.standalone.config.ts",
+    "build:standalone": "npm run build:standalone:vite && node scripts/inline-standalone.mjs",
+    "preview": "vite preview --config vite.standalone.config.ts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.67.0",
+    "@typescript-eslint/parser": "8.67.0",
+    "@vitejs/plugin-react": "6.1.0",
+    "eslint": "9.39.4",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "typescript": "5.9.3",
+    "vite": "8.2.2"
+  },
+  "type": "module"
+}

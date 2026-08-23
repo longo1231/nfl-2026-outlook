@@ -1,0 +1,11 @@
+{
+  "name": "nfl-2026-outlook",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "market:build": "node scripts/build-market-snapshot.mjs",
+    "report:build": "npm --prefix site run build:standalone"
+  }
+}

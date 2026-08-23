@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "season": 2026,
+  "source_capture_completed_at": "2026-08-23T15:14:29-04:00",
+  "timezone": "America/New_York",
+  "private_ingestion_read_only": true,
+  "private_source_mutations": [],
+  "raw_transcripts_published": false,
+  "selected_count": 4,
+  "error_count": 0,
+  "notes": [
+    "Public provenance retains publisher transcript links, content hashes, and counts without private-library identifiers or raw transcript text.",
+    "One source carried implausible private-library publication metadata; episode content and the immutable private snapshot determine the 2026 edition.",
+    "No private source item was moved, tagged, marked read, highlighted, annotated, or edited."
+  ],
+  "documents": [
+    {
+      "category_id": "qb",
+      "title": "2026 NFL Rankings | QBs",
+      "publisher": "Pocket Casts / Action Network",
+      "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript",
+      "sha256": "4599cad0ebb1eacd0045e172c33b2797b85d7af6a70be9772d6336d29f0ec85c",
+      "bytes": 63138,
+      "words": 11774,
+      "lines": 2410,
+      "rank_coverage": 32
+    },
+    {
+      "category_id": "coaching",
+      "title": "2026 NFL Rankings | Coaching Staffs",
+      "publisher": "Pocket Casts / Action Network",
+      "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript",
+      "sha256": "77504bab4da5019f441e7b90730062cbff1d1e41d8dc5c321dd4446c69af7cb5",
+      "bytes": 67723,
+      "words": 12185,
+      "lines": 2785,
+      "rank_coverage": 32,
+      "publication_metadata_trusted": false
+    },
+    {
+      "category_id": "offensive-line",
+      "title": "2026 NFL Rankings | Offensive Lines",
+      "publisher": "Pocket Casts / Action Network",
+      "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript",
+      "sha256": "b97f5c4a0d93d8e14ff94eed1c686e0ea308099043df52f88d91ab004f40c2c0",
+      "bytes": 67040,
+      "words": 12196,
+      "lines": 2680,
+      "rank_coverage": 32
+    },
+    {
+      "category_id": "skill-positions",
+      "title": "2026 NFL Rankings | Skill Positions",
+      "publisher": "Pocket Casts / Action Network",
+      "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript",
+      "sha256": "0f8ea7ff8a98fd0b30b08e78b7ca1bf36ec6772296a7486a8b07a0c7e1b891be",
+      "bytes": 68209,
+      "words": 12504,
+      "lines": 2743,
+      "rank_coverage": 32
+    }
+  ]
+}

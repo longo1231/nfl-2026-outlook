@@ -1,0 +1,22 @@
+# Private/copyrighted source snapshots and provenance are audit inputs, never repository payloads.
+.private/
+data/transcripts/
+
+# Generated site and temporary build artifacts.
+**/node_modules/
+**/dist/
+**/.next/
+**/.vinext/
+site/standalone-dist/
+**/.wrangler/
+**/.dev.vars
+site/.openai/
+
+# Secrets, caches, and local noise.
+.env*
+*.pem
+*.log
+*.tsbuildinfo
+.DS_Store
+coverage/
+*.tar.gz
