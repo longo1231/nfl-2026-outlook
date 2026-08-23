@@ -1,6 +1,7 @@
 {
   "season": 2026,
-  "generated_at": "2026-08-23T18:41:26-04:00",
+  "edition": 3,
+  "generated_at": "2026-08-23T23:21:41.768Z",
   "status": "pass",
   "source_documents": 4,
   "source_words": 48659,
@@ -13,15 +14,26 @@
     "coaching": { "teams": 32, "ranks_1_to_32": true },
     "ol": { "teams": 32, "ranks_1_to_32": true },
     "skill": { "teams": 32, "ranks_1_to_32": true },
-    "markets": {
+    "sportsbook_markets": {
       "teams": 32,
       "paired_primary_quotes": 32,
       "teams_with_multiple_thresholds": 19,
-      "teams_with_full_expected_win_coverage": 0,
-      "expected_wins_withheld_without_coverage": true,
-      "raw_monotonicity_violations": 0,
-      "isotonic_adjusted_points": 0,
+      "capture_timestamp_shown": true
+    },
+    "kalshi_markets": {
+      "open_current_season_contracts": 544,
+      "teams": 32,
+      "teams_with_full_expected_win_coverage": 32,
+      "tails_per_team": 17,
+      "expected_wins_labeled_modeled": true,
+      "raw_midpoint_monotonicity_violations": 67,
+      "isotonic_midpoint_points_adjusted": 165,
       "all_curves_monotone_after_audit": true,
+      "sportsbook_side_comparisons": 102,
+      "candidates_passing_filters": 8,
+      "authentication_verified_read_only": true,
+      "account_response_persisted": false,
+      "aggregate_totals_present": true,
       "capture_timestamp_shown": true
     },
     "standalone_report": {
@@ -30,9 +42,9 @@
       "desktop_pass": true,
       "mobile_pass": true,
       "wcag_a_aa_violations": 0,
-      "deployed_pages_pass": true,
+      "deployed_pages_pass": false,
       "deployed_url": "https://longo1231.github.io/nfl-2026-outlook/",
-      "deployed_verified_at": "2026-08-23T19:11:26-04:00"
+      "deployed_verified_at": null
     }
   },
   "known_transcript_exceptions": [

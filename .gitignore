@@ -15,6 +15,7 @@ site/.openai/
 # Secrets, caches, and local noise.
 .env*
 *.pem
+*.key
 *.log
 *.tsbuildinfo
 .DS_Store

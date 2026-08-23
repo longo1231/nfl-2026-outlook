@@ -1,4 +1,6 @@
 import marketSnapshot from '../../data/markets/2026-08-23T184126-0400-paired-win-totals.json';
+import kalshiSnapshot from '../../data/markets/20260823T232141.768Z-kalshi-nfl-win-ladders.json';
+import teamRegistry from '../../data/nfl/teams.json';
 
 export type CategoryId = 'qb' | 'coaching' | 'ol' | 'skill';
 
@@ -38,45 +40,21 @@ export type Market = {
   pairedQuoteCount: number;
   marketRank: number;
   marketIndex: number;
+  sportsbookMarketRank: number;
+  expectedWinsBid: number;
+  expectedWinsAsk: number;
+  kalshiAverageSpread: number;
 };
 
-const T = (id: string, name: string, abbr: string, conference: 'AFC' | 'NFC', division: 'East' | 'North' | 'South' | 'West'): Team => ({ id, name, abbr, conference, division });
 const E = (team: string, rank: number, tier: string, tierLabel: string, subject: string, people: string[], positives: string[], concerns: string[], context: string[], lines: [number, number]): Evidence => ({ team, rank, tier, tierLabel, subject, people, positives, concerns, context, lines });
 
-export const teams: Team[] = [
-  T('ari', 'Arizona Cardinals', 'ARI', 'NFC', 'West'),
-  T('atl', 'Atlanta Falcons', 'ATL', 'NFC', 'South'),
-  T('bal', 'Baltimore Ravens', 'BAL', 'AFC', 'North'),
-  T('buf', 'Buffalo Bills', 'BUF', 'AFC', 'East'),
-  T('car', 'Carolina Panthers', 'CAR', 'NFC', 'South'),
-  T('chi', 'Chicago Bears', 'CHI', 'NFC', 'North'),
-  T('cin', 'Cincinnati Bengals', 'CIN', 'AFC', 'North'),
-  T('cle', 'Cleveland Browns', 'CLE', 'AFC', 'North'),
-  T('dal', 'Dallas Cowboys', 'DAL', 'NFC', 'East'),
-  T('den', 'Denver Broncos', 'DEN', 'AFC', 'West'),
-  T('det', 'Detroit Lions', 'DET', 'NFC', 'North'),
-  T('gb', 'Green Bay Packers', 'GB', 'NFC', 'North'),
-  T('hou', 'Houston Texans', 'HOU', 'AFC', 'South'),
-  T('ind', 'Indianapolis Colts', 'IND', 'AFC', 'South'),
-  T('jax', 'Jacksonville Jaguars', 'JAX', 'AFC', 'South'),
-  T('kc', 'Kansas City Chiefs', 'KC', 'AFC', 'West'),
-  T('lv', 'Las Vegas Raiders', 'LV', 'AFC', 'West'),
-  T('lac', 'Los Angeles Chargers', 'LAC', 'AFC', 'West'),
-  T('lar', 'Los Angeles Rams', 'LAR', 'NFC', 'West'),
-  T('mia', 'Miami Dolphins', 'MIA', 'AFC', 'East'),
-  T('min', 'Minnesota Vikings', 'MIN', 'NFC', 'North'),
-  T('ne', 'New England Patriots', 'NE', 'AFC', 'East'),
-  T('no', 'New Orleans Saints', 'NO', 'NFC', 'South'),
-  T('nyg', 'New York Giants', 'NYG', 'NFC', 'East'),
-  T('nyj', 'New York Jets', 'NYJ', 'AFC', 'East'),
-  T('phi', 'Philadelphia Eagles', 'PHI', 'NFC', 'East'),
-  T('pit', 'Pittsburgh Steelers', 'PIT', 'AFC', 'North'),
-  T('sf', 'San Francisco 49ers', 'SF', 'NFC', 'West'),
-  T('sea', 'Seattle Seahawks', 'SEA', 'NFC', 'West'),
-  T('tb', 'Tampa Bay Buccaneers', 'TB', 'NFC', 'South'),
-  T('ten', 'Tennessee Titans', 'TEN', 'AFC', 'South'),
-  T('was', 'Washington Commanders', 'WAS', 'NFC', 'East'),
-];
+export const teams: Team[] = teamRegistry.map(team => ({
+  id: team.abbr.toLowerCase(),
+  name: team.name,
+  abbr: team.abbr,
+  conference: team.conference as Team['conference'],
+  division: team.division as Team['division'],
+}));
 
 export const sourceMeta = {
   qb: { label: 'Quarterbacks', source: 'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words: 11774 },
@@ -93,6 +71,14 @@ export const marketSource = {
   note: marketSnapshot.source.update_note,
 };
 
+export const kalshiMarketSource = {
+  label: kalshiSnapshot.source.label,
+  url: kalshiSnapshot.source.api_url,
+  documentation: kalshiSnapshot.source.api_documentation,
+  retrieved: 'Aug. 23, 2026, 7:21 PM ET',
+  authenticated: kalshiSnapshot.source.authentication.verified,
+};
+
 type SnapshotTeam = {
   primary: { line:number; reference_book:string; over_odds:number; under_odds:number; reference_hold:number; consensus_no_vig_over_probability:number };
   fair_median_bracket: { display:string };
@@ -102,7 +88,15 @@ type SnapshotTeam = {
   price_adjusted_order_index:number;
 };
 
+type KalshiSnapshotTeam = {
+  coverage: { threshold_count:number; all_17_tails:boolean };
+  expected_wins: { midpoint_estimate:number; bid_bound:number; ask_bound:number };
+  average_spread:number;
+  expected_win_rank:number;
+};
+
 const snapshotTeams = marketSnapshot.teams as Record<string,SnapshotTeam>;
+const kalshiTeams = kalshiSnapshot.teams as Record<string,KalshiSnapshotTeam>;
 const american = (odds:number) => odds > 0 ? `+${odds}` : String(odds);
 
 export const markets: Record<string, Market> = Object.fromEntries(Object.entries(snapshotTeams).map(([abbr,market]) => [abbr,{
@@ -113,16 +107,23 @@ export const markets: Record<string, Market> = Object.fromEntries(Object.entries
   hold: market.primary.reference_hold,
   noVigOver: market.primary.consensus_no_vig_over_probability,
   medianBracket: market.fair_median_bracket.display,
-  expectedWins: market.expected_wins.value,
-  coverageLabel: market.coverage.label,
-  confidence: market.coverage.confidence,
-  thresholdCount: market.coverage.threshold_count,
+  expectedWins: kalshiTeams[abbr].expected_wins.midpoint_estimate,
+  expectedWinsBid: kalshiTeams[abbr].expected_wins.bid_bound,
+  expectedWinsAsk: kalshiTeams[abbr].expected_wins.ask_bound,
+  coverageLabel: 'Kalshi full ladder',
+  confidence: kalshiTeams[abbr].average_spread <= 0.05 ? 'high' : kalshiTeams[abbr].average_spread <= 0.10 ? 'medium' : 'low',
+  thresholdCount: kalshiTeams[abbr].coverage.threshold_count,
   pairedQuoteCount: market.coverage.paired_quote_count,
-  marketRank: market.price_adjusted_market_rank,
-  marketIndex: market.price_adjusted_order_index,
+  marketRank: kalshiTeams[abbr].expected_win_rank,
+  marketIndex: kalshiTeams[abbr].expected_wins.midpoint_estimate,
+  sportsbookMarketRank: market.price_adjusted_market_rank,
+  kalshiAverageSpread: kalshiTeams[abbr].average_spread,
 }])) as Record<string,Market>;
 
-export const marketAudit = marketSnapshot.audit;
+export const sportsbookMarketAudit = marketSnapshot.audit;
+export const marketAudit = kalshiSnapshot.audit;
+export const winAggregates = kalshiSnapshot.aggregates;
+export const betCandidates = kalshiSnapshot.candidates;
 
 export const qbEvidence: Evidence[] = [
   E('BUF',1,'1','Best of the best','Josh Allen',['Josh Allen'],['All the physical tools; Anderson says he has sharply reduced the mistakes.','His individual playoff performance has generally been excellent despite the no-Super-Bowl criticism.'],['No championship yet remains the public counterargument.'],['Allen takes the No. 1 spot after Patrick Mahomes held it for seven straight editions.'],[188,278]),

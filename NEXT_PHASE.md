@@ -1,95 +1,88 @@
-# Completed phase: price-adjusted markets and GitHub Pages
+# Completed phase: full Kalshi ladders, group totals, and scanner
 
 Status: implemented on 2026-08-23; publication details are finalized in `CHECKPOINT.md`.
 
 ## Outcome
 
-The one-sided nominal-line market comparison has been replaced by paired, de-vigged probabilities and a price-adjusted ordinal market ranking. The report is packaged as a sanitized, self-contained `docs/index.html` that works offline and is the GitHub Pages publication surface. The owner-only Sites v1 remains frozen and privately preserved.
+The sparse sportsbook board remains a timestamped, same-book paired and de-vigged reference. Complete Kalshi team-win ladders now supply the coverage-supported expected-win estimates, market ranking, conference/division totals, and exact-threshold cross-market scan. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
 
-## Captured market evidence
+## Exact market evidence
 
-- Primary board: https://www.outrights.io/nfl/win-totals-odds
-- Capture time: `2026-08-23T18:41:26-04:00`
-- Snapshot file: `data/markets/2026-08-23T184126-0400-paired-win-totals.json`
-- Raw captured page SHA-256: `5c82d4410db707c0e22e9bd6dd206adceca3a08872d33f2378e1ddccb7b7e346`
-- Paired quotes: 191 across six named books
-- Team coverage: 32/32 paired primary thresholds
-- Multi-threshold coverage: 19/32 teams
-- Full 17-tail expected-win coverage: 0/32 teams
-- Per-quote market update time: unavailable from the rendered board; the capture timestamp is authoritative
-- Official cross-check: https://sports.betmgm.com/en/blog/nfl/nfl-over-under-wins-2026-win-totals-all-32-teams-bm16/ (published 2026-08-12; used only to verify pairing and sign format, not mixed with the newer capture)
+Sportsbook snapshot:
 
-No source exposed a full same-book alternate ladder in the public board. Cross-book second thresholds are retained only when both sides came from the same book at that threshold.
+- Board: https://www.outrights.io/nfl/win-totals-odds
+- Capture: `2026-08-23T18:41:26-04:00`
+- File: `data/markets/2026-08-23T184126-0400-paired-win-totals.json`
+- Raw page SHA-256: `5c82d4410db707c0e22e9bd6dd206adceca3a08872d33f2378e1ddccb7b7e346`
+- Coverage: 191 paired quotes across six books, 32/32 primary thresholds, 19 teams with a second threshold
 
-## Implemented probability method
+Kalshi snapshot:
 
-American odds are converted to raw implied probability:
+- Official series: `KXNFLWINS`
+- Public markets endpoint: https://external-api.kalshi.com/trade-api/v2/markets?series_ticker=KXNFLWINS&status=open&limit=1000
+- API reference: https://docs.kalshi.com/api-reference/market/get-markets
+- Authentication reference: https://docs.kalshi.com/getting_started/quick_start_authenticated_requests
+- Capture: `2026-08-23T23:21:41.768Z` (`2026-08-23T19:21:41.768-04:00`)
+- File: `data/markets/20260823T232141.768Z-kalshi-nfl-win-ladders.json`
+- Coverage: 544 open current-season contracts, 32 teams, all 17 tails for every team
+- Read-only authentication check: passed at `/trade-api/v2/account/limits`; no account response was persisted
 
-```text
-negative odds -A: p = A / (A + 100)
-positive odds +A: p = 100 / (A + 100)
-```
+The two snapshots were captured about 40 minutes apart. Every comparison remains tied to both timestamps; no line is represented as simultaneous or current after capture.
 
-Each book is de-vigged independently:
+## Implemented method
 
-```text
-q_over  = p_over  / (p_over + p_under)
-q_under = p_under / (p_over + p_under)
-```
+At each sportsbook half-win threshold, same-book Over and Under prices are converted to raw implied probabilities and normalized proportionally. Cross-book consensus is the median of independently de-vigged pairs; opposite sides from different books are never combined.
 
-At a half-win line `k - 0.5`, `q_over` is treated as the observed tail `P(W >= k)`. At each threshold, the consensus is the median of independently de-vigged same-book pairs. The implementation never combines prices from different books into one pair.
+For each Kalshi team and threshold `k=1..17`:
 
-Tail points are sorted by `k` and audited for non-increasing probability. Weighted isotonic regression repairs violations when needed; point weight increases with paired-book count and lower hold. The captured curves had zero raw violations and required zero adjustments, but both raw and adjusted fields remain in the snapshot contract.
-
-Expected wins use the tail-sum identity only with all 17 tails:
+1. Preserve executable Yes bid and ask prices and displayed size.
+2. Form the midpoint and weight it by inverse bid/ask spread.
+3. Audit raw midpoint tails for non-increasing order.
+4. Project bid, ask, and midpoint curves separately with weighted non-increasing isotonic regression.
+5. Calculate modeled expected wins only because all 17 tails exist:
 
 ```text
 E[W] = sum from k=1 to 17 of P(W >= k)
 ```
 
-The current snapshot does not meet that gate for any team. The report therefore shows an observed 50% bound or bracket, a coverage/confidence label, and an em dash for expected wins. It does not fit a distributional model to sparse points.
+The 32 raw midpoint curves contained 67 order violations; 165 midpoint observations moved during isotonic projection; all curves passed afterward. Kalshi expected wins are modeled from observed prices, not directly quoted expected-win contracts.
 
-## Price-adjusted market order
+League, conference, and division midpoint totals sum team midpoint estimates. Their displayed lower and upper brackets sum the monotone bid and ask curves. These are marginal market-width bounds, not statistical confidence intervals or a jointly executable portfolio guarantee. The league midpoint is 268.577 against the 272-game regular-season ceiling; the residual is a useful calibration audit, not a forced normalization target.
 
-The market order uses:
+## Scanner contract
 
-```text
-ordinal index = posted half-win line + no-vig Over probability - 0.5
-```
+At sportsbook-observed thresholds, the scanner compares the paired, de-vigged sportsbook probability with the executable Kalshi ask on both Yes and No. It retains rows only when:
 
-This uses price to resolve and refine teams sharing a nominal total while keeping the score inside the adjacent one-win interval. It is labeled as an ordinal device, not an expected-win estimate. Exact ties receive their average rank.
+- pre-fee edge is at least 5¢;
+- Kalshi bid/ask spread is at most 12¢; and
+- top-of-book size is available.
 
-The synthesis now means:
-
-> The team's equal-weight Action input rank is better than its price-adjusted market expectation rank.
-
-It remains a disagreement for further research, not a wagering recommendation, because defense, schedule, injuries, special teams, and interactions between units remain incomplete.
+The snapshot contains 102 side comparisons and eight passing candidates. Edge excludes Kalshi fees and slippage; timestamp mismatch and price movement can erase it. Results are research candidates, never bet recommendations or instructions.
 
 ## Implementation paths
 
-- `lib/market-math.mjs` — calculation primitives
-- `scripts/build-market-snapshot.mjs` — deterministic source parser and snapshot builder
-- `tests/market-math.test.mjs` — odds, de-vigging, isotonicity, mass, expectation, and median-bound tests
-- `data/markets/2026-08-23T184126-0400-paired-win-totals.json` — transparent raw and derived snapshot
-- `site/app/data.ts` — report adapter for the snapshot
-- `site/app/page.tsx` — price-adjusted market and synthesis views
-- `site/scripts/inline-standalone.mjs` — single-file artifact builder
-- `docs/index.html` — offline and GitHub Pages artifact
+- `data/nfl/teams.json` — canonical team and Kalshi-code registry
+- `lib/kalshi-auth.mjs` — private environment parsing and RSA-PSS signing
+- `lib/kalshi-nfl.mjs` — curve, expectation, aggregate, ranking, and comparison logic
+- `scripts/scan-kalshi-nfl.mjs` — public market collection plus optional read-only auth check
+- `tests/kalshi-nfl.test.mjs` — authentication and market-model unit tests
+- `site/app/data.ts` — sportsbook/Kalshi report adapter
+- `site/app/page.tsx` — modeled wins, aggregate totals, and candidate board
+- `docs/index.html` — self-contained offline and Pages artifact
 
 ## Completion gates
 
-- [x] Every team has paired primary Over/Under prices and a coverage status.
-- [x] Every displayed probability comes from a same-book pair or the median of independently de-vigged same-threshold pairs.
-- [x] Tail curves are audited and monotone.
-- [x] Probability-mass and tail-sum functions are unit tested.
-- [x] Unsupported expected-win values are withheld.
-- [x] The nominal-line-only ranking no longer drives synthesis.
-- [x] The standalone HTML works without a server or local assets.
-- [x] Offline desktop and mobile interactions pass browser checks.
-- [x] Automated WCAG A/AA scan reports zero violations.
-- [x] Private-library identifiers, raw transcripts, workspace paths, Sites metadata, credentials, account data, private positions, and personal commit email are excluded from the public artifact.
-- [x] Exact published report artifact commit and deployed GitHub Pages URL recorded in `CHECKPOINT.md`.
+- [x] All 32 teams have 17 Kalshi win tails.
+- [x] Raw bid, ask, and midpoint evidence is retained; monotone adjusted curves are auditable.
+- [x] Expected wins are calculated only from complete ladders and visibly labeled modeled.
+- [x] Conference and division totals derive from the same team curves.
+- [x] Scanner comparisons use executable asks and exact sportsbook thresholds.
+- [x] Filters, timestamps, fees/slippage caveat, and available size are visible.
+- [x] Authentication is read-only and snapshots retain no credential, key path, or account response.
+- [x] Unit, lint, type, build, offline, mobile, accessibility, and privacy checks pass.
+- [x] The prior Sites v1 remains untouched and private.
+- [ ] Exact published report artifact commit and deployed GitHub Pages verification are recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 
-Add the defensive-ranking episode when available. Preserve and hash it privately, reconcile its exact 1–32 order, extend the evidence model, rerun the now-five-category content audit, capture a new paired market snapshot without overwriting this one, recompute the Action average and market disagreement view, rebuild `docs/index.html`, repeat privacy and browser QA, and publish a new Pages commit.
+Add the defensive-ranking episode when available. Preserve and hash it privately, reconcile its exact 1–32 order, extend the evidence model, rerun the now-five-category audit, take fresh append-only sportsbook and Kalshi snapshots, recompute the Action average and market disagreement view, rebuild `docs/index.html`, repeat privacy/browser QA, and publish a new Pages commit.

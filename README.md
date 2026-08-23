@@ -2,14 +2,16 @@
 
 An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts: quarterbacks, coaching staffs, offensive lines, and skill positions. It preserves the exact 1–32 rankings, team-level arguments, named personnel, qualifiers, public source locators, and clearly labeled cross-category synthesis.
 
-The current edition also compares those inputs with a timestamped, price-adjusted NFL win-total snapshot. Each displayed probability comes from a paired Over and Under price at the same book and threshold. No team is assigned an expected-win figure when the observed ladder does not support the full tail-sum calculation.
+The current edition compares those inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. Sportsbook pairs are de-vigged independently; Kalshi bid, ask, and midpoint curves are audited and projected to monotone order. Expected wins, league/conference/division totals, and market rankings now come from complete Kalshi ladders and are explicitly labeled as modeled values rather than directly quoted market facts.
 
 ## Current edition
 
-- Edition: 2
+- Edition: 3
 - Data through: 2026-08-23
 - Editorial coverage: 128 of 128 expected team-category cells; no missing or duplicate ranks
-- Market coverage: 32 of 32 teams with paired primary quotes; 19 teams with a second observed threshold; 0 teams with complete 17-threshold expected-win coverage
+- Sportsbook coverage: 32 of 32 teams with paired primary quotes; 19 teams with a second observed threshold
+- Kalshi coverage: 544 open contracts; 32 of 32 teams with all 17 tails; 32 teams with coverage-supported expected-win estimates
+- Cross-market scan: 102 executable-side comparisons; 8 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
 - Publication surface: `docs/index.html`
 - Published report: https://longo1231.github.io/nfl-2026-outlook/
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
@@ -26,7 +28,7 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 5. Coaching
 6. Offensive lines
 7. Skill positions
-8. Paired and de-vigged win markets
+8. Paired sportsbook markets, Kalshi ladders, group win totals, and cross-market scan
 9. Cross-category synthesis
 10. Sources and QA
 
@@ -41,21 +43,23 @@ negative odds -A: A / (A + 100)
 positive odds +A: 100 / (A + 100)
 ```
 
-At each half-win threshold, the two sides from one book are normalized proportionally:
+At each half-win sportsbook threshold, the two sides from one book are normalized proportionally:
 
 ```text
 q_over = p_over / (p_over + p_under)
 ```
 
-When several books quote the same threshold, the report takes the median of their independently de-vigged probabilities. It never combines an Over from one book with an Under from another. Observed tail probabilities are audited in threshold order and passed through weighted non-increasing isotonic regression only if market noise creates a violation.
+When several books quote the same threshold, the report takes the median of their independently de-vigged probabilities. It never combines an Over from one book with an Under from another.
 
-The price-adjusted market rank uses this ordinal score:
+Kalshi provides executable Yes bid and ask prices for every tail `P(W >= k)`, `k=1..17`. The scanner forms raw midpoint tails, weights them by inverse spread, and projects bid, ask, and midpoint series separately with non-increasing isotonic regression. The team estimate is:
 
 ```text
-posted half-win line + no-vig Over probability - 0.5
+modeled E[W] = sum from k=1 to 17 of monotone midpoint P(W >= k)
 ```
 
-That score stays within one-half win of the posted line and is used only to order teams. It is not an expected-win estimate. Expected wins require all 17 tails `P(W >= k)` for `k=1..17`; the current public board does not provide that coverage, so the report shows an observed 50% bound or bracket and leaves expected wins blank.
+The market rank orders that modeled estimate. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
+
+At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the source snapshots were captured about 40 minutes apart. Candidates are research prompts, not recommendations.
 
 ## Reproduce and test
 
@@ -64,6 +68,14 @@ The market-math tests use Node's built-in test runner and require no package ins
 ```sh
 npm test
 ```
+
+Run a fresh append-only Kalshi scan with a private environment file containing `KALSHI_API_KEY_ID` and `KALSHI_PRIVATE_KEY_PATH`:
+
+```sh
+npm run kalshi:scan -- --env-file /path/to/private/.env
+```
+
+Authentication follows Kalshi's RSA-PSS request-signing contract and is used only for a read-only connection check. The market ladder itself is collected from the public markets endpoint. No credential value, key path, or account response is written to the snapshot.
 
 The interactive React source lives in `site/`. After installing its locked dependencies, build the standalone artifact with:
 
@@ -81,10 +93,15 @@ The standalone build inlines the React bundle, data, and CSS into `docs/index.ht
 | `AGENTS.md` | Source-integrity, publication-safety, market-modeling, and durable-state rules |
 | `SPEC.md` | Data contract, report architecture, methodology, and completion gates |
 | `CHECKPOINT.md` | Current edition, exact public sources, QA, publication commit, blockers, and next action |
-| `NEXT_PHASE.md` | Completed price-adjusted-market and GitHub Pages phase record |
+| `NEXT_PHASE.md` | Completed full-ladder, group-total, scanner, and publication phase record |
 | `lib/market-math.mjs` | Odds conversion, de-vigging, isotonic regression, probability-mass, and tail-sum functions |
+| `lib/kalshi-auth.mjs` | Private environment parsing and Kalshi RSA-PSS request signing |
+| `lib/kalshi-nfl.mjs` | Kalshi ladder normalization, monotone curves, expected wins, group totals, and comparisons |
 | `scripts/build-market-snapshot.mjs` | Deterministic parser and market-snapshot builder |
-| `tests/market-math.test.mjs` | Unit tests for all required market calculations |
+| `scripts/scan-kalshi-nfl.mjs` | Read-only, append-only Kalshi NFL ladder and opportunity scanner |
+| `tests/market-math.test.mjs` | Unit tests for sportsbook market calculations |
+| `tests/kalshi-nfl.test.mjs` | Unit tests for authentication, full ladders, totals, ranks, and scanner edges |
+| `data/nfl/teams.json` | Canonical NFL team, conference, division, and Kalshi-code registry |
 | `data/sources/manifest.json` | Sanitized publisher provenance, hashes, and source counts |
 | `data/rankings/` | Compact canonical 1–32 category orders |
 | `data/markets/` | Append-only timestamped market snapshots |
@@ -102,8 +119,8 @@ For a new ranking episode:
 2. Reconcile a complete, unique 1–32 order before interpreting commentary.
 3. Extract every substantive positive, concern, qualifier, comparison, named person, methodological rule, and source locator.
 4. Add a new timestamped paired market snapshot without overwriting history.
-5. Recompute the price-adjusted market fields and synthesis.
-6. Run the content audit, market-math tests, Vite build, privacy scan, and desktop/mobile browser checks.
+5. Capture a new append-only Kalshi ladder snapshot, recompute expected wins, group totals, market ranks, and exact-threshold comparisons.
+6. Run the content audit, market tests, Vite build, privacy scan, and desktop/mobile browser checks.
 7. Commit and publish the updated `docs/` artifact; record the commit and URL in `CHECKPOINT.md`.
 
 ## Known source exceptions

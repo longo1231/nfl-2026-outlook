@@ -1,6 +1,6 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: locked before ingestion and implementation
+Status: current through Edition 3
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
 Initial editorial sources: four Action Network podcast transcripts — Quarterbacks, Coaching, Offensive Lines, and Skill Positions — preserved as private immutable snapshots with public publisher links
@@ -149,6 +149,8 @@ The market tab is a time-stamped snapshot, not a static season prediction.
 4. Never combine an Over from one book with an Under from another into a paired probability.
 5. Preserve incomplete one-sided quotes as display-only evidence; do not use them for de-vigged probability.
 6. Preserve every snapshot rather than overwriting history.
+7. Use Kalshi's official `KXNFLWINS` API series for executable bid/ask ladders when available; collect all pages and retain source timestamps.
+8. Authentication may verify the connection read-only, but credential values, private-key paths, and account responses never enter public data or logs.
 
 Use public primary market pages or official market APIs when available. Store book, source URL, capture time in America/New_York, source update time when exposed, threshold, both prices, raw implied probabilities, hold, no-vig probabilities, and the derivation method.
 
@@ -165,6 +167,9 @@ Use public primary market pages or official market APIs when available. Store bo
 - coverage status, confidence label, source-book count, and observed-threshold count
 - source URL, market timestamp, retrieval timestamp
 - stale/unavailable flag
+- executable Yes and No bid/ask, bid/ask size, spread, and ticker for exchange markets
+- raw and monotone bid, ask, and midpoint curves for complete ladders
+- league, conference, and division sums with a clear marginal-bound disclaimer
 
 No claim of betting value may be based on lines from mismatched retrieval times. Sparse ladders must not be stretched into false expected-win precision.
 
@@ -176,6 +181,18 @@ No claim of betting value may be based on lines from mismatched retrieval times.
 - Derive adjacent probability mass as `P(W = k) = P(W >= k) - P(W >= k+1)` where consecutive tails exist.
 - Report `E[W] = sum(P(W >= k), k=1..17)` only with complete coverage.
 - Otherwise report an observed median bound/bracket, or a visibly labeled modeled estimate only if a bounded discrete model and confidence score are documented.
+- For a complete Kalshi ladder, weight midpoint observations by inverse spread, project bid, ask, and midpoint tails separately, and sum each 17-tail curve.
+- Treat summed bid/ask curves as marginal market-width bounds, not confidence intervals or a jointly executable portfolio guarantee.
+- Audit the league midpoint against the 272-game ceiling without forcing normalization; preserve and disclose any residual.
+
+### 6.4 Cross-market scanner
+
+- Compare the sportsbook's paired, de-vigged probability only at the exact integer tail represented by a Kalshi contract.
+- Evaluate both Yes and No using the executable Kalshi ask for the chosen side, not a midpoint.
+- Record source timestamps for both venues and expose any mismatch.
+- Default display filters require at least 5¢ pre-fee edge, no more than 12¢ Kalshi spread, and available top-of-book size.
+- Show side, contract, sportsbook probability, Kalshi ask, pre-fee edge, spread, size, and timestamp provenance.
+- Exclude fees and slippage only with an explicit warning. Candidate rows are research prompts, not recommendations.
 
 ## 7. Derived analysis
 
@@ -189,7 +206,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - **Infrastructure support:** mean of Coaching and Offensive Line percentiles.
 - **Balance:** category-rank spread and standard deviation; low dispersion indicates a balanced profile.
 - **Best unit / weakest unit:** best and worst current category ranks.
-- **Market-vs-profile gap:** difference between price-adjusted market expectation rank and partial Action input rank. The market order uses `half-win line + no-vig Over probability - 0.5` strictly as an ordinal score, not expected wins. This is a research prompt, not a wagering recommendation.
+- **Market-vs-profile gap:** difference between the complete-ladder Kalshi modeled expected-win rank and partial Action input rank. The former sportsbook ordinal index remains provenance only and no longer drives report synthesis. This is a research prompt, not a wagering recommendation.
 - **Dependency/risk index:** transparent count of negative or conditional claims involving injury, availability, unproven replacements, age/decline, depth, or scheme transition; always show the underlying claims.
 - **Upside index:** transparent count of strongly positive or improvement claims, again with the underlying claims.
 
@@ -217,7 +234,7 @@ The report is a responsive single-page study tool with persistent tab navigation
 5. **Coaching** — exact 1–32 ranking and all named staff, scheme, continuity, play-calling, and management evidence.
 6. **Offensive Lines** — exact 1–32 ranking and personnel, continuity, coaching, performance, depth, and injury evidence.
 7. **Skill Positions** — exact 1–32 ranking and every named receiver, tight end, running back, departure, depth note, and fit claim.
-8. **Win Markets** — AFC/NFC views, division groupings, paired prices, hold, no-vig probability, median bound, expected-win coverage gate, confidence, timestamps, and Action input rank.
+8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, paired sportsbook prices, complete Kalshi ladder expected wins and bid/ask bounds, coverage, timestamps, executable-side scanner candidates, and Action input rank.
 9. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
 10. **Sources & QA** — episode/source cards, retrieval dates, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 
@@ -243,6 +260,9 @@ Charts are used only where they improve comparison: rank matrix, category profil
 - Keep raw snapshots, normalized source data, market snapshots, and UI code separate.
 - Generate the visible report from validated structured data.
 - Version market snapshots by retrieval date rather than overwriting history.
+- Keep one canonical public team registry with sportsbook aliases and Kalshi codes.
+- Keep Kalshi request signing isolated from public market normalization so tests never require live credentials.
+- Generate aggregate totals and scanner comparisons from the same immutable snapshot used by the report.
 - Add new editorial categories through a category registry and data file; navigation, team profiles, matrices, and composites derive from the registry.
 - Derived metrics specify included category IDs and recalculate automatically.
 - Put methodology/version metadata in the data payload so a later report can explain exactly what changed.
@@ -262,6 +282,7 @@ nfl-2026-outlook/
     blocks/<category>.json
     claims/<category>.json
     rankings/<category>.json
+    nfl/teams.json
     markets/<retrieved-at>.json
     audit/coverage.json
   site/                                      # current interactive source and standalone builder
@@ -284,6 +305,9 @@ The report is complete only when:
 - Every displayed no-vig probability traces to a same-book pair or a median of independently de-vigged same-threshold pairs.
 - Tail curves are monotone after audit and any required isotonic adjustment.
 - Expected wins are shown only where the observed or documented model coverage supports them.
+- Complete Kalshi ladders preserve raw and adjusted bid, ask, and midpoint curves plus coverage and monotonicity audits.
+- Conference/division totals reproduce exactly from team curves and carry the marginal-bound disclaimer.
+- Cross-market candidates use executable asks, exact thresholds, visible filters, source timestamps, and pre-fee/slippage caveats.
 - All derived metrics reproduce from the checked data and carry the incomplete-model warning.
 - The self-contained report works offline and responsively, supports keyboard navigation, and has no blocking build/runtime errors.
 - The Sources & QA tab publishes claim counts, completeness checks, source links, and timestamps.
