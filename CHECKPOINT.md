@@ -9,8 +9,8 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Edition: 2
 - Content and market date: 2026-08-23
 - Public artifact: `docs/index.html`
-- Publication commit: pending final publication
-- GitHub Pages URL: pending final publication
+- Published report artifact commit: `5d512fd1bc39c6f143fe17dbd589abf4686c29b6`
+- GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
 - Legacy edition: the owner-only Sites v1 remains frozen and preserved privately; it was not modified or deleted
 
 ## Locked decisions
@@ -76,7 +76,11 @@ Exact transcript hashes and counts are in the sanitized `data/sources/manifest.j
 - Offline mobile browser: passed at 390×844; no document overflow; market cards scroll horizontally; conference filter and synthesis navigation passed
 - Automated accessibility: 0 WCAG A/AA violations after the footer contrast fix; gradient-backed text remained manual-review-only
 - Public staged-tree privacy scan: passed; ignored private/source/build paths absent from the index
-- Deployed GitHub Pages verification: pending final publication
+- GitHub Pages build: passed from `main:/docs`; HTTPS enforced
+- Deployed desktop browser: passed at 1440×1000; no overflow or browser errors
+- Deployed mobile browser: passed at 390×844; no document overflow, 364→1080 px horizontal market-card scrolling, AFC filter reduced eight division cards to four, and expected wins remained blank
+- Deployed accessibility: 0 automated WCAG A/AA violations; gradient-backed contrast remained manual-review-only and passed visual review
+- Deployment verified: `2026-08-23T19:11:26-04:00`
 
 ## Blockers
 
@@ -84,4 +88,4 @@ None.
 
 ## Next action
 
-Publish the clean repository and GitHub Pages artifact, verify the deployed desktop/mobile page, then record the exact commit and URL here. After publication, the next content update is the defensive-ranking episode: preserve it read-only, add the exact 1–32 evidence list, rerun coverage, recompute the now-five-input Action average, capture a new paired market snapshot, regenerate the standalone HTML, and publish a new commit without overwriting prior market history.
+The next content update is the defensive-ranking episode: preserve it read-only, add the exact 1–32 evidence list, rerun coverage, recompute the now-five-input Action average, capture a new paired market snapshot, regenerate the standalone HTML, and publish a new commit without overwriting prior market history.

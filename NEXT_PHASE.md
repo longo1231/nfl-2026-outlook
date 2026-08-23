@@ -88,7 +88,7 @@ It remains a disagreement for further research, not a wagering recommendation, b
 - [x] Offline desktop and mobile interactions pass browser checks.
 - [x] Automated WCAG A/AA scan reports zero violations.
 - [x] Private-library identifiers, raw transcripts, workspace paths, Sites metadata, credentials, account data, private positions, and personal commit email are excluded from the public artifact.
-- [ ] Exact published commit and deployed GitHub Pages URL recorded in `CHECKPOINT.md` after publication.
+- [x] Exact published report artifact commit and deployed GitHub Pages URL recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 

@@ -11,6 +11,7 @@ The current edition also compares those inputs with a timestamped, price-adjuste
 - Editorial coverage: 128 of 128 expected team-category cells; no missing or duplicate ranks
 - Market coverage: 32 of 32 teams with paired primary quotes; 19 teams with a second observed threshold; 0 teams with complete 17-threshold expected-win coverage
 - Publication surface: `docs/index.html`
+- Published report: https://longo1231.github.io/nfl-2026-outlook/
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
 - Legacy reference: the prior owner-only Sites edition is preserved privately as a frozen v1 and is not part of this repository
 
