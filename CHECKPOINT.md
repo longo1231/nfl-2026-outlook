@@ -9,7 +9,7 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Edition: 3
 - Content and market date: 2026-08-23
 - Public artifact: `docs/index.html`
-- Published report artifact commit: pending Edition 3 publication
+- Published report artifact commit: `a416fa4494889b924c607e2f4c53df16964587e7`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
 - Prior published Edition 2 artifact commit: `5d512fd1bc39c6f143fe17dbd589abf4686c29b6`
 - Legacy edition: the owner-only Sites v1 remains frozen and preserved privately; it was not modified or deleted
@@ -102,7 +102,11 @@ The sportsbook and Kalshi snapshots are about 40 minutes apart. The eight rows a
 - Automated accessibility: 0 WCAG A/AA violations; gradient-backed contrast remains manual-review-only and passed visual review
 - Public-tree privacy scan: passed; no absolute local path, private-key material, configured secret, private-library URL/ID, account/trading payload, or personal email matched
 - Dependency audit: 0 vulnerabilities
-- GitHub Pages build and deployed desktop/mobile verification: pending Edition 3 publication
+- GitHub Pages build: passed from `main:/docs` for artifact commit `a416fa4494889b924c607e2f4c53df16964587e7`; HTTPS URL returned Edition 3
+- Deployed desktop: passed at 1440×1000; 544 contracts, eight division totals, eight candidates, and eight division tables rendered with no document overflow or browser errors
+- Deployed mobile: passed at 390×844; no document overflow; 364→730 px candidate-board and 364→1220 px division-table scrolling; AFC filter reduced eight division totals/tables to four
+- Deployed accessibility: 0 automated WCAG A/AA violations; gradient-backed contrast remained manual-review-only and passed visual review
+- Deployment verified: `2026-08-23T23:38:04Z` (`2026-08-23T19:38:04-04:00`)
 
 ## Blockers
 
@@ -110,4 +114,4 @@ None.
 
 ## Next action
 
-Publish and verify Edition 3, record the exact artifact commit and deployment timestamp here, then make the defensive-ranking episode the next content update. That update must preserve its source read-only, add the exact 1–32 evidence list, recompute the five-input Action average, and take new append-only sportsbook and Kalshi snapshots.
+Make the defensive-ranking episode the next content update. Preserve its source read-only, add the exact 1–32 evidence list, recompute the five-input Action average, and take new append-only sportsbook and Kalshi snapshots before rebuilding and publishing.

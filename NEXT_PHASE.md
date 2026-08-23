@@ -81,7 +81,7 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 - [x] Authentication is read-only and snapshots retain no credential, key path, or account response.
 - [x] Unit, lint, type, build, offline, mobile, accessibility, and privacy checks pass.
 - [x] The prior Sites v1 remains untouched and private.
-- [ ] Exact published report artifact commit and deployed GitHub Pages verification are recorded in `CHECKPOINT.md`.
+- [x] Exact published report artifact commit and deployed GitHub Pages verification are recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 
