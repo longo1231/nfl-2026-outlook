@@ -1,7 +1,6 @@
 import { readFile, writeFile, access } from 'node:fs/promises';
 import { dirname, isAbsolute, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import sportsbookSnapshot from '../data/markets/2026-08-23T184126-0400-paired-win-totals.json' with { type: 'json' };
 import teamRegistry from '../data/nfl/teams.json' with { type: 'json' };
 import { kalshiAuthHeaders, parseEnv } from '../lib/kalshi-auth.mjs';
 import {
@@ -22,6 +21,7 @@ function parseArgs(argv) {
     minEdgeCents: 5,
     maxSpreadCents: 12,
     envFile: null,
+    sportsbook: `${ROOT}/data/markets/2026-08-23T184126-0400-paired-win-totals.json`,
     output: null,
   };
   for (let index = 0; index < argv.length; index += 1) {
@@ -32,9 +32,10 @@ function parseArgs(argv) {
     else if (flag === '--min-edge-cents') options.minEdgeCents = Number(value);
     else if (flag === '--max-spread-cents') options.maxSpreadCents = Number(value);
     else if (flag === '--env-file') options.envFile = value;
+    else if (flag === '--sportsbook') options.sportsbook = value;
     else if (flag === '--output') options.output = value;
     else if (flag === '--help') {
-      console.log('Usage: node scripts/scan-kalshi-nfl.mjs [--env-file PATH] [--output PATH] [--min-edge-cents N] [--max-spread-cents N]');
+      console.log('Usage: node scripts/scan-kalshi-nfl.mjs [--env-file PATH] [--sportsbook PATH] [--output PATH] [--min-edge-cents N] [--max-spread-cents N]');
       process.exit(0);
     } else throw new Error(`Unknown or incomplete argument: ${flag}`);
     index += 1;
@@ -92,6 +93,7 @@ async function fetchOpenMarkets(series) {
 
 const options = parseArgs(process.argv.slice(2));
 const capturedAt = new Date().toISOString();
+const sportsbookSnapshot = JSON.parse(await readFile(resolve(options.sportsbook), 'utf8'));
 const auth = await loadAuth(options.envFile);
 const authStatus = await verifyAuth(auth);
 const rawMarkets = await fetchOpenMarkets(options.series);
@@ -125,6 +127,7 @@ const snapshot = {
     api_documentation: 'https://docs.kalshi.com/api-reference/market/get-markets',
     event_prefix: eventPrefix,
     authentication: authStatus,
+    sportsbook_snapshot_captured_at: sportsbookSnapshot.captured_at,
   },
   methodology: {
     expected_wins: 'For each team, the midpoint of the executable Yes bid/ask at every P(W >= k), k=1..17, is weighted by inverse spread, projected to a non-increasing curve, and summed. This is a modeled midpoint estimate, not a directly observed expected-win quote.',

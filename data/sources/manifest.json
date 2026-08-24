@@ -1,21 +1,26 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "season": 2026,
-  "source_capture_completed_at": "2026-08-23T15:14:29-04:00",
+  "source_capture_completed_at": "2026-08-24T16:50:01-04:00",
   "timezone": "America/New_York",
   "private_ingestion_read_only": true,
   "private_source_mutations": [],
   "raw_transcripts_published": false,
-  "selected_count": 4,
+  "selected_count": 6,
+  "scoring_eligible_count": 4,
+  "preview_source_count": 2,
   "error_count": 0,
   "notes": [
-    "Public provenance retains publisher transcript links, content hashes, and counts without private-library identifiers or raw transcript text.",
-    "One source carried implausible private-library publication metadata; episode content and the immutable private snapshot determine the 2026 edition.",
+    "Public provenance retains publisher links, canonical-source checksums, and aggregate counts without private-library identifiers or raw transcript text.",
+    "The two team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the four-category league profile.",
+    "The AFC episode available in the public publisher feed is Part 1, covering the AFC West and AFC East. It is not an entire-AFC ranking, and Part 2 remains pending.",
+    "The AFC private-library item did not contain a creator transcript. A local machine working copy was derived from canonical publisher audio for analysis only and remains private.",
     "No private source item was moved, tagged, marked read, highlighted, annotated, or edited."
   ],
   "documents": [
     {
       "category_id": "qb",
+      "kind": "unit-ranking",
       "title": "2026 NFL Rankings | QBs",
       "publisher": "Pocket Casts / Action Network",
       "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript",
@@ -23,10 +28,13 @@
       "bytes": 63138,
       "words": 11774,
       "lines": 2410,
-      "rank_coverage": 32
+      "rank_coverage": 32,
+      "scoring_eligible": true,
+      "analysis_weight": 40
     },
     {
       "category_id": "coaching",
+      "kind": "unit-ranking",
       "title": "2026 NFL Rankings | Coaching Staffs",
       "publisher": "Pocket Casts / Action Network",
       "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript",
@@ -35,10 +43,13 @@
       "words": 12185,
       "lines": 2785,
       "rank_coverage": 32,
-      "publication_metadata_trusted": false
+      "publication_metadata_trusted": false,
+      "scoring_eligible": true,
+      "analysis_weight": 25
     },
     {
       "category_id": "offensive-line",
+      "kind": "unit-ranking",
       "title": "2026 NFL Rankings | Offensive Lines",
       "publisher": "Pocket Casts / Action Network",
       "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript",
@@ -46,10 +57,13 @@
       "bytes": 67040,
       "words": 12196,
       "lines": 2680,
-      "rank_coverage": 32
+      "rank_coverage": 32,
+      "scoring_eligible": true,
+      "analysis_weight": 20
     },
     {
       "category_id": "skill-positions",
+      "kind": "unit-ranking",
       "title": "2026 NFL Rankings | Skill Positions",
       "publisher": "Pocket Casts / Action Network",
       "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript",
@@ -57,7 +71,46 @@
       "bytes": 68209,
       "words": 12504,
       "lines": 2743,
-      "rank_coverage": 32
+      "rank_coverage": 32,
+      "scoring_eligible": true,
+      "analysis_weight": 15
+    },
+    {
+      "source_id": "nfc-east-ringer-wise-guys",
+      "kind": "team-preview",
+      "title": "NFC East Preview! | Ringer Wise Guys",
+      "publisher": "The Ringer / Pocket Casts",
+      "source_url": "https://pocketcasts.com/podcasts/19da8d60-ee2a-0139-d4ca-0acc26574db2/30a31d33-1d74-48ea-8e3c-14a354a2b63a/transcript",
+      "canonical_format": "publisher transcript",
+      "sha256": "09bf79231f0ddf9ede43f47fb12a2779d27de42bb6d38790a78bf2fdd6788edc",
+      "bytes": 99993,
+      "words": 18014,
+      "lines": 758,
+      "team_preview_coverage": 4,
+      "ranking_scheme": "multi-ballot-division",
+      "complete_ballots": 3,
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "market_aware": true
+    },
+    {
+      "source_id": "action-afc-preview-part-1",
+      "kind": "team-preview",
+      "title": "2026 AFC Betting Preview | Part 1",
+      "publisher": "Action Network / Pocket Casts",
+      "source_url": "https://pocketcasts.com/podcast/the-action-network-sports-betting-podcast/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/2026-afc-betting-preview-part-1/d6ef47c4-3532-4430-aa6f-9f91df8e5ddb",
+      "canonical_format": "publisher audio",
+      "sha256": "16cecb7018e1346500649309763198d7fc8dcdc5dc59129df94c7a58636e7f22",
+      "bytes": 93988927,
+      "duration_seconds": 5869,
+      "team_preview_coverage": 8,
+      "ranking_scheme": "partial-order",
+      "complete_ballots": 1,
+      "partial_ballots": 1,
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "market_aware": true,
+      "creator_transcript_available": false
     }
   ]
 }

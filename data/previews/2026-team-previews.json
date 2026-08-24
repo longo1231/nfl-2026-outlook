@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "season": 2026,
+  "generated_at": "2026-08-24T16:50:01-04:00",
+  "methodology": "Team-preview episodes are retained as scoped qualitative evidence. They enter league scoring only after a comparable full-league ranking or score contract exists. Market-aware preview evidence is never used to manufacture an independent market edge.",
+  "sources": [
+    {
+      "id": "nfc-east-ringer-wise-guys",
+      "label": "NFC East Preview! | Ringer Wise Guys",
+      "short": "NFC East",
+      "publisher": "The Ringer",
+      "kind": "team-preview",
+      "coverage_mode": "division",
+      "covered_teams": ["DAL", "PHI", "NYG", "WAS"],
+      "ranking_scheme": "multi-ballot-division",
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "analysis_rationale": "Four-team, market-aware divisional preview with three distinct ballots; it is not comparable with a complete league-wide 1–32 unit ranking.",
+      "market_aware": true,
+      "source": {
+        "url": "https://pocketcasts.com/podcasts/19da8d60-ee2a-0139-d4ca-0acc26574db2/30a31d33-1d74-48ea-8e3c-14a354a2b63a/transcript",
+        "format": "publisher transcript",
+        "captured_at": "2026-08-24",
+        "words": 18014,
+        "lines": 758,
+        "sha256": "09bf79231f0ddf9ede43f47fb12a2779d27de42bb6d38790a78bf2fdd6788edc"
+      },
+      "ballots": [
+        {
+          "speaker": "Raheem Palmer",
+          "scope": "NFC East exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "DAL"},
+            {"rank": 2, "team": "PHI"},
+            {"rank": 3, "team": "NYG"},
+            {"rank": 4, "team": "WAS"}
+          ]
+        },
+        {
+          "speaker": "Anthony Dabbundo",
+          "scope": "NFC East exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "DAL"},
+            {"rank": 2, "team": "PHI"},
+            {"rank": 3, "team": "WAS"},
+            {"rank": 4, "team": "NYG"}
+          ]
+        },
+        {
+          "speaker": "Joe House",
+          "scope": "NFC East exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "PHI"},
+            {"rank": 2, "team": "DAL"},
+            {"rank": 3, "team": "WAS"},
+            {"rank": 4, "team": "NYG"}
+          ]
+        }
+      ],
+      "ambiguities": [
+        "Several personnel names are unclear in the transcript and are not silently normalized.",
+        "One Dallas offseason sequence is garbled and is excluded from normalized factual claims.",
+        "Speaker attribution follows conversational handoffs and remains interpretive where no speaker label is supplied."
+      ],
+      "teams": [
+        {
+          "team": "PHI",
+          "positives": [
+            "A young, high-floor defense and organizational continuity support another contender-level season.",
+            "DeVonta Smith has a plausible larger-role breakout path."
+          ],
+          "concerns": [
+            "A new offensive coordinator, the loss of A.J. Brown and reduced line depth create offensive uncertainty.",
+            "Saquon Barkley workload and efficiency regression remain live risks."
+          ],
+          "context": [
+            "Palmer and Dabbundo preferred under 10.5 wins; House preferred over 9.5.",
+            "House alone picked Philadelphia to win the division."
+          ]
+        },
+        {
+          "team": "DAL",
+          "positives": [
+            "Dak Prescott gives the offense a high weekly floor, and red-zone improvement offers upside.",
+            "Schedule, dome and rest structure were cited as unusually favorable."
+          ],
+          "concerns": [
+            "The prior defense was poor, and improvement under a new scheme and new personnel is still a projection.",
+            "Takeaway regression could offset offensive gains."
+          ],
+          "context": [
+            "Palmer and Dabbundo preferred Dallas over 9.5 wins; House preferred under 9.5 and projected nine wins.",
+            "Palmer and Dabbundo picked Dallas first; House placed Dallas second and also discussed a 12-plus-win tail."
+          ]
+        },
+        {
+          "team": "NYG",
+          "positives": [
+            "The young core offers a path to improvement if its principal playmakers return healthy."
+          ],
+          "concerns": [
+            "Offensive line, secondary, run defense and staff uncertainty leave few stable strengths.",
+            "The closing schedule and a two-year 6–28 record weigh against a one-score regression case."
+          ],
+          "context": [
+            "All three speakers preferred under 7.5 wins.",
+            "Palmer placed New York third; Dabbundo and House placed it fourth."
+          ]
+        },
+        {
+          "team": "WAS",
+          "positives": [
+            "The offense retains explosive upside if Jayden Daniels is healthy and protected.",
+            "A heavily rebuilt defense creates room for improvement from a low base."
+          ],
+          "concerns": [
+            "Protection, receiver health and seven new defensive starters create substantial variance.",
+            "The schedule was treated as one of the league's most difficult."
+          ],
+          "context": [
+            "House preferred over 6.5 wins; Palmer and Dabbundo preferred under 7.5.",
+            "Dabbundo and House placed Washington third; Palmer placed it fourth."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "action-afc-preview-part-1",
+      "label": "2026 AFC Betting Preview | Part 1",
+      "short": "AFC Part 1",
+      "publisher": "Action Network",
+      "kind": "team-preview",
+      "coverage_mode": "multi-division",
+      "covered_teams": ["KC", "LAC", "DEN", "LV", "BUF", "NE", "NYJ", "MIA"],
+      "ranking_scheme": "partial-order",
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "analysis_rationale": "The canonical episode covers only the AFC West and AFC East, supplies no conference-wide ranking and is explicitly market-aware. Part 2 is still required for full AFC coverage.",
+      "market_aware": true,
+      "source": {
+        "url": "https://pocketcasts.com/podcast/the-action-network-sports-betting-podcast/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/2026-afc-betting-preview-part-1/d6ef47c4-3532-4430-aa6f-9f91df8e5ddb",
+        "format": "publisher audio",
+        "captured_at": "2026-08-24",
+        "duration_seconds": 5869,
+        "bytes": 93988927,
+        "sha256": "16cecb7018e1346500649309763198d7fc8dcdc5dc59129df94c7a58636e7f22"
+      },
+      "ballots": [
+        {
+          "speaker": "Evan Abrams",
+          "scope": "AFC East exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "NE"},
+            {"rank": 2, "team": "BUF"},
+            {"rank": 3, "team": "NYJ"},
+            {"rank": 4, "team": "MIA"}
+          ]
+        },
+        {
+          "speaker": "Stuckey",
+          "scope": "AFC East partial finish",
+          "complete": false,
+          "positions": [
+            {"rank": 1, "team": "BUF"},
+            {"rank": 2, "team": "NE"}
+          ],
+          "note": "No third- or fourth-place order was stated."
+        }
+      ],
+      "ambiguities": [
+        "The private-library item was only an unavailable-episode placeholder; the canonical publisher audio was transcribed locally for analysis.",
+        "The machine transcript is a derived working copy, not a creator transcript.",
+        "Speaker and player names were systematically mistranscribed; numeric claims were timestamp-checked and uncertain rookie names were omitted.",
+        "No AFC West exact-finish ballot or 1–16 AFC ranking was stated. Discussion order, prior finish, projections and opening prices are not treated as rankings."
+      ],
+      "teams": [
+        {
+          "team": "KC",
+          "positives": [
+            "Patrick Mahomes, added backfield help and possible protection improvement preserve a high ceiling.",
+            "The defense retains strong top-end structure."
+          ],
+          "concerns": [
+            "Close-game regression, roster erosion, tackle uncertainty and secondary losses lower the floor.",
+            "Mahomes health is an unusually important preseason variable."
+          ],
+          "context": [
+            "Stuckey preferred under 10.5 wins and stated a 9.7-win projection."
+          ]
+        },
+        {
+          "team": "LAC",
+          "positives": [
+            "A new offensive structure and Justin Herbert support rebound potential.",
+            "Healthy tackle play would materially improve the offense."
+          ],
+          "concerns": [
+            "Rest disadvantage, difficult scheduling and offensive-line injuries create immediate pressure.",
+            "The defense must absorb a coordinator change and age-related risk."
+          ],
+          "context": [
+            "The episode's stated outlook was under 9.5 wins with a 9.4-win projection."
+          ]
+        },
+        {
+          "team": "DEN",
+          "positives": [
+            "Receiver, line and defensive quality support another winning season.",
+            "The schedule becomes more favorable later in the year."
+          ],
+          "concerns": [
+            "A 14–3 record and 11–2 one-score mark invite regression.",
+            "The first half of the schedule is especially difficult."
+          ],
+          "context": [
+            "The discussion centered near a 9.5-win expectation and emphasized possible early-season fade spots rather than an exact division order."
+          ]
+        },
+        {
+          "team": "LV",
+          "positives": [
+            "The offensive line and young skill core give the rebuild a credible foundation.",
+            "The quarterback plan offers more stability before the rookie transition."
+          ],
+          "concerns": [
+            "Receiver depth and most of the defense remain weak.",
+            "A defensive coaching change removes one of the prior staff's clearest strengths."
+          ],
+          "context": [
+            "The episode discussed a roughly mid-single-digit win range and over 1.5 division wins; no exact AFC West finish was given."
+          ]
+        },
+        {
+          "team": "BUF",
+          "positives": [
+            "Josh Allen and offensive-line continuity keep the offensive floor among the league's highest.",
+            "Added receiving help and younger defensive personnel provide upside."
+          ],
+          "concerns": [
+            "A head-coach change, new defensive structure and a difficult schedule create more uncertainty than usual.",
+            "The defense's youth and fit must be proven."
+          ],
+          "context": [
+            "Abrams preferred a wild-card path; Stuckey picked Buffalo first in the AFC East but acknowledged a wider range of outcomes."
+          ]
+        },
+        {
+          "team": "NE",
+          "positives": [
+            "The quarterback, offensive line and receiving group all improved after a Super Bowl run.",
+            "The roster has more conventional offensive support than it did a year earlier."
+          ],
+          "concerns": [
+            "Schedule, health, fumble, fourth-down and close-game fortune all point toward substantial regression.",
+            "A 14–3 season sets an unusually high baseline to repeat."
+          ],
+          "context": [
+            "Abrams picked New England first in the AFC East; Stuckey projected 9.8 wins, preferred under 10.5 and placed it second."
+          ]
+        },
+        {
+          "team": "NYJ",
+          "positives": [
+            "Turnover and injury regression, veteran quarterback play and defensive additions create a credible bounce-back path.",
+            "The young roster has more development upside than the prior record implies."
+          ],
+          "concerns": [
+            "Coaching incentives and the possibility of a late-season organizational pivot complicate the ceiling case."
+          ],
+          "context": [
+            "Stuckey's best bet was over 5.5 wins; Abrams placed the Jets third in the division."
+          ]
+        },
+        {
+          "team": "MIA",
+          "positives": [
+            "A new staff can evaluate young players without carrying old assumptions."
+          ],
+          "concerns": [
+            "Receiver, secondary and offensive-line depth reflect a broad rebuild.",
+            "The schedule and overall roster leave little margin for error."
+          ],
+          "context": [
+            "Stuckey stated a 4.1-win projection but would not play under such a low total; Abrams preferred Arizona to finish with more wins than Miami.",
+            "Abrams placed Miami fourth in the AFC East."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import previewRegistry from '../data/previews/2026-team-previews.json' with { type: 'json' };
 import {
   americanToImplied,
   deVigPair,
@@ -90,6 +91,20 @@ test('profile scoring accepts new categories and adjustable importance without f
   assert.ok(Math.abs(weightedProfileScore(ranks, categories) - (400 / 7)) < 1e-12);
   assert.equal(weightedProfileScore(ranks, categories, { qb: 0, defense: 1 }), 0);
   assert.deepEqual(rankScores({ BUF: 80, KC: 80, LAR: 75 }), { BUF: 1, KC: 2, LAR: 3 });
+});
+
+test('partial market-aware previews are registered without entering league scoring', () => {
+  assert.equal(previewRegistry.sources.length, 2);
+  assert.ok(previewRegistry.sources.every(source => source.kind === 'team-preview'));
+  assert.ok(previewRegistry.sources.every(source => source.scoring_eligible === false && source.analysis_weight === 0 && source.market_aware === true));
+  assert.deepEqual([...new Set(previewRegistry.sources.flatMap(source => source.covered_teams))].sort(), ['BUF','DAL','DEN','KC','LAC','LV','MIA','NE','NYG','NYJ','PHI','WAS']);
+  assert.deepEqual(previewRegistry.sources[0].ballots.map(ballot => ballot.positions.map(position => position.team)), [
+    ['DAL','PHI','NYG','WAS'],
+    ['DAL','PHI','WAS','NYG'],
+    ['PHI','DAL','WAS','NYG'],
+  ]);
+  assert.deepEqual(previewRegistry.sources[1].ballots[0].positions.map(position => position.team), ['NE','BUF','NYJ','MIA']);
+  assert.deepEqual(previewRegistry.sources[1].ballots[1].positions.map(position => position.team), ['BUF','NE']);
 });
 
 test('tail and distribution-shape metrics use the complete exact-win density', () => {

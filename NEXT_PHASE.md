@@ -1,104 +1,95 @@
-# Completed phase: full Kalshi ladders, weighted podcast comparison, and scanner
+# Completed phase: scoped previews, refreshed markets, and source-eligibility guardrails
 
-Status: implemented through 2026-08-24; publication details are finalized in `CHECKPOINT.md`.
+Status: implemented through 2026-08-24; exact publication details are finalized in `CHECKPOINT.md`.
 
 ## Outcome
 
-The sparse sportsbook board remains a timestamped, same-book paired and de-vigged input to the cross-market scan. Complete Kalshi team-win ladders supply the coverage-supported expected-win estimates, 0–17 team-profile densities, market ranking, conference/division totals, and exact-threshold comparisons. A dedicated Analysis vs Market tab now compares an adjustable, explicitly weighted podcast profile with all 17 Kalshi tails and houses the visibly separate market-versus-market scanner. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
+Two newly available podcast items were ingested through the configured private-library workflow without mutation. Canonical sources were snapshotted and hashed before interpretation. The NFC East episode supplies three distinct four-team exact-finish ballots. The purported entire-AFC item resolves to Action Network's `2026 AFC Betting Preview | Part 1`, covering only the AFC West and AFC East; it supplies one complete AFC East ballot, one partial AFC East ballot, and no AFC West or 1–16 AFC order.
 
-## Podcast-profile contract
+Both sources now enter the editorial registry as market-aware `team-preview` evidence with partial coverage, `scoring_eligible=false`, and analysis weight 0. They enrich the 12 covered team profiles, a dedicated Team Previews tab, and a separate scoped preview-ballot versus Kalshi-tail module. They do not change the four-category league profile or the market-versus-market scanner.
 
-- Convert each exact 1–32 unit rank to a 0–100 strength percentile.
-- Apply provisional importance points of QB 40, Coaching 25, Offensive Line 20, and Skill Position 15, normalized to 100%.
-- Expose every weight and rationale, provide an equal-weight sensitivity control, and never call the profile a win forecast or fair probability.
-- At every selectable threshold `k=1..17`, compare weighted profile rank with Kalshi rank for `P(W >= k)`; positive tail gap means the podcast ordering is stronger.
-- Show Kalshi E[W], `P(W <= 6)`, distribution standard deviation, selected-tail probability/rank, mean gap, and tail gap for all 32 teams.
-- Register category evidence, source audit, default weight, and rationale together so defense or another complete episode automatically expands the UI and analysis without changing the scoring formula.
+## Source-eligibility and weighting contract
 
-## Exact market evidence
+- Every source declares `kind`, `coverage_mode`, `covered_teams`, `ranking_scheme`, `scoring_eligible`, `analysis_weight`, and `market_aware`.
+- Current scored categories remain QB 40, Coaching 25, Offensive Line 20, and Skill Position 15.
+- A source can enter league scoring only with complete, unique, comparable full-league coverage and a stable ordinal or score contract.
+- A set of division previews is not automatically scoreable merely because all teams eventually appear. The combined series must also use a comparable league-wide ranking or scoring method.
+- Market-aware preview evidence never manufactures an independent Podcast × Kalshi edge; it is shown in a separate scoped comparison.
+- Exact speaker ballots remain distinct. Discussion order, opening odds, prior finish, projections, and bets are not promoted into rankings.
+- Transcription ambiguity is disclosed. Uncertain names and sequences are omitted or left unresolved rather than silently repaired.
+
+## Exact source treatment
+
+### NFC East Preview! | Ringer Wise Guys
+
+- Public source: https://pocketcasts.com/podcasts/19da8d60-ee2a-0139-d4ca-0acc26574db2/30a31d33-1d74-48ea-8e3c-14a354a2b63a/transcript
+- Coverage: Dallas, Philadelphia, New York Giants, Washington
+- Exact ballots:
+  - Raheem Palmer: DAL, PHI, NYG, WAS
+  - Anthony Dabbundo: DAL, PHI, WAS, NYG
+  - Joe House: PHI, DAL, WAS, NYG
+- Registry: `team-preview`, division coverage, multi-ballot division ranking, market-aware, weight 0
+
+### 2026 AFC Betting Preview | Part 1
+
+- Public source: https://pocketcasts.com/podcast/the-action-network-sports-betting-podcast/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/2026-afc-betting-preview-part-1/d6ef47c4-3532-4430-aa6f-9f91df8e5ddb
+- Coverage: Kansas City, Los Angeles Chargers, Denver, Las Vegas, Buffalo, New England, New York Jets, Miami
+- Exact ballot: Evan Abrams — NE, BUF, NYJ, MIA
+- Partial ballot: Stuckey — BUF first, NE second; third and fourth were not stated
+- No AFC West exact-finish order and no conference-wide AFC ranking were stated
+- Registry: `team-preview`, multi-division coverage, partial-order scheme, market-aware, weight 0
+- Creator transcript unavailable; a private machine working copy derived from canonical publisher audio was used for analysis only
+
+Canonical source hashes and sanitized counts are in `data/sources/manifest.json`. Private-library identifiers, canonical snapshots, raw transcripts, derived transcript working copies, and detailed private provenance remain excluded from Git and publication.
+
+## Refreshed market evidence
 
 Sportsbook snapshot:
 
 - Board: https://www.outrights.io/nfl/win-totals-odds
-- Capture: `2026-08-23T18:41:26-04:00`
-- File: `data/markets/2026-08-23T184126-0400-paired-win-totals.json`
-- Raw page SHA-256: `5c82d4410db707c0e22e9bd6dd206adceca3a08872d33f2378e1ddccb7b7e346`
-- Coverage: 191 paired quotes across six books, 32/32 primary thresholds, 19 teams with a second threshold
+- Capture: `2026-08-24T17:44:30-04:00`
+- File: `data/markets/2026-08-24T174430-0400-paired-win-totals.json`
+- Raw page SHA-256: `30bf5e1631cd09c407b276d037a744860bf9f282851cb7ee6be4066a88f74d3a`
+- Coverage: 185 paired quotes, 32/32 primary thresholds, 15 teams with multiple thresholds
 
 Kalshi snapshot:
 
-- Official series: `KXNFLWINS`
-- Public markets endpoint: https://external-api.kalshi.com/trade-api/v2/markets?series_ticker=KXNFLWINS&status=open&limit=1000
-- API reference: https://docs.kalshi.com/api-reference/market/get-markets
-- Authentication reference: https://docs.kalshi.com/getting_started/quick_start_authenticated_requests
-- Capture: `2026-08-23T23:21:41.768Z` (`2026-08-23T19:21:41.768-04:00`)
-- File: `data/markets/20260823T232141.768Z-kalshi-nfl-win-ladders.json`
-- Coverage: 544 open current-season contracts, 32 teams, all 17 tails for every team
-- Read-only authentication check: passed at `/trade-api/v2/account/limits`; no account response was persisted
+- Series: `KXNFLWINS`
+- Capture: `2026-08-24T21:45:03.240Z` (`2026-08-24T17:45:03.240-04:00`)
+- File: `data/markets/20260824T214503.240Z-kalshi-nfl-win-ladders.json`
+- Coverage: 544 current-season contracts, 32 teams, all 17 tails for every team
+- Read-only authentication check: passed; no account response was persisted
+- Monotonicity: 18 raw midpoint violations; 43 midpoint observations adjusted; all curves monotone after projection
+- Cross-market scanner: 94 exact-side comparisons; 3 rows passed the 5¢ edge, 12¢ spread, and size filters
 
-The two snapshots were captured about 40 minutes apart. Every comparison remains tied to both timestamps; no line is represented as simultaneous or current after capture.
+The two refreshed snapshots were captured 33 seconds apart. Every result remains tied to both timestamps; no price is represented as current after capture.
 
-## Implemented method
+## Sensitivity and tail audit
 
-At each sportsbook half-win threshold, same-book Over and Under prices are converted to raw implied probabilities and normalized proportionally. Cross-book consensus is the median of independently de-vigged pairs; opposite sides from different books are never combined.
+The reproducible audit is `data/audit/20260824T214503.240Z-profile-market-sensitivity.json`.
 
-For each Kalshi team and threshold `k=1..17`:
+- Registered sources: 6; scoring categories: 4; preview sources: 2 at weight 0
+- Profile changes caused by preview registration: 0
+- Weighted versus equal reference: 2 teams move at least five ranks; Baltimore has the largest movement at 5 places
+- Default 11-plus-win comparison: Detroit remains the largest absolute gap at 16 rank places, with Kalshi's tail ranking stronger
+- All 17 Kalshi thresholds are recomputed against all 32 weighted profiles
+- Scoped preview-ballot comparisons are displayed separately and do not enter league scoring
 
-1. Preserve executable Yes bid and ask prices and displayed size.
-2. Form the midpoint and weight it by inverse bid/ask spread.
-3. Audit raw midpoint tails for non-increasing order.
-4. Project bid, ask, and midpoint curves separately with weighted non-increasing isotonic regression.
-5. Calculate modeled expected wins only because all 17 tails exist:
-
-```text
-E[W] = sum from k=1 to 17 of P(W >= k)
-```
-
-The 32 raw midpoint curves contained 67 order violations; 165 midpoint observations moved during isotonic projection; all curves passed afterward. Kalshi expected wins are modeled from observed prices, not directly quoted expected-win contracts.
-
-League, conference, and division midpoint totals sum team midpoint estimates. Their displayed lower and upper brackets sum the monotone bid and ask curves. These are marginal market-width bounds, not statistical confidence intervals or a jointly executable portfolio guarantee. The league midpoint is 268.577 against the 272-game regular-season ceiling; the residual is a useful calibration audit, not a forced normalization target.
-
-## Scanner contract
-
-At sportsbook-observed thresholds, the scanner compares the paired, de-vigged sportsbook probability with the executable Kalshi ask on both Yes and No. It retains rows only when:
-
-- pre-fee edge is at least 5¢;
-- Kalshi bid/ask spread is at most 12¢; and
-- top-of-book size is available.
-
-The snapshot contains 102 side comparisons and eight passing candidates. Edge excludes Kalshi fees and slippage; timestamp mismatch and price movement can erase it. Results are research candidates, never bet recommendations or instructions.
-
-## Implementation paths
-
-- `data/nfl/teams.json` — canonical team and Kalshi-code registry
-- `lib/kalshi-auth.mjs` — private environment parsing and RSA-PSS signing
-- `lib/kalshi-nfl.mjs` — curve, expectation, aggregate, ranking, and comparison logic
-- `lib/profile-market.mjs` — category-weight normalization, weighted strength, score ranking, tail probability, and distribution moments
-- `scripts/scan-kalshi-nfl.mjs` — public market collection plus optional read-only auth check
-- `tests/kalshi-nfl.test.mjs` — authentication and market-model unit tests
-- `site/app/data.ts` — sportsbook/Kalshi report adapter
-- `site/app/page.tsx` — team densities, modeled wins, adjustable Podcast × Kalshi comparison, and separate scanner module
-- `docs/index.html` — self-contained offline and Pages artifact
+Kalshi's summed team midpoint estimate is 275.322, 3.322 above the 272-game league ceiling. This is retained as a calibration warning rather than normalized away; marginal team curves are not a coherent joint league distribution.
 
 ## Completion gates
 
-- [x] All 32 teams have 17 Kalshi win tails.
-- [x] Raw bid, ask, and midpoint evidence is retained; monotone adjusted curves are auditable.
-- [x] Expected wins are calculated only from complete ladders and visibly labeled modeled.
-- [x] Every team profile shows all 18 exact-win masses derived from adjacent monotone tails; the density sums to one and reproduces E[W].
-- [x] The main market table centers the Kalshi distribution; sportsbook median/de-vig fields are confined to the cross-market scanner and methodology.
-- [x] Win Markets contains only Kalshi distribution and aggregate material; the scanner lives on Analysis vs Market.
-- [x] Podcast profile importance is explicit and adjustable; equal weighting remains a sensitivity reference rather than the default claim.
-- [x] All 17 Kalshi tails can be compared with the weighted profile across all 32 teams.
-- [x] Category registration carries source audit, weight, and rationale and is tested with an added defense category.
-- [x] Conference and division totals derive from the same team curves.
-- [x] Scanner comparisons use executable asks and exact sportsbook thresholds.
-- [x] Filters, timestamps, fees/slippage caveat, and available size are visible.
-- [x] Authentication is read-only and snapshots retain no credential, key path, or account response.
-- [x] Unit, lint, type, build, offline, mobile, accessibility, and privacy checks pass.
-- [x] The prior Sites v1 remains untouched and private.
-- [x] Exact published report artifact commit and deployed GitHub Pages verification are recorded in `CHECKPOINT.md`.
+- [x] Private-library ingestion remained read-only with zero source mutations.
+- [x] Canonical sources were snapshotted and hashed before interpretation.
+- [x] Exact source ballots and partial-order limits are preserved.
+- [x] Transcription ambiguity and the AFC machine-transcript status are disclosed.
+- [x] Preview evidence is registered at weight 0 and cannot affect the league profile.
+- [x] Fresh append-only paired sportsbook and complete Kalshi snapshots were captured.
+- [x] Weighted/equal sensitivity and all 17 tail comparisons were rerun.
+- [x] The self-contained Pages artifact was rebuilt.
+- [x] Offline desktop/mobile, accessibility, and privacy checks are recorded in `CHECKPOINT.md`.
+- [ ] The Edition 4 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 
-Add the defensive-ranking episode when available. Preserve and hash it privately, reconcile its exact 1–32 order, register it with a disclosed provisional weight and rationale, rerun weighted/equal sensitivity, take fresh append-only sportsbook and Kalshi snapshots, recompute the full tail-disagreement view, rebuild `docs/index.html`, repeat privacy/browser QA, and publish a new Pages commit.
+Acquire AFC Preview Part 2 and the defensive-ranking episode when available. Preserve each source read-only, classify its coverage and ranking contract before assigning weight, and activate a source only when comparable full-league coverage exists. Then rerun the same append-only market, sensitivity, audit, build, browser, privacy, and publication sequence.

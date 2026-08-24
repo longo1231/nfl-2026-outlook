@@ -1,6 +1,7 @@
-import marketSnapshot from '../../data/markets/2026-08-23T184126-0400-paired-win-totals.json';
-import kalshiSnapshot from '../../data/markets/20260823T232141.768Z-kalshi-nfl-win-ladders.json';
+import marketSnapshot from '../../data/markets/2026-08-24T174430-0400-paired-win-totals.json';
+import kalshiSnapshot from '../../data/markets/20260824T214503.240Z-kalshi-nfl-win-ladders.json';
 import teamRegistry from '../../data/nfl/teams.json';
+import previewRegistry from '../../data/previews/2026-team-previews.json';
 import { rankScores, weightedProfileScore } from '../../lib/profile-market.mjs';
 
 export type CategoryId = string;
@@ -24,6 +25,41 @@ export type Evidence = {
   concerns: string[];
   context: string[];
   lines: [number, number];
+};
+
+export type PreviewBallot = {
+  speaker:string;
+  scope:string;
+  complete:boolean;
+  positions:{ rank:number; team:string }[];
+  note?:string;
+};
+
+export type PreviewEvidence = {
+  team:string;
+  positives:string[];
+  concerns:string[];
+  context:string[];
+};
+
+export type PreviewSource = {
+  id:string;
+  label:string;
+  short:string;
+  publisher:string;
+  kind:'team-preview';
+  coverageMode:'division'|'multi-division';
+  coveredTeams:string[];
+  rankingScheme:'multi-ballot-division'|'partial-order';
+  scoringEligible:false;
+  analysisWeight:0;
+  analysisRationale:string;
+  marketAware:true;
+  methodology:string;
+  source:{ url:string; format:string; capturedAt:string; words?:number; lines?:number; durationSeconds?:number; bytes?:number; hash:string };
+  ballots:PreviewBallot[];
+  ambiguities:string[];
+  evidence:PreviewEvidence[];
 };
 
 export type Market = {
@@ -54,7 +90,7 @@ export const marketSource = {
   label: marketSnapshot.source.label,
   url: marketSnapshot.source.url,
   updated: 'Per-quote update time unavailable',
-  retrieved: 'Aug. 23, 2026, 6:41 PM ET',
+  retrieved: 'Aug. 24, 2026, 5:44 PM ET',
   note: marketSnapshot.source.update_note,
 };
 
@@ -62,7 +98,7 @@ export const kalshiMarketSource = {
   label: kalshiSnapshot.source.label,
   url: kalshiSnapshot.source.api_url,
   documentation: kalshiSnapshot.source.api_documentation,
-  retrieved: 'Aug. 23, 2026, 7:21 PM ET',
+  retrieved: 'Aug. 24, 2026, 5:45 PM ET',
   authenticated: kalshiSnapshot.source.authentication.verified,
 };
 
@@ -251,30 +287,77 @@ export type Category = {
   methodology:string;
   analysisWeight:number;
   analysisRationale:string;
+  kind:'unit-ranking';
+  coverageMode:'league';
+  coveredTeams:string[];
+  rankingScheme:'league-ordinal';
+  scoringEligible:true;
+  marketAware:false;
   source:{ url:string; words:number; lines:number; hash:string };
 };
 
 export const categories: Category[] = [
-  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, analysisWeight:40, analysisRationale:'Largest direct influence on passing efficiency, play extension and the weekly offensive floor.', methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words:11774, lines:2410, hash:'4599cad…0ec85c' } },
-  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, analysisWeight:25, analysisRationale:'Multiplies every unit through scheme, decisions, development and staff quality.', methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words:12185, lines:2785, hash:'77504bab…9af7cb5' } },
-  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, analysisWeight:20, analysisRationale:'Sets the protection and run-game floor, with weak links able to cap otherwise elite offenses.', methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words:12196, lines:2680, hash:'b97f5c4a…40c2c0' } },
-  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, analysisWeight:15, analysisRationale:'Creates matchup and explosive-play upside, but depends more heavily on quarterback and structure.', methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words:12504, lines:2743, hash:'0f8ea7ff…1b891be' } },
+  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, analysisWeight:40, analysisRationale:'Largest direct influence on passing efficiency, play extension and the weekly offensive floor.', methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words:11774, lines:2410, hash:'4599cad…0ec85c' } },
+  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, analysisWeight:25, analysisRationale:'Multiplies every unit through scheme, decisions, development and staff quality.', methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words:12185, lines:2785, hash:'77504bab…9af7cb5' } },
+  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, analysisWeight:20, analysisRationale:'Sets the protection and run-game floor, with weak links able to cap otherwise elite offenses.', methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words:12196, lines:2680, hash:'b97f5c4a…40c2c0' } },
+  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, analysisWeight:15, analysisRationale:'Creates matchup and explosive-play upside, but depends more heavily on quarterback and structure.', methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words:12504, lines:2743, hash:'0f8ea7ff…1b891be' } },
 ];
 
-export const sourceMeta: Record<CategoryId,{ label:string; source:string; words:number }> = Object.fromEntries(categories.map(category=>[category.id,{ label:category.label, source:category.source.url, words:category.source.words }]));
+export const scoredCategories = categories.filter(category=>category.scoringEligible);
 
-export const evidenceByCategory = Object.fromEntries(categories.map(c => [c.id, Object.fromEntries(c.evidence.map(e => [e.team, e]))])) as Record<CategoryId,Record<string,Evidence>>;
+export const previewSources: PreviewSource[] = previewRegistry.sources.map(raw=>({
+  id:raw.id,
+  label:raw.label,
+  short:raw.short,
+  publisher:raw.publisher,
+  kind:raw.kind as PreviewSource['kind'],
+  coverageMode:raw.coverage_mode as PreviewSource['coverageMode'],
+  coveredTeams:raw.covered_teams,
+  rankingScheme:raw.ranking_scheme as PreviewSource['rankingScheme'],
+  scoringEligible:false,
+  analysisWeight:0,
+  analysisRationale:raw.analysis_rationale,
+  marketAware:true,
+  methodology:previewRegistry.methodology,
+  source:{
+    url:raw.source.url,
+    format:raw.source.format,
+    capturedAt:raw.source.captured_at,
+    words:'words' in raw.source ? raw.source.words : undefined,
+    lines:'lines' in raw.source ? raw.source.lines : undefined,
+    durationSeconds:'duration_seconds' in raw.source ? raw.source.duration_seconds : undefined,
+    bytes:'bytes' in raw.source ? raw.source.bytes : undefined,
+    hash:raw.source.sha256,
+  },
+  ballots:raw.ballots,
+  ambiguities:raw.ambiguities,
+  evidence:raw.teams,
+}));
+
+export const sourceRegistry = [
+  ...scoredCategories.map(category=>({id:category.id,kind:category.kind,coverageMode:category.coverageMode,coveredTeams:category.coveredTeams,rankingScheme:category.rankingScheme,scoringEligible:category.scoringEligible,analysisWeight:category.analysisWeight,marketAware:category.marketAware})),
+  ...previewSources.map(source=>({id:source.id,kind:source.kind,coverageMode:source.coverageMode,coveredTeams:source.coveredTeams,rankingScheme:source.rankingScheme,scoringEligible:source.scoringEligible,analysisWeight:source.analysisWeight,marketAware:source.marketAware})),
+];
+
+export const sourceMeta: Record<CategoryId,{ label:string; source:string; words:number }> = Object.fromEntries(scoredCategories.map(category=>[category.id,{ label:category.label, source:category.source.url, words:category.source.words }]));
+
+export const evidenceByCategory = Object.fromEntries(scoredCategories.map(c => [c.id, Object.fromEntries(c.evidence.map(e => [e.team, e]))])) as Record<CategoryId,Record<string,Evidence>>;
+
+export const previewEvidenceByTeam = Object.fromEntries(teams.map(team=>[
+  team.abbr,
+  previewSources.flatMap(source=>source.evidence.filter(entry=>entry.team===team.abbr).map(entry=>({source,entry}))),
+])) as Record<string,{source:PreviewSource;entry:PreviewEvidence}[]>;
 
 export function compositeFor(abbr: string) {
-  const ranks = categories.map(c => evidenceByCategory[c.id][abbr].rank);
+  const ranks = scoredCategories.map(c => evidenceByCategory[c.id][abbr].rank);
   return Number((ranks.reduce((a,b)=>a+b,0)/ranks.length).toFixed(2));
 }
 
-export const defaultAnalysisWeights = Object.fromEntries(categories.map(category=>[category.id,category.analysisWeight]));
+export const defaultAnalysisWeights = Object.fromEntries(scoredCategories.map(category=>[category.id,category.analysisWeight]));
 
 export function profileScoreFor(abbr:string, weights:Record<string,number> = defaultAnalysisWeights) {
-  const ranks = Object.fromEntries(categories.map(category=>[category.id,evidenceByCategory[category.id][abbr].rank]));
-  return weightedProfileScore(ranks,categories,weights);
+  const ranks = Object.fromEntries(scoredCategories.map(category=>[category.id,evidenceByCategory[category.id][abbr].rank]));
+  return weightedProfileScore(ranks,scoredCategories,weights);
 }
 
 export function profileRanksFor(weights:Record<string,number> = defaultAnalysisWeights) {
@@ -283,4 +366,6 @@ export function profileRanksFor(weights:Record<string,number> = defaultAnalysisW
 
 export const defaultProfileRanks = profileRanksFor();
 
-export const claimCount = categories.reduce((total,c) => total + c.evidence.reduce((n,e) => n + e.positives.length + e.concerns.length + e.context.length,0),0);
+export const scoredClaimCount = scoredCategories.reduce((total,c) => total + c.evidence.reduce((n,e) => n + e.positives.length + e.concerns.length + e.context.length,0),0);
+export const previewClaimCount = previewSources.reduce((total,source)=>total+source.evidence.reduce((count,entry)=>count+entry.positives.length+entry.concerns.length+entry.context.length,0),0);
+export const claimCount = scoredClaimCount + previewClaimCount;

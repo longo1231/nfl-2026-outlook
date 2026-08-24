@@ -1,13 +1,13 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: current through Edition 3
+Status: current through Edition 4
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
-Initial editorial sources: four Action Network podcast transcripts — Quarterbacks, Coaching, Offensive Lines, and Skill Positions — preserved as private immutable snapshots with public publisher links
+Editorial sources: four complete Action Network ranking transcripts plus two scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
 
 ## 1. Outcome and scope
 
-Build a simple-to-navigate but comprehensive report that preserves every substantive statement in the four transcripts, presents the four exact team rankings, identifies every named player and staff member with the relevant praise, concern, comparison, context, or contingency, and adds clearly labeled cross-category synthesis. Add a separately sourced, timestamped view of current 2026 regular-season win markets for all 32 teams, grouped by conference and division.
+Build a simple-to-navigate but comprehensive report that preserves the substantive evidence and exact rankings from the four complete league-wide transcripts, plus exact ballots and scoped team evidence from preview episodes. Identify relevant personnel, praise, concern, comparison, context, contingency, and ambiguity without publishing raw transcript text. Add clearly labeled synthesis and a separately sourced, timestamped view of current 2026 regular-season win markets for all 32 teams.
 
 The report must distinguish three kinds of content at all times:
 
@@ -21,7 +21,7 @@ Defense and future category episodes must be addable as data, without changing t
 
 “No information lost” means:
 
-- Preserve an immutable local snapshot of each complete transcript, plus metadata and a content hash.
+- Preserve an immutable local snapshot of each canonical source—creator transcript when available, otherwise publisher audio—plus metadata and a content hash.
 - Capture every explicit rank, grade, tier, named person, roster move, injury, role, strength, weakness, comparison, disagreement, uncertainty, conditional statement, scheme note, supporting statistic, and forward-looking claim.
 - Capture useful episode-level context that is not attached to one team (methodology, definitions, positional philosophy, and ranking caveats).
 - Do not compress multiple distinct claims into one vague summary.
@@ -38,23 +38,23 @@ Readwise access is read-only. The workflow must not move, archive, tag, edit, ma
 ### 3.1 Discovery
 
 - Search the entire non-feed Reader library for recent Action Network documents using title, author/source, and category terms.
-- Identify exactly one canonical transcript for each initial category: QB, Coaching, Offensive Line, Skill Positions.
+- Identify exactly one canonical source for each episode. Prefer a creator transcript; if none exists, retain canonical publisher audio and label any local machine transcript as a private derived working copy.
 - Record any near-duplicates or partial copies and explain why the canonical copy was selected.
 - Confirm the episodes concern the 2026 season from title, publication date, and content; flag any season mismatch before extraction.
 
 ### 3.2 Immutable source snapshot
 
-For each canonical transcript, save:
+For each canonical source, save:
 
 - Reader document ID
 - title, author, source/site, and public/source URL; keep private-library locators outside the public tree
 - publication date and retrieval timestamp
 - original category and Reader location
-- full raw content
+- full raw transcript content or canonical publisher audio
 - UTF-8 byte count, word count, and SHA-256 hash
 - any available time markers, headings, speaker labels, or paragraph boundaries
 
-Raw snapshots and manifests live outside the published site payload. The published Sources tab exposes metadata and source links, not the full copyrighted transcript.
+Raw snapshots, private provenance, and machine-transcript working copies live outside the published site payload. The published Sources tab exposes sanitized metadata, source links, and canonical-source checksums—not copyrighted transcript or audio payloads.
 
 ### 3.3 Segmentation and locators
 
@@ -81,7 +81,22 @@ Each team/category pair contains:
 - source document ID and team-section locator
 - extraction status and reviewer status
 
-### 4.2 Atomic claim record
+### 4.2 Editorial source registry and preview record
+
+Every editorial source declares:
+
+- `kind`: for example `unit-ranking` or `team-preview`
+- `coverage_mode` and explicit `covered_teams`
+- `ranking_scheme`: league ordinal, multi-ballot division, partial order, or another stated contract
+- `scoring_eligible` and `analysis_weight`
+- `market_aware`
+- canonical public source, private snapshot audit, methodology, ambiguity ledger, and paraphrased evidence
+
+Only a complete, unique, comparable full-league ordinal or score contract may set `scoring_eligible=true`. Partial division or conference previews receive weight 0 even if their football evidence is useful. Covering every team across a series is insufficient unless the series also supplies a stable comparable league-wide contract. Market-aware preview evidence appears in a separate scoped market comparison and cannot create an independent Podcast × Kalshi signal.
+
+Exact speaker ballots remain separate. Discussion order, opening prices, prior-season finish, numeric projections, and wagers are never converted into rankings. A partial ballot records only its stated positions and must not infer the rest.
+
+### 4.3 Atomic claim record
 
 One record per distinct idea:
 
@@ -97,21 +112,21 @@ One record per distinct idea:
 - source locator and optional short supporting excerpt
 - ambiguity flag and notes
 
-### 4.3 People and entities
+### 4.4 People and entities
 
 Maintain a deduplicated entity index containing canonical name, transcript variants, team, role/position, and every linked claim. Coaching records may include head coach, coordinators, play callers, position coaches, and named former/replacement staff. Player records include starters, backups, rookies, injured players, departures, and comparison players whenever mentioned.
 
-### 4.4 Team identity
+### 4.5 Team identity
 
 Use one canonical 32-team registry with stable IDs, aliases, conference, and division. Do not infer a team from a person when the transcript explicitly places that person elsewhere; preserve the episode's stated context and separately flag likely transcription or roster-date conflicts.
 
 ## 5. Extraction workflow and information-loss controls
 
-For each transcript:
+For each editorial source:
 
-1. Inventory episode metadata, format, speakers, ranking direction, and stated methodology.
+1. Inventory episode metadata, canonical format, speakers, exact scope, ranking contract, market awareness, and stated methodology.
 2. Segment all content into stable blocks.
-3. Extract numbered rankings first and verify ranks are unique and exhaustive.
+3. Extract stated rankings first. Verify uniqueness and exhaustiveness only within the source's declared scheme; preserve partial ballots as partial.
 4. Extract atomic claims block by block, including intros, transitions, disagreements, and closing remarks.
 5. Resolve entity names against the team registry and current roster context only for spelling/identity; never rewrite the source's opinion.
 6. Build the category/team summaries strictly from the claim ledger.
@@ -120,13 +135,15 @@ For each transcript:
 
 ### 5.1 Automated checks
 
-- Exactly 32 ranked teams per category unless the episode itself has a different scope.
-- Ranks form the complete integer set `1..32`, with no duplicate or missing rank.
+- Every scoring-eligible category contains exactly 32 ranked teams.
+- Scoring ranks form the complete integer set `1..32`, with no duplicate or missing rank.
+- Preview sources declare covered teams, preserve each ballot independently, and contain no inferred positions.
+- Every non-scoring source has analysis weight 0; every market-aware preview remains outside the league profile.
 - Exactly one category record per team per category.
 - Every claim links to a valid source block; every named entity links to at least one claim.
 - Every transcript block is marked `captured`, `non-substantive`, or `ambiguous`.
 - Team names appearing in a block are represented in that block's claims or intentionally marked as incidental.
-- All four category tables use the same team registry.
+- All category and preview records use the same team registry.
 - Claim counts, people counts, and exception counts are included in the audit manifest.
 
 ### 5.2 Manual review passes
@@ -216,11 +233,12 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - **Dependency/risk index:** transparent count of negative or conditional claims involving injury, availability, unproven replacements, age/decline, depth, or scheme transition; always show the underlying claims.
 - **Upside index:** transparent count of strongly positive or improvement claims, again with the underlying claims.
 
-### 7.2 Category extensibility and weighting guardrails
+### 7.2 Source extensibility and weighting guardrails
 
-- Store evidence, source audit, default importance, and importance rationale together in the category registry.
-- Normalize importance points over all currently registered categories; adding defense or another category requires no scoring-formula change.
-- New complete categories automatically appear in navigation, team profiles, source QA, weight controls, weighted scores, equal-weight sensitivity, and market comparisons.
+- Store source kind, coverage, ranking scheme, evidence, audit, scoring eligibility, market awareness, default importance, and rationale together in the editorial registry.
+- Derive `scored_categories` from eligibility and normalize importance points only over those categories; adding defense or another complete category requires no scoring-formula change.
+- New complete comparable categories automatically appear in navigation, team profiles, source QA, weight controls, weighted scores, equal-weight sensitivity, and league market comparisons.
+- Partial previews appear in their own navigation and covered team profiles at weight 0. They never receive synthetic ranks for uncovered teams.
 - Do not silently give a new category equal importance. Choose and disclose its provisional importance and rerun sensitivity analysis.
 - Current weights are reasoned priors, not learned coefficients. Never describe a weighted profile score as a fair probability or expected-win estimate.
 - Show how many teams move at least five ranks between current weights and equal weights so the effect of the weighting judgment remains visible.
@@ -233,6 +251,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - Sort by absolute tail disagreement by default and link every row to the complete team evidence and density.
 - Label gaps as ordinal research prompts, not edges, bets, or podcast-implied probabilities.
 - The separate scanner remains market-versus-market: same-threshold sportsbook consensus versus executable Kalshi ask, with timestamp, fee, spread, size, and slippage caveats.
+- A third visibly separate module may compare exact preview ballots with Kalshi tail order inside the same declared division scope. It must remain ordinal, weight 0, and explicitly market-aware.
 
 ### 7.4 Synthesis views
 
@@ -254,11 +273,12 @@ The report is a responsive single-page study tool with persistent tab navigation
 1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
 2. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
 3. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
-4–7 currently. **Registered podcast categories** — one exact 1–32 evidence view per category; navigation expands automatically as the registry grows.
-8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
-9. **Analysis vs Market** — adjustable category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
-10. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
-11. **Sources & QA** — episode/source cards, retrieval dates, category weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
+4–7 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
+8. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
+9. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
+10. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
+11. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
+12. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 
 ### 8.2 Interaction and study design
 
@@ -286,7 +306,7 @@ Charts are used only where they improve comparison: rank matrix, category profil
 - Keep one canonical public team registry with sportsbook aliases and Kalshi codes.
 - Keep Kalshi request signing isolated from public market normalization so tests never require live credentials.
 - Generate aggregate totals and scanner comparisons from the same immutable snapshot used by the report.
-- Add new editorial categories through a category registry and data file; navigation, team profiles, matrices, and composites derive from the registry.
+- Add all editorial sources through one eligibility-aware registry. Scored category views and qualitative preview views derive separately from it.
 - Derived metrics specify included category IDs and recalculate automatically.
 - Put methodology/version metadata in the data payload so a later report can explain exactly what changed.
 - The React source builds through Vite into a single inlined `docs/index.html` for offline use and GitHub Pages.
@@ -305,6 +325,7 @@ nfl-2026-outlook/
     blocks/<category>.json
     claims/<category>.json
     rankings/<category>.json
+    previews/2026-team-previews.json
     nfl/teams.json
     markets/<retrieved-at>.json
     audit/coverage.json
@@ -320,7 +341,8 @@ nfl-2026-outlook/
 
 The report is complete only when:
 
-- Four canonical transcripts are identified, snapshotted, hashed, and recorded in the source manifest.
+- All canonical editorial sources are identified, snapshotted, hashed, classified, and recorded in the sanitized source manifest.
+- Every scoring source has a complete unique 1–32 contract; every partial or market-aware preview is weight 0 and visibly separate.
 - All transcript blocks have a disposition and all ambiguity is visible.
 - Each category has a verified, unique 1–32 ranking.
 - All named people and substantive claims are represented and source-linked.
@@ -341,5 +363,5 @@ The report is complete only when:
 - “Upcoming season” means the 2026 NFL regular season.
 - Action Network rankings are presented faithfully, even when another current source disagrees.
 - Current roster/news context may be used to resolve identity or explain a transcription ambiguity, but it cannot replace or quietly “correct” the podcast's stated view.
-- The initial composite is equal-weighted and explicitly incomplete until defensive and other categories are added.
+- The default composite uses disclosed 40/25/20/15 importance points and remains explicitly incomplete until defensive and other comparable league-wide categories are added; equal weight is sensitivity only.
 - Market lines are a research input, not financial advice or an instruction to place a wager.
