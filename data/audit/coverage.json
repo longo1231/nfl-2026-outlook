@@ -41,6 +41,19 @@
       "aggregate_totals_present": true,
       "capture_timestamp_shown": true
     },
+    "podcast_market_analysis": {
+      "registered_categories": 4,
+      "default_importance_points": { "qb": 40, "coaching": 25, "ol": 20, "skill": 15 },
+      "weights_visible_and_adjustable": true,
+      "equal_weight_sensitivity_available": true,
+      "category_registry_extensible": true,
+      "new_category_formula_change_required": false,
+      "teams_compared": 32,
+      "selectable_kalshi_tails": 17,
+      "podcast_profile_labeled_nonprobabilistic": true,
+      "scanner_separate_from_podcast_analysis": true,
+      "scanner_removed_from_win_markets": true
+    },
     "standalone_report": {
       "self_contained": true,
       "offline_browser_pass": true,

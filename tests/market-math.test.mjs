@@ -8,6 +8,15 @@ import {
   observedMedianBracket,
   weightedIsotonicNonIncreasing,
 } from '../lib/market-math.mjs';
+import {
+  distributionMoments,
+  normalizeCategoryWeights,
+  probabilityAtLeast,
+  probabilityAtMost,
+  rankScores,
+  rankStrength,
+  weightedProfileScore,
+} from '../lib/profile-market.mjs';
 
 test('American odds convert to raw implied probabilities', () => {
   assert.ok(Math.abs(americanToImplied(-140) - 0.5833333333) < 1e-9);
@@ -55,4 +64,39 @@ test('sparse tails produce honest one-sided median bounds', () => {
     { winsAtLeast: 10, q: 0.63 },
     { winsAtLeast: 11, q: 0.41 },
   ]).display, '10 wins');
+});
+
+test('podcast category weights normalize and produce a transparent strength score', () => {
+  const categories = [
+    { id: 'qb', analysisWeight: 40 },
+    { id: 'coaching', analysisWeight: 25 },
+    { id: 'ol', analysisWeight: 20 },
+    { id: 'skill', analysisWeight: 15 },
+  ];
+  const weights = normalizeCategoryWeights(categories);
+  assert.deepEqual(weights, { qb: 0.4, coaching: 0.25, ol: 0.2, skill: 0.15 });
+  const score = weightedProfileScore({ qb: 1, coaching: 32, ol: 32, skill: 32 }, categories);
+  assert.equal(score, 40);
+  assert.equal(rankStrength(1), 100);
+  assert.equal(rankStrength(32), 0);
+});
+
+test('profile scoring accepts new categories and adjustable importance without formula changes', () => {
+  const categories = [
+    { id: 'qb', analysisWeight: 40 },
+    { id: 'defense', analysisWeight: 30 },
+  ];
+  const ranks = { qb: 1, defense: 32 };
+  assert.ok(Math.abs(weightedProfileScore(ranks, categories) - (400 / 7)) < 1e-12);
+  assert.equal(weightedProfileScore(ranks, categories, { qb: 0, defense: 1 }), 0);
+  assert.deepEqual(rankScores({ BUF: 80, KC: 80, LAR: 75 }), { BUF: 1, KC: 2, LAR: 3 });
+});
+
+test('tail and distribution-shape metrics use the complete exact-win density', () => {
+  const distribution = Array.from({ length: 18 }, (_, wins) => ({ wins, probability: wins === 8 ? 0.6 : wins === 12 ? 0.4 : 0 }));
+  assert.equal(probabilityAtMost(distribution, 6), 0);
+  assert.equal(probabilityAtLeast(distribution, 9), 0.4);
+  const moments = distributionMoments(distribution);
+  assert.ok(Math.abs(moments.mean - 9.6) < 1e-12);
+  assert.ok(Math.abs(moments.standardDeviation - 1.959591794) < 1e-8);
 });

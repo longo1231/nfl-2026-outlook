@@ -1,8 +1,9 @@
 import marketSnapshot from '../../data/markets/2026-08-23T184126-0400-paired-win-totals.json';
 import kalshiSnapshot from '../../data/markets/20260823T232141.768Z-kalshi-nfl-win-ladders.json';
 import teamRegistry from '../../data/nfl/teams.json';
+import { rankScores, weightedProfileScore } from '../../lib/profile-market.mjs';
 
-export type CategoryId = 'qb' | 'coaching' | 'ol' | 'skill';
+export type CategoryId = string;
 
 export type Team = {
   id: string;
@@ -48,13 +49,6 @@ export const teams: Team[] = teamRegistry.map(team => ({
   conference: team.conference as Team['conference'],
   division: team.division as Team['division'],
 }));
-
-export const sourceMeta = {
-  qb: { label: 'Quarterbacks', source: 'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words: 11774 },
-  coaching: { label: 'Coaching staffs', source: 'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words: 12185 },
-  ol: { label: 'Offensive lines', source: 'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words: 12196 },
-  skill: { label: 'Skill positions', source: 'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words: 12504 },
-} as const;
 
 export const marketSource = {
   label: marketSnapshot.source.label,
@@ -249,12 +243,25 @@ export const skillEvidence: Evidence[] = [
   E('MIA',32,'10','The teardown','Achane alone',['De’Von Achane','Malik Washington','Jalen Tolbert','Tutu Atwell','Jalen Reagor','Terrace Marshall Jr.','Greg Dulcich','Mike McDaniel'],['Achane is the sole established difference-maker.'],['The receiver list is dominated by reclamation-level players, Dulcich has never broken through and the rookies are unknown.','Losing McDaniel removes the system that elevated the entire room.'],['A collapse from No. 6 to No. 32; Anderson says the roster construction looks like a team not trying to contend.'],[2303,2400]),
 ];
 
-export const categories: { id: CategoryId; label: string; short: string; evidence: Evidence[]; methodology: string }[] = [
-  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.' },
-  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.' },
-  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.' },
-  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.' },
+export type Category = {
+  id:CategoryId;
+  label:string;
+  short:string;
+  evidence:Evidence[];
+  methodology:string;
+  analysisWeight:number;
+  analysisRationale:string;
+  source:{ url:string; words:number; lines:number; hash:string };
+};
+
+export const categories: Category[] = [
+  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, analysisWeight:40, analysisRationale:'Largest direct influence on passing efficiency, play extension and the weekly offensive floor.', methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words:11774, lines:2410, hash:'4599cad…0ec85c' } },
+  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, analysisWeight:25, analysisRationale:'Multiplies every unit through scheme, decisions, development and staff quality.', methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words:12185, lines:2785, hash:'77504bab…9af7cb5' } },
+  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, analysisWeight:20, analysisRationale:'Sets the protection and run-game floor, with weak links able to cap otherwise elite offenses.', methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words:12196, lines:2680, hash:'b97f5c4a…40c2c0' } },
+  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, analysisWeight:15, analysisRationale:'Creates matchup and explosive-play upside, but depends more heavily on quarterback and structure.', methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.', source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words:12504, lines:2743, hash:'0f8ea7ff…1b891be' } },
 ];
+
+export const sourceMeta: Record<CategoryId,{ label:string; source:string; words:number }> = Object.fromEntries(categories.map(category=>[category.id,{ label:category.label, source:category.source.url, words:category.source.words }]));
 
 export const evidenceByCategory = Object.fromEntries(categories.map(c => [c.id, Object.fromEntries(c.evidence.map(e => [e.team, e]))])) as Record<CategoryId,Record<string,Evidence>>;
 
@@ -262,5 +269,18 @@ export function compositeFor(abbr: string) {
   const ranks = categories.map(c => evidenceByCategory[c.id][abbr].rank);
   return Number((ranks.reduce((a,b)=>a+b,0)/ranks.length).toFixed(2));
 }
+
+export const defaultAnalysisWeights = Object.fromEntries(categories.map(category=>[category.id,category.analysisWeight]));
+
+export function profileScoreFor(abbr:string, weights:Record<string,number> = defaultAnalysisWeights) {
+  const ranks = Object.fromEntries(categories.map(category=>[category.id,evidenceByCategory[category.id][abbr].rank]));
+  return weightedProfileScore(ranks,categories,weights);
+}
+
+export function profileRanksFor(weights:Record<string,number> = defaultAnalysisWeights) {
+  return rankScores(Object.fromEntries(teams.map(team=>[team.abbr,profileScoreFor(team.abbr,weights)])));
+}
+
+export const defaultProfileRanks = profileRanksFor();
 
 export const claimCount = categories.reduce((total,c) => total + c.evidence.reduce((n,e) => n + e.positives.length + e.concerns.length + e.context.length,0),0);

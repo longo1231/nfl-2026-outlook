@@ -7,7 +7,8 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 ## Current edition
 
 - Edition: 3
-- Content and market date: 2026-08-23
+- Report build date: 2026-08-24
+- Content and market snapshots through: 2026-08-23
 - Public artifact: `docs/index.html`
 - Published report artifact commit: `82094d10ca1ae3f525ef8258fbd9f754451dae2a`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
@@ -20,7 +21,10 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - “Upcoming season” means the 2026 NFL season.
 - Private-library ingestion is read-only; no source items were moved, tagged, edited, marked read, highlighted, or annotated.
 - Source opinion and Field Guide synthesis remain visibly separate.
-- The Action input average is the equal-weight mean of the four available exact ranks and is not a win forecast.
+- The default podcast profile converts exact ranks to strength percentiles and applies provisional importance points of QB 40, Coaching 25, Offensive Line 20, and Skill Position 15. Weights are visible, adjustable, normalized to 100%, and are not learned forecast coefficients.
+- Equal weighting remains a sensitivity reference; the report shows how many teams move at least five ranks when importance is removed.
+- Category evidence, source audit, weight, and rationale share one registry. Defense or another complete 1–32 episode expands navigation, profiles, controls, scoring, and source QA without changing the formula.
+- Podcast × Kalshi tail gaps compare ordinal league ranks at each threshold; they are not podcast-implied probabilities, betting edges, or recommendations.
 - Every sportsbook probability comes from a same-book paired Over/Under quote. Each pair is de-vigged independently before same-threshold consensus.
 - Complete Kalshi `KXNFLWINS` ladders supply the expected-win model and market rank. Midpoint, bid, and ask tails are projected separately to non-increasing order.
 - Kalshi E[W] is the 17-tail sum of the monotone midpoint curve. It is modeled from market prices, not a directly observed expected-win quote.
@@ -28,6 +32,7 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Team profiles and the main market table center the complete Kalshi distribution. Sportsbook line, de-vig, and median-bracket fields remain supporting scanner/methodology inputs rather than the primary market presentation.
 - Conference/division brackets sum marginal bid and ask curves. They are market-width bounds, not confidence intervals or joint portfolio guarantees.
 - Scanner rows compare exact sportsbook thresholds with the executable Kalshi ask for Yes or No. Displayed edge is pre-fee and excludes slippage.
+- Win Markets contains the Kalshi distribution view. Analysis vs Market contains two visibly separate modules: Podcast × Kalshi and the market-versus-market scanner.
 - Betting data is a timestamped research input, not a standings record, recommendation, or instruction to trade.
 - Private provenance and archived v1 metadata remain ignored under `.private/`.
 
@@ -74,6 +79,10 @@ Exact transcript hashes and counts are in `data/sources/manifest.json`. Private-
 - Added league, conference, and division total-win cards plus a timestamped candidate table.
 - Added a responsive 18-bar exact-win density to every team profile with expected-win marker, mode, market rank, coverage, spread, and tail-sum range.
 - Simplified the division market tables to Kalshi E[W], distribution mode, peak probability, spread, coverage, and profile links; removed the redundant sportsbook median/de-vig columns.
+- Replaced the unqualified equal-rank average in primary synthesis with a transparent weighted strength profile and retained equal weight as an interactive sensitivity reference.
+- Added a dedicated Analysis vs Market tab with adjustable category importance, all 17 selectable Kalshi tails, 32-team mean/floor/ceiling/volatility comparisons, and source-linked evidence navigation.
+- Moved the cross-market scanner out of Win Markets and into its own clearly labeled market-versus-market module on Analysis vs Market.
+- Refactored categories into an extensible registry that generates navigation, profiles, weights, analysis, and source QA; unit tests cover adding defense without a scoring-formula change.
 - Regenerated the self-contained offline `docs/index.html`; no server or external local asset is required.
 - Kept the frozen owner-only Sites v1 unchanged.
 
@@ -90,22 +99,26 @@ Exact transcript hashes and counts are in `data/sources/manifest.json`. Private-
 - League midpoint: 268.577 wins; marginal bid/ask sum: 246.067–292.926; 272-game ceiling residual: −3.423
 - AFC midpoint: 131.153; NFC midpoint: 137.424
 - Division midpoints: AFC East 29.625, AFC North 34.153, AFC South 33.291, AFC West 34.084, NFC East 34.178, NFC North 37.702, NFC South 30.080, NFC West 35.464
+- Default Podcast × Kalshi threshold: at least 11 wins; 32/32 teams compared
+- Weight sensitivity: 2 teams move at least five profile ranks between the 40/25/20/15 prior and equal weighting
+- Largest default selected-tail disagreement: 16 rank places (Detroit; Kalshi 11+ tail stronger than weighted podcast profile)
 
 The sportsbook and Kalshi snapshots are about 40 minutes apart. The eight rows are capture-time research candidates only; fees, slippage, latency, and subsequent price movement can remove the displayed edge.
 
 ## QA results
 
 - Content coverage: 128/128 team-category cells; 0 missing; 0 duplicates
-- Node tests: 11 passed, 0 failed (six sportsbook math plus five Kalshi/auth/aggregate/scanner tests)
+- Node tests: 14 passed, 0 failed (sportsbook math, Kalshi/auth/aggregate/scanner, category weighting/extensibility, and tail-shape tests)
 - Distribution audit: 32/32 teams have 18 nonnegative masses; maximum sum error `2.22e-16`; maximum density-mean versus stored E[W] difference `0.000476` wins from display rounding
 - ESLint: passed
 - TypeScript check: passed
 - Vite standalone production build: passed; one non-blocking >500 kB inline-bundle warning because the public snapshot is embedded
 - Standalone HTML: self-contained; no external local assets
-- Offline desktop: passed at 1440×1000; every selected profile rendered 18 exact-win bars and its E[W] marker; Win Markets rendered eight division totals, eight candidate rows, and eight simplified distribution tables; no document overflow or browser errors
-- Offline mobile: passed at 390×844; 18-bar profiles fit without document overflow; 364→730 px candidate-board and 364→980 px division-table scrolling remained contained and keyboard focusable
+- Offline desktop: passed at 1440×1000; Analysis vs Market rendered four weight controls, 17 tail choices, 32 comparison rows, and eight scanner candidates; Win Markets contained no scanner; no document overflow or browser errors
+- Offline mobile: passed at 390×844; no document overflow; four weight controls stacked cleanly; the 364→1180 px analysis table and 364→730 px scanner remained contained and keyboard focusable
+- Analysis interactions: equal weighting changed all normalized weights to 25% and reduced the ≥5-rank sensitivity count to zero; restore returned 40/25/20/15; selecting 13 wins updated the table tail and preserved 32 rows; evidence links opened the matching team density
+- New-interface accessibility: semantic controls were browser-addressable by role/name; sampled foreground/background contrast ratios were 6.12–7.77:1; browser console had no warnings or errors
 - Conference filter: AFC reduced eight division totals and tables to four
-- Automated accessibility: 0 WCAG A/AA violations; gradient-backed contrast remains manual-review-only and passed visual review
 - Public-tree privacy scan: passed; no absolute local path, private-key material, configured secret, private-library URL/ID, account/trading payload, or personal email matched
 - Dependency audit: 0 vulnerabilities
 - GitHub Pages build: passed from `main:/docs` for artifact commit `82094d10ca1ae3f525ef8258fbd9f754451dae2a`; HTTPS URL returned Edition 3
@@ -120,4 +133,4 @@ None.
 
 ## Next action
 
-Make the defensive-ranking episode the next content update. Preserve its source read-only, add the exact 1–32 evidence list, recompute the five-input Action average, and take new append-only sportsbook and Kalshi snapshots before rebuilding and publishing.
+Make the defensive-ranking episode the next content update. Preserve its source read-only, add the exact 1–32 evidence list, choose and disclose its provisional importance, rerun weighted/equal sensitivity and all 17 tail gaps, and take new append-only sportsbook and Kalshi snapshots before rebuilding and publishing.

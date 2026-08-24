@@ -1,10 +1,19 @@
-# Completed phase: full Kalshi ladders, group totals, and scanner
+# Completed phase: full Kalshi ladders, weighted podcast comparison, and scanner
 
-Status: implemented on 2026-08-23; publication details are finalized in `CHECKPOINT.md`.
+Status: implemented through 2026-08-24; publication details are finalized in `CHECKPOINT.md`.
 
 ## Outcome
 
-The sparse sportsbook board remains a timestamped, same-book paired and de-vigged input to the cross-market scan. Complete Kalshi team-win ladders now supply the coverage-supported expected-win estimates, 0–17 team-profile densities, market ranking, conference/division totals, and exact-threshold comparisons. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
+The sparse sportsbook board remains a timestamped, same-book paired and de-vigged input to the cross-market scan. Complete Kalshi team-win ladders supply the coverage-supported expected-win estimates, 0–17 team-profile densities, market ranking, conference/division totals, and exact-threshold comparisons. A dedicated Analysis vs Market tab now compares an adjustable, explicitly weighted podcast profile with all 17 Kalshi tails and houses the visibly separate market-versus-market scanner. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
+
+## Podcast-profile contract
+
+- Convert each exact 1–32 unit rank to a 0–100 strength percentile.
+- Apply provisional importance points of QB 40, Coaching 25, Offensive Line 20, and Skill Position 15, normalized to 100%.
+- Expose every weight and rationale, provide an equal-weight sensitivity control, and never call the profile a win forecast or fair probability.
+- At every selectable threshold `k=1..17`, compare weighted profile rank with Kalshi rank for `P(W >= k)`; positive tail gap means the podcast ordering is stronger.
+- Show Kalshi E[W], `P(W <= 6)`, distribution standard deviation, selected-tail probability/rank, mean gap, and tail gap for all 32 teams.
+- Register category evidence, source audit, default weight, and rationale together so defense or another complete episode automatically expands the UI and analysis without changing the scoring formula.
 
 ## Exact market evidence
 
@@ -64,10 +73,11 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 - `data/nfl/teams.json` — canonical team and Kalshi-code registry
 - `lib/kalshi-auth.mjs` — private environment parsing and RSA-PSS signing
 - `lib/kalshi-nfl.mjs` — curve, expectation, aggregate, ranking, and comparison logic
+- `lib/profile-market.mjs` — category-weight normalization, weighted strength, score ranking, tail probability, and distribution moments
 - `scripts/scan-kalshi-nfl.mjs` — public market collection plus optional read-only auth check
 - `tests/kalshi-nfl.test.mjs` — authentication and market-model unit tests
 - `site/app/data.ts` — sportsbook/Kalshi report adapter
-- `site/app/page.tsx` — team density charts, modeled wins, aggregate totals, and candidate board
+- `site/app/page.tsx` — team densities, modeled wins, adjustable Podcast × Kalshi comparison, and separate scanner module
 - `docs/index.html` — self-contained offline and Pages artifact
 
 ## Completion gates
@@ -77,6 +87,10 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 - [x] Expected wins are calculated only from complete ladders and visibly labeled modeled.
 - [x] Every team profile shows all 18 exact-win masses derived from adjacent monotone tails; the density sums to one and reproduces E[W].
 - [x] The main market table centers the Kalshi distribution; sportsbook median/de-vig fields are confined to the cross-market scanner and methodology.
+- [x] Win Markets contains only Kalshi distribution and aggregate material; the scanner lives on Analysis vs Market.
+- [x] Podcast profile importance is explicit and adjustable; equal weighting remains a sensitivity reference rather than the default claim.
+- [x] All 17 Kalshi tails can be compared with the weighted profile across all 32 teams.
+- [x] Category registration carries source audit, weight, and rationale and is tested with an added defense category.
 - [x] Conference and division totals derive from the same team curves.
 - [x] Scanner comparisons use executable asks and exact sportsbook thresholds.
 - [x] Filters, timestamps, fees/slippage caveat, and available size are visible.
@@ -87,4 +101,4 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 
 ## Next content phase
 
-Add the defensive-ranking episode when available. Preserve and hash it privately, reconcile its exact 1–32 order, extend the evidence model, rerun the now-five-category audit, take fresh append-only sportsbook and Kalshi snapshots, recompute the Action average and market disagreement view, rebuild `docs/index.html`, repeat privacy/browser QA, and publish a new Pages commit.
+Add the defensive-ranking episode when available. Preserve and hash it privately, reconcile its exact 1–32 order, register it with a disclosed provisional weight and rationale, rerun weighted/equal sensitivity, take fresh append-only sportsbook and Kalshi snapshots, recompute the full tail-disagreement view, rebuild `docs/index.html`, repeat privacy/browser QA, and publish a new Pages commit.

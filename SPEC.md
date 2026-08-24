@@ -203,16 +203,38 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 ### 7.1 Core metrics
 
 - **Category percentile:** convert each ordinal rank to a 0–100 strength scale, where rank 1 is strongest and rank 32 is weakest.
-- **Current four-category composite:** equal-weight mean of QB, Coaching, Offensive Line, and Skill Position percentiles. It is labeled “partial team-strength view,” never a complete power rating.
+- **Weighted podcast profile:** weighted mean of category percentiles. Current provisional importance points are QB 40, Coaching 25, Offensive Line 20, and Skill Position 15; the UI normalizes them to 100%, exposes every rationale, permits adjustment, and retains equal weight only as a sensitivity reference.
+- **Weighted profile rank:** league ordering of the weighted podcast profile. It is labeled incomplete and is never presented as a win forecast or calibrated probability.
 - **Offensive ecosystem:** equal-weight QB, Offensive Line, and Skill Position percentiles.
 - **Infrastructure support:** mean of Coaching and Offensive Line percentiles.
 - **Balance:** category-rank spread and standard deviation; low dispersion indicates a balanced profile.
 - **Best unit / weakest unit:** best and worst current category ranks.
-- **Market-vs-profile gap:** difference between the complete-ladder Kalshi modeled expected-win rank and partial Action input rank. The former sportsbook ordinal index remains provenance only and no longer drives report synthesis. This is a research prompt, not a wagering recommendation.
+- **Market-vs-profile mean gap:** difference between complete-ladder Kalshi modeled expected-win rank and weighted podcast profile rank.
+- **Tail gap at threshold `k`:** Kalshi league rank for `P(W >= k)` minus weighted podcast profile rank. Positive means the podcast ordering is stronger; negative means the Kalshi tail ordering is stronger.
+- **Market downside:** `P(W <= 6)` from the exact-win density.
+- **Market volatility:** standard deviation of wins from the exact-win density.
 - **Dependency/risk index:** transparent count of negative or conditional claims involving injury, availability, unproven replacements, age/decline, depth, or scheme transition; always show the underlying claims.
 - **Upside index:** transparent count of strongly positive or improvement claims, again with the underlying claims.
 
-### 7.2 Synthesis views
+### 7.2 Category extensibility and weighting guardrails
+
+- Store evidence, source audit, default importance, and importance rationale together in the category registry.
+- Normalize importance points over all currently registered categories; adding defense or another category requires no scoring-formula change.
+- New complete categories automatically appear in navigation, team profiles, source QA, weight controls, weighted scores, equal-weight sensitivity, and market comparisons.
+- Do not silently give a new category equal importance. Choose and disclose its provisional importance and rerun sensitivity analysis.
+- Current weights are reasoned priors, not learned coefficients. Never describe a weighted profile score as a fair probability or expected-win estimate.
+- Show how many teams move at least five ranks between current weights and equal weights so the effect of the weighting judgment remains visible.
+
+### 7.3 Analysis vs Market
+
+- Keep Podcast × Kalshi and the cross-market scanner as visibly separate modules on one dedicated tab.
+- Let the reader select any Kalshi tail from `P(W >= 1)` through `P(W >= 17)`.
+- For all 32 teams show weighted profile score/rank, equal-weight rank, Kalshi E[W]/rank, `P(W <= 6)`, selected tail probability/rank, tail gap, and distribution standard deviation.
+- Sort by absolute tail disagreement by default and link every row to the complete team evidence and density.
+- Label gaps as ordinal research prompts, not edges, bets, or podcast-implied probabilities.
+- The separate scanner remains market-versus-market: same-threshold sportsbook consensus versus executable Kalshi ask, with timestamp, fee, spread, size, and slippage caveats.
+
+### 7.4 Synthesis views
 
 - Team archetypes: elite ecosystem, QB-led, infrastructure-led, weapons-heavy, balanced, or weak-link constrained.
 - Cross-category reinforcement: themes independently repeated in multiple episodes.
@@ -230,15 +252,13 @@ The report is a responsive single-page study tool with persistent tab navigation
 ### 8.1 Tabs
 
 1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
-2. **League Matrix** — all 32 teams with sortable QB, Coaching, OL, Skill, composite, ecosystem, balance, and market columns; conference/division filters.
-3. **Team Profiles** — searchable team cards showing all four ranks, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
-4. **Quarterbacks** — exact 1–32 ranking and full team-by-team QB evidence.
-5. **Coaching** — exact 1–32 ranking and all named staff, scheme, continuity, play-calling, and management evidence.
-6. **Offensive Lines** — exact 1–32 ranking and personnel, continuity, coaching, performance, depth, and injury evidence.
-7. **Skill Positions** — exact 1–32 ranking and every named receiver, tight end, running back, departure, depth note, and fit claim.
-8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, executable-side scanner candidates, and direct links to team distributions. Sportsbook de-vigging appears only in the cross-market scanner and source methodology.
-9. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
-10. **Sources & QA** — episode/source cards, retrieval dates, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
+2. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
+3. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
+4–7 currently. **Registered podcast categories** — one exact 1–32 evidence view per category; navigation expands automatically as the registry grows.
+8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
+9. **Analysis vs Market** — adjustable category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
+10. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
+11. **Sources & QA** — episode/source cards, retrieval dates, category weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 
 ### 8.2 Interaction and study design
 
@@ -249,6 +269,7 @@ The report is a responsive single-page study tool with persistent tab navigation
 - Positive, negative, conditional, and contextual claims use redundant icon/label/color coding for accessibility.
 - Every team/category view provides a direct source link and locator.
 - Deep links preserve tab, team, and filter state.
+- Weight controls are generated from the category registry and update all profile/tail comparisons immediately without changing source evidence.
 - A visible “data through” timestamp appears on market and source tabs.
 
 ## 9. Visual direction

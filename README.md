@@ -2,7 +2,7 @@
 
 An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts: quarterbacks, coaching staffs, offensive lines, and skill positions. It preserves the exact 1–32 rankings, team-level arguments, named personnel, qualifiers, public source locators, and clearly labeled cross-category synthesis.
 
-The current edition compares those inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. Sportsbook pairs are de-vigged independently for the cross-market scanner; Kalshi bid, ask, and midpoint curves are audited and projected to monotone order. Team profiles show the full exact-win density from 0–17, while expected wins, league/conference/division totals, and market rankings come from the complete Kalshi distributions and remain explicitly labeled as modeled values.
+The current edition compares those inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. Sportsbook pairs are de-vigged independently for the cross-market scanner; Kalshi bid, ask, and midpoint curves are audited and projected to monotone order. Team profiles show the full exact-win density from 0–17. A separate Analysis vs Market view compares every Kalshi tail with an adjustable, explicitly weighted podcast profile without presenting the podcast rankings as calibrated probabilities.
 
 ## Current edition
 
@@ -28,11 +28,24 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 5. Coaching
 6. Offensive lines
 7. Skill positions
-8. Paired sportsbook markets, Kalshi ladders, group win totals, and cross-market scan
-9. Cross-category synthesis
-10. Sources and QA
+8. Kalshi ladders, exact-win distributions, and group win totals
+9. Analysis vs Market: adjustable podcast weights, tail disagreements, and a separate cross-market scanner module
+10. Cross-category synthesis
+11. Sources and QA
 
-The Action input average is the equal-weight mean of the four available ordinal ranks. It is deliberately labeled as incomplete and is not a power rating, a win forecast, or a bet recommendation. Defense should become a fifth input when that ranking episode is available.
+The default podcast profile converts each ordinal rank to a 0–100 strength percentile, then applies provisional importance points: quarterback 40, coaching 25, offensive line 20, and skill positions 15. The interface exposes those weights, lets the reader adjust them, and shows the equal-weight rank as a sensitivity reference. This is an incomplete analytical ordering—not a power rating, win forecast, calibrated probability, or bet recommendation.
+
+Each podcast category is registered with its evidence, source audit, default importance, and rationale. Adding the defensive episode or another complete 1–32 ranking automatically expands navigation, profiles, weight controls, scoring, source QA, and the market comparison; its importance must be chosen and disclosed rather than silently treated as equal.
+
+## Podcast × Kalshi method
+
+For a selected Kalshi threshold `k`, every team receives its observed monotone tail probability `P(W >= k)` and a league tail rank. The report compares that rank with the weighted podcast profile rank:
+
+```text
+tail gap = Kalshi tail rank - weighted podcast profile rank
+```
+
+A positive gap means the podcast profile ranks the team more strongly than Kalshi does at that threshold; a negative gap means the Kalshi tail ranks more strongly. The view also shows market expected wins, `P(W <= 6)`, distribution standard deviation, and the equal-weight profile rank. These are ordinal research disagreements. The podcast side is never converted into an invented probability distribution.
 
 ## Market method
 
@@ -103,11 +116,12 @@ The standalone build inlines the React bundle, data, and CSS into `docs/index.ht
 | `CHECKPOINT.md` | Current edition, exact public sources, QA, publication commit, blockers, and next action |
 | `NEXT_PHASE.md` | Completed full-ladder, group-total, scanner, and publication phase record |
 | `lib/market-math.mjs` | Odds conversion, de-vigging, isotonic regression, probability-mass, and tail-sum functions |
+| `lib/profile-market.mjs` | Extensible category weighting, profile scores, tail probabilities, distribution moments, and ranks |
 | `lib/kalshi-auth.mjs` | Private environment parsing and Kalshi RSA-PSS request signing |
 | `lib/kalshi-nfl.mjs` | Kalshi ladder normalization, monotone curves, expected wins, group totals, and comparisons |
 | `scripts/build-market-snapshot.mjs` | Deterministic parser and market-snapshot builder |
 | `scripts/scan-kalshi-nfl.mjs` | Read-only, append-only Kalshi NFL ladder and opportunity scanner |
-| `tests/market-math.test.mjs` | Unit tests for sportsbook market calculations |
+| `tests/market-math.test.mjs` | Unit tests for sportsbook math, category weighting, extensibility, and tail-shape calculations |
 | `tests/kalshi-nfl.test.mjs` | Unit tests for authentication, full ladders, totals, ranks, and scanner edges |
 | `data/nfl/teams.json` | Canonical NFL team, conference, division, and Kalshi-code registry |
 | `data/sources/manifest.json` | Sanitized publisher provenance, hashes, and source counts |
@@ -126,10 +140,11 @@ For a new ranking episode:
 1. Acquire the canonical transcript read-only and preserve a private immutable snapshot plus hash.
 2. Reconcile a complete, unique 1–32 order before interpreting commentary.
 3. Extract every substantive positive, concern, qualifier, comparison, named person, methodological rule, and source locator.
-4. Add a new timestamped paired market snapshot without overwriting history.
-5. Capture a new append-only Kalshi ladder snapshot, recompute expected wins, group totals, market ranks, and exact-threshold comparisons.
-6. Run the content audit, market tests, Vite build, privacy scan, and desktop/mobile browser checks.
-7. Commit and publish the updated `docs/` artifact; record the commit and URL in `CHECKPOINT.md`.
+4. Register the category with its default importance and rationale; review both weighted and equal-weight sensitivity before publication.
+5. Add a new timestamped paired market snapshot without overwriting history.
+6. Capture a new append-only Kalshi ladder snapshot, recompute expected wins, group totals, market ranks, tail gaps, and exact-threshold comparisons.
+7. Run the content audit, market tests, Vite build, privacy scan, and desktop/mobile browser checks.
+8. Commit and publish the updated `docs/` artifact; record the commit and URL in `CHECKPOINT.md`.
 
 ## Known source exceptions
 
