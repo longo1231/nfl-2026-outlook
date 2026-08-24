@@ -1,17 +1,17 @@
 # 2026 NFL Outlook Field Guide
 
-An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, and skill positions—plus two scoped team-preview episodes covering the NFC East, AFC East, and AFC West. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
+An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, and skill positions—plus three scoped team-preview episodes covering the NFC East and all four AFC divisions. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
 
-The current edition compares the four complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The two market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich 12 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
+The current edition compares the four complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The three market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich 20 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
 
 ## Current edition
 
-- Edition: 4
+- Edition: 5
 - Data through: 2026-08-24
-- Editorial coverage: 128 of 128 scoring cells plus two zero-weight preview sources covering 12 unique teams
-- Sportsbook coverage: 32 of 32 teams with paired primary quotes; 15 teams with multiple observed thresholds
+- Editorial coverage: 128 of 128 scoring cells plus three zero-weight preview sources covering 20 unique teams
+- Sportsbook coverage: 32 of 32 teams with paired primary quotes; 14 teams with multiple observed thresholds
 - Kalshi coverage: 544 open contracts; 32 of 32 teams with all 17 tails; 32 teams with coverage-supported expected-win estimates
-- Cross-market scan: 94 executable-side comparisons; 3 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
+- Cross-market scan: 92 executable-side comparisons; 4 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
 - Publication surface: `docs/index.html`
 - Published report: https://longo1231.github.io/nfl-2026-outlook/
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
@@ -28,7 +28,7 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 5. Coaching
 6. Offensive lines
 7. Skill positions
-8. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for 12 teams
+8. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for 20 teams
 9. Kalshi ladders, exact-win distributions, and group win totals
 10. Analysis vs Market: adjustable scored-category weights, full-league tail disagreements, scoped preview-ballot comparisons, and a separate cross-market scanner
 11. Cross-category synthesis
@@ -81,7 +81,7 @@ P(W = 17) = P(W >= 17)
 
 Every team profile displays those 18 probability masses, their most likely exact-win outcome, and the expected-win marker. These are derived midpoint probabilities, not directly traded exact-win contracts. The market rank orders the modeled expected win value. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
 
-At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the refreshed source snapshots were captured 33 seconds apart. Candidates are research prompts, not recommendations.
+At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the refreshed source snapshots were captured 16 seconds apart. Candidates are research prompts, not recommendations.
 
 ## Reproduce and test
 
@@ -158,7 +158,9 @@ For a new editorial episode:
 - One garbled Saints backfield name is omitted rather than guessed.
 - The coaching source carries implausible private-library publication metadata; episode content and the immutable snapshot determine the edition.
 - The NFC East transcript contains several unclear personnel names, one garbled Dallas offseason sequence, and a few inferential speaker handoffs; none is silently normalized.
-- The AFC library item did not contain a creator transcript. Analysis used a private machine working copy of canonical publisher audio; systematic name errors are disclosed, numeric claims were spot-checked, and uncertain names were omitted.
-- The AFC source is Part 1 (AFC West and AFC East), not an entire-AFC ranking. It states one complete AFC East ballot, one partial ballot, and no AFC West finish order.
+- The AFC Part 1 library item did not contain a creator transcript. Analysis used a private machine working copy of canonical publisher audio; systematic name errors are disclosed, numeric claims were spot-checked, and uncertain names were omitted.
+- AFC Part 1 covers the AFC West and AFC East. It states one complete AFC East ballot, one partial ballot, and no AFC West finish order.
+- AFC Part 2 has a complete creator transcript covering the AFC South and AFC North. Its exact numeric Houston/Jacksonville projection passages are garbled, so they remain unresolved; only three clearly stated winner-only ballots are retained.
+- The two AFC episodes cover all 16 conference teams but do not state a comparable 1–16 AFC ranking, so both remain weight 0.
 
 Market information is a timestamped research input, not advice or an instruction to place a wager. Prices can move after capture.

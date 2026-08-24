@@ -1,6 +1,7 @@
 import { readFile, writeFile, access } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { rankScores, weightedProfileScore } from '../lib/profile-market.mjs';
+import previewRegistry from '../data/previews/2026-team-previews.json' with { type: 'json' };
 
 const [marketPath, outputPath] = process.argv.slice(2);
 if (!marketPath || !outputPath) {
@@ -31,6 +32,11 @@ for (const category of categoryContract) {
 }
 
 const teams = Object.keys(categoryRanks.qb).sort();
+const previewSources = previewRegistry.sources;
+const previewTeams = new Set(previewSources.flatMap(source=>source.covered_teams));
+if (previewSources.some(source=>source.scoring_eligible || source.analysis_weight !== 0 || !source.market_aware)) {
+  throw new Error('Every market-aware preview must remain scoring-ineligible at analysis weight 0');
+}
 const scoreAll = overrides => Object.fromEntries(teams.map(team=>[
   team,
   weightedProfileScore(Object.fromEntries(categoryContract.map(category=>[category.id,categoryRanks[category.id][team]])),categoryContract,overrides),
@@ -69,9 +75,10 @@ const audit = {
   kalshi_snapshot: resolve(marketPath).split('/').at(-1),
   registry: {
     scored_categories: categoryContract.map(({id,analysisWeight})=>({id,analysis_weight:analysisWeight})),
-    preview_sources_registered: 2,
-    preview_sources_scoring_eligible: 0,
-    preview_analysis_weight: 0,
+    preview_sources_registered: previewSources.length,
+    preview_teams_covered: previewTeams.size,
+    preview_sources_scoring_eligible: previewSources.filter(source=>source.scoring_eligible).length,
+    preview_analysis_weight: previewSources.reduce((total,source)=>total+source.analysis_weight,0),
     league_profile_changed_by_previews: false,
   },
   weighted_equal_sensitivity: {

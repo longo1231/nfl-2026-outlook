@@ -1,9 +1,9 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: current through Edition 4
+Status: current through Edition 5
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
-Editorial sources: four complete Action Network ranking transcripts plus two scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
+Editorial sources: four complete Action Network ranking transcripts plus three scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
 
 ## 1. Outcome and scope
 
@@ -93,6 +93,8 @@ Every editorial source declares:
 - canonical public source, private snapshot audit, methodology, ambiguity ledger, and paraphrased evidence
 
 Only a complete, unique, comparable full-league ordinal or score contract may set `scoring_eligible=true`. Partial division or conference previews receive weight 0 even if their football evidence is useful. Covering every team across a series is insufficient unless the series also supplies a stable comparable league-wide contract. Market-aware preview evidence appears in a separate scoped market comparison and cannot create an independent Podcast × Kalshi signal.
+
+Current application: AFC Preview Parts 1 and 2 collectively cover all 16 AFC teams, but neither episode supplies a conference-wide 1–16 order or comparable score. Both remain market-aware qualitative sources at weight 0.
 
 Exact speaker ballots remain separate. Discussion order, opening prices, prior-season finish, numeric projections, and wagers are never converted into rankings. A partial ballot records only its stated positions and must not infer the rest.
 
@@ -251,7 +253,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - Sort by absolute tail disagreement by default and link every row to the complete team evidence and density.
 - Label gaps as ordinal research prompts, not edges, bets, or podcast-implied probabilities.
 - The separate scanner remains market-versus-market: same-threshold sportsbook consensus versus executable Kalshi ask, with timestamp, fee, spread, size, and slippage caveats.
-- A third visibly separate module may compare exact preview ballots with Kalshi tail order inside the same declared division scope. It must remain ordinal, weight 0, and explicitly market-aware.
+- A third visibly separate module may compare exact or partial source-stated preview ballots with Kalshi tail order inside the same declared division scope. It must remain ordinal, weight 0, and explicitly market-aware.
 
 ### 7.4 Synthesis views
 

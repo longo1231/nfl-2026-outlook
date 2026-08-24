@@ -1,12 +1,12 @@
-# Completed phase: scoped previews, refreshed markets, and source-eligibility guardrails
+# Completed phase: AFC Part 2, full AFC preview coverage, and weighting guardrails
 
 Status: implemented through 2026-08-24; exact publication details are finalized in `CHECKPOINT.md`.
 
 ## Outcome
 
-Two newly available podcast items were ingested through the configured private-library workflow without mutation. Canonical sources were snapshotted and hashed before interpretation. The NFC East episode supplies three distinct four-team exact-finish ballots. The purported entire-AFC item resolves to Action Network's `2026 AFC Betting Preview | Part 1`, covering only the AFC West and AFC East; it supplies one complete AFC East ballot, one partial AFC East ballot, and no AFC West or 1–16 AFC order.
+The new `2026 AFC Betting Preview | Part 2` item was ingested through the configured private-library workflow without mutation. Its complete creator/Reader transcript was privately snapshotted and hashed before interpretation. Part 2 covers the AFC South and AFC North, completing team-level AFC preview coverage when paired with Part 1.
 
-Both sources now enter the editorial registry as market-aware `team-preview` evidence with partial coverage, `scoring_eligible=false`, and analysis weight 0. They enrich the 12 covered team profiles, a dedicated Team Previews tab, and a separate scoped preview-ballot versus Kalshi-tail module. They do not change the four-category league profile or the market-versus-market scanner.
+All three preview sources enter the editorial registry as market-aware `team-preview` evidence with partial coverage, `scoring_eligible=false`, and analysis weight 0. They enrich 20 covered team profiles, a dedicated Team Previews tab, and a separate scoped preview-ballot versus Kalshi-tail module. The two AFC episodes cover all 16 conference teams but do not state a comparable 1–16 order or scoring contract, so they do not change the four-category league profile or the market-versus-market scanner.
 
 ## Source-eligibility and weighting contract
 
@@ -40,6 +40,17 @@ Both sources now enter the editorial registry as market-aware `team-preview` evi
 - Registry: `team-preview`, multi-division coverage, partial-order scheme, market-aware, weight 0
 - Creator transcript unavailable; a private machine working copy derived from canonical publisher audio was used for analysis only
 
+### 2026 AFC Betting Preview | Part 2
+
+- Public source: https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/90a36c38-dfa8-4c87-b29a-897924118428/transcript
+- Coverage: Houston, Jacksonville, Indianapolis, Tennessee, Baltimore, Cincinnati, Pittsburgh, Cleveland
+- Partial ballot: Anthony Dabbundo — Houston as AFC South winner; no second-through-fourth order. Indianapolis is separately identified as his preferred division wager at the available price.
+- Partial ballot: Stuckey — Cincinnati as AFC North winner; no second-through-fourth order
+- Partial ballot: Anthony Dabbundo — Pittsburgh as AFC North winner; no second-through-fourth order
+- No complete AFC South/North finish and no conference-wide AFC ranking were stated
+- Registry: `team-preview`, multi-division coverage, partial-order scheme, market-aware, weight 0
+- Complete creator transcript available; garbled Houston and Jacksonville numeric projection passages remain unresolved rather than reconstructed
+
 Canonical source hashes and sanitized counts are in `data/sources/manifest.json`. Private-library identifiers, canonical snapshots, raw transcripts, derived transcript working copies, and detailed private provenance remain excluded from Git and publication.
 
 ## Refreshed market evidence
@@ -47,35 +58,35 @@ Canonical source hashes and sanitized counts are in `data/sources/manifest.json`
 Sportsbook snapshot:
 
 - Board: https://www.outrights.io/nfl/win-totals-odds
-- Capture: `2026-08-24T17:44:30-04:00`
-- File: `data/markets/2026-08-24T174430-0400-paired-win-totals.json`
-- Raw page SHA-256: `30bf5e1631cd09c407b276d037a744860bf9f282851cb7ee6be4066a88f74d3a`
-- Coverage: 185 paired quotes, 32/32 primary thresholds, 15 teams with multiple thresholds
+- Capture: `2026-08-24T18:35:36-04:00`
+- File: `data/markets/2026-08-24T183536-0400-paired-win-totals.json`
+- Raw page SHA-256: `45f6f5691fa5817bac5178265bb16c21f494db53c035e8cadff0de538b9582c5`
+- Coverage: 184 paired quotes, 32/32 primary thresholds, 14 teams with multiple thresholds
 
 Kalshi snapshot:
 
 - Series: `KXNFLWINS`
-- Capture: `2026-08-24T21:45:03.240Z` (`2026-08-24T17:45:03.240-04:00`)
-- File: `data/markets/20260824T214503.240Z-kalshi-nfl-win-ladders.json`
+- Capture: `2026-08-24T22:35:52.402Z` (`2026-08-24T18:35:52.402-04:00`)
+- File: `data/markets/20260824T223552.402Z-kalshi-nfl-win-ladders.json`
 - Coverage: 544 current-season contracts, 32 teams, all 17 tails for every team
 - Read-only authentication check: passed; no account response was persisted
-- Monotonicity: 18 raw midpoint violations; 43 midpoint observations adjusted; all curves monotone after projection
-- Cross-market scanner: 94 exact-side comparisons; 3 rows passed the 5¢ edge, 12¢ spread, and size filters
+- Monotonicity: 24 raw midpoint violations; 58 midpoint observations adjusted; all curves monotone after projection
+- Cross-market scanner: 92 exact-side comparisons; 4 rows passed the 5¢ edge, 12¢ spread, and size filters
 
-The two refreshed snapshots were captured 33 seconds apart. Every result remains tied to both timestamps; no price is represented as current after capture.
+The two refreshed snapshots were captured 16 seconds apart. Every result remains tied to both timestamps; no price is represented as current after capture.
 
 ## Sensitivity and tail audit
 
-The reproducible audit is `data/audit/20260824T214503.240Z-profile-market-sensitivity.json`.
+The reproducible audit is `data/audit/20260824T223552.402Z-profile-market-sensitivity.json`.
 
-- Registered sources: 6; scoring categories: 4; preview sources: 2 at weight 0
+- Registered sources: 7; scoring categories: 4; preview sources: 3 at weight 0; 20 unique preview teams
 - Profile changes caused by preview registration: 0
 - Weighted versus equal reference: 2 teams move at least five ranks; Baltimore has the largest movement at 5 places
 - Default 11-plus-win comparison: Detroit remains the largest absolute gap at 16 rank places, with Kalshi's tail ranking stronger
 - All 17 Kalshi thresholds are recomputed against all 32 weighted profiles
 - Scoped preview-ballot comparisons are displayed separately and do not enter league scoring
 
-Kalshi's summed team midpoint estimate is 275.322, 3.322 above the 272-game league ceiling. This is retained as a calibration warning rather than normalized away; marginal team curves are not a coherent joint league distribution.
+Kalshi's summed team midpoint estimate is 275.584, 3.584 above the 272-game league ceiling. This is retained as a calibration warning rather than normalized away; marginal team curves are not a coherent joint league distribution.
 
 ## Completion gates
 
@@ -88,8 +99,8 @@ Kalshi's summed team midpoint estimate is 275.322, 3.322 above the 272-game leag
 - [x] Weighted/equal sensitivity and all 17 tail comparisons were rerun.
 - [x] The self-contained Pages artifact was rebuilt.
 - [x] Offline desktop/mobile, accessibility, and privacy checks are recorded in `CHECKPOINT.md`.
-- [x] The Edition 4 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
+- [ ] The Edition 5 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 
-Acquire AFC Preview Part 2 and the defensive-ranking episode when available. Preserve each source read-only, classify its coverage and ranking contract before assigning weight, and activate a source only when comparable full-league coverage exists. Then rerun the same append-only market, sensitivity, audit, build, browser, privacy, and publication sequence.
+Acquire the defensive-ranking episode when available. Preserve it read-only, verify its exact 1–32 contract, propose a provisional importance weight before activation, and rerun the same append-only market, sensitivity, audit, build, browser, privacy, and publication sequence. Revisit all category weights after the full intended comparable source set has arrived; previews remain qualitative unless they gain a stable league-wide contract.

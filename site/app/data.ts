@@ -1,5 +1,5 @@
-import marketSnapshot from '../../data/markets/2026-08-24T174430-0400-paired-win-totals.json';
-import kalshiSnapshot from '../../data/markets/20260824T214503.240Z-kalshi-nfl-win-ladders.json';
+import marketSnapshot from '../../data/markets/2026-08-24T183536-0400-paired-win-totals.json';
+import kalshiSnapshot from '../../data/markets/20260824T223552.402Z-kalshi-nfl-win-ladders.json';
 import teamRegistry from '../../data/nfl/teams.json';
 import previewRegistry from '../../data/previews/2026-team-previews.json';
 import { rankScores, weightedProfileScore } from '../../lib/profile-market.mjs';
@@ -90,7 +90,7 @@ export const marketSource = {
   label: marketSnapshot.source.label,
   url: marketSnapshot.source.url,
   updated: 'Per-quote update time unavailable',
-  retrieved: 'Aug. 24, 2026, 5:44 PM ET',
+  retrieved: 'Aug. 24, 2026, 6:35 PM ET',
   note: marketSnapshot.source.update_note,
 };
 
@@ -98,7 +98,7 @@ export const kalshiMarketSource = {
   label: kalshiSnapshot.source.label,
   url: kalshiSnapshot.source.api_url,
   documentation: kalshiSnapshot.source.api_documentation,
-  retrieved: 'Aug. 24, 2026, 5:45 PM ET',
+  retrieved: 'Aug. 24, 2026, 6:35 PM ET',
   authenticated: kalshiSnapshot.source.authentication.verified,
 };
 

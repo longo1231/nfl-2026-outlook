@@ -94,10 +94,10 @@ test('profile scoring accepts new categories and adjustable importance without f
 });
 
 test('partial market-aware previews are registered without entering league scoring', () => {
-  assert.equal(previewRegistry.sources.length, 2);
+  assert.equal(previewRegistry.sources.length, 3);
   assert.ok(previewRegistry.sources.every(source => source.kind === 'team-preview'));
   assert.ok(previewRegistry.sources.every(source => source.scoring_eligible === false && source.analysis_weight === 0 && source.market_aware === true));
-  assert.deepEqual([...new Set(previewRegistry.sources.flatMap(source => source.covered_teams))].sort(), ['BUF','DAL','DEN','KC','LAC','LV','MIA','NE','NYG','NYJ','PHI','WAS']);
+  assert.deepEqual([...new Set(previewRegistry.sources.flatMap(source => source.covered_teams))].sort(), ['BAL','BUF','CIN','CLE','DAL','DEN','HOU','IND','JAX','KC','LAC','LV','MIA','NE','NYG','NYJ','PHI','PIT','TEN','WAS']);
   assert.deepEqual(previewRegistry.sources[0].ballots.map(ballot => ballot.positions.map(position => position.team)), [
     ['DAL','PHI','NYG','WAS'],
     ['DAL','PHI','WAS','NYG'],
@@ -105,6 +105,8 @@ test('partial market-aware previews are registered without entering league scori
   ]);
   assert.deepEqual(previewRegistry.sources[1].ballots[0].positions.map(position => position.team), ['NE','BUF','NYJ','MIA']);
   assert.deepEqual(previewRegistry.sources[1].ballots[1].positions.map(position => position.team), ['BUF','NE']);
+  assert.deepEqual(previewRegistry.sources[2].ballots.map(ballot => ballot.positions.map(position => position.team)), [['HOU'],['CIN'],['PIT']]);
+  assert.ok(previewRegistry.sources[2].ballots.every(ballot => ballot.complete === false));
 });
 
 test('tail and distribution-shape metrics use the complete exact-win density', () => {

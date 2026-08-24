@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "season": 2026,
-  "generated_at": "2026-08-24T16:50:01-04:00",
+  "generated_at": "2026-08-24T18:32:22-04:00",
   "methodology": "Team-preview episodes are retained as scoped qualitative evidence. They enter league scoring only after a comparable full-league ranking or score contract exists. Market-aware preview evidence is never used to manufacture an independent market edge.",
   "sources": [
     {
@@ -138,7 +138,7 @@
       "ranking_scheme": "partial-order",
       "scoring_eligible": false,
       "analysis_weight": 0,
-      "analysis_rationale": "The canonical episode covers only the AFC West and AFC East, supplies no conference-wide ranking and is explicitly market-aware. Part 2 is still required for full AFC coverage.",
+      "analysis_rationale": "The canonical episode covers the AFC West and AFC East, supplies no conference-wide ranking and is explicitly market-aware. Part 2 completes team coverage but does not add a comparable 1–16 AFC contract.",
       "market_aware": true,
       "source": {
         "url": "https://pocketcasts.com/podcast/the-action-network-sports-betting-podcast/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/2026-afc-betting-preview-part-1/d6ef47c4-3532-4430-aa6f-9f91df8e5ddb",
@@ -287,6 +287,198 @@
           "context": [
             "Stuckey stated a 4.1-win projection but would not play under such a low total; Abrams preferred Arizona to finish with more wins than Miami.",
             "Abrams placed Miami fourth in the AFC East."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "action-afc-preview-part-2",
+      "label": "2026 AFC Betting Preview | Part 2",
+      "short": "AFC Part 2",
+      "publisher": "Action Network",
+      "kind": "team-preview",
+      "coverage_mode": "multi-division",
+      "covered_teams": [
+        "HOU",
+        "JAX",
+        "IND",
+        "TEN",
+        "BAL",
+        "CIN",
+        "PIT",
+        "CLE"
+      ],
+      "ranking_scheme": "partial-order",
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "analysis_rationale": "The creator transcript covers the AFC South and AFC North, completing team-level AFC preview coverage with Part 1, but it supplies no complete divisional standings or comparable 1–16 AFC ranking and is explicitly market-aware.",
+      "market_aware": true,
+      "source": {
+        "url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/90a36c38-dfa8-4c87-b29a-897924118428/transcript",
+        "format": "creator transcript",
+        "captured_at": "2026-08-24",
+        "words": 17677,
+        "lines": 640,
+        "sha256": "a03698474b4bf231bc0c3589552ece8d6aa79fa8fd5eaa691ec4456eb6941850"
+      },
+      "ballots": [
+        {
+          "speaker": "Anthony Dabbundo",
+          "scope": "AFC South winner only",
+          "complete": false,
+          "positions": [
+            {
+              "rank": 1,
+              "team": "HOU"
+            }
+          ],
+          "note": "He separately preferred Indianapolis as the division wager at the available price. No second-through-fourth order was stated."
+        },
+        {
+          "speaker": "Stuckey",
+          "scope": "AFC North winner only",
+          "complete": false,
+          "positions": [
+            {
+              "rank": 1,
+              "team": "CIN"
+            }
+          ],
+          "note": "No second-through-fourth order was stated."
+        },
+        {
+          "speaker": "Anthony Dabbundo",
+          "scope": "AFC North winner only",
+          "complete": false,
+          "positions": [
+            {
+              "rank": 1,
+              "team": "PIT"
+            }
+          ],
+          "note": "No second-through-fourth order was stated."
+        }
+      ],
+      "ambiguities": [
+        "The Houston projection near 23:12 is garbled as ‘nine, nine. Brooklyn’ and is not reconstructed as an exact decimal.",
+        "The Jacksonville projection near 23:27 is garbled as ‘eight, eight, five’ and is not reconstructed as an exact decimal.",
+        "The closing Jacksonville range near 1:30:05 is rendered as ‘seven- or ten-win’; no exact range is silently normalized.",
+        "Several personnel names and isolated football actions are mistranscribed; uncertain identities are omitted rather than guessed.",
+        "Speaker attribution follows clear conversational handoffs because the transcript has no speaker labels. Discussion order, projections, prior finish, opening prices and bets are not promoted into unstated rankings."
+      ],
+      "teams": [
+        {
+          "team": "HOU",
+          "positives": [
+            "An elite edge-and-corner foundation gives the defense a durable contender-level ceiling if healthy.",
+            "Even modest red-zone and rushing improvement could make an average passing offense much more effective."
+          ],
+          "concerns": [
+            "The offensive-line combination remained unsettled despite veteran additions and a first-round rookie.",
+            "Receiver health, short-yardage execution and the lack of a reliable rushing attack remain the offense's limiting variables."
+          ],
+          "context": [
+            "Dabbundo picked Houston to win the AFC South but said Indianapolis was the division bet he preferred at the available price.",
+            "Stuckey cited Houston as his only Super Bowl future and treated offensive improvement as the path to realizing it."
+          ]
+        },
+        {
+          "team": "JAX",
+          "positives": [
+            "Liam Coen's scheme and the second-half passing improvement provide a credible offensive floor.",
+            "Special teams and a complementary receiving group can help in close games."
+          ],
+          "concerns": [
+            "Turnover, fumble, fourth-down, health and one-score fortune all point toward regression.",
+            "Offensive-line injuries and a defense expected to lose pressure, linebacker and coverage efficiency threaten both sides."
+          ],
+          "context": [
+            "Both speakers were sellers relative to the prior 13-win season and had Jacksonville missing the playoffs.",
+            "Two numeric projection passages are transcription-ambiguous and are deliberately excluded from the normalized outlook."
+          ]
+        },
+        {
+          "team": "IND",
+          "positives": [
+            "Shane Steichen's quarterback-resistant structure, the run game and a healthy line create a high offensive floor.",
+            "A strong outside-corner trio and several young defenders create meaningful variance to the upside."
+          ],
+          "concerns": [
+            "A brutal opening schedule magnifies uncertainty around Daniel Jones and receiver health.",
+            "Thin offensive depth, an unproven pass rush and rookies through the middle of the defense lower the ceiling."
+          ],
+          "context": [
+            "Dabbundo had over 7.5 wins and said Indianapolis would be his preferred AFC South division wager at the price, while still picking Houston to finish first."
+          ]
+        },
+        {
+          "team": "TEN",
+          "positives": [
+            "A more competent staff and added receiver talent should raise the offense's basic functional floor.",
+            "Pure schedule regression should make the slate less punishing than the prior season."
+          ],
+          "concerns": [
+            "Cam Ward must make a large second-year leap behind an offensive line that still projects poorly.",
+            "The secondary, linebacker group and overall organizational direction remain major concerns."
+          ],
+          "context": [
+            "Dabbundo's featured AFC North/South bet was Tennessee under 6.5 wins; the discussion consistently supported the under case."
+          ]
+        },
+        {
+          "team": "BAL",
+          "positives": [
+            "Lamar Jackson remains an elite quarterback, and new coordinators offer schematic upside on both sides.",
+            "A favorable opening stretch gives the transition a chance to settle before the schedule hardens."
+          ],
+          "concerns": [
+            "Center, guard, receiver and aging-skill-player questions leave the offensive structure unusually fragile.",
+            "Injury recovery, older corners, thin linebacker depth, pressure creation and declining special teams add defensive and close-game risk."
+          ],
+          "context": [
+            "Stuckey projected roughly 10.5 wins and made under 11.5 his first season bet; he later used Baltimore under as part of the case for Cincinnati in the division."
+          ]
+        },
+        {
+          "team": "CIN",
+          "positives": [
+            "A healthy Joe Burrow and the first return of the same five starting linemen give the offense an unusually stable base.",
+            "Second-half defensive improvement and the league's easiest schedule create a plausible division-winning path."
+          ],
+          "concerns": [
+            "Run defense, nickel play and depth remain weak enough that league average is the realistic defensive target.",
+            "A shift toward more under-center offense creates execution uncertainty against high-end defenses."
+          ],
+          "context": [
+            "Stuckey projected 10.6 wins and selected Cincinnati as his AFC North winner; Dabbundo declined an under largely because the schedule is so favorable."
+          ]
+        },
+        {
+          "team": "PIT",
+          "positives": [
+            "Patrick Graham and a deep front-seven/secondary mix give the defense a credible top-five ceiling.",
+            "Improved receiving options and a low-turnover offensive approach can sustain Pittsburgh's familiar close-game formula."
+          ],
+          "concerns": [
+            "Aaron Rodgers' age and pressure response put a premium on an offensive line changing positions and carrying injuries.",
+            "The final nine games are projected against playoff-caliber opponents, creating a demanding finish."
+          ],
+          "context": [
+            "Dabbundo preferred over 8.5 wins and picked Pittsburgh to win the AFC North at +550; Stuckey projected about eight wins and did not share the division pick."
+          ]
+        },
+        {
+          "team": "CLE",
+          "positives": [
+            "The Garrett trade and young additions were framed as investments in a two-to-three-year reset.",
+            "New offensive-line and receiver pieces give the future roster more developmental options."
+          ],
+          "concerns": [
+            "Losing Myles Garrett, edge injuries and extreme corner depth risk could sharply weaken the defense.",
+            "Five new line starters and an unresolved quarterback plan leave the offense without a stable short-term identity."
+          ],
+          "context": [
+            "The speakers leaned under but did not state a Browns division finish; one late comment mentioned under 3.5 as the only possible play rather than a completed bet."
           ]
         }
       ]

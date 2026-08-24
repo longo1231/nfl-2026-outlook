@@ -1,0 +1,4194 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-24T22:35:58.699Z",
+  "kalshi_snapshot": "20260824T223552.402Z-kalshi-nfl-win-ladders.json",
+  "registry": {
+    "scored_categories": [
+      {
+        "id": "qb",
+        "analysis_weight": 40
+      },
+      {
+        "id": "coaching",
+        "analysis_weight": 25
+      },
+      {
+        "id": "ol",
+        "analysis_weight": 20
+      },
+      {
+        "id": "skill",
+        "analysis_weight": 15
+      }
+    ],
+    "preview_sources_registered": 3,
+    "preview_teams_covered": 20,
+    "preview_sources_scoring_eligible": 0,
+    "preview_analysis_weight": 0,
+    "league_profile_changed_by_previews": false
+  },
+  "weighted_equal_sensitivity": {
+    "teams": 32,
+    "threshold_rank_movement": 5,
+    "teams_moving_at_least_5": 2,
+    "largest_absolute_movement": 5,
+    "largest_movement_team": "BAL",
+    "rows": [
+      {
+        "team": "BAL",
+        "weighted_rank": 11,
+        "equal_weight_rank": 16,
+        "movement": 5
+      },
+      {
+        "team": "DET",
+        "weighted_rank": 18,
+        "equal_weight_rank": 13,
+        "movement": -5
+      },
+      {
+        "team": "BUF",
+        "weighted_rank": 6,
+        "equal_weight_rank": 10,
+        "movement": 4
+      },
+      {
+        "team": "DEN",
+        "weighted_rank": 13,
+        "equal_weight_rank": 9,
+        "movement": -4
+      },
+      {
+        "team": "ARI",
+        "weighted_rank": 28,
+        "equal_weight_rank": 25,
+        "movement": -3
+      },
+      {
+        "team": "GB",
+        "weighted_rank": 12,
+        "equal_weight_rank": 15,
+        "movement": 3
+      },
+      {
+        "team": "JAX",
+        "weighted_rank": 16,
+        "equal_weight_rank": 19,
+        "movement": 3
+      },
+      {
+        "team": "SEA",
+        "weighted_rank": 17,
+        "equal_weight_rank": 14,
+        "movement": -3
+      },
+      {
+        "team": "ATL",
+        "weighted_rank": 22,
+        "equal_weight_rank": 20,
+        "movement": -2
+      },
+      {
+        "team": "CHI",
+        "weighted_rank": 5,
+        "equal_weight_rank": 3,
+        "movement": -2
+      },
+      {
+        "team": "CIN",
+        "weighted_rank": 15,
+        "equal_weight_rank": 17,
+        "movement": 2
+      },
+      {
+        "team": "HOU",
+        "weighted_rank": 19,
+        "equal_weight_rank": 21,
+        "movement": 2
+      },
+      {
+        "team": "IND",
+        "weighted_rank": 20,
+        "equal_weight_rank": 18,
+        "movement": -2
+      },
+      {
+        "team": "KC",
+        "weighted_rank": 2,
+        "equal_weight_rank": 4,
+        "movement": 2
+      },
+      {
+        "team": "NE",
+        "weighted_rank": 9,
+        "equal_weight_rank": 11,
+        "movement": 2
+      },
+      {
+        "team": "NYJ",
+        "weighted_rank": 26,
+        "equal_weight_rank": 28,
+        "movement": 2
+      },
+      {
+        "team": "PHI",
+        "weighted_rank": 10,
+        "equal_weight_rank": 8,
+        "movement": -2
+      },
+      {
+        "team": "TB",
+        "weighted_rank": 14,
+        "equal_weight_rank": 12,
+        "movement": -2
+      },
+      {
+        "team": "WAS",
+        "weighted_rank": 21,
+        "equal_weight_rank": 23,
+        "movement": 2
+      },
+      {
+        "team": "DAL",
+        "weighted_rank": 7,
+        "equal_weight_rank": 6,
+        "movement": -1
+      },
+      {
+        "team": "LAC",
+        "weighted_rank": 4,
+        "equal_weight_rank": 5,
+        "movement": 1
+      },
+      {
+        "team": "LV",
+        "weighted_rank": 25,
+        "equal_weight_rank": 26,
+        "movement": 1
+      },
+      {
+        "team": "MIN",
+        "weighted_rank": 8,
+        "equal_weight_rank": 7,
+        "movement": -1
+      },
+      {
+        "team": "NO",
+        "weighted_rank": 23,
+        "equal_weight_rank": 22,
+        "movement": -1
+      },
+      {
+        "team": "SF",
+        "weighted_rank": 3,
+        "equal_weight_rank": 2,
+        "movement": -1
+      },
+      {
+        "team": "CAR",
+        "weighted_rank": 29,
+        "equal_weight_rank": 29,
+        "movement": 0
+      },
+      {
+        "team": "CLE",
+        "weighted_rank": 32,
+        "equal_weight_rank": 32,
+        "movement": 0
+      },
+      {
+        "team": "LAR",
+        "weighted_rank": 1,
+        "equal_weight_rank": 1,
+        "movement": 0
+      },
+      {
+        "team": "MIA",
+        "weighted_rank": 30,
+        "equal_weight_rank": 30,
+        "movement": 0
+      },
+      {
+        "team": "NYG",
+        "weighted_rank": 24,
+        "equal_weight_rank": 24,
+        "movement": 0
+      },
+      {
+        "team": "PIT",
+        "weighted_rank": 27,
+        "equal_weight_rank": 27,
+        "movement": 0
+      },
+      {
+        "team": "TEN",
+        "weighted_rank": 31,
+        "equal_weight_rank": 31,
+        "movement": 0
+      }
+    ]
+  },
+  "kalshi_tail_comparisons": [
+    {
+      "wins_at_least": 1,
+      "largest_absolute_rank_gap": 25,
+      "largest_gap_team": "NYJ",
+      "largest_signed_gap": -25,
+      "teams_with_absolute_gap_at_least_6": 14,
+      "rows": [
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 1,
+          "gap": -25,
+          "probability": 0.995
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 10,
+          "gap": -17,
+          "probability": 0.98125
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.99
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 20,
+          "gap": 15,
+          "probability": 0.972727
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 26,
+          "gap": 14,
+          "probability": 0.962222
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 5,
+          "gap": -12,
+          "probability": 0.99
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 32,
+          "gap": 10,
+          "probability": 0.84
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 16,
+          "gap": 9,
+          "probability": 0.975
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 22,
+          "gap": 9,
+          "probability": 0.97
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 25,
+          "gap": 9,
+          "probability": 0.965
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 13,
+          "gap": 9,
+          "probability": 0.98
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 7,
+          "gap": -8,
+          "probability": 0.985
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 15,
+          "gap": 7,
+          "probability": 0.9775
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 12,
+          "gap": 6,
+          "probability": 0.98
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 14,
+          "gap": 5,
+          "probability": 0.98
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 9,
+          "gap": -5,
+          "probability": 0.985
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.960526
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.91
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 4,
+          "gap": 3,
+          "probability": 0.99
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 6,
+          "gap": 3,
+          "probability": 0.985714
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.945
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 17,
+          "gap": -2,
+          "probability": 0.975
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 18,
+          "gap": -2,
+          "probability": 0.975
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 23,
+          "gap": -2,
+          "probability": 0.97
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 21,
+          "gap": -2,
+          "probability": 0.972727
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 8,
+          "gap": -2,
+          "probability": 0.985
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 19,
+          "gap": -2,
+          "probability": 0.973333
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 28,
+          "gap": -1,
+          "probability": 0.96
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 3,
+          "gap": 1,
+          "probability": 0.99
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 29,
+          "gap": -1,
+          "probability": 0.96
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 11,
+          "gap": 0,
+          "probability": 0.98
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 24,
+          "gap": 0,
+          "probability": 0.97
+        }
+      ]
+    },
+    {
+      "wins_at_least": 2,
+      "largest_absolute_rank_gap": 24,
+      "largest_gap_team": "PIT",
+      "largest_signed_gap": -24,
+      "teams_with_absolute_gap_at_least_6": 18,
+      "rows": [
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 3,
+          "gap": -24,
+          "probability": 0.98125
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 22,
+          "gap": 18,
+          "probability": 0.964
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.985
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 17,
+          "gap": 15,
+          "probability": 0.97
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 11,
+          "gap": -12,
+          "probability": 0.972727
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 9,
+          "gap": -12,
+          "probability": 0.973333
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 23,
+          "gap": 11,
+          "probability": 0.962222
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 12,
+          "gap": 11,
+          "probability": 0.971154
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 32,
+          "gap": 10,
+          "probability": 0.82
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 26,
+          "gap": 10,
+          "probability": 0.96
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 20,
+          "gap": 10,
+          "probability": 0.97
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 7,
+          "gap": -10,
+          "probability": 0.98
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 6,
+          "gap": -9,
+          "probability": 0.98
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 18,
+          "gap": 9,
+          "probability": 0.97
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 4,
+          "gap": -7,
+          "probability": 0.98
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 21,
+          "gap": 7,
+          "probability": 0.97
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 24,
+          "gap": -7,
+          "probability": 0.960526
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 13,
+          "gap": 6,
+          "probability": 0.97
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 10,
+          "gap": 5,
+          "probability": 0.972727
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 19,
+          "gap": -5,
+          "probability": 0.97
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 25,
+          "gap": -4,
+          "probability": 0.96
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 15,
+          "gap": -4,
+          "probability": 0.97
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 16,
+          "gap": -4,
+          "probability": 0.97
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.865
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.9
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.96
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.96
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 1,
+          "gap": -2,
+          "probability": 0.985714
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 5,
+          "gap": -1,
+          "probability": 0.98
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 14,
+          "gap": 1,
+          "probability": 0.97
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 29,
+          "gap": -1,
+          "probability": 0.905
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 8,
+          "gap": 0,
+          "probability": 0.9775
+        }
+      ]
+    },
+    {
+      "wins_at_least": 3,
+      "largest_absolute_rank_gap": 14,
+      "largest_gap_team": "CIN",
+      "largest_signed_gap": -14,
+      "teams_with_absolute_gap_at_least_6": 12,
+      "rows": [
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 1,
+          "gap": -14,
+          "probability": 0.98
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 3,
+          "gap": -14,
+          "probability": 0.975
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 16,
+          "gap": 12,
+          "probability": 0.964
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 15,
+          "gap": 12,
+          "probability": 0.97
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 12,
+          "gap": 10,
+          "probability": 0.97
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 30,
+          "gap": 8,
+          "probability": 0.795
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 10,
+          "gap": -8,
+          "probability": 0.97
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 11,
+          "gap": -8,
+          "probability": 0.97
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.96
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 5,
+          "gap": -6,
+          "probability": 0.97
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 2,
+          "gap": -6,
+          "probability": 0.9775
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 20,
+          "gap": 6,
+          "probability": 0.96
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 24,
+          "gap": -5,
+          "probability": 0.945
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 17,
+          "gap": 5,
+          "probability": 0.96
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 9,
+          "gap": -4,
+          "probability": 0.97
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 13,
+          "gap": 4,
+          "probability": 0.97
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 14,
+          "gap": 4,
+          "probability": 0.97
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.92
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.745
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 29,
+          "gap": -3,
+          "probability": 0.845
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 4,
+          "gap": 3,
+          "probability": 0.971154
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 7,
+          "gap": 2,
+          "probability": 0.97
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 18,
+          "gap": 2,
+          "probability": 0.96
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.715
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.89
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 23,
+          "gap": 2,
+          "probability": 0.955
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 8,
+          "gap": 1,
+          "probability": 0.97
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.955
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 26,
+          "gap": 1,
+          "probability": 0.925
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.955
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 25,
+          "gap": 1,
+          "probability": 0.945
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 6,
+          "gap": 0,
+          "probability": 0.97
+        }
+      ]
+    },
+    {
+      "wins_at_least": 4,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "SEA",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 10,
+      "rows": [
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 1,
+          "gap": -16,
+          "probability": 0.975
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 17,
+          "gap": 15,
+          "probability": 0.96
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 2,
+          "gap": -13,
+          "probability": 0.973333
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 5,
+          "gap": -13,
+          "probability": 0.97
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 6,
+          "gap": -13,
+          "probability": 0.97
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 15,
+          "gap": 10,
+          "probability": 0.96
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 13,
+          "gap": 9,
+          "probability": 0.964
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 12,
+          "gap": 9,
+          "probability": 0.965
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 29,
+          "gap": 7,
+          "probability": 0.755
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 20,
+          "gap": -7,
+          "probability": 0.95
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 24,
+          "gap": -5,
+          "probability": 0.895
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 19,
+          "gap": 5,
+          "probability": 0.955
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 26,
+          "gap": -5,
+          "probability": 0.87
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 9,
+          "gap": -4,
+          "probability": 0.965
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 16,
+          "gap": 4,
+          "probability": 0.96
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 25,
+          "gap": 4,
+          "probability": 0.885
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.575
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 14,
+          "gap": 3,
+          "probability": 0.96
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 4,
+          "gap": -2,
+          "probability": 0.97
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.75
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 18,
+          "gap": 2,
+          "probability": 0.955
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 3,
+          "gap": 2,
+          "probability": 0.971154
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.83
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.57
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 10,
+          "gap": 2,
+          "probability": 0.965
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 7,
+          "gap": -2,
+          "probability": 0.966667
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.805
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 8,
+          "gap": 1,
+          "probability": 0.965
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.935
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.935
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.91
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 11,
+          "gap": 1,
+          "probability": 0.965
+        }
+      ]
+    },
+    {
+      "wins_at_least": 5,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "HOU",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 3,
+          "gap": -16,
+          "probability": 0.97
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 1,
+          "gap": -14,
+          "probability": 0.973333
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 4,
+          "gap": -13,
+          "probability": 0.97
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 6,
+          "gap": -12,
+          "probability": 0.965
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 14,
+          "gap": 11,
+          "probability": 0.96
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 15,
+          "gap": 10,
+          "probability": 0.95
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 12,
+          "gap": 10,
+          "probability": 0.96
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.94
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.94
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 23,
+          "gap": -6,
+          "probability": 0.825
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 20,
+          "gap": 6,
+          "probability": 0.94
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 26,
+          "gap": 4,
+          "probability": 0.755
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 16,
+          "gap": 4,
+          "probability": 0.95
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 5,
+          "gap": -4,
+          "probability": 0.966667
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.715
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 25,
+          "gap": 4,
+          "probability": 0.775
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.38
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 8,
+          "gap": -3,
+          "probability": 0.96
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 9,
+          "gap": 3,
+          "probability": 0.96
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 10,
+          "gap": 3,
+          "probability": 0.96
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 7,
+          "gap": 3,
+          "probability": 0.964
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 28,
+          "gap": 3,
+          "probability": 0.71
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.64
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 13,
+          "gap": 3,
+          "probability": 0.96
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.625
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 11,
+          "gap": -2,
+          "probability": 0.96
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.375
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.875
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.943636
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 2,
+          "gap": 1,
+          "probability": 0.971154
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.86
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 24,
+          "gap": 0,
+          "probability": 0.795
+        }
+      ]
+    },
+    {
+      "wins_at_least": 6,
+      "largest_absolute_rank_gap": 14,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -14,
+      "teams_with_absolute_gap_at_least_6": 13,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 4,
+          "gap": -14,
+          "probability": 0.96
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 5,
+          "gap": -14,
+          "probability": 0.955
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 2,
+          "gap": -13,
+          "probability": 0.97
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 16,
+          "gap": 13,
+          "probability": 0.925
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 17,
+          "gap": 12,
+          "probability": 0.91
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 6,
+          "gap": -11,
+          "probability": 0.95
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.88
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 11,
+          "gap": 9,
+          "probability": 0.935
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 8,
+          "gap": -8,
+          "probability": 0.943636
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 12,
+          "gap": 8,
+          "probability": 0.935
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.845
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 21,
+          "gap": 7,
+          "probability": 0.815
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 7,
+          "gap": -6,
+          "probability": 0.945
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 26,
+          "gap": 4,
+          "probability": 0.66
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 25,
+          "gap": -4,
+          "probability": 0.685
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 13,
+          "gap": 4,
+          "probability": 0.935
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 14,
+          "gap": 4,
+          "probability": 0.935
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.275
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 3,
+          "gap": -3,
+          "probability": 0.96
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 10,
+          "gap": 3,
+          "probability": 0.935
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 15,
+          "gap": 3,
+          "probability": 0.925
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 9,
+          "gap": -2,
+          "probability": 0.94
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.455
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.57
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.275
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.525
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 29,
+          "gap": -2,
+          "probability": 0.475
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 23,
+          "gap": 2,
+          "probability": 0.73
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.77
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 20,
+          "gap": 0,
+          "probability": 0.82
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.971154
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 24,
+          "gap": 0,
+          "probability": 0.715
+        }
+      ]
+    },
+    {
+      "wins_at_least": 7,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.94
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 6,
+          "gap": -11,
+          "probability": 0.905
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 15,
+          "gap": 10,
+          "probability": 0.86
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.815
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.755
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 9,
+          "gap": 7,
+          "probability": 0.895
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 5,
+          "gap": -6,
+          "probability": 0.905
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 13,
+          "gap": -6,
+          "probability": 0.885
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 10,
+          "gap": 6,
+          "probability": 0.895
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 4,
+          "gap": -6,
+          "probability": 0.925
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 20,
+          "gap": 6,
+          "probability": 0.725
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 14,
+          "gap": 5,
+          "probability": 0.875
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 32,
+          "gap": 4,
+          "probability": 0.145
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 26,
+          "gap": 4,
+          "probability": 0.56
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 25,
+          "gap": -4,
+          "probability": 0.59
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 11,
+          "gap": -4,
+          "probability": 0.89
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 16,
+          "gap": 4,
+          "probability": 0.855
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 7,
+          "gap": 4,
+          "probability": 0.9
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 3,
+          "gap": -3,
+          "probability": 0.93
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.375
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 28,
+          "gap": -3,
+          "probability": 0.425
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 24,
+          "gap": 3,
+          "probability": 0.605
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.335
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.43
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 8,
+          "gap": 1,
+          "probability": 0.895
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 12,
+          "gap": -1,
+          "probability": 0.885
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.685
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.83
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 31,
+          "gap": 1,
+          "probability": 0.195
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.66
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.615
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.97
+        }
+      ]
+    },
+    {
+      "wins_at_least": 8,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 13,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.885
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 3,
+          "gap": -14,
+          "probability": 0.855
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 16,
+          "gap": 11,
+          "probability": 0.74
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 9,
+          "gap": -10,
+          "probability": 0.8
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.66
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 11,
+          "gap": 9,
+          "probability": 0.795
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 7,
+          "gap": -8,
+          "probability": 0.815
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 12,
+          "gap": 8,
+          "probability": 0.795
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.615
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 14,
+          "gap": 7,
+          "probability": 0.755
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 10,
+          "gap": 7,
+          "probability": 0.8
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 5,
+          "gap": -6,
+          "probability": 0.84
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 20,
+          "gap": 6,
+          "probability": 0.595
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 26,
+          "gap": 5,
+          "probability": 0.41
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 32,
+          "gap": 4,
+          "probability": 0.105
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 25,
+          "gap": -4,
+          "probability": 0.445
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 6,
+          "gap": -4,
+          "probability": 0.825
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 15,
+          "gap": 3,
+          "probability": 0.755
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 24,
+          "gap": 2,
+          "probability": 0.445
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 4,
+          "gap": -2,
+          "probability": 0.845
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.255
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.31
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.275
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 29,
+          "gap": -2,
+          "probability": 0.265
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.585
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.735
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 31,
+          "gap": 1,
+          "probability": 0.115
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 8,
+          "gap": -1,
+          "probability": 0.805
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.545
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.455
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 13,
+          "gap": 0,
+          "probability": 0.79
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.94
+        }
+      ]
+    },
+    {
+      "wins_at_least": 9,
+      "largest_absolute_rank_gap": 15,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -15,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 3,
+          "gap": -15,
+          "probability": 0.8
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 4,
+          "gap": -15,
+          "probability": 0.795
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 5,
+          "gap": -12,
+          "probability": 0.78
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 16,
+          "gap": 11,
+          "probability": 0.625
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.575
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 11,
+          "gap": 9,
+          "probability": 0.69
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 12,
+          "gap": 9,
+          "probability": 0.69
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 8,
+          "gap": -7,
+          "probability": 0.73
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 14,
+          "gap": 7,
+          "probability": 0.665
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 20,
+          "gap": -7,
+          "probability": 0.465
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 10,
+          "gap": 6,
+          "probability": 0.705
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 6,
+          "gap": -5,
+          "probability": 0.76
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 24,
+          "gap": -5,
+          "probability": 0.335
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 30,
+          "gap": 5,
+          "probability": 0.185
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 19,
+          "gap": 5,
+          "probability": 0.495
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 26,
+          "gap": 5,
+          "probability": 0.315
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 32,
+          "gap": 4,
+          "probability": 0.075
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 2,
+          "gap": -4,
+          "probability": 0.825
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 9,
+          "gap": -4,
+          "probability": 0.705
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 13,
+          "gap": 4,
+          "probability": 0.675
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.23
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 25,
+          "gap": 3,
+          "probability": 0.32
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 29,
+          "gap": -3,
+          "probability": 0.185
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 15,
+          "gap": 3,
+          "probability": 0.65
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 7,
+          "gap": -3,
+          "probability": 0.74
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.195
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.42
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.615
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 31,
+          "gap": 1,
+          "probability": 0.11
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.405
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.375
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.905
+        }
+      ]
+    },
+    {
+      "wins_at_least": 10,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.69
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 4,
+          "gap": -13,
+          "probability": 0.685
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 16,
+          "gap": 11,
+          "probability": 0.485
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 8,
+          "gap": -11,
+          "probability": 0.605
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 12,
+          "gap": 10,
+          "probability": 0.565
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.425
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 6,
+          "gap": -9,
+          "probability": 0.62
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 15,
+          "gap": 8,
+          "probability": 0.525
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 20,
+          "gap": -7,
+          "probability": 0.37
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 10,
+          "gap": 7,
+          "probability": 0.595
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 5,
+          "gap": -6,
+          "probability": 0.66
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 9,
+          "gap": 5,
+          "probability": 0.595
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 19,
+          "gap": 5,
+          "probability": 0.375
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.2
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 25,
+          "gap": 4,
+          "probability": 0.22
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.05
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 3,
+          "gap": -3,
+          "probability": 0.685
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 26,
+          "gap": -3,
+          "probability": 0.215
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 28,
+          "gap": 3,
+          "probability": 0.12
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.12
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 7,
+          "gap": -3,
+          "probability": 0.615
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 24,
+          "gap": 2,
+          "probability": 0.24
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 30,
+          "gap": -2,
+          "probability": 0.08
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.05
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 11,
+          "gap": 2,
+          "probability": 0.585
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 14,
+          "gap": 1,
+          "probability": 0.545
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 13,
+          "gap": 1,
+          "probability": 0.555
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.31
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.475
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.295
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.265
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.795
+        }
+      ]
+    },
+    {
+      "wins_at_least": 11,
+      "largest_absolute_rank_gap": 16,
+      "largest_gap_team": "DET",
+      "largest_signed_gap": -16,
+      "teams_with_absolute_gap_at_least_6": 13,
+      "rows": [
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 2,
+          "gap": -16,
+          "probability": 0.57
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 6,
+          "gap": -13,
+          "probability": 0.495
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 4,
+          "gap": -13,
+          "probability": 0.535
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 17,
+          "gap": 12,
+          "probability": 0.355
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.305
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 13,
+          "gap": 10,
+          "probability": 0.41
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 3,
+          "gap": -8,
+          "probability": 0.54
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 7,
+          "gap": -8,
+          "probability": 0.485
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 19,
+          "gap": -8,
+          "probability": 0.255
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 14,
+          "gap": 7,
+          "probability": 0.395
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 9,
+          "gap": 7,
+          "probability": 0.44
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 10,
+          "gap": 6,
+          "probability": 0.43
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 20,
+          "gap": 6,
+          "probability": 0.245
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 27,
+          "gap": -4,
+          "probability": 0.0925
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 25,
+          "gap": 3,
+          "probability": 0.13
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 26,
+          "gap": -3,
+          "probability": 0.1
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 15,
+          "gap": 3,
+          "probability": 0.375
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 28,
+          "gap": 3,
+          "probability": 0.085
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.07
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 24,
+          "gap": 3,
+          "probability": 0.165
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 30,
+          "gap": 2,
+          "probability": 0.05
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.04
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 11,
+          "gap": 2,
+          "probability": 0.425
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 8,
+          "gap": -2,
+          "probability": 0.475
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 5,
+          "gap": -1,
+          "probability": 0.53
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 31,
+          "gap": -1,
+          "probability": 0.05
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 12,
+          "gap": -1,
+          "probability": 0.41
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.195
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 22,
+          "gap": -1,
+          "probability": 0.18
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 23,
+          "gap": -1,
+          "probability": 0.175
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 16,
+          "gap": 0,
+          "probability": 0.365
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.705
+        }
+      ]
+    },
+    {
+      "wins_at_least": 12,
+      "largest_absolute_rank_gap": 15,
+      "largest_gap_team": "SEA",
+      "largest_signed_gap": -15,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 2,
+          "gap": -15,
+          "probability": 0.425
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 4,
+          "gap": -14,
+          "probability": 0.395
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 6,
+          "gap": -13,
+          "probability": 0.35
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 17,
+          "gap": 9,
+          "probability": 0.23
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 13,
+          "gap": 8,
+          "probability": 0.275
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 15,
+          "gap": 8,
+          "probability": 0.265
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 11,
+          "gap": 8,
+          "probability": 0.295
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 20,
+          "gap": -7,
+          "probability": 0.15
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 5,
+          "gap": -6,
+          "probability": 0.385
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 8,
+          "gap": 6,
+          "probability": 0.325
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 25,
+          "gap": -6,
+          "probability": 0.0925
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 10,
+          "gap": -5,
+          "probability": 0.32
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 19,
+          "gap": 5,
+          "probability": 0.175
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 26,
+          "gap": 4,
+          "probability": 0.09
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 16,
+          "gap": 4,
+          "probability": 0.255
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 29,
+          "gap": 4,
+          "probability": 0.05
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 3,
+          "gap": -3,
+          "probability": 0.395
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 23,
+          "gap": 3,
+          "probability": 0.11
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 7,
+          "gap": 3,
+          "probability": 0.33
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 12,
+          "gap": 3,
+          "probability": 0.285
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 30,
+          "gap": 2,
+          "probability": 0.04
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 27,
+          "gap": -2,
+          "probability": 0.09
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 18,
+          "gap": 2,
+          "probability": 0.22
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 32,
+          "gap": 2,
+          "probability": 0.035
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 21,
+          "gap": -2,
+          "probability": 0.14
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 28,
+          "gap": 2,
+          "probability": 0.07
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 31,
+          "gap": -1,
+          "probability": 0.035
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 14,
+          "gap": 1,
+          "probability": 0.275
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 9,
+          "gap": -1,
+          "probability": 0.325
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 22,
+          "gap": 1,
+          "probability": 0.115
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.515
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 24,
+          "gap": 0,
+          "probability": 0.11
+        }
+      ]
+    },
+    {
+      "wins_at_least": 13,
+      "largest_absolute_rank_gap": 15,
+      "largest_gap_team": "SEA",
+      "largest_signed_gap": -15,
+      "teams_with_absolute_gap_at_least_6": 11,
+      "rows": [
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 2,
+          "gap": -15,
+          "probability": 0.28
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 5,
+          "gap": -13,
+          "probability": 0.25
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 14,
+          "gap": 12,
+          "probability": 0.175
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 16,
+          "gap": 12,
+          "probability": 0.16
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 15,
+          "gap": 12,
+          "probability": 0.165
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 9,
+          "gap": -10,
+          "probability": 0.22
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 18,
+          "gap": 10,
+          "probability": 0.14
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 3,
+          "gap": -8,
+          "probability": 0.265
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 12,
+          "gap": 7,
+          "probability": 0.175
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 8,
+          "gap": -7,
+          "probability": 0.225
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 7,
+          "gap": -6,
+          "probability": 0.24
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 22,
+          "gap": -5,
+          "probability": 0.08
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 19,
+          "gap": 5,
+          "probability": 0.125
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 32,
+          "gap": 4,
+          "probability": 0.017442
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 25,
+          "gap": 4,
+          "probability": 0.06
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 26,
+          "gap": -3,
+          "probability": 0.04
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 10,
+          "gap": 3,
+          "probability": 0.205
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 6,
+          "gap": -3,
+          "probability": 0.245
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 20,
+          "gap": -3,
+          "probability": 0.09
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.025
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 28,
+          "gap": -3,
+          "probability": 0.03
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 4,
+          "gap": -2,
+          "probability": 0.265
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.035
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 23,
+          "gap": 1,
+          "probability": 0.07
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 31,
+          "gap": -1,
+          "probability": 0.02
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 13,
+          "gap": 1,
+          "probability": 0.175
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 21,
+          "gap": 1,
+          "probability": 0.08
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 17,
+          "gap": 1,
+          "probability": 0.155
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 11,
+          "gap": 1,
+          "probability": 0.195
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.435
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 30,
+          "gap": 0,
+          "probability": 0.021429
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 24,
+          "gap": 0,
+          "probability": 0.07
+        }
+      ]
+    },
+    {
+      "wins_at_least": 14,
+      "largest_absolute_rank_gap": 15,
+      "largest_gap_team": "SEA",
+      "largest_signed_gap": -15,
+      "teams_with_absolute_gap_at_least_6": 13,
+      "rows": [
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 2,
+          "gap": -15,
+          "probability": 0.2
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 3,
+          "gap": -12,
+          "probability": 0.185
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 16,
+          "gap": 12,
+          "probability": 0.09
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 7,
+          "gap": -11,
+          "probability": 0.145
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 8,
+          "gap": -11,
+          "probability": 0.145
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 15,
+          "gap": 10,
+          "probability": 0.095
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 13,
+          "gap": 10,
+          "probability": 0.11
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 4,
+          "gap": -9,
+          "probability": 0.175
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 11,
+          "gap": 9,
+          "probability": 0.125
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 23,
+          "gap": 9,
+          "probability": 0.04
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 14,
+          "gap": 6,
+          "probability": 0.1
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 32,
+          "gap": 6,
+          "probability": 0.013846
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 27,
+          "gap": 6,
+          "probability": 0.025
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 24,
+          "gap": -5,
+          "probability": 0.03
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 17,
+          "gap": 5,
+          "probability": 0.08
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 22,
+          "gap": -5,
+          "probability": 0.045
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 5,
+          "gap": -4,
+          "probability": 0.155
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 31,
+          "gap": 3,
+          "probability": 0.017442
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 19,
+          "gap": -3,
+          "probability": 0.065
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 29,
+          "gap": -3,
+          "probability": 0.02
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 10,
+          "gap": 3,
+          "probability": 0.13
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 9,
+          "gap": -2,
+          "probability": 0.135
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 18,
+          "gap": 2,
+          "probability": 0.08
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 28,
+          "gap": -2,
+          "probability": 0.021429
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 21,
+          "gap": -2,
+          "probability": 0.045
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 26,
+          "gap": 2,
+          "probability": 0.025
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 12,
+          "gap": 2,
+          "probability": 0.12
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 30,
+          "gap": -1,
+          "probability": 0.02
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 6,
+          "gap": 0,
+          "probability": 0.15
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 20,
+          "gap": 0,
+          "probability": 0.045
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.275
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 25,
+          "gap": 0,
+          "probability": 0.03
+        }
+      ]
+    },
+    {
+      "wins_at_least": 15,
+      "largest_absolute_rank_gap": 15,
+      "largest_gap_team": "SEA",
+      "largest_signed_gap": -15,
+      "teams_with_absolute_gap_at_least_6": 15,
+      "rows": [
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 2,
+          "gap": -15,
+          "probability": 0.125
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 5,
+          "gap": -14,
+          "probability": 0.095
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 30,
+          "gap": 10,
+          "probability": 0.015
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 12,
+          "gap": 10,
+          "probability": 0.065
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 14,
+          "gap": 10,
+          "probability": 0.055
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 4,
+          "gap": -9,
+          "probability": 0.095
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 23,
+          "gap": 9,
+          "probability": 0.03
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 3,
+          "gap": -8,
+          "probability": 0.11
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 21,
+          "gap": -8,
+          "probability": 0.03
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 16,
+          "gap": 8,
+          "probability": 0.04
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 17,
+          "gap": 8,
+          "probability": 0.04
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 32,
+          "gap": 8,
+          "probability": 0.01
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 11,
+          "gap": -7,
+          "probability": 0.065
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 10,
+          "gap": 7,
+          "probability": 0.075
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 26,
+          "gap": -6,
+          "probability": 0.02
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 25,
+          "gap": -5,
+          "probability": 0.021429
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 31,
+          "gap": 5,
+          "probability": 0.013846
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 22,
+          "gap": -5,
+          "probability": 0.03
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 19,
+          "gap": -4,
+          "probability": 0.035
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 8,
+          "gap": 3,
+          "probability": 0.075
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 15,
+          "gap": 3,
+          "probability": 0.04
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 28,
+          "gap": -3,
+          "probability": 0.02
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 24,
+          "gap": 3,
+          "probability": 0.025
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 20,
+          "gap": -2,
+          "probability": 0.032727
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 13,
+          "gap": -2,
+          "probability": 0.06
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 18,
+          "gap": 2,
+          "probability": 0.035
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 27,
+          "gap": 2,
+          "probability": 0.02
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 29,
+          "gap": 1,
+          "probability": 0.017442
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 7,
+          "gap": 1,
+          "probability": 0.085
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 6,
+          "gap": -1,
+          "probability": 0.09
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 9,
+          "gap": -1,
+          "probability": 0.075
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.16
+        }
+      ]
+    },
+    {
+      "wins_at_least": 16,
+      "largest_absolute_rank_gap": 19,
+      "largest_gap_team": "MIN",
+      "largest_signed_gap": 19,
+      "teams_with_absolute_gap_at_least_6": 17,
+      "rows": [
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 27,
+          "gap": 19,
+          "probability": 0.015
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 12,
+          "gap": -17,
+          "probability": 0.03
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 2,
+          "gap": -15,
+          "probability": 0.075
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 25,
+          "gap": 13,
+          "probability": 0.015
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 32,
+          "gap": 12,
+          "probability": 0.005
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 11,
+          "gap": -11,
+          "probability": 0.032727
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 15,
+          "gap": 11,
+          "probability": 0.03
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 17,
+          "gap": -10,
+          "probability": 0.03
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 3,
+          "gap": -8,
+          "probability": 0.045
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 24,
+          "gap": -8,
+          "probability": 0.015
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 22,
+          "gap": -8,
+          "probability": 0.021429
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 29,
+          "gap": 8,
+          "probability": 0.015
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 6,
+          "gap": -7,
+          "probability": 0.04
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 9,
+          "gap": 7,
+          "probability": 0.035
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 16,
+          "gap": 7,
+          "probability": 0.03
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 31,
+          "gap": 7,
+          "probability": 0.01
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 13,
+          "gap": -6,
+          "probability": 0.03
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 23,
+          "gap": -5,
+          "probability": 0.017442
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 19,
+          "gap": 4,
+          "probability": 0.025714
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 30,
+          "gap": 4,
+          "probability": 0.013846
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 7,
+          "gap": 4,
+          "probability": 0.04
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 18,
+          "gap": 4,
+          "probability": 0.03
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 28,
+          "gap": -3,
+          "probability": 0.015
+        },
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 8,
+          "gap": 2,
+          "probability": 0.035
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 5,
+          "gap": -2,
+          "probability": 0.045
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 20,
+          "gap": 2,
+          "probability": 0.025
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 14,
+          "gap": -2,
+          "probability": 0.03
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 21,
+          "gap": -2,
+          "probability": 0.025
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 4,
+          "gap": -1,
+          "probability": 0.045
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 26,
+          "gap": 1,
+          "probability": 0.015
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.075
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 10,
+          "gap": 0,
+          "probability": 0.035
+        }
+      ]
+    },
+    {
+      "wins_at_least": 17,
+      "largest_absolute_rank_gap": 19,
+      "largest_gap_team": "BUF",
+      "largest_signed_gap": 19,
+      "teams_with_absolute_gap_at_least_6": 18,
+      "rows": [
+        {
+          "team": "BUF",
+          "profile_rank": 6,
+          "tail_rank": 25,
+          "gap": 19,
+          "probability": 0.01
+        },
+        {
+          "team": "PIT",
+          "profile_rank": 27,
+          "tail_rank": 9,
+          "gap": -18,
+          "probability": 0.03
+        },
+        {
+          "team": "MIA",
+          "profile_rank": 30,
+          "tail_rank": 14,
+          "gap": -16,
+          "probability": 0.021429
+        },
+        {
+          "team": "GB",
+          "profile_rank": 12,
+          "tail_rank": 27,
+          "gap": 15,
+          "probability": 0.01
+        },
+        {
+          "team": "MIN",
+          "profile_rank": 8,
+          "tail_rank": 23,
+          "gap": 15,
+          "probability": 0.015
+        },
+        {
+          "team": "HOU",
+          "profile_rank": 19,
+          "tail_rank": 5,
+          "gap": -14,
+          "probability": 0.03
+        },
+        {
+          "team": "IND",
+          "profile_rank": 20,
+          "tail_rank": 32,
+          "gap": 12,
+          "probability": 0.005
+        },
+        {
+          "team": "KC",
+          "profile_rank": 2,
+          "tail_rank": 13,
+          "gap": 11,
+          "probability": 0.025
+        },
+        {
+          "team": "JAX",
+          "profile_rank": 16,
+          "tail_rank": 6,
+          "gap": -10,
+          "probability": 0.03
+        },
+        {
+          "team": "ARI",
+          "profile_rank": 28,
+          "tail_rank": 19,
+          "gap": -9,
+          "probability": 0.017442
+        },
+        {
+          "team": "ATL",
+          "profile_rank": 22,
+          "tail_rank": 31,
+          "gap": 9,
+          "probability": 0.005
+        },
+        {
+          "team": "BAL",
+          "profile_rank": 11,
+          "tail_rank": 20,
+          "gap": 9,
+          "probability": 0.015
+        },
+        {
+          "team": "DEN",
+          "profile_rank": 13,
+          "tail_rank": 4,
+          "gap": -9,
+          "probability": 0.03
+        },
+        {
+          "team": "CAR",
+          "profile_rank": 29,
+          "tail_rank": 21,
+          "gap": -8,
+          "probability": 0.015
+        },
+        {
+          "team": "NE",
+          "profile_rank": 9,
+          "tail_rank": 16,
+          "gap": 7,
+          "probability": 0.02
+        },
+        {
+          "team": "SF",
+          "profile_rank": 3,
+          "tail_rank": 10,
+          "gap": 7,
+          "probability": 0.03
+        },
+        {
+          "team": "CLE",
+          "profile_rank": 32,
+          "tail_rank": 26,
+          "gap": -6,
+          "probability": 0.01
+        },
+        {
+          "team": "NO",
+          "profile_rank": 23,
+          "tail_rank": 17,
+          "gap": -6,
+          "probability": 0.02
+        },
+        {
+          "team": "DAL",
+          "profile_rank": 7,
+          "tail_rank": 3,
+          "gap": -4,
+          "probability": 0.03
+        },
+        {
+          "team": "NYG",
+          "profile_rank": 24,
+          "tail_rank": 28,
+          "gap": 4,
+          "probability": 0.01
+        },
+        {
+          "team": "CHI",
+          "profile_rank": 5,
+          "tail_rank": 2,
+          "gap": -3,
+          "probability": 0.03
+        },
+        {
+          "team": "CIN",
+          "profile_rank": 15,
+          "tail_rank": 12,
+          "gap": -3,
+          "probability": 0.025714
+        },
+        {
+          "team": "DET",
+          "profile_rank": 18,
+          "tail_rank": 15,
+          "gap": -3,
+          "probability": 0.02
+        },
+        {
+          "team": "LAC",
+          "profile_rank": 4,
+          "tail_rank": 7,
+          "gap": 3,
+          "probability": 0.03
+        },
+        {
+          "team": "LV",
+          "profile_rank": 25,
+          "tail_rank": 22,
+          "gap": -3,
+          "probability": 0.015
+        },
+        {
+          "team": "NYJ",
+          "profile_rank": 26,
+          "tail_rank": 29,
+          "gap": 3,
+          "probability": 0.01
+        },
+        {
+          "team": "TB",
+          "profile_rank": 14,
+          "tail_rank": 11,
+          "gap": -3,
+          "probability": 0.03
+        },
+        {
+          "team": "WAS",
+          "profile_rank": 21,
+          "tail_rank": 24,
+          "gap": 3,
+          "probability": 0.015
+        },
+        {
+          "team": "PHI",
+          "profile_rank": 10,
+          "tail_rank": 8,
+          "gap": -2,
+          "probability": 0.03
+        },
+        {
+          "team": "SEA",
+          "profile_rank": 17,
+          "tail_rank": 18,
+          "gap": 1,
+          "probability": 0.02
+        },
+        {
+          "team": "TEN",
+          "profile_rank": 31,
+          "tail_rank": 30,
+          "gap": -1,
+          "probability": 0.01
+        },
+        {
+          "team": "LAR",
+          "profile_rank": 1,
+          "tail_rank": 1,
+          "gap": 0,
+          "probability": 0.035
+        }
+      ]
+    }
+  ]
+}

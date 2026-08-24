@@ -1,19 +1,19 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "season": 2026,
-  "source_capture_completed_at": "2026-08-24T16:50:01-04:00",
+  "source_capture_completed_at": "2026-08-24T18:32:22-04:00",
   "timezone": "America/New_York",
   "private_ingestion_read_only": true,
   "private_source_mutations": [],
   "raw_transcripts_published": false,
-  "selected_count": 6,
+  "selected_count": 7,
   "scoring_eligible_count": 4,
-  "preview_source_count": 2,
+  "preview_source_count": 3,
   "error_count": 0,
   "notes": [
     "Public provenance retains publisher links, canonical-source checksums, and aggregate counts without private-library identifiers or raw transcript text.",
-    "The two team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the four-category league profile.",
-    "The AFC episode available in the public publisher feed is Part 1, covering the AFC West and AFC East. It is not an entire-AFC ranking, and Part 2 remains pending.",
+    "The three team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the four-category league profile.",
+    "The paired AFC episodes now cover all 16 AFC teams: Part 1 covers the AFC West and AFC East, and Part 2 covers the AFC South and AFC North. Neither episode supplies a conference-wide 1–16 ranking.",
     "The AFC private-library item did not contain a creator transcript. A local machine working copy was derived from canonical publisher audio for analysis only and remains private.",
     "No private source item was moved, tagged, marked read, highlighted, annotated, or edited."
   ],
@@ -111,6 +111,26 @@
       "analysis_weight": 0,
       "market_aware": true,
       "creator_transcript_available": false
+    },
+    {
+      "source_id": "action-afc-preview-part-2",
+      "kind": "team-preview",
+      "title": "2026 AFC Betting Preview | Part 2",
+      "publisher": "Action Network / Pocket Casts",
+      "source_url": "https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/90a36c38-dfa8-4c87-b29a-897924118428/transcript",
+      "canonical_format": "creator transcript",
+      "sha256": "a03698474b4bf231bc0c3589552ece8d6aa79fa8fd5eaa691ec4456eb6941850",
+      "bytes": 98796,
+      "words": 17677,
+      "lines": 640,
+      "team_preview_coverage": 8,
+      "ranking_scheme": "partial-order",
+      "complete_ballots": 0,
+      "partial_ballots": 3,
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "market_aware": true,
+      "creator_transcript_available": true
     }
   ]
 }
