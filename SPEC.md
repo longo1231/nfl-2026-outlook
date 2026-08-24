@@ -169,6 +169,7 @@ Use public primary market pages or official market APIs when available. Store bo
 - stale/unavailable flag
 - executable Yes and No bid/ask, bid/ask size, spread, and ticker for exchange markets
 - raw and monotone bid, ask, and midpoint curves for complete ladders
+- exact-win probability mass for `W=0..17`, derived from adjacent monotone midpoint tails
 - league, conference, and division sums with a clear marginal-bound disclaimer
 
 No claim of betting value may be based on lines from mismatched retrieval times. Sparse ladders must not be stretched into false expected-win precision.
@@ -179,6 +180,7 @@ No claim of betting value may be based on lines from mismatched retrieval times.
 - Audit that tails are non-increasing.
 - Repair only actual violations with weighted non-increasing isotonic regression while preserving raw values.
 - Derive adjacent probability mass as `P(W = k) = P(W >= k) - P(W >= k+1)` where consecutive tails exist.
+- For complete ladders, expose all 18 exact-win masses, require each to be nonnegative, require their sum to equal one, and require their probability-weighted mean to reproduce tail-sum expected wins.
 - Report `E[W] = sum(P(W >= k), k=1..17)` only with complete coverage.
 - Otherwise report an observed median bound/bracket, or a visibly labeled modeled estimate only if a bounded discrete model and confidence score are documented.
 - For a complete Kalshi ladder, weight midpoint observations by inverse spread, project bid, ask, and midpoint tails separately, and sum each 17-tail curve.
@@ -229,12 +231,12 @@ The report is a responsive single-page study tool with persistent tab navigation
 
 1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
 2. **League Matrix** — all 32 teams with sortable QB, Coaching, OL, Skill, composite, ecosystem, balance, and market columns; conference/division filters.
-3. **Team Profiles** — searchable team cards showing all four ranks, people, source-derived positives/negatives/context, cross-category synthesis, and market snapshot.
+3. **Team Profiles** — searchable team cards showing all four ranks, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
 4. **Quarterbacks** — exact 1–32 ranking and full team-by-team QB evidence.
 5. **Coaching** — exact 1–32 ranking and all named staff, scheme, continuity, play-calling, and management evidence.
 6. **Offensive Lines** — exact 1–32 ranking and personnel, continuity, coaching, performance, depth, and injury evidence.
 7. **Skill Positions** — exact 1–32 ranking and every named receiver, tight end, running back, departure, depth note, and fit claim.
-8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, paired sportsbook prices, complete Kalshi ladder expected wins and bid/ask bounds, coverage, timestamps, executable-side scanner candidates, and Action input rank.
+8. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, executable-side scanner candidates, and direct links to team distributions. Sportsbook de-vigging appears only in the cross-market scanner and source methodology.
 9. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
 10. **Sources & QA** — episode/source cards, retrieval dates, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 

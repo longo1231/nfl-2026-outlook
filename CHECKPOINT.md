@@ -2,7 +2,7 @@
 
 ## Objective
 
-Maintain an evidence-complete, extensible study report from Action Network's 2026 NFL unit-ranking podcasts and compare the inputs with timestamped paired sportsbook prices and complete Kalshi team-win ladders.
+Maintain an evidence-complete, extensible study report from Action Network's 2026 NFL unit-ranking podcasts and compare the inputs with timestamped paired sportsbook prices and complete Kalshi team-win distributions.
 
 ## Current edition
 
@@ -23,6 +23,8 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Every sportsbook probability comes from a same-book paired Over/Under quote. Each pair is de-vigged independently before same-threshold consensus.
 - Complete Kalshi `KXNFLWINS` ladders supply the expected-win model and market rank. Midpoint, bid, and ask tails are projected separately to non-increasing order.
 - Kalshi E[W] is the 17-tail sum of the monotone midpoint curve. It is modeled from market prices, not a directly observed expected-win quote.
+- Exact-win density uses adjacent monotone midpoint differences for `W=0..17`. It must be nonnegative, sum to one, and reproduce E[W]; it is derived rather than an exact-win contract quote.
+- Team profiles and the main market table center the complete Kalshi distribution. Sportsbook line, de-vig, and median-bracket fields remain supporting scanner/methodology inputs rather than the primary market presentation.
 - Conference/division brackets sum marginal bid and ask curves. They are market-width bounds, not confidence intervals or joint portfolio guarantees.
 - Scanner rows compare exact sportsbook thresholds with the executable Kalshi ask for Yes or No. Displayed edge is pre-fee and excludes slippage.
 - Betting data is a timestamped research input, not a standings record, recommendation, or instruction to trade.
@@ -69,6 +71,8 @@ Exact transcript hashes and counts are in `data/sources/manifest.json`. Private-
 - Implemented separate monotone bid, ask, and inverse-spread-weighted midpoint curves; expected-win estimates; ranks; group totals; and exact-threshold executable-side comparisons.
 - Replaced the sportsbook ordinal market rank in the matrix, profiles, markets, and synthesis with the coverage-supported Kalshi modeled expected-win rank. The sparse sportsbook board remains visible as independent evidence.
 - Added league, conference, and division total-win cards plus a timestamped candidate table.
+- Added a responsive 18-bar exact-win density to every team profile with expected-win marker, mode, market rank, coverage, spread, and tail-sum range.
+- Simplified the division market tables to Kalshi E[W], distribution mode, peak probability, spread, coverage, and profile links; removed the redundant sportsbook median/de-vig columns.
 - Regenerated the self-contained offline `docs/index.html`; no server or external local asset is required.
 - Kept the frozen owner-only Sites v1 unchanged.
 
@@ -92,12 +96,13 @@ The sportsbook and Kalshi snapshots are about 40 minutes apart. The eight rows a
 
 - Content coverage: 128/128 team-category cells; 0 missing; 0 duplicates
 - Node tests: 11 passed, 0 failed (six sportsbook math plus five Kalshi/auth/aggregate/scanner tests)
+- Distribution audit: 32/32 teams have 18 nonnegative masses; maximum sum error `2.22e-16`; maximum density-mean versus stored E[W] difference `0.000476` wins from display rounding
 - ESLint: passed
 - TypeScript check: passed
 - Vite standalone production build: passed; one non-blocking >500 kB inline-bundle warning because the public snapshot is embedded
 - Standalone HTML: self-contained; no external local assets
-- Offline desktop: passed at 1440×1000; Win Markets view, eight division totals, eight candidate rows, and eight division tables rendered; no document overflow or browser errors
-- Offline mobile: passed at 390×844; no document overflow; 364→730 px candidate-board and 364→1220 px division-table scrolling; horizontal regions keyboard focusable
+- Offline desktop: passed at 1440×1000; every selected profile rendered 18 exact-win bars and its E[W] marker; Win Markets rendered eight division totals, eight candidate rows, and eight simplified distribution tables; no document overflow or browser errors
+- Offline mobile: passed at 390×844; 18-bar profiles fit without document overflow; 364→730 px candidate-board and 364→980 px division-table scrolling remained contained and keyboard focusable
 - Conference filter: AFC reduced eight division totals and tables to four
 - Automated accessibility: 0 WCAG A/AA violations; gradient-backed contrast remains manual-review-only and passed visual review
 - Public-tree privacy scan: passed; no absolute local path, private-key material, configured secret, private-library URL/ID, account/trading payload, or personal email matched

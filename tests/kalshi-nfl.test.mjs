@@ -43,6 +43,9 @@ test('a complete Kalshi ladder produces monotone tails and expected-win bounds',
   assert.equal(curve.monotonicity_audit.all_curves_monotone_after, true);
   assert.ok(curve.expected_wins.bid_bound < curve.expected_wins.midpoint_estimate);
   assert.ok(curve.expected_wins.midpoint_estimate < curve.expected_wins.ask_bound);
+  assert.equal(curve.win_distribution.length, 18);
+  assert.ok(Math.abs(curve.win_distribution.reduce((sum, point) => sum + point.probability, 0) - 1) < 1e-5);
+  assert.ok(Math.abs(curve.win_distribution.reduce((sum, point) => sum + point.wins * point.probability, 0) - curve.expected_wins.midpoint_estimate) < 1e-3);
 });
 
 test('conference and division totals sum complete team expected-win curves', () => {

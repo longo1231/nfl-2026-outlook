@@ -26,24 +26,17 @@ export type Evidence = {
 };
 
 export type Market = {
-  line: number;
-  over: string;
-  under: string;
-  book: string;
-  hold: number;
-  noVigOver: number;
-  medianBracket: string;
-  expectedWins: number | null;
+  expectedWins: number;
   coverageLabel: string;
-  confidence: string;
   thresholdCount: number;
-  pairedQuoteCount: number;
   marketRank: number;
   marketIndex: number;
-  sportsbookMarketRank: number;
   expectedWinsBid: number;
   expectedWinsAsk: number;
   kalshiAverageSpread: number;
+  distribution: { wins:number; probability:number }[];
+  modeWins: number;
+  modeProbability: number;
 };
 
 const E = (team: string, rank: number, tier: string, tierLabel: string, subject: string, people: string[], positives: string[], concerns: string[], context: string[], lines: [number, number]): Evidence => ({ team, rank, tier, tierLabel, subject, people, positives, concerns, context, lines });
@@ -79,46 +72,37 @@ export const kalshiMarketSource = {
   authenticated: kalshiSnapshot.source.authentication.verified,
 };
 
-type SnapshotTeam = {
-  primary: { line:number; reference_book:string; over_odds:number; under_odds:number; reference_hold:number; consensus_no_vig_over_probability:number };
-  fair_median_bracket: { display:string };
-  expected_wins: { value:number|null };
-  coverage: { label:string; confidence:string; threshold_count:number; paired_quote_count:number };
-  price_adjusted_market_rank:number;
-  price_adjusted_order_index:number;
-};
-
 type KalshiSnapshotTeam = {
   coverage: { threshold_count:number; all_17_tails:boolean };
   expected_wins: { midpoint_estimate:number; bid_bound:number; ask_bound:number };
   average_spread:number;
   expected_win_rank:number;
+  thresholds: { wins_at_least:number; adjusted_midpoint:number }[];
 };
 
-const snapshotTeams = marketSnapshot.teams as Record<string,SnapshotTeam>;
 const kalshiTeams = kalshiSnapshot.teams as Record<string,KalshiSnapshotTeam>;
-const american = (odds:number) => odds > 0 ? `+${odds}` : String(odds);
+const distributionFor = (team:KalshiSnapshotTeam) => {
+  const tails = [...team.thresholds].sort((a,b)=>a.wins_at_least-b.wins_at_least).map(threshold=>threshold.adjusted_midpoint);
+  const probabilities = [1-tails[0],...tails.slice(0,-1).map((tail,index)=>tail-tails[index+1]),tails.at(-1)!];
+  return probabilities.map((probability,wins)=>({ wins, probability:Math.max(0,Number(probability.toFixed(6))) }));
+};
 
-export const markets: Record<string, Market> = Object.fromEntries(Object.entries(snapshotTeams).map(([abbr,market]) => [abbr,{
-  line: market.primary.line,
-  over: american(market.primary.over_odds),
-  under: american(market.primary.under_odds),
-  book: market.primary.reference_book,
-  hold: market.primary.reference_hold,
-  noVigOver: market.primary.consensus_no_vig_over_probability,
-  medianBracket: market.fair_median_bracket.display,
-  expectedWins: kalshiTeams[abbr].expected_wins.midpoint_estimate,
-  expectedWinsBid: kalshiTeams[abbr].expected_wins.bid_bound,
-  expectedWinsAsk: kalshiTeams[abbr].expected_wins.ask_bound,
+export const markets: Record<string, Market> = Object.fromEntries(Object.entries(kalshiTeams).map(([abbr,market]) => {
+  const distribution = distributionFor(market);
+  const mode = distribution.reduce((best,point)=>point.probability>best.probability?point:best);
+  return [abbr,{
+  expectedWins: market.expected_wins.midpoint_estimate,
+  expectedWinsBid: market.expected_wins.bid_bound,
+  expectedWinsAsk: market.expected_wins.ask_bound,
   coverageLabel: 'Kalshi full ladder',
-  confidence: kalshiTeams[abbr].average_spread <= 0.05 ? 'high' : kalshiTeams[abbr].average_spread <= 0.10 ? 'medium' : 'low',
-  thresholdCount: kalshiTeams[abbr].coverage.threshold_count,
-  pairedQuoteCount: market.coverage.paired_quote_count,
-  marketRank: kalshiTeams[abbr].expected_win_rank,
-  marketIndex: kalshiTeams[abbr].expected_wins.midpoint_estimate,
-  sportsbookMarketRank: market.price_adjusted_market_rank,
-  kalshiAverageSpread: kalshiTeams[abbr].average_spread,
-}])) as Record<string,Market>;
+  thresholdCount: market.coverage.threshold_count,
+  marketRank: market.expected_win_rank,
+  marketIndex: market.expected_wins.midpoint_estimate,
+  kalshiAverageSpread: market.average_spread,
+  distribution,
+  modeWins: mode.wins,
+  modeProbability: mode.probability,
+}];})) as Record<string,Market>;
 
 export const sportsbookMarketAudit = marketSnapshot.audit;
 export const marketAudit = kalshiSnapshot.audit;

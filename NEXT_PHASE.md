@@ -4,7 +4,7 @@ Status: implemented on 2026-08-23; publication details are finalized in `CHECKPO
 
 ## Outcome
 
-The sparse sportsbook board remains a timestamped, same-book paired and de-vigged reference. Complete Kalshi team-win ladders now supply the coverage-supported expected-win estimates, market ranking, conference/division totals, and exact-threshold cross-market scan. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
+The sparse sportsbook board remains a timestamped, same-book paired and de-vigged input to the cross-market scan. Complete Kalshi team-win ladders now supply the coverage-supported expected-win estimates, 0–17 team-profile densities, market ranking, conference/division totals, and exact-threshold comparisons. The sanitized report remains a self-contained `docs/index.html`; the owner-only Sites v1 remains frozen and privately preserved.
 
 ## Exact market evidence
 
@@ -67,7 +67,7 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 - `scripts/scan-kalshi-nfl.mjs` — public market collection plus optional read-only auth check
 - `tests/kalshi-nfl.test.mjs` — authentication and market-model unit tests
 - `site/app/data.ts` — sportsbook/Kalshi report adapter
-- `site/app/page.tsx` — modeled wins, aggregate totals, and candidate board
+- `site/app/page.tsx` — team density charts, modeled wins, aggregate totals, and candidate board
 - `docs/index.html` — self-contained offline and Pages artifact
 
 ## Completion gates
@@ -75,6 +75,8 @@ The snapshot contains 102 side comparisons and eight passing candidates. Edge ex
 - [x] All 32 teams have 17 Kalshi win tails.
 - [x] Raw bid, ask, and midpoint evidence is retained; monotone adjusted curves are auditable.
 - [x] Expected wins are calculated only from complete ladders and visibly labeled modeled.
+- [x] Every team profile shows all 18 exact-win masses derived from adjacent monotone tails; the density sums to one and reproduces E[W].
+- [x] The main market table centers the Kalshi distribution; sportsbook median/de-vig fields are confined to the cross-market scanner and methodology.
 - [x] Conference and division totals derive from the same team curves.
 - [x] Scanner comparisons use executable asks and exact sportsbook thresholds.
 - [x] Filters, timestamps, fees/slippage caveat, and available size are visible.

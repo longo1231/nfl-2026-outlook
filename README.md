@@ -2,7 +2,7 @@
 
 An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts: quarterbacks, coaching staffs, offensive lines, and skill positions. It preserves the exact 1–32 rankings, team-level arguments, named personnel, qualifiers, public source locators, and clearly labeled cross-category synthesis.
 
-The current edition compares those inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. Sportsbook pairs are de-vigged independently; Kalshi bid, ask, and midpoint curves are audited and projected to monotone order. Expected wins, league/conference/division totals, and market rankings now come from complete Kalshi ladders and are explicitly labeled as modeled values rather than directly quoted market facts.
+The current edition compares those inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. Sportsbook pairs are de-vigged independently for the cross-market scanner; Kalshi bid, ask, and midpoint curves are audited and projected to monotone order. Team profiles show the full exact-win density from 0–17, while expected wins, league/conference/division totals, and market rankings come from the complete Kalshi distributions and remain explicitly labeled as modeled values.
 
 ## Current edition
 
@@ -23,7 +23,7 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 
 1. Executive briefing
 2. League matrix
-3. Team profiles
+3. Team profiles with 0–17 modeled win distributions
 4. Quarterbacks
 5. Coaching
 6. Offensive lines
@@ -57,7 +57,15 @@ Kalshi provides executable Yes bid and ask prices for every tail `P(W >= k)`, `k
 modeled E[W] = sum from k=1 to 17 of monotone midpoint P(W >= k)
 ```
 
-The market rank orders that modeled estimate. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
+Adjacent monotone tails produce the exact-win density:
+
+```text
+P(W = 0)  = 1 - P(W >= 1)
+P(W = k)  = P(W >= k) - P(W >= k+1)
+P(W = 17) = P(W >= 17)
+```
+
+Every team profile displays those 18 probability masses, their most likely exact-win outcome, and the expected-win marker. These are derived midpoint probabilities, not directly traded exact-win contracts. The market rank orders the modeled expected win value. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
 
 At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the source snapshots were captured about 40 minutes apart. Candidates are research prompts, not recommendations.
 
