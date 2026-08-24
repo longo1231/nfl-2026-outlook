@@ -10,7 +10,7 @@ Maintain an evidence-complete, eligibility-aware study report from 2026 NFL rank
 - Report build date: 2026-08-24
 - Content and market snapshots through: 2026-08-24
 - Public artifact: `docs/index.html`
-- Edition 4 published report artifact commit: pending publication
+- Edition 4 published report artifact commit: `b1be6fc3bc40abe333653b504a03d176b98062aa`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
 - Prior Edition 3 report artifact commit: `94c64a2594566d228f687abbd18cbd6c85a863e1`
 - Legacy edition: the owner-only Sites v1 remains frozen and preserved privately; it was not modified or deleted
@@ -117,7 +117,9 @@ The refreshed sportsbook and Kalshi snapshots were captured 33 seconds apart. Pr
 - Browser console: 0 warnings or errors
 - Public-tree privacy scan: passed; no private-library locator, raw transcript, local path, credential, key material, or account payload entered the artifact
 - Dependency audit: 0 vulnerabilities
-- GitHub Pages deployment: pending publication
+- GitHub Pages build: passed for artifact commit `b1be6fc3bc40abe333653b504a03d176b98062aa`; build completed `2026-08-24T22:00:16Z`
+- Deployed desktop/mobile and interactions: passed over HTTPS with zero console warnings or errors
+- Deployment verified: `2026-08-24T22:01:19Z` (`2026-08-24T18:01:19-04:00`)
 
 ## Blockers
 
@@ -125,4 +127,4 @@ None.
 
 ## Next action
 
-Publish Edition 4, verify the GitHub Pages URL on desktop/mobile, and replace the pending artifact commit above with the exact deployed commit. After that, acquire AFC Part 2 and the defensive-ranking episode when available, classify their coverage before weighting, and repeat the append-only market, sensitivity, audit, build, browser, privacy, and publication sequence.
+Acquire AFC Part 2 and the defensive-ranking episode when available, classify their coverage before weighting, and repeat the append-only market, sensitivity, audit, build, browser, privacy, and publication sequence.

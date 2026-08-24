@@ -88,7 +88,7 @@ Kalshi's summed team midpoint estimate is 275.322, 3.322 above the 272-game leag
 - [x] Weighted/equal sensitivity and all 17 tail comparisons were rerun.
 - [x] The self-contained Pages artifact was rebuilt.
 - [x] Offline desktop/mobile, accessibility, and privacy checks are recorded in `CHECKPOINT.md`.
-- [ ] The Edition 4 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
+- [x] The Edition 4 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
 
 ## Next content phase
 
