@@ -9,8 +9,9 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Edition: 3
 - Content and market date: 2026-08-23
 - Public artifact: `docs/index.html`
-- Published report artifact commit: `a416fa4494889b924c607e2f4c53df16964587e7`
+- Published report artifact commit: `82094d10ca1ae3f525ef8258fbd9f754451dae2a`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
+- Prior published Edition 3 market artifact commit: `a416fa4494889b924c607e2f4c53df16964587e7`
 - Prior published Edition 2 artifact commit: `5d512fd1bc39c6f143fe17dbd589abf4686c29b6`
 - Legacy edition: the owner-only Sites v1 remains frozen and preserved privately; it was not modified or deleted
 
@@ -107,11 +108,11 @@ The sportsbook and Kalshi snapshots are about 40 minutes apart. The eight rows a
 - Automated accessibility: 0 WCAG A/AA violations; gradient-backed contrast remains manual-review-only and passed visual review
 - Public-tree privacy scan: passed; no absolute local path, private-key material, configured secret, private-library URL/ID, account/trading payload, or personal email matched
 - Dependency audit: 0 vulnerabilities
-- GitHub Pages build: passed from `main:/docs` for artifact commit `a416fa4494889b924c607e2f4c53df16964587e7`; HTTPS URL returned Edition 3
-- Deployed desktop: passed at 1440×1000; 544 contracts, eight division totals, eight candidates, and eight division tables rendered with no document overflow or browser errors
-- Deployed mobile: passed at 390×844; no document overflow; 364→730 px candidate-board and 364→1220 px division-table scrolling; AFC filter reduced eight division totals/tables to four
+- GitHub Pages build: passed from `main:/docs` for artifact commit `82094d10ca1ae3f525ef8258fbd9f754451dae2a`; HTTPS URL returned Edition 3
+- Deployed desktop: passed at 1440×1000; selected profile rendered all 18 exact-win outcomes, modeled E[W], mode, rank, coverage, spread, and bid/ask tail-sum range with no document overflow or browser errors
+- Deployed mobile: passed at 390×844; no document overflow; the simplified nine-column market table contained its 364→980 px horizontal scroll; all 32 density links rendered; AFC reduced eight division totals/tables to four
 - Deployed accessibility: 0 automated WCAG A/AA violations; gradient-backed contrast remained manual-review-only and passed visual review
-- Deployment verified: `2026-08-23T23:38:04Z` (`2026-08-23T19:38:04-04:00`)
+- Deployment verified: `2026-08-24T01:22:35Z` (`2026-08-23T21:22:35-04:00`)
 
 ## Blockers
 
