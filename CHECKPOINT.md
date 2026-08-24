@@ -10,7 +10,7 @@ Maintain an evidence-complete, eligibility-aware study report from 2026 NFL rank
 - Report build date: 2026-08-24
 - Content and market snapshots through: 2026-08-24
 - Public artifact: `docs/index.html`
-- Edition 5 report artifact commit: pending publication
+- Edition 5 published report artifact commit: `d27aea0bd48409430e258133301ac28573dfca53`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
 - Prior Edition 4 report artifact commit: `b1be6fc3bc40abe333653b504a03d176b98062aa`
 - Prior Edition 3 report artifact commit: `94c64a2594566d228f687abbd18cbd6c85a863e1`
@@ -125,9 +125,9 @@ The refreshed sportsbook and Kalshi snapshots were captured 16 seconds apart. Pr
 - Browser console: 0 warnings or errors
 - Public-tree privacy scan: passed; no private-library locator, raw transcript, local path, credential, key material, or account payload entered the artifact
 - Dependency audit: 0 vulnerabilities
-- GitHub Pages build: pending Edition 5 publication
-- Deployed desktop/mobile and interactions: pending Edition 5 publication
-- Deployment verified: pending Edition 5 publication
+- GitHub Pages build: passed for artifact commit `d27aea0bd48409430e258133301ac28573dfca53`; workflow run https://github.com/longo1231/nfl-2026-outlook/actions/runs/32786113638 completed `2026-08-24T22:45:10Z`
+- Deployed desktop/mobile and interactions: passed over HTTPS with zero console warnings or errors
+- Deployment verified: `2026-08-24T22:45:58Z` (`2026-08-24T18:45:58-04:00`)
 
 ## Blockers
 
@@ -135,4 +135,4 @@ None.
 
 ## Next action
 
-Publish and record Edition 5. Then acquire the defensive-ranking episode when available, verify its complete 1–32 contract, propose its provisional importance before activation, and rerun the append-only market, sensitivity, audit, build, browser, privacy, and publication sequence. Revisit the full weighting model after all intended comparable sources arrive.
+Acquire the defensive-ranking episode when available, verify its complete 1–32 contract, propose its provisional importance before activation, and rerun the append-only market, sensitivity, audit, build, browser, privacy, and publication sequence. Revisit the full weighting model after all intended comparable sources arrive.

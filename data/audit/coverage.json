@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "edition": 5,
-  "generated_at": "2026-08-24T22:42:02Z",
-  "status": "local-pass-publication-pending",
+  "generated_at": "2026-08-24T22:45:58Z",
+  "status": "pass",
   "source_documents": 7,
   "scored_source_documents": 4,
   "preview_source_documents": 3,
@@ -89,10 +89,10 @@
       "desktop_pass": true,
       "mobile_pass": true,
       "semantic_control_audit_pass": true,
-      "deployed_pages_pass": false,
+      "deployed_pages_pass": true,
       "deployed_url": "https://longo1231.github.io/nfl-2026-outlook/",
-      "deployed_commit": null,
-      "deployed_verified_at": null
+      "deployed_commit": "d27aea0bd48409430e258133301ac28573dfca53",
+      "deployed_verified_at": "2026-08-24T22:45:58Z"
     }
   },
   "known_transcript_exceptions": [
