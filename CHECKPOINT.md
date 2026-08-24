@@ -10,8 +10,9 @@ Maintain an evidence-complete, extensible study report from Action Network's 202
 - Report build date: 2026-08-24
 - Content and market snapshots through: 2026-08-23
 - Public artifact: `docs/index.html`
-- Published report artifact commit: `82094d10ca1ae3f525ef8258fbd9f754451dae2a`
+- Published report artifact commit: `94c64a2594566d228f687abbd18cbd6c85a863e1`
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
+- Prior published Edition 3 distribution artifact commit: `82094d10ca1ae3f525ef8258fbd9f754451dae2a`
 - Prior published Edition 3 market artifact commit: `a416fa4494889b924c607e2f4c53df16964587e7`
 - Prior published Edition 2 artifact commit: `5d512fd1bc39c6f143fe17dbd589abf4686c29b6`
 - Legacy edition: the owner-only Sites v1 remains frozen and preserved privately; it was not modified or deleted
@@ -121,11 +122,11 @@ The sportsbook and Kalshi snapshots are about 40 minutes apart. The eight rows a
 - Conference filter: AFC reduced eight division totals and tables to four
 - Public-tree privacy scan: passed; no absolute local path, private-key material, configured secret, private-library URL/ID, account/trading payload, or personal email matched
 - Dependency audit: 0 vulnerabilities
-- GitHub Pages build: passed from `main:/docs` for artifact commit `82094d10ca1ae3f525ef8258fbd9f754451dae2a`; HTTPS URL returned Edition 3
-- Deployed desktop: passed at 1440×1000; selected profile rendered all 18 exact-win outcomes, modeled E[W], mode, rank, coverage, spread, and bid/ask tail-sum range with no document overflow or browser errors
-- Deployed mobile: passed at 390×844; no document overflow; the simplified nine-column market table contained its 364→980 px horizontal scroll; all 32 density links rendered; AFC reduced eight division totals/tables to four
-- Deployed accessibility: 0 automated WCAG A/AA violations; gradient-backed contrast remained manual-review-only and passed visual review
-- Deployment verified: `2026-08-24T01:22:35Z` (`2026-08-23T21:22:35-04:00`)
+- GitHub Pages build: passed from `main:/docs` for artifact commit `94c64a2594566d228f687abbd18cbd6c85a863e1`; HTTPS URL returned Edition 3
+- Deployed desktop: passed at 1440×1000; four default weights, 17 tail choices, 32 comparison rows, two ≥5-rank sensitivity movers, and eight separate scanner candidates rendered with no document overflow or browser errors
+- Deployed mobile: passed at 390×844; no document overflow; the 364→1180 px analysis table and 364→730 px scanner scroll remained contained; equal-weight, restore, threshold selection, and Win Markets separation behaved correctly
+- Deployed accessibility: all new controls remained semantically named and keyboard-addressable; sampled contrast remained at least 6.12:1; no console warnings or errors
+- Deployment verified: `2026-08-24T15:29:32Z` (`2026-08-24T11:29:32-04:00`)
 
 ## Blockers
 

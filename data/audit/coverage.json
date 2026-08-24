@@ -59,10 +59,11 @@
       "offline_browser_pass": true,
       "desktop_pass": true,
       "mobile_pass": true,
-      "wcag_a_aa_violations": 0,
+      "semantic_control_audit_pass": true,
+      "minimum_sampled_contrast_ratio": 6.12,
       "deployed_pages_pass": true,
       "deployed_url": "https://longo1231.github.io/nfl-2026-outlook/",
-      "deployed_verified_at": "2026-08-24T01:22:35Z"
+      "deployed_verified_at": "2026-08-24T15:29:32Z"
     }
   },
   "known_transcript_exceptions": [
