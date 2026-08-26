@@ -1,18 +1,21 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "season": 2026,
-  "source_capture_completed_at": "2026-08-24T18:32:22-04:00",
+  "source_capture_completed_at": "2026-08-26T11:59:10-04:00",
   "timezone": "America/New_York",
   "private_ingestion_read_only": true,
   "private_source_mutations": [],
   "raw_transcripts_published": false,
-  "selected_count": 7,
-  "scoring_eligible_count": 4,
-  "preview_source_count": 3,
+  "selected_count": 10,
+  "scoring_eligible_count": 6,
+  "preview_source_count": 4,
   "error_count": 0,
   "notes": [
     "Public provenance retains publisher links, canonical-source checksums, and aggregate counts without private-library identifiers or raw transcript text.",
-    "The three team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the four-category league profile.",
+    "The four team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the six-category league profile.",
+    "The offense and defense episodes each preserve a complete unique 1–32 ranking contract and are scoring-eligible.",
+    "Default weights are adjustable reasoned priors, not learned or market-fitted coefficients: QB 25, coaching 15, offensive line 11, skill positions 8, offense 11 and defense 30.",
+    "QB, offensive line, skill positions and the composite offense episode share a fixed 55-point offensive-family budget because the offense methodology explicitly reuses those inputs. Its 11 points represent interaction and schedule context rather than an independent category-sized block.",
     "The paired AFC episodes now cover all 16 AFC teams: Part 1 covers the AFC West and AFC East, and Part 2 covers the AFC South and AFC North. Neither episode supplies a conference-wide 1–16 ranking.",
     "The AFC private-library item did not contain a creator transcript. A local machine working copy was derived from canonical publisher audio for analysis only and remains private.",
     "No private source item was moved, tagged, marked read, highlighted, annotated, or edited."
@@ -30,7 +33,8 @@
       "lines": 2410,
       "rank_coverage": 32,
       "scoring_eligible": true,
-      "analysis_weight": 40
+      "analysis_weight": 25,
+      "dependency_group": "offense-family"
     },
     {
       "category_id": "coaching",
@@ -45,7 +49,8 @@
       "rank_coverage": 32,
       "publication_metadata_trusted": false,
       "scoring_eligible": true,
-      "analysis_weight": 25
+      "analysis_weight": 15,
+      "dependency_group": "cross-unit"
     },
     {
       "category_id": "offensive-line",
@@ -59,7 +64,8 @@
       "lines": 2680,
       "rank_coverage": 32,
       "scoring_eligible": true,
-      "analysis_weight": 20
+      "analysis_weight": 11,
+      "dependency_group": "offense-family"
     },
     {
       "category_id": "skill-positions",
@@ -73,7 +79,44 @@
       "lines": 2743,
       "rank_coverage": 32,
       "scoring_eligible": true,
-      "analysis_weight": 15
+      "analysis_weight": 8,
+      "dependency_group": "offense-family"
+    },
+    {
+      "category_id": "offense",
+      "kind": "unit-ranking",
+      "title": "2026 NFL Rankings | Offenses",
+      "publisher": "Action Network / Pocket Casts",
+      "source_url": "https://pca.st/episode/1751101d-c30c-48a5-8f8c-3b3295b7de40",
+      "canonical_format": "creator transcript",
+      "sha256": "1eb89c29aa90db83c181f543c713064c6f3a68725f9ddcb39cf4ef4615fd46b1",
+      "bytes": 77295,
+      "words": 14130,
+      "lines": 458,
+      "rank_coverage": 32,
+      "unique_ranks_1_to_32": true,
+      "scoring_eligible": true,
+      "analysis_weight": 11,
+      "dependency_group": "offense-family",
+      "dependence_treatment": "interaction-and-schedule overlay within the fixed 55-point offensive-family budget"
+    },
+    {
+      "category_id": "defense",
+      "kind": "unit-ranking",
+      "title": "2026 NFL Rankings | Defenses",
+      "publisher": "Action Network / Pocket Casts",
+      "source_url": "https://pca.st/episode/133f5528-1659-4afb-8b6b-65796e0f279b",
+      "canonical_format": "creator transcript",
+      "sha256": "84fc0819682533cd017f14cbd31894c49dc8f5534d0facdd2ca10d160c795eb0",
+      "bytes": 78810,
+      "words": 14206,
+      "lines": 486,
+      "rank_coverage": 32,
+      "unique_ranks_1_to_32": true,
+      "scoring_eligible": true,
+      "analysis_weight": 30,
+      "dependency_group": "defense-family",
+      "volatility_note": "The source explicitly warns that defense is volatile and expresses much higher confidence at the extremes than in the middle."
     },
     {
       "source_id": "nfc-east-ringer-wise-guys",
@@ -127,6 +170,26 @@
       "ranking_scheme": "partial-order",
       "complete_ballots": 0,
       "partial_ballots": 3,
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "market_aware": true,
+      "creator_transcript_available": true
+    },
+    {
+      "source_id": "nfc-north-ringer-wise-guys",
+      "kind": "team-preview",
+      "title": "NFC North Preview! | Ringer Wise Guys",
+      "publisher": "The Ringer / Pocket Casts",
+      "source_url": "https://pca.st/episode/70b63519-1ee6-49e1-be4a-e925631a151b",
+      "canonical_format": "creator transcript",
+      "sha256": "a9887e6914b664bb9f8f3614598dd0d6fc9ea5140fbe9938dfbb61881f376e91",
+      "bytes": 81275,
+      "words": 14676,
+      "lines": 578,
+      "team_preview_coverage": 4,
+      "ranking_scheme": "multi-ballot-division",
+      "complete_ballots": 3,
+      "withheld_ballots": 1,
       "scoring_eligible": false,
       "analysis_weight": 0,
       "market_aware": true,

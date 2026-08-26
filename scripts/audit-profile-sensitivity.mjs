@@ -9,22 +9,18 @@ if (!marketPath || !outputPath) {
 }
 
 const categoryContract = [
-  { id: 'qb', exportName: 'qbEvidence', analysisWeight: 40 },
-  { id: 'coaching', exportName: 'coachingEvidence', analysisWeight: 25 },
-  { id: 'ol', exportName: 'olEvidence', analysisWeight: 20 },
-  { id: 'skill', exportName: 'skillEvidence', analysisWeight: 15 },
+  { id: 'qb', rankingFile: '2026-qb.json', analysisWeight: 25 },
+  { id: 'coaching', rankingFile: '2026-coaching.json', analysisWeight: 15 },
+  { id: 'ol', rankingFile: '2026-offensive-line.json', analysisWeight: 11 },
+  { id: 'skill', rankingFile: '2026-skill-positions.json', analysisWeight: 8 },
+  { id: 'offense', rankingFile: '2026-offense.json', analysisWeight: 11 },
+  { id: 'defense', rankingFile: '2026-defense.json', analysisWeight: 30 },
 ];
 
-const dataSource = await readFile(resolve('site/app/data.ts'), 'utf8');
 const categoryRanks = {};
 for (const category of categoryContract) {
-  const start = dataSource.indexOf(`export const ${category.exportName}: Evidence[] = [`);
-  const end = dataSource.indexOf('\n];', start);
-  if (start < 0 || end < 0) throw new Error(`Could not find ${category.exportName}`);
-  const ranks = {};
-  for (const match of dataSource.slice(start, end).matchAll(/E\('([A-Z]{2,3})',(\d+),/g)) {
-    ranks[match[1]] = Number(match[2]);
-  }
+  const ranking = JSON.parse(await readFile(resolve('data/rankings', category.rankingFile), 'utf8'));
+  const ranks = Object.fromEntries(ranking.order.map((team, index)=>[team,index+1]));
   if (Object.keys(ranks).length !== 32 || new Set(Object.values(ranks)).size !== 32) {
     throw new Error(`${category.id} must contain 32 unique ranks`);
   }

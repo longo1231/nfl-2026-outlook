@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "season": 2026,
-  "generated_at": "2026-08-24T18:32:22-04:00",
+  "generated_at": "2026-08-26T11:59:10-04:00",
   "methodology": "Team-preview episodes are retained as scoped qualitative evidence. They enter league scoring only after a comparable full-league ranking or score contract exists. Market-aware preview evidence is never used to manufacture an independent market edge.",
   "sources": [
     {
@@ -479,6 +479,143 @@
           ],
           "context": [
             "The speakers leaned under but did not state a Browns division finish; one late comment mentioned under 3.5 as the only possible play rather than a completed bet."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nfc-north-ringer-wise-guys",
+      "label": "NFC North Preview! | Ringer Wise Guys",
+      "short": "NFC North",
+      "publisher": "The Ringer",
+      "kind": "team-preview",
+      "coverage_mode": "division",
+      "covered_teams": ["DET", "GB", "CHI", "MIN"],
+      "ranking_scheme": "multi-ballot-division",
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "analysis_rationale": "Four-team, explicitly market-aware divisional preview with three complete speaker ballots and no comparable league-wide contract. Win totals, prices, projections and discussion order remain outside the ranking field.",
+      "market_aware": true,
+      "source": {
+        "url": "https://pca.st/episode/27c4c51e-a87a-4a3f-82f4-9b21aa3cc6c7",
+        "format": "creator transcript",
+        "captured_at": "2026-08-26",
+        "words": 14676,
+        "lines": 578,
+        "sha256": "a9887e6914b664bb9f8f3614598dd0d6fc9ea5140fbe9938dfbb61881f376e91"
+      },
+      "ballots": [
+        {
+          "speaker": "Raheem Palmer",
+          "scope": "NFC North exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "DET"},
+            {"rank": 2, "team": "MIN"},
+            {"rank": 3, "team": "CHI"},
+            {"rank": 4, "team": "GB"}
+          ]
+        },
+        {
+          "speaker": "Joe House",
+          "scope": "NFC North exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "DET"},
+            {"rank": 2, "team": "MIN"},
+            {"rank": 3, "team": "GB"},
+            {"rank": 4, "team": "CHI"}
+          ]
+        },
+        {
+          "speaker": "Anthony Dabbundo",
+          "scope": "NFC North exact finish",
+          "complete": true,
+          "positions": [
+            {"rank": 1, "team": "GB"},
+            {"rank": 2, "team": "CHI"},
+            {"rank": 3, "team": "MIN"},
+            {"rank": 4, "team": "DET"}
+          ]
+        }
+      ],
+      "ambiguities": [
+        "Cousin Sal said he was saving his picks for another show and did not state a complete or partial division ballot; none is inferred.",
+        "Several personnel and coach names are inconsistently transcribed, including variants around Detroit's secondary, Green Bay's staff and receivers, Chicago's departing defensive backs and Minnesota's line additions.",
+        "One Green Bay discussion alternates between Carolina and Cleveland when describing a large-favorite loss; the opponent is not silently reconstructed.",
+        "The episode mixes several FanDuel totals and alternate totals. Every recorded opinion remains tied to the threshold actually stated by that speaker.",
+        "Discussion order, odds, projected wins, preferred wagers and division-winner prices are not converted into ballot positions."
+      ],
+      "teams": [
+        {
+          "team": "DET",
+          "positives": [
+            "The league's easiest schedule, fourth-place draw and six games against the AFC East/NFC South underdogs create a strong baseline.",
+            "A plus-68 point differential, only 29% fumble recovery, 31st-ranked adjusted games lost and a 3–5 one-score record all support a health-and-luck rebound.",
+            "Jahmyr Gibbs, Amon-Ra St. Brown and Jameson Williams preserve explosive-play upside against weak defenses."
+          ],
+          "concerns": [
+            "The offense fell to seventeenth in success rate after Ben Johnson left and remained seventeenth after Dan Campbell reclaimed play calling.",
+            "Interior protection, the post-Montgomery run game, Jared Goff under pressure and the loss of easy-button offense create a boom-or-bust profile.",
+            "The defense generated below-average pressure and has unresolved Brian Branch/Kerby Joseph availability in the secondary."
+          ],
+          "context": [
+            "House and Palmer preferred over 10.5 wins; Dabbundo preferred under 10.5 and said the competitive window may have closed.",
+            "House and Palmer selected Detroit to win the division at the stated price; Dabbundo used Detroit fourth in his exact-finish long shot.",
+            "Palmer and House placed Detroit first; Dabbundo placed it fourth."
+          ]
+        },
+        {
+          "team": "GB",
+          "positives": [
+            "Dabbundo cited Jordan Love as one of four quarterbacks with consistently elite EPA/play since 2021 and credited Matt LaFleur with a top-ten offensive floor.",
+            "Tucker Kraft's return and healthy Christian Watson/Jayden Reed outcomes preserve a top-seven-to-eight offensive ceiling.",
+            "A soft early schedule gives Micah Parsons time to return before the tougher part of the season."
+          ],
+          "concerns": [
+            "House and Palmer described major offensive-line and defensive-front deterioration, a thinner receiver room and a defense that collapsed after Parsons was hurt.",
+            "Parsons may not return until roughly Week 6 and may not be fully himself until later; the corners and special teams remain weak.",
+            "Green Bay lost its final four games, had a roughly 9.3-win Pythagorean expectation and repeatedly failed as a large favorite."
+          ],
+          "context": [
+            "House and Palmer preferred under 9.5 wins after the market moved from 10.5; Dabbundo preferred over 9.5.",
+            "House also discussed under 8.5 and a third-place/miss-playoffs position; those are wagers, not ballot evidence.",
+            "Dabbundo placed Green Bay first; House placed it third; Palmer placed it fourth."
+          ]
+        },
+        {
+          "team": "CHI",
+          "positives": [
+            "Ben Johnson and Caleb Williams support an elite offensive ceiling after Williams approached 4,000 passing yards and improved his sack avoidance.",
+            "Dabbundo argued the offense can remain strong enough to support an aggressive, turnover-seeking defense against weaker opponents."
+          ],
+          "concerns": [
+            "The defense allowed the highest explosive-play rate, ranked near the bottom in success, line yards and pressure, and relied on turnovers to survive.",
+            "A plus-22 turnover differential, 9–0 record with multiple takeaways, 3–7 record without them and unusually favorable fumble recoveries are major regression signals.",
+            "Secondary departures/injuries and limited front-seven talent make another high-variance season likely."
+          ],
+          "context": [
+            "House and Palmer preferred under 9.5 wins; Dabbundo preferred over 9.5 as a bet on Johnson and the offensive floor.",
+            "Palmer placed Chicago third; Dabbundo placed it second; House placed it fourth.",
+            "The speakers separated a plausible 10-win regular-season path from the defense's ability to hold up against elite playoff quarterbacks."
+          ]
+        },
+        {
+          "team": "MIN",
+          "positives": [
+            "All three analysts preferred over 8.5 wins because average Kyler Murray play would be a major upgrade over the prior quarterback room.",
+            "Brian Flores supplies a high defensive floor, while Justin Jefferson, the line and the broader skill group give the offense substantial upside.",
+            "The closing schedule offers several favorable games if Minnesota survives the difficult middle stretch."
+          ],
+          "concerns": [
+            "Murray's downfield fit, age-related rushing decline and second-half career split create scheme and durability risk.",
+            "The defense lost meaningful pass-rush talent, and Dabbundo warned that blowout performances may overstate its median level.",
+            "Weeks 8–11 against Detroit, Buffalo, Green Bay and San Francisco create a concentrated stress test."
+          ],
+          "context": [
+            "House and Palmer treated the over as a relatively direct quarterback-upgrade case; Dabbundo called it a soft over and preferred the wider tail outcomes.",
+            "Dabbundo selected Minnesota as his division-winner long shot but placed it third in the exact-finish ballot.",
+            "Palmer and House placed Minnesota second; all three speakers chose under 2.5 J.J. McCarthy starts in an informal hypothetical."
           ]
         }
       ]

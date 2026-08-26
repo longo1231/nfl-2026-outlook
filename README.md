@@ -1,17 +1,17 @@
 # 2026 NFL Outlook Field Guide
 
-An evidence-first study report built from four Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, and skill positions—plus three scoped team-preview episodes covering the NFC East and all four AFC divisions. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
+An evidence-first study report built from six Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, skill positions, offenses, and defenses—plus four scoped team-preview episodes covering the NFC East, NFC North, and all four AFC divisions. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
 
-The current edition compares the four complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The three market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich 20 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
+The current edition compares the six complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The four market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich 24 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
 
 ## Current edition
 
-- Edition: 5
-- Data through: 2026-08-24
-- Editorial coverage: 128 of 128 scoring cells plus three zero-weight preview sources covering 20 unique teams
-- Sportsbook coverage: 32 of 32 teams with paired primary quotes; 14 teams with multiple observed thresholds
+- Edition: 6
+- Data through: 2026-08-26
+- Editorial coverage: 192 of 192 scoring cells plus four zero-weight preview sources covering 24 unique teams
+- Sportsbook coverage: 32 of 32 teams with paired primary quotes; 13 teams with multiple observed thresholds
 - Kalshi coverage: 544 open contracts; 32 of 32 teams with all 17 tails; 32 teams with coverage-supported expected-win estimates
-- Cross-market scan: 92 executable-side comparisons; 4 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
+- Cross-market scan: 90 executable-side comparisons; 8 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
 - Publication surface: `docs/index.html`
 - Published report: https://longo1231.github.io/nfl-2026-outlook/
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
@@ -28,15 +28,17 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 5. Coaching
 6. Offensive lines
 7. Skill positions
-8. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for 20 teams
-9. Kalshi ladders, exact-win distributions, and group win totals
-10. Analysis vs Market: adjustable scored-category weights, full-league tail disagreements, scoped preview-ballot comparisons, and a separate cross-market scanner
-11. Cross-category synthesis
-12. Sources and QA
+8. Offenses
+9. Defenses
+10. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for 24 teams
+11. Kalshi ladders, exact-win distributions, and group win totals
+12. Analysis vs Market: adjustable scored-category weights, full-league tail disagreements, scoped preview-ballot comparisons, and a separate cross-market scanner
+13. Cross-category synthesis
+14. Sources and QA
 
-The default podcast profile converts each ordinal rank to a 0–100 strength percentile, then applies provisional importance points: quarterback 40, coaching 25, offensive line 20, and skill positions 15. The interface exposes those weights, lets the reader adjust them, and shows the equal-weight rank as a sensitivity reference. This is an incomplete analytical ordering—not a power rating, win forecast, calibrated probability, or bet recommendation.
+The default podcast profile converts each ordinal rank to a 0–100 strength percentile, then applies adjustable reasoned-prior importance points: quarterback 25, coaching 15, offensive line 11, skill positions 8, offense 11, and defense 30. No coefficient is learned from outcomes, sportsbook prices, or Kalshi. QB, line, skill, and the composite offense episode share a fixed 55-point offensive-family budget because the offense methodology explicitly reuses those inputs; the offense weight represents interaction and schedule context rather than a second full independent signal. The interface exposes every default and rationale and retains equal weight as a sensitivity stress test. This remains an incomplete analytical ordering—not a power rating, win forecast, calibrated probability, or bet recommendation.
 
-Every editorial source records its kind, coverage mode, covered teams, ranking scheme, scoring eligibility, analysis weight, market awareness, evidence, audit, and rationale. Only a complete, unique, comparable league-wide 1–32 rank or score contract can enter the profile. A partial or market-aware preview remains visible at weight 0; completing a set of previews does not make it scoreable unless the combined series supplies a stable comparable league-wide contract.
+Every editorial source records its kind, coverage mode, covered teams, ranking scheme, scoring eligibility, analysis weight, dependence group, market awareness, evidence, audit, and rationale. Only a complete, unique, comparable league-wide 1–32 rank or score contract can enter the profile, and eligibility does not remove the need to audit dependence. A partial or market-aware preview remains visible at weight 0; completing a set of previews does not make it scoreable unless the combined series supplies a stable comparable league-wide contract.
 
 ## Podcast × Kalshi method
 
@@ -81,7 +83,9 @@ P(W = 17) = P(W >= 17)
 
 Every team profile displays those 18 probability masses, their most likely exact-win outcome, and the expected-win marker. These are derived midpoint probabilities, not directly traded exact-win contracts. The market rank orders the modeled expected win value. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
 
-At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the refreshed source snapshots were captured 16 seconds apart. Candidates are research prompts, not recommendations.
+At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the refreshed source snapshots were captured 25.058 seconds apart. Candidates are research prompts, not recommendations.
+
+The fresh Kalshi marginal midpoint sum is 272.693 wins, or 0.693 above the 272-game league ceiling. The report preserves that aggregate incoherence as a calibration warning rather than forcing individually estimated team curves to sum to a coherent joint league distribution.
 
 ## Reproduce and test
 
@@ -143,7 +147,7 @@ For a new editorial episode:
 1. Acquire the canonical transcript read-only and preserve a private immutable snapshot plus hash.
 2. Classify coverage and ranking scheme before interpretation. Preserve any exact ballot and never convert discussion order, projections, prior finish, or odds into a ranking.
 3. Extract every substantive positive, concern, qualifier, comparison, named person, methodological rule, and source locator.
-4. Register the source with its coverage, scoring eligibility, market-awareness flag, weight, and rationale. Only a comparable full-league contract can receive nonzero weight.
+4. Register the source with its coverage, scoring eligibility, market-awareness flag, dependence group, weight, and rationale. Only a comparable full-league contract can receive nonzero weight, and every new eligible source requires a dependence audit.
 5. Add a new timestamped paired market snapshot without overwriting history.
 6. Capture a new append-only Kalshi ladder snapshot, recompute expected wins, group totals, market ranks, tail gaps, and exact-threshold comparisons.
 7. Run the content audit, market tests, Vite build, privacy scan, and desktop/mobile browser checks.
@@ -162,5 +166,8 @@ For a new editorial episode:
 - AFC Part 1 covers the AFC West and AFC East. It states one complete AFC East ballot, one partial ballot, and no AFC West finish order.
 - AFC Part 2 has a complete creator transcript covering the AFC South and AFC North. Its exact numeric Houston/Jacksonville projection passages are garbled, so they remain unresolved; only three clearly stated winner-only ballots are retained.
 - The two AFC episodes cover all 16 conference teams but do not state a comparable 1–16 AFC ranking, so both remain weight 0.
+- The offense creator transcript contains several phonetically garbled personnel and coach references. They remain disclosed in evidence context; no uncertain name is silently substituted.
+- The defense creator transcript contains scattered garbled names and one implausible Ravens return reference. A brief Rams “No. 4” slip is resolved only because the explicit list and top-ten recap both establish Baltimore fourth and the Rams fifth.
+- The NFC North creator transcript supplies three complete, speaker-specific division ballots. Cousin Sal explicitly withheld his picks for another show, so no ballot—complete or partial—is inferred for him.
 
 Market information is a timestamped research input, not advice or an instruction to place a wager. Prices can move after capture.

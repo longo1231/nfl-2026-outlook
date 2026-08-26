@@ -1,106 +1,92 @@
-# Completed phase: AFC Part 2, full AFC preview coverage, and weighting guardrails
+# 2026 NFL Outlook Field Guide — next phase
 
-Status: implemented through 2026-08-24; exact publication details are finalized in `CHECKPOINT.md`.
+Status: Edition 6 integration complete through 2026-08-26; publication details are finalized in `CHECKPOINT.md`.
 
-## Outcome
+## Completed source expansion
 
-The new `2026 AFC Betting Preview | Part 2` item was ingested through the configured private-library workflow without mutation. Its complete creator/Reader transcript was privately snapshotted and hashed before interpretation. Part 2 covers the AFC South and AFC North, completing team-level AFC preview coverage when paired with Part 1.
+- Verified the recent full non-feed private Reader library read-only against the private provenance manifest.
+- Confirmed exactly three relevant unincorporated 2026 NFL items: `2026 NFL Rankings | Offenses`, `2026 NFL Rankings | Defenses`, and `NFC North Preview! | Ringer Wise Guys`.
+- Confirmed one canonical copy of each, no season mismatch, no duplicate copy, and no other relevant unincorporated 2026 NFL transcript after broad and exact-title searches.
+- Privately snapshotted and hashed each complete creator transcript before interpretation. No Reader item was moved, archived, tagged, edited, marked read/seen, highlighted, annotated, or otherwise mutated.
+- Added sanitized provenance without private-library identifiers, raw transcript text, local paths, or private metadata.
 
-All three preview sources enter the editorial registry as market-aware `team-preview` evidence with partial coverage, `scoring_eligible=false`, and analysis weight 0. They enrich 20 covered team profiles, a dedicated Team Previews tab, and a separate scoped preview-ballot versus Kalshi-tail module. The two AFC episodes cover all 16 conference teams but do not state a comparable 1–16 order or scoring contract, so they do not change the four-category league profile or the market-versus-market scanner.
+## Scoring contracts and dependence model
 
-## Source-eligibility and weighting contract
+- Offenses and Defenses each preserve a complete, unique league-wide 1–32 contract and are scoring-eligible.
+- The six scored category defaults are QB 25, Coaching 15, Offensive Line 11, Skill Positions 8, Offense 11, and Defense 30.
+- These are adjustable reasoned priors, not learned coefficients and not fitted to outcomes, sportsbook prices, or Kalshi.
+- QB, line, skill, and offense share a fixed 55-point offensive-family budget. The composite offense source explicitly depends on QB, offensive line, skill positions, offensive play calling, and schedule-adjusted DVOA context, so its 11 points are an interaction/schedule overlay rather than an independent category-sized block.
+- Defense receives 30 points as the only dedicated defensive unit source, with its own volatility caveat. Cross-unit coaching receives 15 because it overlaps both unit composites.
+- Equal weight remains available as a deliberate sensitivity stress test that ignores the default dependence correction.
+- Defense is now represented. Special teams, an independent schedule model, and changing injury information remain missing dimensions.
 
-- Every source declares `kind`, `coverage_mode`, `covered_teams`, `ranking_scheme`, `scoring_eligible`, `analysis_weight`, and `market_aware`.
-- Current scored categories remain QB 40, Coaching 25, Offensive Line 20, and Skill Position 15.
-- A source can enter league scoring only with complete, unique, comparable full-league coverage and a stable ordinal or score contract.
-- A set of division previews is not automatically scoreable merely because all teams eventually appear. The combined series must also use a comparable league-wide ranking or scoring method.
-- Market-aware preview evidence never manufactures an independent Podcast × Kalshi edge; it is shown in a separate scoped comparison.
-- Exact speaker ballots remain distinct. Discussion order, opening odds, prior finish, projections, and bets are not promoted into rankings.
-- Transcription ambiguity is disclosed. Uncertain names and sequences are omitted or left unresolved rather than silently repaired.
+## NFC North preview contract
 
-## Exact source treatment
+- Registered as a market-aware `team-preview` at analysis weight 0 because it supplies division ballots rather than a comparable league-wide contract.
+- Preserved three complete speaker ballots separately:
+  - Raheem Palmer: DET, MIN, CHI, GB
+  - Joe House: DET, MIN, GB, CHI
+  - Anthony Dabbundo: GB, CHI, MIN, DET
+- Cousin Sal explicitly withheld his picks for another show. No ballot or partial order is inferred for him.
+- Added paraphrased, source-located team evidence to Detroit, Green Bay, Chicago, and Minnesota profiles.
+- The preview registry now contains four sources, 11 source-stated ballots, and 24 unique covered teams. Every preview remains scoring-ineligible and weight 0.
 
-### NFC East Preview! | Ringer Wise Guys
+## Fresh append-only market evidence
 
-- Public source: https://pocketcasts.com/podcasts/19da8d60-ee2a-0139-d4ca-0acc26574db2/30a31d33-1d74-48ea-8e3c-14a354a2b63a/transcript
-- Coverage: Dallas, Philadelphia, New York Giants, Washington
-- Exact ballots:
-  - Raheem Palmer: DAL, PHI, NYG, WAS
-  - Anthony Dabbundo: DAL, PHI, WAS, NYG
-  - Joe House: PHI, DAL, WAS, NYG
-- Registry: `team-preview`, division coverage, multi-ballot division ranking, market-aware, weight 0
+Sportsbook:
 
-### 2026 AFC Betting Preview | Part 1
+- Capture: `2026-08-26T12:13:56-04:00`
+- Snapshot: `data/markets/2026-08-26T121356-0400-paired-win-totals.json`
+- 32/32 teams with paired primary quotes; 13 teams with more than one observed threshold
+- Six named books; 90 exact sportsbook-side comparisons against Kalshi
 
-- Public source: https://pocketcasts.com/podcast/the-action-network-sports-betting-podcast/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/2026-afc-betting-preview-part-1/d6ef47c4-3532-4430-aa6f-9f91df8e5ddb
-- Coverage: Kansas City, Los Angeles Chargers, Denver, Las Vegas, Buffalo, New England, New York Jets, Miami
-- Exact ballot: Evan Abrams — NE, BUF, NYJ, MIA
-- Partial ballot: Stuckey — BUF first, NE second; third and fourth were not stated
-- No AFC West exact-finish order and no conference-wide AFC ranking were stated
-- Registry: `team-preview`, multi-division coverage, partial-order scheme, market-aware, weight 0
-- Creator transcript unavailable; a private machine working copy derived from canonical publisher audio was used for analysis only
+Kalshi:
 
-### 2026 AFC Betting Preview | Part 2
+- Capture: `2026-08-26T16:14:21.058Z` (`2026-08-26T12:14:21.058-04:00`)
+- Snapshot: `data/markets/20260826T161421.058Z-kalshi-nfl-win-ladders.json`
+- 544 current-season open contracts; all 32 teams; all 17 tails per team
+- Read-only authentication verified; account response not persisted
+- 30 raw midpoint monotonicity violations; 78 midpoint points adjusted; every final curve monotone
+- 8 cross-market rows passed the 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
 
-- Public source: https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/90a36c38-dfa8-4c87-b29a-897924118428/transcript
-- Coverage: Houston, Jacksonville, Indianapolis, Tennessee, Baltimore, Cincinnati, Pittsburgh, Cleveland
-- Partial ballot: Anthony Dabbundo — Houston as AFC South winner; no second-through-fourth order. Indianapolis is separately identified as his preferred division wager at the available price.
-- Partial ballot: Stuckey — Cincinnati as AFC North winner; no second-through-fourth order
-- Partial ballot: Anthony Dabbundo — Pittsburgh as AFC North winner; no second-through-fourth order
-- No complete AFC South/North finish and no conference-wide AFC ranking were stated
-- Registry: `team-preview`, multi-division coverage, partial-order scheme, market-aware, weight 0
-- Complete creator transcript available; garbled Houston and Jacksonville numeric projection passages remain unresolved rather than reconstructed
+The two market captures are 25.058 seconds apart. Prices are timestamped evidence and are not represented as simultaneous or current after capture.
 
-Canonical source hashes and sanitized counts are in `data/sources/manifest.json`. Private-library identifiers, canonical snapshots, raw transcripts, derived transcript working copies, and detailed private provenance remain excluded from Git and publication.
+## Derived audit
 
-## Refreshed market evidence
+- Durable audit: `data/audit/20260826T161421.058Z-profile-market-sensitivity.json`
+- Weighted/equal sensitivity covers all 32 teams; BAL moves seven places and HOU five, the only moves of at least five.
+- All 17 selectable Kalshi tails are compared for all 32 teams.
+- At the default 11-win tail, DET has the largest absolute rank gap at 15 places; 10 teams differ by at least six places.
+- Preview-ballot comparisons derive only from each speaker's stated positions and the selected Kalshi tail inside the same division scope.
+- The cross-market scanner remains separate and uses no podcast evidence.
+- Modeled Kalshi team midpoint sum: 272.693 wins; marginal bid/ask sum: 259.322–286.412.
+- The +0.693 residual over the 272-game ceiling is retained as aggregate market incoherence rather than normalized away. Marginal team curves are not a coherent joint league distribution.
+- Conference modeled midpoint sums: AFC 133.393, NFC 139.300. Division totals reproduce from the 32 team curves.
 
-Sportsbook snapshot:
+## Completed implementation
 
-- Board: https://www.outrights.io/nfl/win-totals-odds
-- Capture: `2026-08-24T18:35:36-04:00`
-- File: `data/markets/2026-08-24T183536-0400-paired-win-totals.json`
-- Raw page SHA-256: `45f6f5691fa5817bac5178265bb16c21f494db53c035e8cadff0de538b9582c5`
-- Coverage: 184 paired quotes, 32/32 primary thresholds, 14 teams with multiple thresholds
+- Added Offenses and Defenses to the category registry, navigation, league matrix, every team profile, source cards, weight controls, sensitivity analysis, and derived views.
+- Added NFC North to the preview registry, preview navigation, all three explicit ballots, the four covered profiles, ambiguity ledgers, and scoped market comparisons.
+- Updated completeness counts, source provenance, missing-dimension language, weighting rationale, market adapters, and append-only audit artifacts.
+- Rebuilt the standalone `docs/index.html` artifact.
 
-Kalshi snapshot:
+## Remaining recurring work
 
-- Series: `KXNFLWINS`
-- Capture: `2026-08-24T22:35:52.402Z` (`2026-08-24T18:35:52.402-04:00`)
-- File: `data/markets/20260824T223552.402Z-kalshi-nfl-win-ladders.json`
-- Coverage: 544 current-season contracts, 32 teams, all 17 tails for every team
-- Read-only authentication check: passed; no account response was persisted
-- Monotonicity: 24 raw midpoint violations; 58 midpoint observations adjusted; all curves monotone after projection
-- Cross-market scanner: 92 exact-side comparisons; 4 rows passed the 5¢ edge, 12¢ spread, and size filters
+- Refresh paired sportsbook and Kalshi snapshots together when price freshness matters; never overwrite history.
+- Ingest additional team previews only through the read-only source protocol; preserve partial ballots as partial and do not infer ranks.
+- Add a comparable special-teams contract if one becomes available, followed by a fresh dependence audit.
+- Revisit the reasoned prior budgets only with an explicit rationale. Learned coefficients would require a separate historical training and validation design and must never be described as the current model.
+- Re-run all content, market, privacy, offline, responsive, interaction, accessibility, and deployed HTTPS checks for every published artifact.
 
-The two refreshed snapshots were captured 16 seconds apart. Every result remains tied to both timestamps; no price is represented as current after capture.
+## Completion checklist
 
-## Sensitivity and tail audit
-
-The reproducible audit is `data/audit/20260824T223552.402Z-profile-market-sensitivity.json`.
-
-- Registered sources: 7; scoring categories: 4; preview sources: 3 at weight 0; 20 unique preview teams
-- Profile changes caused by preview registration: 0
-- Weighted versus equal reference: 2 teams move at least five ranks; Baltimore has the largest movement at 5 places
-- Default 11-plus-win comparison: Detroit remains the largest absolute gap at 16 rank places, with Kalshi's tail ranking stronger
-- All 17 Kalshi thresholds are recomputed against all 32 weighted profiles
-- Scoped preview-ballot comparisons are displayed separately and do not enter league scoring
-
-Kalshi's summed team midpoint estimate is 275.584, 3.584 above the 272-game league ceiling. This is retained as a calibration warning rather than normalized away; marginal team curves are not a coherent joint league distribution.
-
-## Completion gates
-
-- [x] Private-library ingestion remained read-only with zero source mutations.
-- [x] Canonical sources were snapshotted and hashed before interpretation.
-- [x] Exact source ballots and partial-order limits are preserved.
-- [x] Transcription ambiguity and the AFC machine-transcript status are disclosed.
-- [x] Preview evidence is registered at weight 0 and cannot affect the league profile.
-- [x] Fresh append-only paired sportsbook and complete Kalshi snapshots were captured.
-- [x] Weighted/equal sensitivity and all 17 tail comparisons were rerun.
-- [x] The self-contained Pages artifact was rebuilt.
-- [x] Offline desktop/mobile, accessibility, and privacy checks are recorded in `CHECKPOINT.md`.
-- [x] The Edition 5 artifact commit and deployment verification are recorded in `CHECKPOINT.md`.
-
-## Next content phase
-
-Acquire the defensive-ranking episode when available. Preserve it read-only, verify its exact 1–32 contract, propose a provisional importance weight before activation, and rerun the same append-only market, sensitivity, audit, build, browser, privacy, and publication sequence. Revisit all category weights after the full intended comparable source set has arrived; previews remain qualitative unless they gain a stable league-wide contract.
+- [x] Three new canonical sources identified without duplicates or season mismatch.
+- [x] Complete creator transcripts privately snapshotted and hashed before interpretation.
+- [x] Reader access remained strictly read-only.
+- [x] Offense and defense each verified as complete unique 1–32 contracts.
+- [x] Dependence-aware adjustable priors documented; equal-weight sensitivity retained.
+- [x] NFC North ballots and four team dossiers registered at weight 0 without inferred ranks.
+- [x] Fresh append-only paired sportsbook and complete Kalshi snapshots captured.
+- [x] Weighted/equal, all-17-tail, group-total, preview-ballot, and cross-market calculations rerun.
+- [x] Sanitized manifests, coverage contracts, report navigation, and durable docs updated.
+- [ ] Publication commit, GitHub Pages workflow, deployed HTTPS verification, and final timestamps recorded in `CHECKPOINT.md`.

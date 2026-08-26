@@ -1,13 +1,13 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: current through Edition 5
+Status: current through Edition 6
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
-Editorial sources: four complete Action Network ranking transcripts plus three scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
+Editorial sources: six complete Action Network ranking transcripts plus four scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
 
 ## 1. Outcome and scope
 
-Build a simple-to-navigate but comprehensive report that preserves the substantive evidence and exact rankings from the four complete league-wide transcripts, plus exact ballots and scoped team evidence from preview episodes. Identify relevant personnel, praise, concern, comparison, context, contingency, and ambiguity without publishing raw transcript text. Add clearly labeled synthesis and a separately sourced, timestamped view of current 2026 regular-season win markets for all 32 teams.
+Build a simple-to-navigate but comprehensive report that preserves the substantive evidence and exact rankings from the six complete league-wide transcripts, plus exact ballots and scoped team evidence from preview episodes. Identify relevant personnel, praise, concern, comparison, context, contingency, and ambiguity without publishing raw transcript text. Add clearly labeled synthesis and a separately sourced, timestamped view of current 2026 regular-season win markets for all 32 teams.
 
 The report must distinguish three kinds of content at all times:
 
@@ -15,7 +15,7 @@ The report must distinguish three kinds of content at all times:
 2. **Market fact:** a quoted line, probability, or derived market-implied value tied to a public source and retrieval time.
 3. **Field Guide synthesis:** a transparent calculation or inference from the source facts, visually labeled as derived analysis rather than the speakers' view.
 
-Defense and future category episodes must be addable as data, without changing the report architecture.
+Future category episodes must be addable as data, without changing the report architecture.
 
 ## 2. Non-negotiable completeness standard
 
@@ -88,13 +88,13 @@ Every editorial source declares:
 - `kind`: for example `unit-ranking` or `team-preview`
 - `coverage_mode` and explicit `covered_teams`
 - `ranking_scheme`: league ordinal, multi-ballot division, partial order, or another stated contract
-- `scoring_eligible` and `analysis_weight`
+- `scoring_eligible`, `analysis_weight`, `dependency_group`, and the weight basis/rationale
 - `market_aware`
 - canonical public source, private snapshot audit, methodology, ambiguity ledger, and paraphrased evidence
 
-Only a complete, unique, comparable full-league ordinal or score contract may set `scoring_eligible=true`. Partial division or conference previews receive weight 0 even if their football evidence is useful. Covering every team across a series is insufficient unless the series also supplies a stable comparable league-wide contract. Market-aware preview evidence appears in a separate scoped market comparison and cannot create an independent Podcast × Kalshi signal.
+Only a complete, unique, comparable full-league ordinal or score contract may set `scoring_eligible=true`. Eligibility does not imply statistical independence: every new eligible category must be assigned to a dependence group and receive a disclosed overlap treatment before it enters the default profile. Partial division or conference previews receive weight 0 even if their football evidence is useful. Covering every team across a series is insufficient unless the series also supplies a stable comparable league-wide contract. Market-aware preview evidence appears in a separate scoped market comparison and cannot create an independent Podcast × Kalshi signal.
 
-Current application: AFC Preview Parts 1 and 2 collectively cover all 16 AFC teams, but neither episode supplies a conference-wide 1–16 order or comparable score. Both remain market-aware qualitative sources at weight 0.
+Current application: AFC Preview Parts 1 and 2 collectively cover all 16 AFC teams, but neither episode supplies a conference-wide 1–16 order or comparable score. The NFC East and NFC North episodes each provide speaker-specific division ballots but no league-wide contract. All four remain market-aware qualitative sources at weight 0.
 
 Exact speaker ballots remain separate. Discussion order, opening prices, prior-season finish, numeric projections, and wagers are never converted into rankings. A partial ballot records only its stated positions and must not infer the rest.
 
@@ -222,7 +222,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 ### 7.1 Core metrics
 
 - **Category percentile:** convert each ordinal rank to a 0–100 strength scale, where rank 1 is strongest and rank 32 is weakest.
-- **Weighted podcast profile:** weighted mean of category percentiles. Current provisional importance points are QB 40, Coaching 25, Offensive Line 20, and Skill Position 15; the UI normalizes them to 100%, exposes every rationale, permits adjustment, and retains equal weight only as a sensitivity reference.
+- **Weighted podcast profile:** weighted mean of category percentiles. Current adjustable reasoned priors are QB 25, Coaching 15, Offensive Line 11, Skill Position 8, Offense 11, and Defense 30. QB, line, skill, and offense share a fixed 55-point offensive-family budget; offense is an interaction/schedule overlay because its stated method directly reuses those component inputs. The UI exposes every rationale and permits adjustment. Equal weight remains a sensitivity stress test, not the preferred dependence treatment.
 - **Weighted profile rank:** league ordering of the weighted podcast profile. It is labeled incomplete and is never presented as a win forecast or calibrated probability.
 - **Offensive ecosystem:** equal-weight QB, Offensive Line, and Skill Position percentiles.
 - **Infrastructure support:** mean of Coaching and Offensive Line percentiles.
@@ -238,11 +238,12 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 ### 7.2 Source extensibility and weighting guardrails
 
 - Store source kind, coverage, ranking scheme, evidence, audit, scoring eligibility, market awareness, default importance, and rationale together in the editorial registry.
-- Derive `scored_categories` from eligibility and normalize importance points only over those categories; adding defense or another complete category requires no scoring-formula change.
+- Derive `scored_categories` from eligibility and normalize importance points only over those categories; adding another complete category requires no scoring-formula change but does require a new dependence audit.
 - New complete comparable categories automatically appear in navigation, team profiles, source QA, weight controls, weighted scores, equal-weight sensitivity, and league market comparisons.
 - Partial previews appear in their own navigation and covered team profiles at weight 0. They never receive synthetic ranks for uncovered teams.
 - Do not silently give a new category equal importance. Choose and disclose its provisional importance and rerun sensitivity analysis.
-- Current weights are reasoned priors, not learned coefficients. Never describe a weighted profile score as a fair probability or expected-win estimate.
+- Current weights are reasoned priors, not learned coefficients. They are not fitted to outcomes, sportsbook prices, or Kalshi. Never describe a weighted profile score as a fair probability or expected-win estimate.
+- The current dependence groups are `offense-family` (QB, offensive line, skill positions, offense), `cross-unit` (coaching), and `defense-family` (defense). Changing those group budgets is a modeling decision that must be separately disclosed.
 - Show how many teams move at least five ranks between current weights and equal weights so the effect of the weighting judgment remains visible.
 
 ### 7.3 Analysis vs Market
@@ -262,7 +263,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - Cross-category tension: an asset praised in one category but limited by another category's weakness.
 - Conference/division landscape: clusters, relative strengths, and likely competitive pressure.
 - Market watchlist: largest market/profile gaps with plain-language reasons for and against treating the gap as meaningful.
-- Missing-dimension warning: defense and special teams are absent initially; all composite views carry this warning until those categories exist.
+- Missing-dimension warning: defense is now represented. Special teams, an independent schedule model, and changing injury information remain absent; all composite views carry that warning.
 
 Speaker opinion is never converted into false precision. Counts and ordinal transformations are navigation aids, while the source-linked qualitative claims remain primary.
 
@@ -275,12 +276,12 @@ The report is a responsive single-page study tool with persistent tab navigation
 1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
 2. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
 3. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
-4–7 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
-8. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
-9. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
-10. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
-11. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
-12. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
+4–9 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
+10. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
+11. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
+12. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
+13. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
+14. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 
 ### 8.2 Interaction and study design
 
@@ -365,5 +366,5 @@ The report is complete only when:
 - “Upcoming season” means the 2026 NFL regular season.
 - Action Network rankings are presented faithfully, even when another current source disagrees.
 - Current roster/news context may be used to resolve identity or explain a transcription ambiguity, but it cannot replace or quietly “correct” the podcast's stated view.
-- The default composite uses disclosed 40/25/20/15 importance points and remains explicitly incomplete until defensive and other comparable league-wide categories are added; equal weight is sensitivity only.
+- The default composite uses disclosed 25/15/11/8/11/30 reasoned priors with a fixed 55-point offensive-family budget; defense is present, equal weight is sensitivity only, and special teams plus an independent schedule model remain missing.
 - Market lines are a research input, not financial advice or an instruction to place a wager.

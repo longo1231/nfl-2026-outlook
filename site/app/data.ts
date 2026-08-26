@@ -1,8 +1,9 @@
-import marketSnapshot from '../../data/markets/2026-08-24T183536-0400-paired-win-totals.json';
-import kalshiSnapshot from '../../data/markets/20260824T223552.402Z-kalshi-nfl-win-ladders.json';
+import marketSnapshot from '../../data/markets/2026-08-26T121356-0400-paired-win-totals.json';
+import kalshiSnapshot from '../../data/markets/20260826T161421.058Z-kalshi-nfl-win-ladders.json';
 import teamRegistry from '../../data/nfl/teams.json';
 import previewRegistry from '../../data/previews/2026-team-previews.json';
 import { rankScores, weightedProfileScore } from '../../lib/profile-market.mjs';
+import { defenseEvidence, offenseEvidence } from './evidence-2026-offense-defense';
 
 export type CategoryId = string;
 
@@ -90,7 +91,7 @@ export const marketSource = {
   label: marketSnapshot.source.label,
   url: marketSnapshot.source.url,
   updated: 'Per-quote update time unavailable',
-  retrieved: 'Aug. 24, 2026, 6:35 PM ET',
+  retrieved: 'Aug. 26, 2026, 12:13:56 PM ET',
   note: marketSnapshot.source.update_note,
 };
 
@@ -98,7 +99,7 @@ export const kalshiMarketSource = {
   label: kalshiSnapshot.source.label,
   url: kalshiSnapshot.source.api_url,
   documentation: kalshiSnapshot.source.api_documentation,
-  retrieved: 'Aug. 24, 2026, 6:35 PM ET',
+  retrieved: 'Aug. 26, 2026, 12:14:21 PM ET',
   authenticated: kalshiSnapshot.source.authentication.verified,
 };
 
@@ -287,6 +288,9 @@ export type Category = {
   methodology:string;
   analysisWeight:number;
   analysisRationale:string;
+  dependencyGroup:'offense-family'|'defense-family'|'cross-unit';
+  dependencyNote:string;
+  weightBasis:'reasoned-prior';
   kind:'unit-ranking';
   coverageMode:'league';
   coveredTeams:string[];
@@ -297,11 +301,21 @@ export type Category = {
 };
 
 export const categories: Category[] = [
-  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, analysisWeight:40, analysisRationale:'Largest direct influence on passing efficiency, play extension and the weekly offensive floor.', methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words:11774, lines:2410, hash:'4599cad…0ec85c' } },
-  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, analysisWeight:25, analysisRationale:'Multiplies every unit through scheme, decisions, development and staff quality.', methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words:12185, lines:2785, hash:'77504bab…9af7cb5' } },
-  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, analysisWeight:20, analysisRationale:'Sets the protection and run-game floor, with weak links able to cap otherwise elite offenses.', methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words:12196, lines:2680, hash:'b97f5c4a…40c2c0' } },
-  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, analysisWeight:15, analysisRationale:'Creates matchup and explosive-play upside, but depends more heavily on quarterback and structure.', methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words:12504, lines:2743, hash:'0f8ea7ff…1b891be' } },
+  { id:'qb', label:'Quarterbacks', short:'QB', evidence:qbEvidence, analysisWeight:25, analysisRationale:'Largest single driver inside the 55-point offensive evidence budget; reduced from the prior 40-point model now that offense and defense have arrived.', dependencyGroup:'offense-family', dependencyNote:'Direct input to the offense episode, so QB and Offense are deliberately not given two full independent weights.', weightBasis:'reasoned-prior', methodology:'Starter and room quality, production, traits, health, playoff proof, trajectory and the degree to which the player creates beyond his environment.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/4e657898-f2f9-4a05-9cb6-e5a27f8c3cf2/transcript', words:11774, lines:2410, hash:'4599cad…0ec85c' } },
+  { id:'coaching', label:'Coaching staffs', short:'Coach', evidence:coachingEvidence, analysisWeight:15, analysisRationale:'Cross-unit multiplier budgeted separately because the source covers offense, defense, game management, development and staff quality.', dependencyGroup:'cross-unit', dependencyNote:'Partly overlaps both new composite unit rankings; the lower 15-point prior prevents staff quality from being counted at its former standalone weight.', weightBasis:'reasoned-prior', methodology:'Whole-staff value: head coaching, game management, offensive and defensive play calling, hiring, culture, special teams and position-coach effects. Offense receives extra weight.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/536e0274-0383-4b97-904b-986237b1b6d8/transcript', words:12185, lines:2785, hash:'77504bab…9af7cb5' } },
+  { id:'ol', label:'Offensive lines', short:'OL', evidence:olEvidence, analysisWeight:11, analysisRationale:'Structural protection and run-game input within the fixed offensive-family budget.', dependencyGroup:'offense-family', dependencyNote:'The offense episode explicitly reuses line quality, so the line and composite weights share one offensive budget.', weightBasis:'reasoned-prior', methodology:'Five-man weak-link quality, continuity, injuries and depth, coaching/scheme, with pass protection weighted for ceiling and run blocking for floor.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/736ccaf1-f5e8-4b45-813f-cc8e25075f74/transcript', words:12196, lines:2680, hash:'b97f5c4a…40c2c0' } },
+  { id:'skill', label:'Skill positions', short:'Skill', evidence:skillEvidence, analysisWeight:8, analysisRationale:'Explosive and matchup value inside the offensive-family budget, with an explicit dependence discount for quarterback and structure.', dependencyGroup:'offense-family', dependencyNote:'The offense episode directly incorporates these weapons; the smallest default reflects both dependence and lower standalone causal leverage.', weightBasis:'reasoned-prior', methodology:'Every non-QB/non-line weapon. Receivers receive roughly half the weight; tight ends matter at least as much as backs because blocking and personnel flexibility count. Stars matter, depth matters more.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pocketcasts.com/podcasts/6bd8a7b0-f1fd-0132-1157-059c869cc4eb/98f3433e-7487-4c23-87ee-9bef34eaa4dc/transcript', words:12504, lines:2743, hash:'0f8ea7ff…1b891be' } },
+  { id:'offense', label:'Offenses', short:'Off', evidence:offenseEvidence, analysisWeight:11, analysisRationale:'Residual interaction and schedule-adjusted unit outlook—not a second full copy of QB, line, weapons and play calling.', dependencyGroup:'offense-family', dependencyNote:'The source explicitly culminates QB, line, skill and offensive play calling. Its 11 points are a dependence-aware overlay within a fixed 55-point offensive budget, not an independent category-sized block.', weightBasis:'reasoned-prior', methodology:'A ceiling- and downside-oriented prediction of offensive DVOA using quarterback most, then passing over rushing, line, weapons, offensive play caller, history and schedule context. Tiers indicate near-neighbors.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pca.st/episode/1751101d-c30c-48a5-8f8c-3b3295b7de40', words:14130, lines:458, hash:'1eb89c29…fd46b1' } },
+  { id:'defense', label:'Defenses', short:'Def', evidence:defenseEvidence, analysisWeight:30, analysisRationale:'Distinct full-unit signal with a large but sub-majority prior because defensive performance is important and explicitly volatile year to year.', dependencyGroup:'defense-family', dependencyNote:'Defense is the only dedicated defensive unit input. Coaching overlap remains, but it does not reuse the four offensive-family ranks.', weightBasis:'reasoned-prior', methodology:'A volatile full-unit forecast emphasizing proactive play, edges and corners, multi-position weapons, play-caller force multiplication, health and scheme fit. Confidence is much higher at the extremes than through the middle.', kind:'unit-ranking', coverageMode:'league', coveredTeams:teams.map(team=>team.abbr), rankingScheme:'league-ordinal', scoringEligible:true, marketAware:false, source:{ url:'https://pca.st/episode/133f5528-1659-4afb-8b6b-65796e0f279b', words:14206, lines:486, hash:'84fc0819…95eb0' } },
 ];
+
+export const weightingModel = {
+  version: 2,
+  basis: 'Reasoned priors; no coefficient is fit to team outcomes, sportsbook prices or Kalshi.',
+  groupBudgets: { offenseFamily:55, crossUnitCoaching:15, defense:30 },
+  offenseDependenceRule: 'QB, offensive line, skill positions and the offense composite share one 55-point budget. The offense composite receives 11 points as an interaction/schedule overlay because its stated method directly reuses the other three inputs and offensive play calling.',
+  equalWeightRole: 'A deliberate sensitivity stress test that ignores the default dependence correction; it is not the preferred model.',
+};
 
 export const scoredCategories = categories.filter(category=>category.scoringEligible);
 
