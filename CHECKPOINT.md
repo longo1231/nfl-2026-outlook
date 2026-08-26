@@ -11,10 +11,12 @@ Maintain an evidence-complete, eligibility- and dependence-aware study report fr
 - Content and market snapshots through: 2026-08-26
 - Public repository: https://github.com/longo1231/nfl-2026-outlook
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
-- Edition 6 artifact commit: publication pending
-- Edition 6 deployment-record commit: publication pending
-- GitHub Pages workflow result: publication pending
-- Deployed HTTPS verification: publication pending
+- Edition 6 artifact commit: `2418b876ad5a3aaee8ac6f3ef210fd072941d254`
+- Edition 6 deployment-record commit: this record commit; exact hash is carried by Git history and the release handoff because a commit cannot contain its own hash
+- GitHub Pages workflow result: legacy Pages build `1176897929` for the exact artifact commit, status `built`, created `2026-08-26T16:27:52Z`, completed `2026-08-26T16:28:13Z`, duration 21.617 seconds, no error
+- GitHub Pages build API: https://api.github.com/repos/longo1231/nfl-2026-outlook/pages/builds/1176897929
+- Deployed HTTPS verification: passed at `2026-08-26T16:28:59Z` (`2026-08-26T12:28:59-04:00`)
+- Deployed artifact SHA-256: `1dbd99ac12b075de8a929bbd6f8b41bcfd197e8457fb6f227decc214ea5be431` (byte-for-byte equal to `docs/index.html`)
 - Prior Edition 5 artifact commit: `d27aea0bd48409430e258133301ac28573dfca53`
 - Frozen owner-only Sites v1 reference: preserved privately and unchanged
 
@@ -114,8 +116,8 @@ The +0.693 league residual is preserved as aggregate market incoherence rather t
 - Desktop 1440×1000: passed with 14 navigation tabs, 32 matrix rows, four preview cards, 11 preview ballots, six weight controls, 32 analysis rows, 17 tail choices, eight scanner candidates, and zero document overflow
 - Mobile 390×844: passed with four 366-pixel preview cards inside the 390-pixel viewport, horizontally scrollable labeled tables, and zero document overflow
 - Interaction/accessibility: passed for native labeled controls, weight restore/equal actions, threshold 13 update, scoped preview navigation, scanner separation, one main landmark, named navigation, zero unlabeled buttons/links, zero duplicate IDs, and clean browser logs
-- Deployed HTTPS: pending publication
+- Deployed HTTPS: passed with HTTP/2 200, HTTPS/HSTS, Edition 6 content, 192/192 scored ranks, 10 sources, 14 tabs, six weight controls, 32 analysis rows, 11 preview-ballot rows, eight scanner rows, zero document overflow, clean browser logs, and a byte-identical artifact hash
 
 ## Next action
 
-Complete offline/privacy/browser QA, publish the Edition 6 artifact through GitHub Pages with a GitHub no-reply identity, verify the deployed HTTPS artifact, and replace all publication-pending fields above with exact commit, workflow, URL, and timestamp records.
+Continue append-only market refreshes and read-only preview ingestion when new evidence arrives. Preserve the frozen owner-only Sites v1 reference and rerun the full publication gate for every new edition.

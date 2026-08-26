@@ -89,4 +89,4 @@ The two market captures are 25.058 seconds apart. Prices are timestamped evidenc
 - [x] Fresh append-only paired sportsbook and complete Kalshi snapshots captured.
 - [x] Weighted/equal, all-17-tail, group-total, preview-ballot, and cross-market calculations rerun.
 - [x] Sanitized manifests, coverage contracts, report navigation, and durable docs updated.
-- [ ] Publication commit, GitHub Pages workflow, deployed HTTPS verification, and final timestamps recorded in `CHECKPOINT.md`.
+- [x] Publication commit, GitHub Pages workflow, deployed HTTPS verification, and final timestamps recorded in `CHECKPOINT.md`.
