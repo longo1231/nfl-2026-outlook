@@ -1,24 +1,27 @@
 {
-  "schema_version": 5,
+  "schema_version": 6,
   "season": 2026,
-  "source_capture_completed_at": "2026-08-26T11:59:10-04:00",
+  "source_capture_completed_at": "2026-08-27T08:38:05-04:00",
   "timezone": "America/New_York",
   "private_ingestion_read_only": true,
-  "private_source_mutations": [],
+  "private_source_mutations": [
+    "Ten Edition 6 sources were archived after incorporation on 2026-08-26 under explicit user authorization; six items moved and four were already archived. The newly incorporated NFC Part 1 source was moved to archive on 2026-08-27 under the same authorization. Source discovery, acquisition, verification and extraction remained read-only."
+  ],
   "raw_transcripts_published": false,
-  "selected_count": 10,
+  "selected_count": 11,
   "scoring_eligible_count": 6,
-  "preview_source_count": 4,
+  "preview_source_count": 5,
   "error_count": 0,
   "notes": [
     "Public provenance retains publisher links, canonical-source checksums, and aggregate counts without private-library identifiers or raw transcript text.",
-    "The four team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the six-category league profile.",
+    "The five team-preview episodes are market-aware, partial-coverage sources with analysis weight 0. They do not change the six-category league profile.",
     "The offense and defense episodes each preserve a complete unique 1–32 ranking contract and are scoring-eligible.",
     "Default weights are adjustable reasoned priors, not learned or market-fitted coefficients: QB 25, coaching 15, offensive line 11, skill positions 8, offense 11 and defense 30.",
     "QB, offensive line, skill positions and the composite offense episode share a fixed 55-point offensive-family budget because the offense methodology explicitly reuses those inputs. Its 11 points represent interaction and schedule context rather than an independent category-sized block.",
     "The paired AFC episodes now cover all 16 AFC teams: Part 1 covers the AFC West and AFC East, and Part 2 covers the AFC South and AFC North. Neither episode supplies a conference-wide 1–16 ranking.",
     "The AFC private-library item did not contain a creator transcript. A local machine working copy was derived from canonical publisher audio for analysis only and remains private.",
-    "No private source item was moved, tagged, marked read, highlighted, annotated, or edited."
+    "The new NFC Part 1 source was discovered, acquired, verified and extracted read-only, then moved to archive after incorporation under explicit user authorization; no other Reader field changed.",
+    "The previously incorporated Edition 6 sources were archived only after explicit user authorization; no source text, tags, highlights, notes or metadata other than location was changed."
   ],
   "documents": [
     {
@@ -190,6 +193,26 @@
       "ranking_scheme": "multi-ballot-division",
       "complete_ballots": 3,
       "withheld_ballots": 1,
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "market_aware": true,
+      "creator_transcript_available": true
+    },
+    {
+      "source_id": "action-nfc-preview-part-1",
+      "kind": "team-preview",
+      "title": "2026 NFC Betting Preview | Part 1",
+      "publisher": "Action Network / Pocket Casts",
+      "source_url": "https://pca.st/episode/7586fc3f-4c1c-4185-960a-54d8507473e6",
+      "canonical_format": "creator transcript",
+      "sha256": "e78bf25fd5d085a7fd9395665220620e2b661e7dd03dabf8aef5230af0910e77",
+      "bytes": 95804,
+      "words": 17129,
+      "lines": 580,
+      "team_preview_coverage": 8,
+      "ranking_scheme": "partial-order",
+      "complete_ballots": 0,
+      "partial_ballots": 1,
       "scoring_eligible": false,
       "analysis_weight": 0,
       "market_aware": true,

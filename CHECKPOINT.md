@@ -2,40 +2,48 @@
 
 ## Objective
 
-Maintain an evidence-complete, eligibility- and dependence-aware study report from 2026 NFL ranking and preview podcasts, then compare the scoring-eligible inputs with timestamped paired sportsbook prices and complete Kalshi team-win distributions without exposing private source material.
+Maintain an auditable 2026 NFL research source of truth, compare its eligible evidence with timestamped market distributions, and build toward a private, execution-aware futures decision system for preseason and the first weeks without implying certainty the infrastructure does not possess.
 
 ## Current state
 
-- Edition: 6
-- Report build date: 2026-08-26
-- Content and market snapshots through: 2026-08-26
+- Edition: 7
+- Report build date: 2026-08-27
+- Editorial and market evidence through: 2026-08-27
 - Public repository: https://github.com/longo1231/nfl-2026-outlook
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
-- Edition 6 artifact commit: `2418b876ad5a3aaee8ac6f3ef210fd072941d254`
-- Edition 6 deployment-record commit: this record commit; exact hash is carried by Git history and the release handoff because a commit cannot contain its own hash
-- GitHub Pages workflow result: legacy Pages build `1176897929` for the exact artifact commit, status `built`, created `2026-08-26T16:27:52Z`, completed `2026-08-26T16:28:13Z`, duration 21.617 seconds, no error
-- GitHub Pages build API: https://api.github.com/repos/longo1231/nfl-2026-outlook/pages/builds/1176897929
-- Deployed HTTPS verification: passed at `2026-08-26T16:28:59Z` (`2026-08-26T12:28:59-04:00`)
-- Deployed artifact SHA-256: `1dbd99ac12b075de8a929bbd6f8b41bcfd197e8457fb6f227decc214ea5be431` (byte-for-byte equal to `docs/index.html`)
-- Prior Edition 5 artifact commit: `d27aea0bd48409430e258133301ac28573dfca53`
+- Edition 7 artifact commit: pending publication record
+- Edition 7 deployment-record commit: pending publication record
+- GitHub Pages workflow result: pending publication record
+- Deployed HTTPS verification: pending publication record
+- Prior Edition 6 artifact commit: `2418b876ad5a3aaee8ac6f3ef210fd072941d254`
 - Frozen owner-only Sites v1 reference: preserved privately and unchanged
+
+## Source-of-truth boundary
+
+Edition 7 is ready as an auditable research source of truth. It is not yet a calibrated forecast, an execution system, or a portfolio ledger.
+
+- Evidence layer: ready with claim-lineage and freshness debt.
+- Forecast layer: missing; the current profile is ordinal and must not be read as a fair probability or expected-win model.
+- Market layer: usable with guardrails; current differences are pre-fee and lack minimum-notional, quote-age, movement, and persistence tests.
+- Decision/portfolio layer: missing and intentionally private when built.
+- Operations: manual but tested; a generated current-state pointer, freshness contract, and CI remain future work.
+
+The full diagnosis and phased target architecture are in `META_REVIEW.md`; the reproducible result is in `data/audit/20260827T124348.007Z-decision-system-readiness.json`.
 
 ## Fixed decisions
 
 - “Upcoming season” means the 2026 NFL regular season.
 - Canonical creator transcripts are privately snapshotted and hashed before interpretation. If unavailable, canonical publisher audio is preserved and any machine transcript is a labeled private working copy.
-- Private Reader access is strictly read-only. No item is moved, archived, tagged, edited, marked read/seen, highlighted, annotated, or otherwise mutated.
+- Source discovery, acquisition, verification, and extraction default to read-only. The Edition 6 sources were archived only afterward under explicit user authorization; six moved and four were already archived. The newly incorporated NFC source was then moved to archive under the same authorization and remains unopened; no other Reader field changed.
 - Public provenance excludes Reader identifiers/URLs, private metadata, raw transcript/audio payloads, credentials, account data, and local filesystem paths.
-- Only a complete, unique, comparable league-wide 1–32 ordinal or score contract can be scoring-eligible. Preview discussion order, odds, projections, and wagers never become inferred rankings.
-- Eligibility does not imply independence. Every scored source is assigned a dependence group and a disclosed adjustable reasoned-prior weight.
+- Only a complete, unique, comparable league-wide 1–32 ordinal or score contract can be scoring-eligible. Discussion order, odds, projections, and wagers never become inferred rankings.
+- Eligibility does not imply independence. Every scored source has a dependence group and disclosed adjustable reasoned-prior weight.
 - Modeled expected wins are always labeled modeled. Team and group bid/ask sums are marginal market-width bounds, not confidence intervals or joint portfolio guarantees.
 - Sportsbook and Kalshi histories are append-only. Timestamp mismatches and aggregate incoherence remain visible.
 
 ## Editorial corpus
 
-The sanitized public manifest is `data/sources/manifest.json`; exact compact orders are in `data/rankings/`; the preview registry is `data/previews/2026-team-previews.json`. Detailed private provenance and canonical source payloads remain ignored.
-
-Scoring-eligible complete 1–32 sources:
+The sanitized public manifest contains 11 sources. Six are scoring-eligible complete 1–32 contracts:
 
 1. Quarterbacks — 25 points — `offense-family`
 2. Coaching staffs — 15 points — `cross-unit`
@@ -44,80 +52,75 @@ Scoring-eligible complete 1–32 sources:
 5. Offenses — 11 points — `offense-family`
 6. Defenses — 30 points — `defense-family`
 
-The new Offenses and Defenses contracts each contain all 32 NFL teams exactly once with all ranks 1–32 exactly once. Both are scoring-eligible.
+The defaults are adjustable reasoned priors, not learned coefficients and not fitted to outcomes or market prices. QB, line, skill, and offense share a fixed 55-point offensive-family budget because the Offenses methodology reuses those components and adds interaction, play calling, schedule, and DVOA context. Defense receives 30 points as the only dedicated defensive source; coaching receives 15 as a cross-unit multiplier. Equal weight remains a visible sensitivity test.
 
-Default weights are adjustable reasoned priors, not learned coefficients and not fitted to outcomes or market prices. QB, line, skill, and offense share a fixed 55-point offensive-family budget because the Offenses methodology explicitly culminates QB, line, skill, offensive play calling, and schedule-adjusted DVOA context. The 11-point offense weight is an interaction/schedule overlay rather than a second independent copy of the component evidence. Defense receives 30 points as the only dedicated defensive unit source; coaching receives 15 as a cross-unit multiplier with overlap on both sides. Equal weight remains a visible sensitivity stress test.
+Five market-aware previews remain at weight 0:
 
-Zero-weight market-aware previews:
+- NFC East — three complete division ballots.
+- AFC Preview Part 1 — one complete and one partial AFC East ballot; no AFC West order. Canonical publisher audio is preserved with a labeled private machine-transcript working copy because no creator transcript was available.
+- AFC Preview Part 2 — three winner-only ballots across the AFC South and AFC North.
+- NFC North — three complete speaker ballots; Cousin Sal explicitly withheld picks and receives no inferred ballot.
+- NFC Preview Part 1 — NFC West and NFC South team evidence; one explicit Stuckey Tampa Bay winner-only ballot, no NFC West order, and no complete NFC South order.
 
-- NFC East — three complete division ballots
-- AFC Preview Part 1 — one complete AFC East ballot, one partial AFC East ballot, no AFC West finish order; canonical publisher audio with a private machine-transcript working copy because no creator transcript was available
-- AFC Preview Part 2 — three winner-only partial ballots across the AFC South and AFC North; no inferred second-through-fourth or conference order
-- NFC North — three complete speaker ballots: Raheem Palmer `DET-MIN-CHI-GB`, Joe House `DET-MIN-GB-CHI`, Anthony Dabbundo `GB-CHI-MIN-DET`; Cousin Sal explicitly withheld picks and receives no inferred ballot
+The registry now contains five preview sources, 12 source-stated ballots, and qualitative evidence for all 32 teams. Seven ballots are complete and five are partial. Every preview is `scoring_eligible=false`, `analysis_weight=0`, and `market_aware=true`.
 
-The four preview sources cover 24 unique teams and preserve 11 source-stated ballots. Every preview remains `scoring_eligible=false`, `analysis_weight=0`, and `market_aware=true`.
+## NFC Preview Part 1 audit
 
-## Source audit results
+- Verified one unique current-season source and no duplicate or other relevant recent unincorporated 2026 NFL transcript across every non-feed Reader location.
+- Privately snapshotted and hashed the complete creator transcript before interpretation.
+- Preserved evidence for Seattle, the Rams, San Francisco, Arizona, Tampa Bay, Atlanta, New Orleans, and Carolina.
+- Preserved only Stuckey’s explicit Tampa Bay NFC South winner pick as a partial ballot.
+- Did not infer rankings from power ratings, projected wins, discussion order, prices, props, or wagers.
+- Disclosed uncertain speaker handoffs, phonetic names, time-sensitive preseason availability, and one garbled Saints passing-yard prop rather than reconstructing it.
 
-- Full recent non-feed Reader search found exactly the three publicly identified but unincorporated items and no other relevant unincorporated 2026 NFL transcript.
-- Each new item had one canonical copy, correct 2026 season identity, complete creator transcript, and no duplicate copy.
-- Offense ambiguities include several phonetically garbled personnel/coach references. They remain explicitly uncertain rather than silently normalized.
-- Defense ambiguities include scattered name variants and one implausible Ravens return reference. A brief Rams “No. 4” slip is resolved only because the explicit list and top-ten recap both establish Baltimore fourth and the Rams fifth.
-- NFC North preserves every identifiable speaker ballot separately; no rank is inferred from conversation sequence, prices, projections, or bets.
-
-## Fresh market evidence
+## Fresh append-only market evidence
 
 Sportsbook snapshot:
 
-- Captured: `2026-08-26T12:13:56-04:00`
-- File: `data/markets/2026-08-26T121356-0400-paired-win-totals.json`
-- Board: https://www.outrights.io/nfl/win-totals-odds
-- Raw public-board snapshot hash: `d2b1af8fe840e41873004a61f178ed7cd3dd128d309838787e124a18495ab01f`
+- Captured: `2026-08-27T08:43:29-04:00`
+- File: `data/markets/2026-08-27T084329-0400-paired-win-totals.json`
 - 32/32 teams with paired primary quotes; 13 teams with multiple thresholds; six books
 
 Kalshi snapshot:
 
-- Captured: `2026-08-26T16:14:21.058Z` (`2026-08-26T12:14:21.058-04:00`)
-- File: `data/markets/20260826T161421.058Z-kalshi-nfl-win-ladders.json`
+- Captured: `2026-08-27T12:43:48.007Z` (`2026-08-27T08:43:48.007-04:00`)
+- File: `data/markets/20260827T124348.007Z-kalshi-nfl-win-ladders.json`
 - 544 open current-season contracts; 32 teams; 17/17 tails for every team
 - Read-only authentication verified; no account response persisted
-- 30 raw midpoint monotonicity violations; 78 midpoint points adjusted; every adjusted bid, ask, and midpoint curve monotone
-- 90 exact sportsbook-side comparisons; 8 candidates pass the current 5¢ edge, 12¢ spread, and displayed-size filters
+- 45 raw midpoint monotonicity violations; 115 midpoint points adjusted; every final curve monotone
+- 90 exact sportsbook-side comparisons; five rows pass the current 5¢ edge, 12¢ spread, and positive displayed-size filters
 
-The market captures are 25.058 seconds apart. They are not represented as simultaneous or current after capture.
+The captures are 19.007 seconds apart. The sportsbook source supplies capture time rather than per-quote age. Scanner rows remain pre-fee watchlist prompts with no minimum notional or persistence requirement.
 
 Modeled market totals:
 
-- League midpoint: 272.693; marginal bid/ask sum: 259.322–286.412; residual over the 272-game ceiling: +0.693
-- AFC midpoint: 133.393; NFC midpoint: 139.300
-- Division midpoints: AFC East 30.812, AFC North 34.339, AFC South 32.787, AFC West 35.455, NFC East 34.783, NFC North 38.540, NFC South 30.012, NFC West 35.965
+- League midpoint: 271.080; marginal bid/ask sum: 254.349–288.585; residual below the 272-game ceiling: -0.920
+- AFC midpoint: 132.968; NFC midpoint: 138.112
+- Division midpoints: AFC East 30.051, AFC North 34.178, AFC South 33.428, AFC West 35.311, NFC East 33.804, NFC North 38.177, NFC South 30.017, NFC West 36.114
 
-The +0.693 league residual is preserved as aggregate market incoherence rather than normalized away. Marginal team curves are not a coherent joint league distribution.
+The residual is preserved as aggregate market incoherence rather than normalized away. Marginal team curves are not a coherent joint league distribution.
 
 ## Derived analysis
 
-- Audit: `data/audit/20260826T161421.058Z-profile-market-sensitivity.json`
-- Weighted/equal sensitivity: all 32 teams; BAL moves seven places and HOU five; no other team moves at least five.
-- All 17 Kalshi tail comparisons contain all 32 teams.
-- At the default 11-win tail, DET has the largest absolute profile/tail gap at 15 places; 10 teams have an absolute gap of at least six.
-- Preview-ballot comparison stays division-scoped and uses only source-stated positions; partial ballots remain partial.
+- Weighted/equal sensitivity includes all 32 teams; Baltimore moves seven ranks and Houston five.
+- All 17 Kalshi tail comparisons include all 32 teams.
+- At the default 11-win tail, Detroit has the largest absolute profile/tail gap at 15 ranks; 11 teams differ by at least six.
+- All 12 preview ballots are compared only over source-stated positions; partial ballots remain partial.
 - The cross-market scanner is separate from podcast analysis and uses no editorial evidence.
-- Defense is represented. Special teams, an independent schedule model, and changing injury information remain missing dimensions.
+- Defense is represented. Special teams, an independent schedule model, calibrated forecasts, claim freshness, changing injuries, execution costs, and portfolio state remain missing dimensions.
 
-## Verification
+## Local verification
 
 - Content and market tests: 16 passed, 0 failed
 - TypeScript: passed
-- ESLint: passed
-- Standalone Vite build: passed
-- Self-contained `docs/index.html`: rebuilt
-- Offline/self-contained checks: passed; the publication has inline scripts/styles, an inline data-URI favicon, no external script or stylesheet dependency, and local HTTP requests only for `/`
-- Privacy scans: passed; no tracked private source tree, transcript snapshot, local absolute path, Reader locator, environment file, credential, key, log, or build scratch directory
-- Desktop 1440×1000: passed with 14 navigation tabs, 32 matrix rows, four preview cards, 11 preview ballots, six weight controls, 32 analysis rows, 17 tail choices, eight scanner candidates, and zero document overflow
-- Mobile 390×844: passed with four 366-pixel preview cards inside the 390-pixel viewport, horizontally scrollable labeled tables, and zero document overflow
-- Interaction/accessibility: passed for native labeled controls, weight restore/equal actions, threshold 13 update, scoped preview navigation, scanner separation, one main landmark, named navigation, zero unlabeled buttons/links, zero duplicate IDs, and clean browser logs
-- Deployed HTTPS: passed with HTTP/2 200, HTTPS/HSTS, Edition 6 content, 192/192 scored ranks, 10 sources, 14 tabs, six weight controls, 32 analysis rows, 11 preview-ballot rows, eight scanner rows, zero document overflow, clean browser logs, and a byte-identical artifact hash
+- ESLint: passed from the configured site package
+- Standalone Vite build: passed; `docs/index.html` rebuilt
+- Offline/self-contained and privacy audit: passed; inline scripts/styles, no external script or stylesheet dependency, 22 private identifiers tested with zero leaks, no prohibited public patterns
+- Desktop 1440×1000: passed with 15 navigation tabs and zero document overflow
+- Mobile 390×844: passed with responsive cards, intentionally scrollable labeled tables, and zero document overflow
+- Interaction/accessibility: passed for named native controls, equal/default weight actions, tail selection, preview-to-profile navigation, one named navigation, zero unnamed buttons/links, zero duplicate IDs, and clean browser logs
+- Deployed HTTPS: pending publication record
 
 ## Next action
 
-Continue append-only market refreshes and read-only preview ingestion when new evidence arrives. Preserve the frozen owner-only Sites v1 reference and rerun the full publication gate for every new edition.
+Publish Edition 7, record the exact artifact and deployment commits plus Pages result, and then begin the private decision ledger and time-aware freshness manifest before adding a calibrated forecast layer.

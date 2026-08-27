@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-27T12:45:47.886Z",
+  "inputs": {
+    "sportsbook_snapshot": "2026-08-27T084329-0400-paired-win-totals.json",
+    "kalshi_snapshot": "20260827T124348.007Z-kalshi-nfl-win-ladders.json"
+  },
+  "intended_use": "Preseason futures research and the first weeks of the 2026 NFL regular season",
+  "decision_grain": "team × evidence source × as-of snapshot × market contract; a future private decision layer must add wager × price × time",
+  "readiness_verdict": {
+    "auditable_research_source_of_truth": true,
+    "calibrated_forecast_source_of_truth": false,
+    "execution_and_portfolio_source_of_truth": false,
+    "summary": "The corpus, eligibility contracts and market math are auditable. Fair probabilities, time-aware updating, private decision records and outcome calibration are not yet implemented."
+  },
+  "quality_profile": {
+    "editorial_sources": 11,
+    "unique_editorial_source_ids": 11,
+    "scoring_sources": 6,
+    "complete_unique_1_to_32_contracts": 6,
+    "scoring_cells_expected": 192,
+    "scoring_cells_represented": 192,
+    "preview_sources": 5,
+    "preview_unique_teams": 32,
+    "preview_team_records": 32,
+    "preview_claim_fragments": 205,
+    "preview_ballots": 12,
+    "complete_preview_ballots": 7,
+    "partial_preview_ballots": 5,
+    "preview_team_records_with_claim_ids_and_locators": 0,
+    "preview_team_records_with_people_index": 0,
+    "market_snapshot_files_retained": 11,
+    "paired_sportsbook_teams": 32,
+    "sportsbook_multi_threshold_teams": 13,
+    "kalshi_complete_team_ladders": 32,
+    "kalshi_tail_contracts": 544,
+    "capture_mismatch_seconds": 19.007,
+    "kalshi_candidates_after_current_filters": 5,
+    "league_modeled_midpoint_wins": 271.08,
+    "league_midpoint_minus_272": -0.92
+  },
+  "layer_status": {
+    "evidence": {
+      "status": "ready-with-documentation-debt",
+      "strengths": [
+        "immutable private source snapshots",
+        "sanitized public provenance",
+        "complete scoring contracts",
+        "all-team qualitative preview coverage"
+      ],
+      "gaps": [
+        "preview evidence is summarized rather than stored as atomic claim records",
+        "preview people and source locators are not normalized",
+        "claim-level effective dates and review dates are absent"
+      ]
+    },
+    "forecast": {
+      "status": "missing",
+      "current_profile": "ordinal dependence-aware research ordering",
+      "calibrated_team_probabilities": false,
+      "outcome_trained_coefficients": false,
+      "uncertainty_intervals": false,
+      "backtest_or_holdout_validation": false
+    },
+    "market": {
+      "status": "usable-with-guardrails",
+      "append_only_snapshots": true,
+      "paired_same_book_devigging": true,
+      "complete_kalshi_tails": true,
+      "source_quote_age_exposed": false,
+      "fee_adjusted_edges": false,
+      "slippage_model": false,
+      "minimum_executable_size_filter": false,
+      "cross_snapshot_movement_view": false
+    },
+    "decision": {
+      "status": "missing-private-layer",
+      "private_thesis_ledger": false,
+      "target_and_limit_prices": false,
+      "catalysts_and_invalidation_rules": false,
+      "position_and_portfolio_exposure": false,
+      "closing_line_value_and_outcomes": false
+    },
+    "operations": {
+      "status": "manual-but-tested",
+      "generated_current_snapshot_pointer": false,
+      "freshness_ttl_and_stale_state": false,
+      "weekly_preseason_to_live_update_contract": false,
+      "continuous_integration_workflow": false,
+      "offline_self_contained_public_artifact": true
+    }
+  },
+  "highest_priority_remediations": [
+    {
+      "priority": 0,
+      "action": "Define a private decision ledger with thesis, fair-price range, target price, catalyst, invalidation, stake/risk limits and immutable decision timestamps.",
+      "reason": "Without it, the report cannot answer what was believed, what price was actionable or whether a wager still fits the thesis."
+    },
+    {
+      "priority": 0,
+      "action": "Add a time-aware current-state manifest with source effective time, captured time, review due, stale-after and supersession links.",
+      "reason": "Preseason injuries, depth charts and prices decay at different speeds; a data-through date alone is not enough for first-week decisions."
+    },
+    {
+      "priority": 1,
+      "action": "Separate the existing ordinal evidence profile from a calibrated forecast model with uncertainty and historical validation.",
+      "reason": "Current rank percentiles and reasoned weights are transparent research priors, not fair probabilities or expected wins."
+    },
+    {
+      "priority": 1,
+      "action": "Normalize preview evidence into atomic claims with people, locators, polarity, confidence and effective dates.",
+      "reason": "The specification promises auditable claim-level lineage, but current preview team summaries cannot be mechanically traced to exact source blocks."
+    },
+    {
+      "priority": 1,
+      "action": "Make the market scanner execution-aware with fees, minimum size/notional, quote age, movement persistence and best available executable price.",
+      "reason": "The current pre-fee edge filter can surface one-contract or otherwise non-actionable rows and does not prove an edge survived long enough to trade."
+    },
+    {
+      "priority": 2,
+      "action": "Build a weekly update and calibration loop using closing prices, outcomes, Brier/log loss and CLV by evidence/model version.",
+      "reason": "Learned weights require historical out-of-sample evidence; without feedback, the system cannot distinguish useful priors from persuasive narratives."
+    },
+    {
+      "priority": 2,
+      "action": "Generate UI metadata, audits and market imports from one canonical registry and add CI gates.",
+      "reason": "Weights, counts, edition labels and current snapshot paths are duplicated across code and documentation and can drift during manual refreshes."
+    }
+  ]
+}

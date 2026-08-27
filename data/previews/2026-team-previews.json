@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "season": 2026,
-  "generated_at": "2026-08-26T11:59:10-04:00",
+  "generated_at": "2026-08-27T08:38:05-04:00",
   "methodology": "Team-preview episodes are retained as scoped qualitative evidence. They enter league scoring only after a comparable full-league ranking or score contract exists. Market-aware preview evidence is never used to manufacture an independent market edge.",
   "sources": [
     {
@@ -616,6 +616,188 @@
             "House and Palmer treated the over as a relatively direct quarterback-upgrade case; Dabbundo called it a soft over and preferred the wider tail outcomes.",
             "Dabbundo selected Minnesota as his division-winner long shot but placed it third in the exact-finish ballot.",
             "Palmer and House placed Minnesota second; all three speakers chose under 2.5 J.J. McCarthy starts in an informal hypothetical."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "action-nfc-preview-part-1",
+      "label": "2026 NFC Betting Preview | Part 1",
+      "short": "NFC Part 1",
+      "publisher": "Action Network",
+      "kind": "team-preview",
+      "coverage_mode": "multi-division",
+      "covered_teams": ["SEA", "LAR", "SF", "ARI", "TB", "ATL", "NO", "CAR"],
+      "ranking_scheme": "partial-order",
+      "scoring_eligible": false,
+      "analysis_weight": 0,
+      "analysis_rationale": "The episode covers the NFC West and NFC South, is explicitly market-aware, supplies only one winner-only divisional ballot and does not state a comparable conference-wide or league-wide order.",
+      "market_aware": true,
+      "methodology": "Stuckey and Sean Koerner combine team power ratings and projected wins with opponent-adjusted efficiency, schedule strength and timing, injuries and depth, coaching and scheme changes, close-game and turnover regression, special teams, personnel, and current futures and prop prices.",
+      "source": {
+        "url": "https://pca.st/episode/7586fc3f-4c1c-4185-960a-54d8507473e6",
+        "format": "creator transcript",
+        "captured_at": "2026-08-27T08:38:05-04:00",
+        "words": 17129,
+        "lines": 580,
+        "sha256": "e78bf25fd5d085a7fd9395665220620e2b661e7dd03dabf8aef5230af0910e77"
+      },
+      "ballots": [
+        {
+          "speaker": "Stuckey",
+          "scope": "NFC South winner only",
+          "complete": false,
+          "positions": [
+            {"rank": 1, "team": "TB"}
+          ],
+          "note": "Stuckey explicitly selected Tampa Bay to win the NFC South. No second-through-fourth order was stated, and no NFC West finish order was stated by either speaker."
+        }
+      ],
+      "ambiguities": [
+        "The creator transcript has no speaker labels. Attribution follows explicit introductions and conversational handoffs and remains interpretive where a handoff is unclear.",
+        "Numerous player, coach and staff names are phonetically or inconsistently transcribed. Uncertain spellings are not silently normalized, and claims that require an unresolved identity are omitted.",
+        "A Saints passing-yard prop near 1:23:05 is numerically garbled and is not reconstructed as an exact threshold.",
+        "Several player-name variants recur inside the same discussion, including Rams backfield and 49ers receiver/tackle references; normalized evidence retains only identities that are clear from context.",
+        "No exact NFC West ballot and no complete NFC South ballot were stated. Power ratings, projected wins, discussion order, current prices, preferred wagers and season-long props are not promoted into unstated rankings.",
+        "Injury, suspension and depth-chart statements are time-sensitive preseason evidence as of the episode's Aug. 26 publication date."
+      ],
+      "teams": [
+        {
+          "team": "SEA",
+          "positives": [
+            "Mike Macdonald's defense retains an elite floor, a strong front and enough adaptable secondary pieces to remain one of the league's best units.",
+            "The offense returns its entire starting line and unusually deep line continuity, while the backfield was considered capable of absorbing Kenneth Walker's departure.",
+            "Stuckey's 10.8-win projection and the speakers' respect for Macdonald kept Seattle in the NFC West race despite expected regression."
+          ],
+          "concerns": [
+            "Secondary departures and a season-ending rookie injury reduce the personnel flexibility that let Seattle live in nickel and dime without sacrificing run defense.",
+            "The offensive-coordinator change creates cadence and play-calling downside, while Sam Darnold's league-high 20 turnovers leave the defense little margin if the offense slips.",
+            "An aging defensive front, thinner injury insulation and regression from dominant special teams add downside in a difficult division and schedule."
+          ],
+          "context": [
+            "Stuckey cited the prior team as the fourth-best DVOA season ever and noted that the other historical top-ten teams declined by only about 1.5 wins on average.",
+            "Neither speaker made a season-long Seahawks bet or stated an NFC West finish position; Koerner preferred possible early-season fading to tying up futures capital."
+          ]
+        },
+        {
+          "team": "LAR",
+          "positives": [
+            "Both speakers had the Rams first in their current power ratings, with the league's best returning offense and major defensive upgrades through Myles Garrett and an improved corner room.",
+            "Sean McVay's heavy multi-tight-end structure, sustainable red-zone improvement and an elite run game were treated as repeatable offensive advantages.",
+            "The defense led the league in four-man pressure and six-defensive-back usage before adding talent, and even a limited Aaron Donald return would raise its ceiling."
+          ],
+          "concerns": [
+            "The roster is star-driven, aging in several key spots and exceptionally thin behind Matthew Stafford, the offensive line and the top receivers.",
+            "A punishing first five weeks—Australia travel, a short-week Denver trip, Philadelphia and Buffalo—magnifies suspension, health and depth risk.",
+            "Coverage units remain a weakness, and the win-now roster used premium draft capital on a future quarterback rather than immediate depth."
+          ],
+          "context": [
+            "Koerner projected 11.2 wins and Stuckey about 11.35 against an 11.5 total; both were reluctant to fade the team, though the number made under the only plausible side.",
+            "Koerner proposed Blake Corum at 9-to-1 for most NFC West rushing touchdowns; the speakers framed it as a role and injury-contingent long shot, not a team ranking.",
+            "No NFC West division ballot was stated despite both speakers calling Los Angeles the current top power-rated team."
+          ]
+        },
+        {
+          "team": "SF",
+          "positives": [
+            "Kyle Shanahan and an easier schedule preserve a high floor, while better interception luck and health regression could lift a team that won 12 games through extensive injuries.",
+            "Mac Jones was described as the league's best backup after going 5-3, giving San Francisco more quarterback injury protection than its division rivals.",
+            "The new defensive staff and front structures offer upside if Fred Warner, Nick Bosa and the tackles remain healthy."
+          ],
+          "concerns": [
+            "The roster entered the season with widespread injury designations, a receiver already lost for the year, aging skill players and disastrous tackle depth.",
+            "A 6-1 one-possession record, historically high hidden special-teams value, red-zone fortune and a soft closing schedule all temper the 12-win baseline.",
+            "The team's repeated injury pattern makes season-long futures unusually difficult to underwrite."
+          ],
+          "context": [
+            "Stuckey projected roughly 10 wins, aligned with the market, and was considering over 3.5 division wins at plus money conditional on preseason health.",
+            "Koerner preferred fading a receiver's season catch total rather than taking a broad team future; no NFC West finish position was stated."
+          ]
+        },
+        {
+          "team": "ARI",
+          "positives": [
+            "Extreme injury, fumble, field-goal and one-score misfortune creates a legitimate regression case, and several young defenders have flashed when healthy.",
+            "A very low win total leaves multiple paths to four or five wins if opponents suffer normal quarterback variance and the late schedule breaks favorably."
+          ],
+          "concerns": [
+            "Both speakers rated Arizona's schedule the league's hardest, with an especially brutal first six weeks and a late Week 14 bye.",
+            "The quarterback transition, disliked draft allocation and another season of defensive availability questions limit the benefit of positive regression.",
+            "The most winnable games arrive late enough that trades, rookie evaluation and organizational draft incentives could weaken the on-field roster."
+          ],
+          "context": [
+            "Both speakers called the full-season total over-or-nothing at such a low number but stayed away because of schedule structure and possible late-season roster decisions.",
+            "Koerner preferred Arizona at +225 in the last-winless-team market and an early-season fade, while allowing for a late run; no division rank was stated."
+          ]
+        },
+        {
+          "team": "TB",
+          "positives": [
+            "A healthier Baker Mayfield, a healthier top-tier line, deep receiving options and a strong contributing rookie class support an offensive rebound.",
+            "The front should remain stout against the run, and added edge help plus red-zone regression gives the defense a plausible improvement path.",
+            "Injuries and suspensions elsewhere in the NFC South improve Tampa Bay's relative position."
+          ],
+          "concerns": [
+            "The defense remains a pass-funnel with major uncertainty at nickel, outside corner and coverage linebacker after losing its top cover corner.",
+            "A new outside-zone-heavy offensive scheme must solve a run game that struggled, and the opening matchup exposes the secondary immediately.",
+            "The schedule delays three division games until the final four weeks, muting some near-term benefit from rivals' preseason losses."
+          ],
+          "context": [
+            "Koerner projected 8.4 wins against an 8.5 total and suggested early overs as a game-market angle rather than a season bet.",
+            "Stuckey explicitly selected Tampa Bay to win the NFC South and made that his favorite bet from the episode. This is the episode's only normalized ballot position."
+          ]
+        },
+        {
+          "team": "ATL",
+          "positives": [
+            "Kevin Stefanski was expected to improve late-game management and special teams, two areas where Atlanta repeatedly gave away close margins.",
+            "Bijan Robinson, Drake London and Kyle Pitts give the offense a strong skill foundation if the quarterback position stabilizes.",
+            "The schedule lightens and suspended personnel return later, creating a possible midseason division-futures entry if the offense functions."
+          ],
+          "concerns": [
+            "Atlanta lost seven of its top eight pressure contributors through departures, injury and an eight-game suspension after a franchise-record sack season.",
+            "The nickel and broader defense project substantially worse, risking a return to the low-pressure units that preceded last season.",
+            "Michael Penix Jr. is still returning from injury, the veteran alternative was dismissed sharply, and right tackle and receiver depth remain concerns."
+          ],
+          "context": [
+            "Stuckey had Atlanta as the division's best power-rated team late last season but backed away from a preseason division position after the defensive losses.",
+            "The recommended posture was to monitor a brutal seven-playoff-opponent opening ten games and consider a long division price later—not to infer a current finish order.",
+            "A long rookie-quarterback tangent was explicitly framed as speculative and partly joking; it does not enter the team ballot."
+          ]
+        },
+        {
+          "team": "NO",
+          "positives": [
+            "Second-year continuity under Kellen Moore and Brandon Staley, an easier schedule and a healthier line create a credible improvement path.",
+            "Tyler Shough's small late-season sample showed top-12 adjusted accuracy and turnover-worthy-play rates, while his rushing can improve red-zone efficiency.",
+            "A new kicker and expected regression from last-place red-zone and field-goal results should raise the scoring floor."
+          ],
+          "concerns": [
+            "Shough's encouraging sample came against a very soft post-bye schedule and still lacked consistent deep accuracy.",
+            "Jordan Tyson's injury, Chris Olave's availability risk and an extremely thin receiver room create a low offensive floor.",
+            "The defense remains old in places, and the new big-nickel plan must prove it can hold up in coverage."
+          ],
+          "context": [
+            "Koerner projected 8.2 wins and identified over 7.5 at -120—or preferably plus money—as his largest divisional win-total edge.",
+            "The speakers expected a likely 0-2 start at Detroit and Baltimore and viewed that as a possible later entry point; neither stated an NFC South finish rank.",
+            "The exact passing-yard prop threshold is excluded because the creator transcript is garbled at that passage."
+          ]
+        },
+        {
+          "team": "CAR",
+          "positives": [
+            "The defense added pass-rush and linebacker help, has a possible corner-role upgrade and was viewed as directionally improved under Ejiro Evero.",
+            "A first-round tackle, potential backfield health and any usable receiving production from tight end provide limited offensive upside.",
+            "The speakers liked the broader roster-building direction even while questioning the current team's ceiling."
+          ],
+          "concerns": [
+            "A 7-3 one-score record, six wins by exactly three points, fourth-down fortune and very little time playing with a lead make the prior eight wins fragile.",
+            "Both tackles entered the season out, a rookie deep threat was lost, and Bryce Young's protected, low-depth passing profile still lacked a true leap.",
+            "The defense finished last in pressure rate for a third straight season, and Carolina drew Koerner's fourth-hardest schedule after winning the division."
+          ],
+          "context": [
+            "Koerner projected 6.8 wins before fully incorporating the latest injuries; Stuckey was around seven.",
+            "Koerner made under 7.5 near -135 his favorite NFC South win-total bet and the episode's final sponsored best bet. No finish position was stated."
           ]
         }
       ]

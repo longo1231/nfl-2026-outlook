@@ -1,17 +1,19 @@
 # 2026 NFL Outlook Field Guide
 
-An evidence-first study report built from six Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, skill positions, offenses, and defenses—plus four scoped team-preview episodes covering the NFC East, NFC North, and all four AFC divisions. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
+An evidence-first study report built from six Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, skill positions, offenses, and defenses—plus five scoped team-preview episodes now covering all 32 teams. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
 
-The current edition compares the six complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The four market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich 24 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
+The current edition compares the six complete league-wide inputs with two timestamped NFL win-market snapshots: same-book paired sportsbook Over/Under prices and Kalshi's complete 17-tail team-win ladders. The five market-aware previews are registered at analysis weight 0 because they have partial coverage and incompatible ranking schemes. They enrich all 32 team profiles and a separate scoped ballot-versus-Kalshi view without entering the league score.
+
+Edition 7 also adds a decision-system meta review. Its conclusion is intentionally strict: the Field Guide is an auditable research source of truth, but it is not yet a calibrated forecast, execution, or portfolio source of truth. The visible Decision System section and `META_REVIEW.md` identify the missing forecast, freshness, private decision, execution and feedback layers.
 
 ## Current edition
 
-- Edition: 6
-- Data through: 2026-08-26
-- Editorial coverage: 192 of 192 scoring cells plus four zero-weight preview sources covering 24 unique teams
+- Edition: 7
+- Data through: 2026-08-27
+- Editorial coverage: 192 of 192 scoring cells plus five zero-weight preview sources covering all 32 teams
 - Sportsbook coverage: 32 of 32 teams with paired primary quotes; 13 teams with multiple observed thresholds
 - Kalshi coverage: 544 open contracts; 32 of 32 teams with all 17 tails; 32 teams with coverage-supported expected-win estimates
-- Cross-market scan: 90 executable-side comparisons; 8 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and available-size filters
+- Cross-market scan: 90 executable-side comparisons; 5 timestamped candidates passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread, and positive displayed-size filters
 - Publication surface: `docs/index.html`
 - Published report: https://longo1231.github.io/nfl-2026-outlook/
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
@@ -22,19 +24,20 @@ Publication URL and commit are recorded in `CHECKPOINT.md`.
 ## Report sections
 
 1. Executive briefing
-2. League matrix
-3. Team profiles with 0–17 modeled win distributions
-4. Quarterbacks
-5. Coaching
-6. Offensive lines
-7. Skill positions
-8. Offenses
-9. Defenses
-10. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for 24 teams
-11. Kalshi ladders, exact-win distributions, and group win totals
-12. Analysis vs Market: adjustable scored-category weights, full-league tail disagreements, scoped preview-ballot comparisons, and a separate cross-market scanner
-13. Cross-category synthesis
-14. Sources and QA
+2. Decision System: current readiness boundary, four-layer target architecture, and prioritized roadmap
+3. League matrix
+4. Team profiles with 0–17 modeled win distributions
+5. Quarterbacks
+6. Coaching
+7. Offensive lines
+8. Skill positions
+9. Offenses
+10. Defenses
+11. Team previews: exact scoped ballots, ambiguity ledgers, and evidence for all 32 teams
+12. Kalshi ladders, exact-win distributions, and group win totals
+13. Analysis vs Market: adjustable scored-category weights, full-league tail disagreements, scoped preview-ballot comparisons, and a separate cross-market scanner
+14. Cross-category synthesis
+15. Sources and QA
 
 The default podcast profile converts each ordinal rank to a 0–100 strength percentile, then applies adjustable reasoned-prior importance points: quarterback 25, coaching 15, offensive line 11, skill positions 8, offense 11, and defense 30. No coefficient is learned from outcomes, sportsbook prices, or Kalshi. QB, line, skill, and the composite offense episode share a fixed 55-point offensive-family budget because the offense methodology explicitly reuses those inputs; the offense weight represents interaction and schedule context rather than a second full independent signal. The interface exposes every default and rationale and retains equal weight as a sensitivity stress test. This remains an incomplete analytical ordering—not a power rating, win forecast, calibrated probability, or bet recommendation.
 
@@ -83,9 +86,9 @@ P(W = 17) = P(W >= 17)
 
 Every team profile displays those 18 probability masses, their most likely exact-win outcome, and the expected-win marker. These are derived midpoint probabilities, not directly traded exact-win contracts. The market rank orders the modeled expected win value. Team bid/ask brackets and conference/division totals sum the corresponding monotone marginal curves; they are market-width bounds, not confidence intervals or jointly executable portfolio guarantees.
 
-At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and displayed top-of-book size. It does not include Kalshi fees or slippage, and the refreshed source snapshots were captured 25.058 seconds apart. Candidates are research prompts, not recommendations.
+At thresholds also observed in the sportsbook snapshot, the scanner compares the same-book de-vigged sportsbook probability with the executable Kalshi Yes or No ask. The current list requires at least 5¢ pre-fee edge, no more than a 12¢ Kalshi spread, and positive displayed top-of-book size. It does not include Kalshi fees, slippage, a minimum notional, quote-age verification, or persistence, and the refreshed source snapshots were captured 19.007 seconds apart. Candidates are watchlist research prompts, not recommendations.
 
-The fresh Kalshi marginal midpoint sum is 272.693 wins, or 0.693 above the 272-game league ceiling. The report preserves that aggregate incoherence as a calibration warning rather than forcing individually estimated team curves to sum to a coherent joint league distribution.
+The fresh Kalshi marginal midpoint sum is 271.080 wins, or 0.920 below the 272-game league ceiling. The report preserves that aggregate incoherence as a calibration warning rather than forcing individually estimated team curves to sum to a coherent joint league distribution.
 
 ## Reproduce and test
 
@@ -112,6 +115,18 @@ npm --prefix site run build
 
 The standalone build inlines the React bundle, data, and CSS into `docs/index.html`.
 
+Run the reproducible offline/privacy gate after every build:
+
+```sh
+npm run artifact:audit
+```
+
+The decision-system readiness script requires explicit sportsbook, Kalshi, and new append-only output paths:
+
+```sh
+npm run system:audit -- data/markets/<paired-snapshot>.json data/markets/<kalshi-snapshot>.json data/audit/<timestamp>-decision-system-readiness.json
+```
+
 ## Project map
 
 | Path | Purpose |
@@ -120,6 +135,7 @@ The standalone build inlines the React bundle, data, and CSS into `docs/index.ht
 | `SPEC.md` | Data contract, report architecture, methodology, and completion gates |
 | `CHECKPOINT.md` | Current edition, exact public sources, QA, publication commit, blockers, and next action |
 | `NEXT_PHASE.md` | Completed full-ladder, group-total, scanner, and publication phase record |
+| `META_REVIEW.md` | Decision-system readiness audit, target architecture, risks, and phased roadmap |
 | `lib/market-math.mjs` | Odds conversion, de-vigging, isotonic regression, probability-mass, and tail-sum functions |
 | `lib/profile-market.mjs` | Extensible category weighting, profile scores, tail probabilities, distribution moments, and ranks |
 | `lib/kalshi-auth.mjs` | Private environment parsing and Kalshi RSA-PSS request signing |
@@ -127,6 +143,8 @@ The standalone build inlines the React bundle, data, and CSS into `docs/index.ht
 | `scripts/build-market-snapshot.mjs` | Deterministic parser and market-snapshot builder |
 | `scripts/scan-kalshi-nfl.mjs` | Read-only, append-only Kalshi NFL ladder and opportunity scanner |
 | `scripts/audit-profile-sensitivity.mjs` | Reproducible weighted/equal and all-17-tail sensitivity audit |
+| `scripts/audit-decision-system.mjs` | Reproducible source, preview, market, and decision-layer readiness audit |
+| `scripts/validate-public-artifact.mjs` | Reproducible offline/self-contained and private-identifier leak gate |
 | `tests/market-math.test.mjs` | Unit tests for sportsbook math, category weighting, extensibility, and tail-shape calculations |
 | `tests/kalshi-nfl.test.mjs` | Unit tests for authentication, full ladders, totals, ranks, and scanner edges |
 | `data/nfl/teams.json` | Canonical NFL team, conference, division, and Kalshi-code registry |
@@ -169,5 +187,6 @@ For a new editorial episode:
 - The offense creator transcript contains several phonetically garbled personnel and coach references. They remain disclosed in evidence context; no uncertain name is silently substituted.
 - The defense creator transcript contains scattered garbled names and one implausible Ravens return reference. A brief Rams “No. 4” slip is resolved only because the explicit list and top-ten recap both establish Baltimore fourth and the Rams fifth.
 - The NFC North creator transcript supplies three complete, speaker-specific division ballots. Cousin Sal explicitly withheld his picks for another show, so no ballot—complete or partial—is inferred for him.
+- NFC Part 1 covers the NFC West and NFC South. It supplies only Stuckey's Tampa Bay winner pick, no NFC West order, and no complete NFC South ballot; a garbled Saints passing-yard threshold is excluded and uncertain names remain disclosed.
 
 Market information is a timestamped research input, not advice or an instruction to place a wager. Prices can move after capture.

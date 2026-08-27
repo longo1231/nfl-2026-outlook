@@ -1,5 +1,6 @@
-import marketSnapshot from '../../data/markets/2026-08-26T121356-0400-paired-win-totals.json';
-import kalshiSnapshot from '../../data/markets/20260826T161421.058Z-kalshi-nfl-win-ladders.json';
+import marketSnapshot from '../../data/markets/2026-08-27T084329-0400-paired-win-totals.json';
+import kalshiSnapshot from '../../data/markets/20260827T124348.007Z-kalshi-nfl-win-ladders.json';
+import readinessAudit from '../../data/audit/20260827T124348.007Z-decision-system-readiness.json';
 import teamRegistry from '../../data/nfl/teams.json';
 import previewRegistry from '../../data/previews/2026-team-previews.json';
 import { rankScores, weightedProfileScore } from '../../lib/profile-market.mjs';
@@ -91,7 +92,7 @@ export const marketSource = {
   label: marketSnapshot.source.label,
   url: marketSnapshot.source.url,
   updated: 'Per-quote update time unavailable',
-  retrieved: 'Aug. 26, 2026, 12:13:56 PM ET',
+  retrieved: new Intl.DateTimeFormat('en-US', { timeZone:'America/New_York', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit', second:'2-digit', timeZoneName:'short' }).format(new Date(marketSnapshot.captured_at)),
   note: marketSnapshot.source.update_note,
 };
 
@@ -99,7 +100,7 @@ export const kalshiMarketSource = {
   label: kalshiSnapshot.source.label,
   url: kalshiSnapshot.source.api_url,
   documentation: kalshiSnapshot.source.api_documentation,
-  retrieved: 'Aug. 26, 2026, 12:14:21 PM ET',
+  retrieved: new Intl.DateTimeFormat('en-US', { timeZone:'America/New_York', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit', second:'2-digit', timeZoneName:'short' }).format(new Date(kalshiSnapshot.captured_at)),
   authenticated: kalshiSnapshot.source.authentication.verified,
 };
 
@@ -139,6 +140,7 @@ export const sportsbookMarketAudit = marketSnapshot.audit;
 export const marketAudit = kalshiSnapshot.audit;
 export const winAggregates = kalshiSnapshot.aggregates;
 export const betCandidates = kalshiSnapshot.candidates;
+export const decisionSystemAudit = readinessAudit;
 
 export const qbEvidence: Evidence[] = [
   E('BUF',1,'1','Best of the best','Josh Allen',['Josh Allen'],['All the physical tools; Anderson says he has sharply reduced the mistakes.','His individual playoff performance has generally been excellent despite the no-Super-Bowl criticism.'],['No championship yet remains the public counterargument.'],['Allen takes the No. 1 spot after Patrick Mahomes held it for seven straight editions.'],[188,278]),
@@ -332,7 +334,7 @@ export const previewSources: PreviewSource[] = previewRegistry.sources.map(raw=>
   analysisWeight:0,
   analysisRationale:raw.analysis_rationale,
   marketAware:true,
-  methodology:previewRegistry.methodology,
+  methodology:('methodology' in raw && typeof raw.methodology === 'string') ? raw.methodology : previewRegistry.methodology,
   source:{
     url:raw.source.url,
     format:raw.source.format,

@@ -1,6 +1,6 @@
 {
   "name": "nfl-2026-outlook",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,8 @@
     "market:build": "node scripts/build-market-snapshot.mjs",
     "kalshi:scan": "node scripts/scan-kalshi-nfl.mjs",
     "analysis:audit": "node scripts/audit-profile-sensitivity.mjs",
+    "system:audit": "node scripts/audit-decision-system.mjs",
+    "artifact:audit": "node scripts/validate-public-artifact.mjs",
     "report:build": "npm --prefix site run build:standalone"
   }
 }

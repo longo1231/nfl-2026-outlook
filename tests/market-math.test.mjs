@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import previewRegistry from '../data/previews/2026-team-previews.json' with { type: 'json' };
+import teamRegistry from '../data/nfl/teams.json' with { type: 'json' };
 import qbRanking from '../data/rankings/2026-qb.json' with { type: 'json' };
 import coachingRanking from '../data/rankings/2026-coaching.json' with { type: 'json' };
 import offensiveLineRanking from '../data/rankings/2026-offensive-line.json' with { type: 'json' };
@@ -108,10 +109,19 @@ test('all six scoring sources preserve a complete unique 1–32 ranking contract
 });
 
 test('partial market-aware previews are registered without entering league scoring', () => {
-  assert.equal(previewRegistry.sources.length, 4);
+  assert.equal(previewRegistry.sources.length, 5);
   assert.ok(previewRegistry.sources.every(source => source.kind === 'team-preview'));
   assert.ok(previewRegistry.sources.every(source => source.scoring_eligible === false && source.analysis_weight === 0 && source.market_aware === true));
-  assert.deepEqual([...new Set(previewRegistry.sources.flatMap(source => source.covered_teams))].sort(), ['BAL','BUF','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC','LAC','LV','MIA','MIN','NE','NYG','NYJ','PHI','PIT','TEN','WAS']);
+  assert.deepEqual([...new Set(previewRegistry.sources.flatMap(source => source.covered_teams))].sort(), teamRegistry.map(team => team.abbr).sort());
+  for (const source of previewRegistry.sources) {
+    assert.equal(new Set(source.covered_teams).size, source.covered_teams.length);
+    for (const ballot of source.ballots) {
+      assert.equal(new Set(ballot.positions.map(position => position.rank)).size, ballot.positions.length);
+      assert.equal(new Set(ballot.positions.map(position => position.team)).size, ballot.positions.length);
+      assert.ok(ballot.positions.every(position => source.covered_teams.includes(position.team)));
+      if (ballot.complete) assert.equal(ballot.positions.length, 4);
+    }
+  }
   assert.deepEqual(previewRegistry.sources[0].ballots.map(ballot => ballot.positions.map(position => position.team)), [
     ['DAL','PHI','NYG','WAS'],
     ['DAL','PHI','WAS','NYG'],
@@ -127,6 +137,9 @@ test('partial market-aware previews are registered without entering league scori
     ['GB','CHI','MIN','DET'],
   ]);
   assert.ok(previewRegistry.sources[3].ballots.every(ballot => ballot.complete === true));
+  assert.deepEqual(previewRegistry.sources[4].ballots.map(ballot => ballot.positions.map(position => position.team)), [['TB']]);
+  assert.ok(previewRegistry.sources[4].ballots.every(ballot => ballot.complete === false));
+  assert.ok(previewRegistry.sources[4].ballots.every(ballot => !ballot.scope.includes('NFC West')));
 });
 
 test('tail and distribution-shape metrics use the complete exact-win density', () => {

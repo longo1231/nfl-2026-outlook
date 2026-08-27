@@ -1,9 +1,9 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: current through Edition 6
+Status: current through Edition 7
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
-Editorial sources: six complete Action Network ranking transcripts plus four scoped team-preview episodes, preserved as private immutable canonical snapshots with sanitized public provenance
+Editorial sources: six complete Action Network ranking transcripts plus five scoped team-preview episodes covering all 32 teams, preserved as private immutable canonical snapshots with sanitized public provenance
 
 ## 1. Outcome and scope
 
@@ -33,7 +33,7 @@ Completeness is measured by a claim ledger and a coverage audit, not by prose le
 
 ## 3. Readwise ingestion protocol
 
-Readwise access is read-only. The workflow must not move, archive, tag, edit, mark read/seen, highlight, or annotate documents.
+Readwise discovery, acquisition, verification and extraction are read-only. The workflow must not move, archive, tag, edit, mark read/seen, highlight, or annotate documents. A later post-incorporation location change is permitted only under explicit user authorization and must be logged separately from ingestion.
 
 ### 3.1 Discovery
 
@@ -94,7 +94,7 @@ Every editorial source declares:
 
 Only a complete, unique, comparable full-league ordinal or score contract may set `scoring_eligible=true`. Eligibility does not imply statistical independence: every new eligible category must be assigned to a dependence group and receive a disclosed overlap treatment before it enters the default profile. Partial division or conference previews receive weight 0 even if their football evidence is useful. Covering every team across a series is insufficient unless the series also supplies a stable comparable league-wide contract. Market-aware preview evidence appears in a separate scoped market comparison and cannot create an independent Podcast × Kalshi signal.
 
-Current application: AFC Preview Parts 1 and 2 collectively cover all 16 AFC teams, but neither episode supplies a conference-wide 1–16 order or comparable score. The NFC East and NFC North episodes each provide speaker-specific division ballots but no league-wide contract. All four remain market-aware qualitative sources at weight 0.
+Current application: AFC Preview Parts 1 and 2 collectively cover all 16 AFC teams, but neither episode supplies a conference-wide 1–16 order or comparable score. The NFC East and NFC North episodes provide speaker-specific division ballots but no league-wide contract. NFC Preview Part 1 covers the NFC West and NFC South, states only one winner-only NFC South ballot and no NFC West order. All five previews remain market-aware qualitative sources at weight 0 even though their combined team coverage now reaches all 32 clubs.
 
 Exact speaker ballots remain separate. Discussion order, opening prices, prior-season finish, numeric projections, and wagers are never converted into rankings. A partial ballot records only its stated positions and must not infer the rest.
 
@@ -267,6 +267,17 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 
 Speaker opinion is never converted into false precision. Counts and ordinal transformations are navigation aids, while the source-linked qualitative claims remain primary.
 
+### 7.5 Decision-system boundary
+
+The public report separates four layers and must never imply that one can substitute for another:
+
+1. **Evidence ledger:** immutable source lineage, exact contracts, atomic claims, people, confidence, locators, effective dates and review dates.
+2. **Forecast layer:** versioned probabilistic team outcomes with uncertainty, explicit priors/update rules and out-of-sample calibration. The current weighted podcast profile is an ordinal research index, not this layer.
+3. **Market layer:** append-only quotes, price/size/age, fees, slippage, movement, de-vigging and executable comparisons.
+4. **Private decision/portfolio layer:** thesis, fair-price range, target/limit, catalyst, invalidation, stake/risk, positions, CLV and postmortem. This layer is ignored and never published.
+
+Edition 7 implements an explicit readiness view and machine-readable audit. It classifies the evidence and market infrastructure as usable with documented guardrails and the forecast and private decision layers as not yet implemented. A future source-of-truth claim requires as-of/freshness fields and supersession links for every mutable record.
+
 ## 8. Report information architecture
 
 The report is a responsive single-page study tool with persistent tab navigation, URL/hash state, keyboard-accessible controls, and print-friendly team/category views.
@@ -274,14 +285,15 @@ The report is a responsive single-page study tool with persistent tab navigation
 ### 8.1 Tabs
 
 1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
-2. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
-3. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
-4–9 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
-10. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
-11. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
-12. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
-13. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
-14. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
+2. **Decision System** — current readiness boundary, four-layer target architecture, quality-profile evidence and prioritized remediation.
+3. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
+4. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
+5–10 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
+11. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
+12. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
+13. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
+14. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
+15. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
 
 ### 8.2 Interaction and study design
 
@@ -312,6 +324,10 @@ Charts are used only where they improve comparison: rank matrix, category profil
 - Add all editorial sources through one eligibility-aware registry. Scored category views and qualitative preview views derive separately from it.
 - Derived metrics specify included category IDs and recalculate automatically.
 - Put methodology/version metadata in the data payload so a later report can explain exactly what changed.
+- Generate a current-state manifest that selects one active source, forecast, sportsbook and exchange snapshot while retaining every historical snapshot.
+- Give mutable evidence `effective_at`, `captured_at`, `review_due_at`, `stale_after`, `status` and `supersedes` fields; a report-wide data-through date is not sufficient.
+- Keep any thesis, target-price, wager, position, balance, order, fill, exposure, CLV or postmortem data in a separate ignored private layer.
+- Generate UI counts, weights, source metadata and coverage audits from canonical registries instead of maintaining parallel manual copies.
 - The React source builds through Vite into a single inlined `docs/index.html` for offline use and GitHub Pages.
 - Publication excludes raw transcripts, private-library identifiers, private provenance, legacy Sites metadata, local paths, credentials, account data, positions, and personal commit details.
 
@@ -359,6 +375,9 @@ The report is complete only when:
 - All derived metrics reproduce from the checked data and carry the incomplete-model warning.
 - The self-contained report works offline and responsively, supports keyboard navigation, and has no blocking build/runtime errors.
 - The Sources & QA tab publishes claim counts, completeness checks, source links, and timestamps.
+- The Decision System tab truthfully reports which evidence, forecast, market, decision and operating layers are ready, guarded or missing.
+- Market candidates cannot enter a future action list without fee-adjusted edge, minimum executable size, quote age and persistence; rows lacking those fields remain research watchlist items.
+- Learned coefficients cannot be described as learned without historical training data, out-of-sample validation and recorded calibration metrics.
 - Raw transcript text, private-library identifiers, legacy Sites metadata, local paths, credentials, account data, private positions, and personal commit details are absent from the repository and deployed artifact.
 
 ## 12. Fixed assumptions for this first build

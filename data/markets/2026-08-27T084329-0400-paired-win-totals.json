@@ -1,0 +1,4447 @@
+{
+  "schema_version": 2,
+  "season": 2026,
+  "season_games": 17,
+  "captured_at": "2026-08-27T08:43:29-04:00",
+  "timezone": "America/New_York",
+  "source": {
+    "label": "Outrights NFL Win Totals board",
+    "url": "https://www.outrights.io/nfl/win-totals-odds",
+    "source_market_updated_at": null,
+    "update_note": "The publisher says books are polled every few minutes, but the rendered board does not expose a per-quote update timestamp. Capture time is authoritative for this snapshot.",
+    "raw_snapshot_sha256": "271f58c1276ceb66cbb5dcc4552ddbf74983ad620659ef659e57c3d8dbf887f0",
+    "raw_snapshot_bytes": 281958,
+    "books": [
+      "DraftKings",
+      "BetRivers",
+      "BetMGM",
+      "Bovada",
+      "MyBookie",
+      "Pinnacle"
+    ]
+  },
+  "official_crosscheck": {
+    "label": "BetMGM 2026 NFL win totals table",
+    "url": "https://sports.betmgm.com/en/blog/nfl/nfl-over-under-wins-2026-win-totals-all-32-teams-bm16/",
+    "published_at": "2026-08-12T15:06:00-04:00",
+    "retrieved_at": "2026-08-23",
+    "raw_snapshot_sha256": "0c023863db5823fd319473e93a85aaa0a65b338593252311307db891582a0111",
+    "use": "Pairing and sign-format cross-check only; its older prices are not mixed into the captured consensus."
+  },
+  "methodology": {
+    "probability": "American odds are converted to raw implied probabilities; each same-book Over/Under pair is normalized proportionally to remove two-way hold.",
+    "consensus": "At each threshold, the median of independently de-vigged same-book probabilities is used. Prices are never paired across books.",
+    "monotonicity": "Observed tail probabilities are audited in threshold order and repaired only when necessary with weighted non-increasing isotonic regression. Point weights reward more paired books and lower-hold quotes.",
+    "order_index": "For ordinal ranking only, index = posted half-win line + no-vig Over probability - 0.5. It stays within one-half win of the posted line and is not an expected-win estimate.",
+    "expectation": "Expected wins are reported only with all 17 P(W >= k) tails observed. Sparse boards show an observed 50% bound/bracket and no expected-win value."
+  },
+  "audit": {
+    "teams_expected": 32,
+    "teams_observed": 32,
+    "teams_with_paired_primary_quote": 32,
+    "teams_with_multiple_thresholds": 13,
+    "teams_with_full_expected_win_coverage": 0,
+    "monotonicity_violations_before": 0,
+    "monotonicity_points_adjusted": 0,
+    "all_curves_monotone_after": true
+  },
+  "teams": {
+    "LAR": {
+      "team_name": "Los Angeles Rams",
+      "consensus_line": 11.5,
+      "opening_consensus_line": 11.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 11.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 11.5,
+          "over_odds": -134,
+          "under_odds": 110,
+          "raw_over_probability": 0.57265,
+          "raw_under_probability": 0.47619,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.545984,
+          "no_vig_under_probability": 0.454016
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 11.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 11.5,
+          "over_odds": -150,
+          "under_odds": 130,
+          "raw_over_probability": 0.6,
+          "raw_under_probability": 0.434783,
+          "hold": 0.034783,
+          "no_vig_over_probability": 0.579832,
+          "no_vig_under_probability": 0.420168
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 11.5,
+          "over_odds": -125,
+          "under_odds": 102,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.49505,
+          "hold": 0.050605,
+          "no_vig_over_probability": 0.528796,
+          "no_vig_under_probability": 0.471204
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 11.5,
+          "wins_at_least": 12,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetRivers",
+            "BetMGM",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.545984,
+          "median_hold": 0.04845,
+          "isotonic_weight": 3.448956,
+          "adjusted_tail_probability": 0.545984,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 11.5,
+        "wins_at_least": 12,
+        "reference_book": "BetMGM",
+        "over_odds": -140,
+        "under_odds": 115,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.545984,
+        "consensus_no_vig_over_probability": 0.545984,
+        "median_hold": 0.04845
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 12,
+        "upper": null,
+        "display": "≥12 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 11.545984,
+      "price_adjusted_market_rank": 1
+    },
+    "BAL": {
+      "team_name": "Baltimore Ravens",
+      "consensus_line": 11,
+      "opening_consensus_line": 11.5,
+      "quotes": [
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": -148,
+          "under_odds": 120,
+          "raw_over_probability": 0.596774,
+          "raw_under_probability": 0.454545,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.567643,
+          "no_vig_under_probability": 0.432357
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 11.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": -155,
+          "under_odds": 130,
+          "raw_over_probability": 0.607843,
+          "raw_under_probability": 0.434783,
+          "hold": 0.042626,
+          "no_vig_over_probability": 0.582993,
+          "no_vig_under_probability": 0.417007
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 11.5,
+          "over_odds": 149,
+          "under_odds": -182,
+          "raw_over_probability": 0.401606,
+          "raw_under_probability": 0.64539,
+          "hold": 0.046996,
+          "no_vig_over_probability": 0.38358,
+          "no_vig_under_probability": 0.61642
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 11.5,
+          "over_odds": 115,
+          "under_odds": -141,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.585062,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.442893,
+          "no_vig_under_probability": 0.557107
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 3,
+          "books": [
+            "Bovada",
+            "BetRivers",
+            "BetMGM"
+          ],
+          "raw_consensus_tail_probability": 0.567643,
+          "median_hold": 0.04336,
+          "isotonic_weight": 2.05953,
+          "adjusted_tail_probability": 0.567643,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 11.5,
+          "wins_at_least": 12,
+          "paired_quote_count": 3,
+          "books": [
+            "DraftKings",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.442893,
+          "median_hold": 0.04845,
+          "isotonic_weight": 2.01979,
+          "adjusted_tail_probability": 0.442893,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": -155,
+        "under_odds": 130,
+        "reference_hold": 0.042626,
+        "same_threshold_book_count": 3,
+        "raw_consensus_no_vig_over_probability": 0.567643,
+        "consensus_no_vig_over_probability": 0.567643,
+        "median_hold": 0.04336
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 11,
+        "upper": 11,
+        "display": "11 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.567643,
+      "price_adjusted_market_rank": 2
+    },
+    "BUF": {
+      "team_name": "Buffalo Bills",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": -121,
+          "under_odds": -101,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.502488,
+          "hold": 0.049999,
+          "no_vig_over_probability": 0.52144,
+          "no_vig_under_probability": 0.47856
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": -130,
+          "under_odds": 110,
+          "raw_over_probability": 0.565217,
+          "raw_under_probability": 0.47619,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.542744,
+          "no_vig_under_probability": 0.457256
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": -139,
+          "under_odds": 115,
+          "raw_over_probability": 0.58159,
+          "raw_under_probability": 0.465116,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.555638,
+          "no_vig_under_probability": 0.444362
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": -150,
+          "under_odds": 130,
+          "raw_over_probability": 0.6,
+          "raw_under_probability": 0.434783,
+          "hold": 0.034783,
+          "no_vig_over_probability": 0.579832,
+          "no_vig_under_probability": 0.420168
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": -159,
+          "under_odds": 131,
+          "raw_over_probability": 0.6139,
+          "raw_under_probability": 0.4329,
+          "hold": 0.0468,
+          "no_vig_over_probability": 0.586454,
+          "no_vig_under_probability": 0.413546
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 6,
+          "books": [
+            "DraftKings",
+            "MyBookie",
+            "BetMGM",
+            "BetRivers",
+            "Bovada",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.549191,
+          "median_hold": 0.04608,
+          "isotonic_weight": 4.16611,
+          "adjusted_tail_probability": 0.549191,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": -130,
+        "under_odds": 110,
+        "reference_hold": 0.041408,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.549191,
+        "consensus_no_vig_over_probability": 0.549191,
+        "median_hold": 0.04608
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 11,
+        "upper": null,
+        "display": "≥11 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.549191,
+      "price_adjusted_market_rank": 3
+    },
+    "CIN": {
+      "team_name": "Cincinnati Bengals",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": 110,
+          "under_odds": -134,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.57265,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.454016,
+          "no_vig_under_probability": 0.545984
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": 105,
+          "under_odds": -135,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.574468,
+          "hold": 0.062273,
+          "no_vig_over_probability": 0.459209,
+          "no_vig_under_probability": 0.540791
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -161,
+          "under_odds": 131,
+          "raw_over_probability": 0.616858,
+          "raw_under_probability": 0.4329,
+          "hold": 0.049759,
+          "no_vig_over_probability": 0.587619,
+          "no_vig_under_probability": 0.412381
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 9.5,
+          "over_odds": -187,
+          "under_odds": 153,
+          "raw_over_probability": 0.651568,
+          "raw_under_probability": 0.395257,
+          "hold": 0.046825,
+          "no_vig_over_probability": 0.622423,
+          "no_vig_under_probability": 0.377577
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 2,
+          "books": [
+            "MyBookie",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.605021,
+          "median_hold": 0.048292,
+          "isotonic_weight": 1.348822,
+          "adjusted_tail_probability": 0.605021,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 4,
+          "books": [
+            "BetMGM",
+            "DraftKings",
+            "BetRivers",
+            "Bovada"
+          ],
+          "raw_consensus_tail_probability": 0.448819,
+          "median_hold": 0.048645,
+          "isotonic_weight": 2.635363,
+          "adjusted_tail_probability": 0.448819,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": 115,
+        "under_odds": -140,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.448819,
+        "consensus_no_vig_over_probability": 0.448819,
+        "median_hold": 0.048645
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": 10,
+        "display": "10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.448819,
+      "price_adjusted_market_rank": 6
+    },
+    "DET": {
+      "team_name": "Detroit Lions",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": -111,
+          "under_odds": -109,
+          "raw_over_probability": 0.526066,
+          "raw_under_probability": 0.521531,
+          "hold": 0.047597,
+          "no_vig_over_probability": 0.502165,
+          "no_vig_under_probability": 0.497835
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": -115,
+          "under_odds": -105,
+          "raw_over_probability": 0.534884,
+          "raw_under_probability": 0.512195,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.510834,
+          "no_vig_under_probability": 0.489166
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": -116,
+          "under_odds": -105,
+          "raw_over_probability": 0.537037,
+          "raw_under_probability": 0.512195,
+          "hold": 0.049232,
+          "no_vig_over_probability": 0.511838,
+          "no_vig_under_probability": 0.488162
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": -134,
+          "under_odds": 110,
+          "raw_over_probability": 0.57265,
+          "raw_under_probability": 0.47619,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.545984,
+          "no_vig_under_probability": 0.454016
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 6,
+          "books": [
+            "Bovada",
+            "Pinnacle",
+            "DraftKings",
+            "MyBookie",
+            "BetMGM",
+            "BetRivers"
+          ],
+          "raw_consensus_tail_probability": 0.511336,
+          "median_hold": 0.047608,
+          "isotonic_weight": 4.064305,
+          "adjusted_tail_probability": 0.511336,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": -120,
+        "under_odds": 100,
+        "reference_hold": 0.045455,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.511336,
+        "consensus_no_vig_over_probability": 0.511336,
+        "median_hold": 0.047608
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 11,
+        "upper": null,
+        "display": "≥11 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.511336,
+      "price_adjusted_market_rank": 5
+    },
+    "KC": {
+      "team_name": "Kansas City Chiefs",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": 135,
+          "under_odds": -160,
+          "raw_over_probability": 0.425532,
+          "raw_under_probability": 0.615385,
+          "hold": 0.040917,
+          "no_vig_over_probability": 0.408805,
+          "no_vig_under_probability": 0.591195
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": 120,
+          "under_odds": -145,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.591837,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.434397,
+          "no_vig_under_probability": 0.565603
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -141,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.585062,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.442893,
+          "no_vig_under_probability": 0.557107
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 5,
+          "books": [
+            "Bovada",
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.442893,
+          "median_hold": 0.046706,
+          "isotonic_weight": 3.413917,
+          "adjusted_tail_probability": 0.442893,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": 120,
+        "under_odds": -145,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.442893,
+        "consensus_no_vig_over_probability": 0.442893,
+        "median_hold": 0.046706
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 10,
+        "display": "≤10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.442893,
+      "price_adjusted_market_rank": 8
+    },
+    "PHI": {
+      "team_name": "Philadelphia Eagles",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": 120,
+          "under_odds": -145,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.591837,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.434397,
+          "no_vig_under_probability": 0.565603
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": 120,
+          "under_odds": -148,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.596774,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.432357,
+          "no_vig_under_probability": 0.567643
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -135,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.574468,
+          "hold": 0.039584,
+          "no_vig_over_probability": 0.447406,
+          "no_vig_under_probability": 0.552594
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -141,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.585062,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.442893,
+          "no_vig_under_probability": 0.557107
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "Bovada",
+            "DraftKings",
+            "MyBookie",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.443258,
+          "median_hold": 0.047578,
+          "isotonic_weight": 4.081545,
+          "adjusted_tail_probability": 0.443258,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": 120,
+        "under_odds": -145,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.443258,
+        "consensus_no_vig_over_probability": 0.443258,
+        "median_hold": 0.047578
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 10,
+        "display": "≤10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.443258,
+      "price_adjusted_market_rank": 7
+    },
+    "SEA": {
+      "team_name": "Seattle Seahawks",
+      "consensus_line": 10.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": -115,
+          "under_odds": -105,
+          "raw_over_probability": 0.534884,
+          "raw_under_probability": 0.512195,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.510834,
+          "no_vig_under_probability": 0.489166
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": -116,
+          "under_odds": -106,
+          "raw_over_probability": 0.537037,
+          "raw_under_probability": 0.514563,
+          "hold": 0.0516,
+          "no_vig_over_probability": 0.510686,
+          "no_vig_under_probability": 0.489314
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 10.5,
+          "over_odds": -122,
+          "under_odds": 100,
+          "raw_over_probability": 0.54955,
+          "raw_under_probability": 0.5,
+          "hold": 0.04955,
+          "no_vig_over_probability": 0.523605,
+          "no_vig_under_probability": 0.476395
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": -129,
+          "under_odds": 106,
+          "raw_over_probability": 0.563319,
+          "raw_under_probability": 0.485437,
+          "hold": 0.048756,
+          "no_vig_over_probability": 0.537131,
+          "no_vig_under_probability": 0.462869
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 10.5,
+          "over_odds": -130,
+          "under_odds": 110,
+          "raw_over_probability": 0.565217,
+          "raw_under_probability": 0.47619,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.542744,
+          "no_vig_under_probability": 0.457256
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 6,
+          "books": [
+            "DraftKings",
+            "MyBookie",
+            "BetRivers",
+            "BetMGM",
+            "Pinnacle",
+            "Bovada"
+          ],
+          "raw_consensus_tail_probability": 0.528037,
+          "median_hold": 0.047918,
+          "isotonic_weight": 4.08517,
+          "adjusted_tail_probability": 0.528037,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 10.5,
+        "wins_at_least": 11,
+        "reference_book": "BetMGM",
+        "over_odds": -125,
+        "under_odds": 105,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.528037,
+        "consensus_no_vig_over_probability": 0.528037,
+        "median_hold": 0.047918
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 11,
+        "upper": null,
+        "display": "≥11 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 10.528037,
+      "price_adjusted_market_rank": 4
+    },
+    "CHI": {
+      "team_name": "Chicago Bears",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": 105,
+          "under_odds": -125,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.555556,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.467532,
+          "no_vig_under_probability": 0.532468
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": 125,
+          "under_odds": -145,
+          "raw_over_probability": 0.444444,
+          "raw_under_probability": 0.591837,
+          "hold": 0.036281,
+          "no_vig_over_probability": 0.428884,
+          "no_vig_under_probability": 0.571116
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": 100,
+          "under_odds": -121,
+          "raw_over_probability": 0.5,
+          "raw_under_probability": 0.547511,
+          "hold": 0.047511,
+          "no_vig_over_probability": 0.477322,
+          "no_vig_under_probability": 0.522678
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": 105,
+          "under_odds": -125,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.555556,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.467532,
+          "no_vig_under_probability": 0.532468
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 9.5,
+          "over_odds": 120,
+          "under_odds": -145,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.591837,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.434397,
+          "no_vig_under_probability": 0.565603
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -101,
+          "under_odds": -121,
+          "raw_over_probability": 0.502488,
+          "raw_under_probability": 0.547511,
+          "hold": 0.049999,
+          "no_vig_over_probability": 0.47856,
+          "no_vig_under_probability": 0.52144
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "Bovada",
+            "BetRivers",
+            "DraftKings",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.467532,
+          "median_hold": 0.044871,
+          "isotonic_weight": 4.156598,
+          "adjusted_tail_probability": 0.467532,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": 105,
+        "under_odds": -125,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.467532,
+        "consensus_no_vig_over_probability": 0.467532,
+        "median_hold": 0.044871
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 9,
+        "display": "≤9 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.467532,
+      "price_adjusted_market_rank": 16
+    },
+    "DAL": {
+      "team_name": "Dallas Cowboys",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": 100,
+          "under_odds": -120,
+          "raw_over_probability": 0.5,
+          "raw_under_probability": 0.545455,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.478261,
+          "no_vig_under_probability": 0.521739
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": 105,
+          "under_odds": -127,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.559471,
+          "hold": 0.047276,
+          "no_vig_over_probability": 0.465784,
+          "no_vig_under_probability": 0.534216
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 8.5,
+          "over_odds": -202,
+          "under_odds": 165,
+          "raw_over_probability": 0.668874,
+          "raw_under_probability": 0.377358,
+          "hold": 0.046233,
+          "no_vig_over_probability": 0.639317,
+          "no_vig_under_probability": 0.360683
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -101,
+          "under_odds": -126,
+          "raw_over_probability": 0.502488,
+          "raw_under_probability": 0.557522,
+          "hold": 0.06001,
+          "no_vig_over_probability": 0.474041,
+          "no_vig_under_probability": 0.525959
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 1,
+          "books": [
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.639317,
+          "median_hold": 0.046233,
+          "isotonic_weight": 0.68384,
+          "adjusted_tail_probability": 0.639317,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetRivers",
+            "BetMGM",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.478261,
+          "median_hold": 0.047276,
+          "isotonic_weight": 3.356373,
+          "adjusted_tail_probability": 0.478261,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -110,
+        "under_odds": -110,
+        "reference_hold": 0.047619,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.478261,
+        "consensus_no_vig_over_probability": 0.478261,
+        "median_hold": 0.047276
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 9,
+        "upper": 9,
+        "display": "9 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.478261,
+      "price_adjusted_market_rank": 15
+    },
+    "DEN": {
+      "team_name": "Denver Broncos",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": -115,
+          "under_odds": -105,
+          "raw_over_probability": 0.534884,
+          "raw_under_probability": 0.512195,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.510834,
+          "no_vig_under_probability": 0.489166
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -127,
+          "under_odds": 105,
+          "raw_over_probability": 0.559471,
+          "raw_under_probability": 0.487805,
+          "hold": 0.047276,
+          "no_vig_over_probability": 0.534216,
+          "no_vig_under_probability": 0.465784
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -135,
+          "under_odds": 115,
+          "raw_over_probability": 0.574468,
+          "raw_under_probability": 0.465116,
+          "hold": 0.039584,
+          "no_vig_over_probability": 0.552594,
+          "no_vig_under_probability": 0.447406
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -116,
+          "under_odds": -105,
+          "raw_over_probability": 0.537037,
+          "raw_under_probability": 0.512195,
+          "hold": 0.049232,
+          "no_vig_over_probability": 0.511838,
+          "no_vig_under_probability": 0.488162
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetRivers",
+            "BetMGM",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.532468,
+          "median_hold": 0.047079,
+          "isotonic_weight": 3.442961,
+          "adjusted_tail_probability": 0.532468,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -125,
+        "under_odds": 105,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.532468,
+        "consensus_no_vig_over_probability": 0.532468,
+        "median_hold": 0.047079
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": null,
+        "display": "≥10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.532468,
+      "price_adjusted_market_rank": 14
+    },
+    "GB": {
+      "team_name": "Green Bay Packers",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -130,
+          "under_odds": 110,
+          "raw_over_probability": 0.565217,
+          "raw_under_probability": 0.47619,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.542744,
+          "no_vig_under_probability": 0.457256
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -145,
+          "under_odds": 125,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.444444,
+          "hold": 0.036281,
+          "no_vig_over_probability": 0.571116,
+          "no_vig_under_probability": 0.428884
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": -130,
+          "under_odds": 110,
+          "raw_over_probability": 0.565217,
+          "raw_under_probability": 0.47619,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.542744,
+          "no_vig_under_probability": 0.457256
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": 140,
+          "under_odds": -171,
+          "raw_over_probability": 0.416667,
+          "raw_under_probability": 0.630996,
+          "hold": 0.047663,
+          "no_vig_over_probability": 0.397711,
+          "no_vig_under_probability": 0.602289
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -134,
+          "under_odds": 110,
+          "raw_over_probability": 0.57265,
+          "raw_under_probability": 0.47619,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.545984,
+          "no_vig_under_probability": 0.454016
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -130,
+          "under_odds": 111,
+          "raw_over_probability": 0.565217,
+          "raw_under_probability": 0.473934,
+          "hold": 0.039151,
+          "no_vig_over_probability": 0.543922,
+          "no_vig_under_probability": 0.456078
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 5,
+          "books": [
+            "BetMGM",
+            "Bovada",
+            "DraftKings",
+            "BetRivers",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.543922,
+          "median_hold": 0.041408,
+          "isotonic_weight": 3.538631,
+          "adjusted_tail_probability": 0.543922,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 1,
+          "books": [
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.397711,
+          "median_hold": 0.047663,
+          "isotonic_weight": 0.677218,
+          "adjusted_tail_probability": 0.397711,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -130,
+        "under_odds": 110,
+        "reference_hold": 0.041408,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.543922,
+        "consensus_no_vig_over_probability": 0.543922,
+        "median_hold": 0.041408
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": 10,
+        "display": "10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.543922,
+      "price_adjusted_market_rank": 13
+    },
+    "HOU": {
+      "team_name": "Houston Texans",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -148,
+          "under_odds": 120,
+          "raw_over_probability": 0.596774,
+          "raw_under_probability": 0.454545,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.567643,
+          "no_vig_under_probability": 0.432357
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -150,
+          "under_odds": 115,
+          "raw_over_probability": 0.6,
+          "raw_under_probability": 0.465116,
+          "hold": 0.065116,
+          "no_vig_over_probability": 0.563319,
+          "no_vig_under_probability": 0.436681
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": -146,
+          "under_odds": 124,
+          "raw_over_probability": 0.593496,
+          "raw_under_probability": 0.446429,
+          "hold": 0.039925,
+          "no_vig_over_probability": 0.570711,
+          "no_vig_under_probability": 0.429289
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -145,
+          "under_odds": 120,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.454545,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.565603,
+          "no_vig_under_probability": 0.434397
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -147,
+          "under_odds": 124,
+          "raw_over_probability": 0.595142,
+          "raw_under_probability": 0.446429,
+          "hold": 0.04157,
+          "no_vig_over_probability": 0.571389,
+          "no_vig_under_probability": 0.428611
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 5,
+          "books": [
+            "BetRivers",
+            "Bovada",
+            "DraftKings",
+            "BetMGM",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.567643,
+          "median_hold": 0.046382,
+          "isotonic_weight": 3.370663,
+          "adjusted_tail_probability": 0.567643,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -145,
+        "under_odds": 120,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.567643,
+        "consensus_no_vig_over_probability": 0.567643,
+        "median_hold": 0.046382
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": null,
+        "display": "≥10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.567643,
+      "price_adjusted_market_rank": 9
+    },
+    "LAC": {
+      "team_name": "Los Angeles Chargers",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 9.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -140,
+          "under_odds": 120,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.454545,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.562044,
+          "no_vig_under_probability": 0.437956
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 10.5,
+          "over_odds": 128,
+          "under_odds": -155,
+          "raw_over_probability": 0.438596,
+          "raw_under_probability": 0.607843,
+          "hold": 0.04644,
+          "no_vig_over_probability": 0.419132,
+          "no_vig_under_probability": 0.580868
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -148,
+          "under_odds": 120,
+          "raw_over_probability": 0.596774,
+          "raw_under_probability": 0.454545,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.567643,
+          "no_vig_under_probability": 0.432357
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 9.5,
+          "over_odds": -141,
+          "under_odds": 115,
+          "raw_over_probability": 0.585062,
+          "raw_under_probability": 0.465116,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.557107,
+          "no_vig_under_probability": 0.442893
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 5,
+          "books": [
+            "BetMGM",
+            "Bovada",
+            "DraftKings",
+            "BetRivers",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.557107,
+          "median_hold": 0.04845,
+          "isotonic_weight": 3.399252,
+          "adjusted_tail_probability": 0.557107,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 1,
+          "books": [
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.419132,
+          "median_hold": 0.04644,
+          "isotonic_weight": 0.682874,
+          "adjusted_tail_probability": 0.419132,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -140,
+        "under_odds": 115,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.557107,
+        "consensus_no_vig_over_probability": 0.557107,
+        "median_hold": 0.04845
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": 10,
+        "display": "10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.557107,
+      "price_adjusted_market_rank": 11
+    },
+    "NE": {
+      "team_name": "New England Patriots",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 10,
+      "quotes": [
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -145,
+          "under_odds": 110,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.47619,
+          "hold": 0.068027,
+          "no_vig_over_probability": 0.55414,
+          "no_vig_under_probability": 0.44586
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -148,
+          "under_odds": 120,
+          "raw_over_probability": 0.596774,
+          "raw_under_probability": 0.454545,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.567643,
+          "no_vig_under_probability": 0.432357
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 9.5,
+          "over_odds": -145,
+          "under_odds": 120,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.454545,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.565603,
+          "no_vig_under_probability": 0.434397
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -141,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.585062,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.442893,
+          "no_vig_under_probability": 0.557107
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 9.5,
+          "over_odds": -139,
+          "under_odds": 115,
+          "raw_over_probability": 0.58159,
+          "raw_under_probability": 0.465116,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.555638,
+          "no_vig_under_probability": 0.444362
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 4,
+          "books": [
+            "Bovada",
+            "BetRivers",
+            "BetMGM",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.56062,
+          "median_hold": 0.049013,
+          "isotonic_weight": 2.620773,
+          "adjusted_tail_probability": 0.56062,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 2,
+          "books": [
+            "DraftKings",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.443258,
+          "median_hold": 0.049314,
+          "isotonic_weight": 1.3395,
+          "adjusted_tail_probability": 0.443258,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "BetMGM",
+        "over_odds": -145,
+        "under_odds": 120,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.56062,
+        "consensus_no_vig_over_probability": 0.56062,
+        "median_hold": 0.049013
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": 10,
+        "display": "10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.56062,
+      "price_adjusted_market_rank": 10
+    },
+    "SF": {
+      "team_name": "San Francisco 49ers",
+      "consensus_line": 9.5,
+      "opening_consensus_line": 10.5,
+      "quotes": [
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 9.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": -134,
+          "under_odds": 110,
+          "raw_over_probability": 0.57265,
+          "raw_under_probability": 0.47619,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.545984,
+          "no_vig_under_probability": 0.454016
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 9.5,
+          "over_odds": -146,
+          "under_odds": 120,
+          "raw_over_probability": 0.593496,
+          "raw_under_probability": 0.454545,
+          "hold": 0.048041,
+          "no_vig_over_probability": 0.566291,
+          "no_vig_under_probability": 0.433709
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 10.5,
+          "over_odds": 121,
+          "under_odds": -148,
+          "raw_over_probability": 0.452489,
+          "raw_under_probability": 0.596774,
+          "hold": 0.049263,
+          "no_vig_over_probability": 0.431244,
+          "no_vig_under_probability": 0.568756
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 10.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 3,
+          "books": [
+            "Bovada",
+            "BetRivers",
+            "DraftKings"
+          ],
+          "raw_consensus_tail_probability": 0.545984,
+          "median_hold": 0.048041,
+          "isotonic_weight": 2.044896,
+          "adjusted_tail_probability": 0.545984,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 10.5,
+          "wins_at_least": 11,
+          "paired_quote_count": 2,
+          "books": [
+            "MyBookie",
+            "BetMGM"
+          ],
+          "raw_consensus_tail_probability": 0.437434,
+          "median_hold": 0.048856,
+          "isotonic_weight": 1.343586,
+          "adjusted_tail_probability": 0.437434,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 9.5,
+        "wins_at_least": 10,
+        "reference_book": "DraftKings",
+        "over_odds": -146,
+        "under_odds": 120,
+        "reference_hold": 0.048041,
+        "same_threshold_book_count": 3,
+        "raw_consensus_no_vig_over_probability": 0.545984,
+        "consensus_no_vig_over_probability": 0.545984,
+        "median_hold": 0.048041
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 10,
+        "upper": 10,
+        "display": "10 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 9.545984,
+      "price_adjusted_market_rank": 12
+    },
+    "JAX": {
+      "team_name": "Jacksonville Jaguars",
+      "consensus_line": 8.5,
+      "opening_consensus_line": 8.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 8.5,
+          "over_odds": -140,
+          "under_odds": 116,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.462963,
+          "hold": 0.046296,
+          "no_vig_over_probability": 0.557522,
+          "no_vig_under_probability": 0.442478
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 8.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 8.5,
+          "over_odds": -140,
+          "under_odds": 120,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.454545,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.562044,
+          "no_vig_under_probability": 0.437956
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 9.5,
+          "over_odds": 110,
+          "under_odds": -134,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.57265,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.454016,
+          "no_vig_under_probability": 0.545984
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 8.5,
+          "over_odds": -141,
+          "under_odds": 115,
+          "raw_over_probability": 0.585062,
+          "raw_under_probability": 0.465116,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.557107,
+          "no_vig_under_probability": 0.442893
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 9.5,
+          "over_odds": 112,
+          "under_odds": -136,
+          "raw_over_probability": 0.471698,
+          "raw_under_probability": 0.576271,
+          "hold": 0.047969,
+          "no_vig_over_probability": 0.450107,
+          "no_vig_under_probability": 0.549893
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 4,
+          "books": [
+            "DraftKings",
+            "BetMGM",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.557314,
+          "median_hold": 0.047373,
+          "isotonic_weight": 2.748319,
+          "adjusted_tail_probability": 0.557314,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 9.5,
+          "wins_at_least": 10,
+          "paired_quote_count": 2,
+          "books": [
+            "BetRivers",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.452062,
+          "median_hold": 0.048405,
+          "isotonic_weight": 1.34768,
+          "adjusted_tail_probability": 0.452062,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 8.5,
+        "wins_at_least": 9,
+        "reference_book": "BetMGM",
+        "over_odds": -140,
+        "under_odds": 115,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.557314,
+        "consensus_no_vig_over_probability": 0.557314,
+        "median_hold": 0.047373
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 9,
+        "upper": 9,
+        "display": "9 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 8.557314,
+      "price_adjusted_market_rank": 17
+    },
+    "MIN": {
+      "team_name": "Minnesota Vikings",
+      "consensus_line": 8.5,
+      "opening_consensus_line": 8.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 8.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 8.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 8.5,
+          "over_odds": -121,
+          "under_odds": 100,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.5,
+          "hold": 0.047511,
+          "no_vig_over_probability": 0.522678,
+          "no_vig_under_probability": 0.477322
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 8.5,
+          "over_odds": -150,
+          "under_odds": 130,
+          "raw_over_probability": 0.6,
+          "raw_under_probability": 0.434783,
+          "hold": 0.034783,
+          "no_vig_over_probability": 0.579832,
+          "no_vig_under_probability": 0.420168
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 8.5,
+          "over_odds": -121,
+          "under_odds": -101,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.502488,
+          "hold": 0.049999,
+          "no_vig_over_probability": 0.52144,
+          "no_vig_under_probability": 0.47856
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetMGM",
+            "BetRivers",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.522678,
+          "median_hold": 0.045455,
+          "isotonic_weight": 3.471562,
+          "adjusted_tail_probability": 0.522678,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 8.5,
+        "wins_at_least": 9,
+        "reference_book": "BetMGM",
+        "over_odds": -125,
+        "under_odds": 105,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.522678,
+        "consensus_no_vig_over_probability": 0.522678,
+        "median_hold": 0.045455
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 9,
+        "upper": null,
+        "display": "≥9 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 8.522678,
+      "price_adjusted_market_rank": 18
+    },
+    "PIT": {
+      "team_name": "Pittsburgh Steelers",
+      "consensus_line": 8.5,
+      "opening_consensus_line": 8.5,
+      "quotes": [
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 8.5,
+          "over_odds": 110,
+          "under_odds": -134,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.57265,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.454016,
+          "no_vig_under_probability": 0.545984
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 8.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 8.5,
+          "over_odds": 110,
+          "under_odds": -130,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.565217,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.457256,
+          "no_vig_under_probability": 0.542744
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 8.5,
+          "over_odds": 110,
+          "under_odds": -130,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.565217,
+          "hold": 0.041408,
+          "no_vig_over_probability": 0.457256,
+          "no_vig_under_probability": 0.542744
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 8.5,
+          "over_odds": 111,
+          "under_odds": -130,
+          "raw_over_probability": 0.473934,
+          "raw_under_probability": 0.565217,
+          "hold": 0.039151,
+          "no_vig_over_probability": 0.456078,
+          "no_vig_under_probability": 0.543922
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 5,
+          "books": [
+            "BetRivers",
+            "BetMGM",
+            "DraftKings",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.456078,
+          "median_hold": 0.041408,
+          "isotonic_weight": 3.478481,
+          "adjusted_tail_probability": 0.456078,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 8.5,
+        "wins_at_least": 9,
+        "reference_book": "BetMGM",
+        "over_odds": 115,
+        "under_odds": -140,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.456078,
+        "consensus_no_vig_over_probability": 0.456078,
+        "median_hold": 0.041408
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 8,
+        "display": "≤8 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 8.456078,
+      "price_adjusted_market_rank": 19
+    },
+    "TB": {
+      "team_name": "Tampa Bay Buccaneers",
+      "consensus_line": 8.5,
+      "opening_consensus_line": 8.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 8.5,
+          "over_odds": 115,
+          "under_odds": -136,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.576271,
+          "hold": 0.041387,
+          "no_vig_over_probability": 0.446631,
+          "no_vig_under_probability": 0.553369
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 8.5,
+          "over_odds": 120,
+          "under_odds": -145,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.591837,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.434397,
+          "no_vig_under_probability": 0.565603
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 8.5,
+          "over_odds": 110,
+          "under_odds": -134,
+          "raw_over_probability": 0.47619,
+          "raw_under_probability": 0.57265,
+          "hold": 0.04884,
+          "no_vig_over_probability": 0.454016,
+          "no_vig_under_probability": 0.545984
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 8.5,
+          "over_odds": 105,
+          "under_odds": -125,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.555556,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.467532,
+          "no_vig_under_probability": 0.532468
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 8.5,
+          "over_odds": 116,
+          "under_odds": -136,
+          "raw_over_probability": 0.462963,
+          "raw_under_probability": 0.576271,
+          "hold": 0.039234,
+          "no_vig_over_probability": 0.445485,
+          "no_vig_under_probability": 0.554515
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetMGM",
+            "BetRivers",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.446631,
+          "median_hold": 0.04336,
+          "isotonic_weight": 3.478045,
+          "adjusted_tail_probability": 0.446631,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 8.5,
+        "wins_at_least": 9,
+        "reference_book": "BetMGM",
+        "over_odds": 120,
+        "under_odds": -145,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.446631,
+        "consensus_no_vig_over_probability": 0.446631,
+        "median_hold": 0.04336
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 8,
+        "display": "≤8 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 8.446631,
+      "price_adjusted_market_rank": 20
+    },
+    "ATL": {
+      "team_name": "Atlanta Falcons",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 6.5,
+      "quotes": [
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": 120,
+          "under_odds": -140,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.583333,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.437956,
+          "no_vig_under_probability": 0.562044
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 6.5,
+          "over_odds": -147,
+          "under_odds": 125,
+          "raw_over_probability": 0.595142,
+          "raw_under_probability": 0.444444,
+          "hold": 0.039586,
+          "no_vig_over_probability": 0.572479,
+          "no_vig_under_probability": 0.427521
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 7.5,
+          "over_odds": 105,
+          "under_odds": -135,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.574468,
+          "hold": 0.062273,
+          "no_vig_over_probability": 0.459209,
+          "no_vig_under_probability": 0.540791
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 7.5,
+          "over_odds": 113,
+          "under_odds": -137,
+          "raw_over_probability": 0.469484,
+          "raw_under_probability": 0.578059,
+          "hold": 0.047543,
+          "no_vig_over_probability": 0.448176,
+          "no_vig_under_probability": 0.551824
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 6.5,
+          "wins_at_least": 7,
+          "paired_quote_count": 1,
+          "books": [
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.572479,
+          "median_hold": 0.039586,
+          "isotonic_weight": 0.716404,
+          "adjusted_tail_probability": 0.572479,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 5,
+          "books": [
+            "DraftKings",
+            "BetMGM",
+            "BetRivers",
+            "Bovada",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.444362,
+          "median_hold": 0.047543,
+          "isotonic_weight": 3.37455,
+          "adjusted_tail_probability": 0.444362,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": 115,
+        "under_odds": -140,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.444362,
+        "consensus_no_vig_over_probability": 0.444362,
+        "median_hold": 0.047543
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 7,
+        "upper": 7,
+        "display": "7 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.444362,
+      "price_adjusted_market_rank": 26
+    },
+    "CAR": {
+      "team_name": "Carolina Panthers",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 7,
+      "quotes": [
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        },
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": 125,
+          "under_odds": -150,
+          "raw_over_probability": 0.444444,
+          "raw_under_probability": 0.6,
+          "hold": 0.044444,
+          "no_vig_over_probability": 0.425532,
+          "no_vig_under_probability": 0.574468
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -136,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.576271,
+          "hold": 0.041387,
+          "no_vig_over_probability": 0.446631,
+          "no_vig_under_probability": 0.553369
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 6.5,
+          "over_odds": -140,
+          "under_odds": 120,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.454545,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.562044,
+          "no_vig_under_probability": 0.437956
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 7.5,
+          "over_odds": 116,
+          "under_odds": -136,
+          "raw_over_probability": 0.462963,
+          "raw_under_probability": 0.576271,
+          "hold": 0.039234,
+          "no_vig_over_probability": 0.445485,
+          "no_vig_under_probability": 0.554515
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 6.5,
+          "wins_at_least": 7,
+          "paired_quote_count": 1,
+          "books": [
+            "Bovada"
+          ],
+          "raw_consensus_tail_probability": 0.562044,
+          "median_hold": 0.037879,
+          "isotonic_weight": 0.725274,
+          "adjusted_tail_probability": 0.562044,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 4,
+          "books": [
+            "BetRivers",
+            "BetMGM",
+            "DraftKings",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.444924,
+          "median_hold": 0.042915,
+          "isotonic_weight": 2.799439,
+          "adjusted_tail_probability": 0.444924,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": 125,
+        "under_odds": -150,
+        "reference_hold": 0.044444,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.444924,
+        "consensus_no_vig_over_probability": 0.444924,
+        "median_hold": 0.042915
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 7,
+        "upper": 7,
+        "display": "7 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.444924,
+      "price_adjusted_market_rank": 25
+    },
+    "IND": {
+      "team_name": "Indianapolis Colts",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 7.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": -145,
+          "under_odds": 120,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.454545,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.565603,
+          "no_vig_under_probability": 0.434397
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": -136,
+          "under_odds": 110,
+          "raw_over_probability": 0.576271,
+          "raw_under_probability": 0.47619,
+          "hold": 0.052462,
+          "no_vig_over_probability": 0.547546,
+          "no_vig_under_probability": 0.452454
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 8.5,
+          "over_odds": -105,
+          "under_odds": -115,
+          "raw_over_probability": 0.512195,
+          "raw_under_probability": 0.534884,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.489166,
+          "no_vig_under_probability": 0.510834
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 7.5,
+          "over_odds": -141,
+          "under_odds": 115,
+          "raw_over_probability": 0.585062,
+          "raw_under_probability": 0.465116,
+          "hold": 0.050179,
+          "no_vig_over_probability": 0.557107,
+          "no_vig_under_probability": 0.442893
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 8.5,
+          "over_odds": 107,
+          "under_odds": -129,
+          "raw_over_probability": 0.483092,
+          "raw_under_probability": 0.563319,
+          "hold": 0.046411,
+          "no_vig_over_probability": 0.461666,
+          "no_vig_under_probability": 0.538334
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 4,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.556742,
+          "median_hold": 0.049314,
+          "isotonic_weight": 2.678545,
+          "adjusted_tail_probability": 0.556742,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 8.5,
+          "wins_at_least": 9,
+          "paired_quote_count": 2,
+          "books": [
+            "Bovada",
+            "Pinnacle"
+          ],
+          "raw_consensus_tail_probability": 0.475416,
+          "median_hold": 0.046745,
+          "isotonic_weight": 1.362916,
+          "adjusted_tail_probability": 0.475416,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": -145,
+        "under_odds": 120,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.556742,
+        "consensus_no_vig_over_probability": 0.556742,
+        "median_hold": 0.049314
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 8,
+        "upper": 8,
+        "display": "8 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.556742,
+      "price_adjusted_market_rank": 21
+    },
+    "NO": {
+      "team_name": "New Orleans Saints",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 7.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": -121,
+          "under_odds": 100,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.5,
+          "hold": 0.047511,
+          "no_vig_over_probability": 0.522678,
+          "no_vig_under_probability": 0.477322
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 7.5,
+          "over_odds": 100,
+          "under_odds": -120,
+          "raw_over_probability": 0.5,
+          "raw_under_probability": 0.545455,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.478261,
+          "no_vig_under_probability": 0.521739
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 7.5,
+          "over_odds": -101,
+          "under_odds": -120,
+          "raw_over_probability": 0.502488,
+          "raw_under_probability": 0.545455,
+          "hold": 0.047942,
+          "no_vig_over_probability": 0.479499,
+          "no_vig_under_probability": 0.520501
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 7.5,
+          "over_odds": -121,
+          "under_odds": -101,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.502488,
+          "hold": 0.049999,
+          "no_vig_over_probability": 0.52144,
+          "no_vig_under_probability": 0.47856
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.521589,
+          "median_hold": 0.046483,
+          "isotonic_weight": 4.093068,
+          "adjusted_tail_probability": 0.521589,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": -125,
+        "under_odds": 105,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.521589,
+        "consensus_no_vig_over_probability": 0.521589,
+        "median_hold": 0.046483
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 8,
+        "upper": null,
+        "display": "≥8 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.521589,
+      "price_adjusted_market_rank": 22
+    },
+    "NYG": {
+      "team_name": "New York Giants",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 7.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": -102,
+          "under_odds": -118,
+          "raw_over_probability": 0.50495,
+          "raw_under_probability": 0.541284,
+          "hold": 0.046235,
+          "no_vig_over_probability": 0.482636,
+          "no_vig_under_probability": 0.517364
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 7.5,
+          "over_odds": 120,
+          "under_odds": -140,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.583333,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.437956,
+          "no_vig_under_probability": 0.562044
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 7.5,
+          "over_odds": -111,
+          "under_odds": -111,
+          "raw_over_probability": 0.526066,
+          "raw_under_probability": 0.526066,
+          "hold": 0.052133,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.491318,
+          "median_hold": 0.047162,
+          "isotonic_weight": 4.102899,
+          "adjusted_tail_probability": 0.491318,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": -102,
+        "under_odds": -118,
+        "reference_hold": 0.046235,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.491318,
+        "consensus_no_vig_over_probability": 0.491318,
+        "median_hold": 0.047162
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 7,
+        "display": "≤7 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.491318,
+      "price_adjusted_market_rank": 23
+    },
+    "WAS": {
+      "team_name": "Washington Commanders",
+      "consensus_line": 7.5,
+      "opening_consensus_line": 7.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 7.5,
+          "over_odds": 105,
+          "under_odds": -125,
+          "raw_over_probability": 0.487805,
+          "raw_under_probability": 0.555556,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.467532,
+          "no_vig_under_probability": 0.532468
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 7.5,
+          "over_odds": 100,
+          "under_odds": -121,
+          "raw_over_probability": 0.5,
+          "raw_under_probability": 0.547511,
+          "hold": 0.047511,
+          "no_vig_over_probability": 0.477322,
+          "no_vig_under_probability": 0.522678
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 7.5,
+          "over_odds": -105,
+          "under_odds": -115,
+          "raw_over_probability": 0.512195,
+          "raw_under_probability": 0.534884,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.489166,
+          "no_vig_under_probability": 0.510834
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 7.5,
+          "over_odds": -125,
+          "under_odds": -105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.512195,
+          "hold": 0.067751,
+          "no_vig_over_probability": 0.520305,
+          "no_vig_under_probability": 0.479695
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 7.5,
+          "over_odds": 115,
+          "under_odds": -139,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.58159,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.444362,
+          "no_vig_under_probability": 0.555638
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 7.5,
+          "over_odds": -105,
+          "under_odds": -116,
+          "raw_over_probability": 0.512195,
+          "raw_under_probability": 0.537037,
+          "hold": 0.049232,
+          "no_vig_over_probability": 0.488162,
+          "no_vig_under_probability": 0.511838
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 7.5,
+          "wins_at_least": 8,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.482742,
+          "median_hold": 0.047295,
+          "isotonic_weight": 4.003221,
+          "adjusted_tail_probability": 0.482742,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 7.5,
+        "wins_at_least": 8,
+        "reference_book": "BetMGM",
+        "over_odds": 105,
+        "under_odds": -125,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.482742,
+        "consensus_no_vig_over_probability": 0.482742,
+        "median_hold": 0.047295
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 7,
+        "display": "≤7 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 7.482742,
+      "price_adjusted_market_rank": 24
+    },
+    "TEN": {
+      "team_name": "Tennessee Titans",
+      "consensus_line": 6.5,
+      "opening_consensus_line": 6.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 6.5,
+          "over_odds": 115,
+          "under_odds": -140,
+          "raw_over_probability": 0.465116,
+          "raw_under_probability": 0.583333,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.443623,
+          "no_vig_under_probability": 0.556377
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 6.5,
+          "over_odds": 100,
+          "under_odds": -121,
+          "raw_over_probability": 0.5,
+          "raw_under_probability": 0.547511,
+          "hold": 0.047511,
+          "no_vig_over_probability": 0.477322,
+          "no_vig_under_probability": 0.522678
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 6.5,
+          "over_odds": -105,
+          "under_odds": -115,
+          "raw_over_probability": 0.512195,
+          "raw_under_probability": 0.534884,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.489166,
+          "no_vig_under_probability": 0.510834
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 6.5,
+          "over_odds": 120,
+          "under_odds": -140,
+          "raw_over_probability": 0.454545,
+          "raw_under_probability": 0.583333,
+          "hold": 0.037879,
+          "no_vig_over_probability": 0.437956,
+          "no_vig_under_probability": 0.562044
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 6.5,
+          "over_odds": 108,
+          "under_odds": -131,
+          "raw_over_probability": 0.480769,
+          "raw_under_probability": 0.5671,
+          "hold": 0.047869,
+          "no_vig_over_probability": 0.458807,
+          "no_vig_under_probability": 0.541193
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 6.5,
+          "over_odds": -106,
+          "under_odds": -116,
+          "raw_over_probability": 0.514563,
+          "raw_under_probability": 0.537037,
+          "hold": 0.0516,
+          "no_vig_over_probability": 0.489314,
+          "no_vig_under_probability": 0.510686
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 6.5,
+          "wins_at_least": 7,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.468064,
+          "median_hold": 0.04769,
+          "isotonic_weight": 4.092628,
+          "adjusted_tail_probability": 0.468064,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 6.5,
+        "wins_at_least": 7,
+        "reference_book": "BetMGM",
+        "over_odds": 115,
+        "under_odds": -140,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.468064,
+        "consensus_no_vig_over_probability": 0.468064,
+        "median_hold": 0.04769
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": null,
+        "upper": 6,
+        "display": "≤6 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 6.468064,
+      "price_adjusted_market_rank": 27
+    },
+    "CLE": {
+      "team_name": "Cleveland Browns",
+      "consensus_line": 5.5,
+      "opening_consensus_line": 5.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 5.5,
+          "over_odds": -135,
+          "under_odds": 110,
+          "raw_over_probability": 0.574468,
+          "raw_under_probability": 0.47619,
+          "hold": 0.050659,
+          "no_vig_over_probability": 0.54677,
+          "no_vig_under_probability": 0.45323
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 5.5,
+          "over_odds": -115,
+          "under_odds": -106,
+          "raw_over_probability": 0.534884,
+          "raw_under_probability": 0.514563,
+          "hold": 0.049447,
+          "no_vig_over_probability": 0.509682,
+          "no_vig_under_probability": 0.490318
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 5.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 5.5,
+          "over_odds": -115,
+          "under_odds": -105,
+          "raw_over_probability": 0.534884,
+          "raw_under_probability": 0.512195,
+          "hold": 0.047079,
+          "no_vig_over_probability": 0.510834,
+          "no_vig_under_probability": 0.489166
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 5.5,
+          "over_odds": -124,
+          "under_odds": 106,
+          "raw_over_probability": 0.553571,
+          "raw_under_probability": 0.485437,
+          "hold": 0.039008,
+          "no_vig_over_probability": 0.532788,
+          "no_vig_under_probability": 0.467212
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 5.5,
+          "wins_at_least": 6,
+          "paired_quote_count": 5,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.532468,
+          "median_hold": 0.047079,
+          "isotonic_weight": 3.429719,
+          "adjusted_tail_probability": 0.532468,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 5.5,
+        "wins_at_least": 6,
+        "reference_book": "BetMGM",
+        "over_odds": -135,
+        "under_odds": 110,
+        "reference_hold": 0.050659,
+        "same_threshold_book_count": 5,
+        "raw_consensus_no_vig_over_probability": 0.532468,
+        "consensus_no_vig_over_probability": 0.532468,
+        "median_hold": 0.047079
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 6,
+        "upper": null,
+        "display": "≥6 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 5.532468,
+      "price_adjusted_market_rank": 29
+    },
+    "LV": {
+      "team_name": "Las Vegas Raiders",
+      "consensus_line": 5.5,
+      "opening_consensus_line": 5.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 5.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 5.5,
+          "over_odds": -148,
+          "under_odds": 120,
+          "raw_over_probability": 0.596774,
+          "raw_under_probability": 0.454545,
+          "hold": 0.05132,
+          "no_vig_over_probability": 0.567643,
+          "no_vig_under_probability": 0.432357
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 5.5,
+          "over_odds": -150,
+          "under_odds": 125,
+          "raw_over_probability": 0.6,
+          "raw_under_probability": 0.444444,
+          "hold": 0.044444,
+          "no_vig_over_probability": 0.574468,
+          "no_vig_under_probability": 0.425532
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 5.5,
+          "over_odds": -135,
+          "under_odds": 115,
+          "raw_over_probability": 0.574468,
+          "raw_under_probability": 0.465116,
+          "hold": 0.039584,
+          "no_vig_over_probability": 0.552594,
+          "no_vig_under_probability": 0.447406
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 5.5,
+          "over_odds": -137,
+          "under_odds": 113,
+          "raw_over_probability": 0.578059,
+          "raw_under_probability": 0.469484,
+          "hold": 0.047543,
+          "no_vig_over_probability": 0.551824,
+          "no_vig_under_probability": 0.448176
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 5.5,
+          "over_odds": -147,
+          "under_odds": 120,
+          "raw_over_probability": 0.595142,
+          "raw_under_probability": 0.454545,
+          "hold": 0.049687,
+          "no_vig_over_probability": 0.566971,
+          "no_vig_under_probability": 0.433029
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 5.5,
+          "wins_at_least": 6,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.559783,
+          "median_hold": 0.045993,
+          "isotonic_weight": 4.112949,
+          "adjusted_tail_probability": 0.559783,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 5.5,
+        "wins_at_least": 6,
+        "reference_book": "BetMGM",
+        "over_odds": -125,
+        "under_odds": 105,
+        "reference_hold": 0.04336,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.559783,
+        "consensus_no_vig_over_probability": 0.559783,
+        "median_hold": 0.045993
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 6,
+        "upper": null,
+        "display": "≥6 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 5.559783,
+      "price_adjusted_market_rank": 28
+    },
+    "NYJ": {
+      "team_name": "New York Jets",
+      "consensus_line": 5.5,
+      "opening_consensus_line": 5.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 5.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 5.5,
+          "over_odds": -110,
+          "under_odds": -110,
+          "raw_over_probability": 0.52381,
+          "raw_under_probability": 0.52381,
+          "hold": 0.047619,
+          "no_vig_over_probability": 0.5,
+          "no_vig_under_probability": 0.5
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 5.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 5.5,
+          "over_odds": -120,
+          "under_odds": 100,
+          "raw_over_probability": 0.545455,
+          "raw_under_probability": 0.5,
+          "hold": 0.045455,
+          "no_vig_over_probability": 0.521739,
+          "no_vig_under_probability": 0.478261
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 5.5,
+          "over_odds": -118,
+          "under_odds": -103,
+          "raw_over_probability": 0.541284,
+          "raw_under_probability": 0.507389,
+          "hold": 0.048674,
+          "no_vig_over_probability": 0.516161,
+          "no_vig_under_probability": 0.483839
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 5.5,
+          "over_odds": -121,
+          "under_odds": -101,
+          "raw_over_probability": 0.547511,
+          "raw_under_probability": 0.502488,
+          "hold": 0.049999,
+          "no_vig_over_probability": 0.52144,
+          "no_vig_under_probability": 0.47856
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 5.5,
+          "wins_at_least": 6,
+          "paired_quote_count": 6,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada",
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.5188,
+          "median_hold": 0.047619,
+          "isotonic_weight": 4.069119,
+          "adjusted_tail_probability": 0.5188,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 5.5,
+        "wins_at_least": 6,
+        "reference_book": "BetMGM",
+        "over_odds": -110,
+        "under_odds": -110,
+        "reference_hold": 0.047619,
+        "same_threshold_book_count": 6,
+        "raw_consensus_no_vig_over_probability": 0.5188,
+        "consensus_no_vig_over_probability": 0.5188,
+        "median_hold": 0.047619
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 6,
+        "upper": null,
+        "display": "≥6 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 1 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Sparse single threshold",
+        "confidence": "low",
+        "threshold_count": 1,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 5.5188,
+      "price_adjusted_market_rank": 30
+    },
+    "ARI": {
+      "team_name": "Arizona Cardinals",
+      "consensus_line": 3.5,
+      "opening_consensus_line": 4.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 3.5,
+          "over_odds": -145,
+          "under_odds": 120,
+          "raw_over_probability": 0.591837,
+          "raw_under_probability": 0.454545,
+          "hold": 0.046382,
+          "no_vig_over_probability": 0.565603,
+          "no_vig_under_probability": 0.434397
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 3.5,
+          "over_odds": -136,
+          "under_odds": 115,
+          "raw_over_probability": 0.576271,
+          "raw_under_probability": 0.465116,
+          "hold": 0.041387,
+          "no_vig_over_probability": 0.553369,
+          "no_vig_under_probability": 0.446631
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 3.5,
+          "over_odds": -139,
+          "under_odds": 115,
+          "raw_over_probability": 0.58159,
+          "raw_under_probability": 0.465116,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.555638,
+          "no_vig_under_probability": 0.444362
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 4.5,
+          "over_odds": 130,
+          "under_odds": -170,
+          "raw_over_probability": 0.434783,
+          "raw_under_probability": 0.62963,
+          "hold": 0.064412,
+          "no_vig_over_probability": 0.408472,
+          "no_vig_under_probability": 0.591528
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 4.5,
+          "over_odds": 151,
+          "under_odds": -187,
+          "raw_over_probability": 0.398406,
+          "raw_under_probability": 0.651568,
+          "hold": 0.049974,
+          "no_vig_over_probability": 0.379444,
+          "no_vig_under_probability": 0.620556
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 3.5,
+          "wins_at_least": 4,
+          "paired_quote_count": 3,
+          "books": [
+            "BetMGM",
+            "DraftKings",
+            "BetRivers"
+          ],
+          "raw_consensus_tail_probability": 0.555638,
+          "median_hold": 0.046382,
+          "isotonic_weight": 2.072058,
+          "adjusted_tail_probability": 0.555638,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 4.5,
+          "wins_at_least": 5,
+          "paired_quote_count": 2,
+          "books": [
+            "Bovada",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.393958,
+          "median_hold": 0.057193,
+          "isotonic_weight": 1.27501,
+          "adjusted_tail_probability": 0.393958,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 3.5,
+        "wins_at_least": 4,
+        "reference_book": "BetMGM",
+        "over_odds": -145,
+        "under_odds": 120,
+        "reference_hold": 0.046382,
+        "same_threshold_book_count": 3,
+        "raw_consensus_no_vig_over_probability": 0.555638,
+        "consensus_no_vig_over_probability": 0.555638,
+        "median_hold": 0.046382
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 4,
+        "upper": 4,
+        "display": "4 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 5,
+        "source_book_count": 5,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 3.555638,
+      "price_adjusted_market_rank": 31
+    },
+    "MIA": {
+      "team_name": "Miami Dolphins",
+      "consensus_line": 3.5,
+      "opening_consensus_line": 4.5,
+      "quotes": [
+        {
+          "book": "BetMGM",
+          "book_slug": "betmgm",
+          "line": 3.5,
+          "over_odds": -140,
+          "under_odds": 115,
+          "raw_over_probability": 0.583333,
+          "raw_under_probability": 0.465116,
+          "hold": 0.04845,
+          "no_vig_over_probability": 0.556377,
+          "no_vig_under_probability": 0.443623
+        },
+        {
+          "book": "BetRivers",
+          "book_slug": "betrivers",
+          "line": 3.5,
+          "over_odds": -139,
+          "under_odds": 115,
+          "raw_over_probability": 0.58159,
+          "raw_under_probability": 0.465116,
+          "hold": 0.046706,
+          "no_vig_over_probability": 0.555638,
+          "no_vig_under_probability": 0.444362
+        },
+        {
+          "book": "DraftKings",
+          "book_slug": "draftkings",
+          "line": 3.5,
+          "over_odds": -142,
+          "under_odds": 110,
+          "raw_over_probability": 0.586777,
+          "raw_under_probability": 0.47619,
+          "hold": 0.062967,
+          "no_vig_over_probability": 0.552018,
+          "no_vig_under_probability": 0.447982
+        },
+        {
+          "book": "Bovada",
+          "book_slug": "bovada",
+          "line": 3.5,
+          "over_odds": -125,
+          "under_odds": 105,
+          "raw_over_probability": 0.555556,
+          "raw_under_probability": 0.487805,
+          "hold": 0.04336,
+          "no_vig_over_probability": 0.532468,
+          "no_vig_under_probability": 0.467532
+        },
+        {
+          "book": "Pinnacle",
+          "book_slug": "pinnacle-sports",
+          "line": 4.5,
+          "over_odds": 155,
+          "under_odds": -189,
+          "raw_over_probability": 0.392157,
+          "raw_under_probability": 0.653979,
+          "hold": 0.046136,
+          "no_vig_over_probability": 0.374862,
+          "no_vig_under_probability": 0.625138
+        },
+        {
+          "book": "MyBookie",
+          "book_slug": "mybookie",
+          "line": 4.5,
+          "over_odds": 135,
+          "under_odds": -166,
+          "raw_over_probability": 0.425532,
+          "raw_under_probability": 0.62406,
+          "hold": 0.049592,
+          "no_vig_over_probability": 0.405426,
+          "no_vig_under_probability": 0.594574
+        }
+      ],
+      "thresholds": [
+        {
+          "line": 3.5,
+          "wins_at_least": 4,
+          "paired_quote_count": 4,
+          "books": [
+            "BetMGM",
+            "BetRivers",
+            "DraftKings",
+            "Bovada"
+          ],
+          "raw_consensus_tail_probability": 0.553828,
+          "median_hold": 0.047578,
+          "isotonic_weight": 2.666429,
+          "adjusted_tail_probability": 0.553828,
+          "isotonic_adjusted": false
+        },
+        {
+          "line": 4.5,
+          "wins_at_least": 5,
+          "paired_quote_count": 2,
+          "books": [
+            "Pinnacle",
+            "MyBookie"
+          ],
+          "raw_consensus_tail_probability": 0.390144,
+          "median_hold": 0.047864,
+          "isotonic_weight": 1.352779,
+          "adjusted_tail_probability": 0.390144,
+          "isotonic_adjusted": false
+        }
+      ],
+      "primary": {
+        "line": 3.5,
+        "wins_at_least": 4,
+        "reference_book": "BetMGM",
+        "over_odds": -140,
+        "under_odds": 115,
+        "reference_hold": 0.04845,
+        "same_threshold_book_count": 4,
+        "raw_consensus_no_vig_over_probability": 0.553828,
+        "consensus_no_vig_over_probability": 0.553828,
+        "median_hold": 0.047578
+      },
+      "monotonicity_audit": {
+        "violations_before_isotonic": 0,
+        "points_adjusted": 0,
+        "monotone_after_isotonic": true
+      },
+      "fair_median_bracket": {
+        "lower": 4,
+        "upper": 4,
+        "display": "4 wins"
+      },
+      "expected_wins": {
+        "value": null,
+        "basis": "not reported",
+        "reason": "Only 2 of 17 tail thresholds are observed; the snapshot does not support an expected-win estimate."
+      },
+      "coverage": {
+        "status": "insufficient-for-expected-wins",
+        "label": "Limited ladder",
+        "confidence": "low-medium",
+        "threshold_count": 2,
+        "paired_quote_count": 6,
+        "source_book_count": 6,
+        "full_same_book_alternate_ladder_available": false
+      },
+      "price_adjusted_order_index": 3.553828,
+      "price_adjusted_market_rank": 32
+    }
+  }
+}
