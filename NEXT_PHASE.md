@@ -1,6 +1,6 @@
 # 2026 NFL Outlook Field Guide — next phase
 
-Status: Phases 0–6 are implemented locally through 2026-08-27. The GitHub Pages report remains the frozen Edition 7 publication until Stephen separately authorizes commit and deployment. Exact active files and verification state are recorded in `CHECKPOINT.md`.
+Status: Phases 0–6 were implemented, committed and published on 2026-08-27. The public artifact commit is `a29db1040065a0c139d175e3d0b2a44c80c32762`; the explicit Pages workflow commit is `7423a6914877f10fe6b180907288bb9e6f4a7af6`. Exact active files and verification state are recorded in `CHECKPOINT.md`.
 
 ## Completed system
 
@@ -38,7 +38,7 @@ Status: Phases 0–6 are implemented locally through 2026-08-27. The GitHub Page
 3. Record source-backed closing prices and settlements only when they exist. The learning report must remain empty before then.
 4. Operate the private Today/Theses/Portfolio/Learning loop manually and establish an encrypted backup policy before meaningful private state accumulates.
 5. Pursue forecast promotion as a separate version: source quarterback and material-availability adjustments for all 32 teams, preregister any calibration change and never retune on the frozen holdout.
-6. Add CI only after the local Phase 0–6 changes are reviewed and a publication commit is authorized.
+6. Add full validation CI separately if desired. The current GitHub workflow is intentionally deployment-only and uploads only the already-verified `docs/` artifact.
 
 ## Recurring commands
 
@@ -52,7 +52,8 @@ Status: Phases 0–6 are implemented locally through 2026-08-27. The GitHub Page
 
 ## Publication boundary
 
-- Do not commit, push or deploy the Phase 0–6 working tree until Stephen separately authorizes publication.
+- The Phase 0–6 public checkpoint is deployed at https://longo1231.github.io/nfl-2026-outlook/; future source, forecast or market-state changes require a new verified commit and immutable weekly state where applicable.
+- Keep the private decision ledger, materialized state and private app output local and ignored.
 - Preserve the frozen owner-only Sites v1 reference.
 - Ingest private-library sources only through the configured read-only workflow.
 - No brokerage/exchange order placement or account integration is in scope.

@@ -11,26 +11,29 @@ Maintain an auditable 2026 NFL research source of truth, compare its eligible ev
 - Editorial and market evidence through: 2026-08-27
 - Public repository: https://github.com/longo1231/nfl-2026-outlook
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
-- Edition 7 artifact commit: `95596c22f9206c442266d6e7271fb57421be5924`
-- Edition 7 deployment-record commit: this record commit; exact hash is carried by Git history and the release handoff because a commit cannot contain its own hash
-- GitHub Pages workflow result: legacy Pages build `1178503494` for the exact artifact commit, status `built`, created `2026-08-27T13:10:51Z`, completed `2026-08-27T13:11:12Z`, duration 21.744 seconds, no error
-- GitHub Pages build API: https://api.github.com/repos/longo1231/nfl-2026-outlook/pages/builds/1178503494
-- Deployed HTTPS verification: passed at `2026-08-27T13:12:56Z` (`2026-08-27T09:12:56-04:00`)
-- Deployed artifact SHA-256: `42a3ec619851f1388b58b587948db524a099c32355eb6de62e51945b33aaea5d` (byte-for-byte equal to `docs/index.html`)
+- Phase 0–6 public artifact commit: `a29db1040065a0c139d175e3d0b2a44c80c32762`
+- Explicit Pages workflow commit: `7423a6914877f10fe6b180907288bb9e6f4a7af6`
+- Phase 0–6 deployment-record commit: this record commit; exact hash is carried by Git history and the release handoff because a commit cannot contain its own hash
+- GitHub Pages workflow result: run `33100478038`, status `success`, created `2026-08-27T17:50:41Z`, completed `2026-08-27T17:51:02Z`
+- GitHub Pages workflow URL: https://github.com/longo1231/nfl-2026-outlook/actions/runs/33100478038
+- Pages build type: explicit workflow; only `docs/` is uploaded, with a 30-minute deployment timeout
+- Deployed HTTPS verification: passed at `2026-08-27T17:51:13Z` (`2026-08-27T13:51:13-04:00`), HTTP/2 200 and HSTS
+- Deployed artifact SHA-256: `f26b69a8c0adfb164e86da74eccde3b34d55c5cb2716270fe50c00af64d6b8b0` (byte-for-byte equal to `docs/index.html`)
+- Deployment recovery: legacy builds `1178883129` and `1178903385` uploaded the correct artifact but timed out after 600 seconds in GitHub's `updating_pages` backend state. The explicit workflow completed successfully in 21 seconds without changing the artifact.
+- Prior frozen Edition 7 artifact commit: `95596c22f9206c442266d6e7271fb57421be5924`; prior deployed SHA-256 `42a3ec619851f1388b58b587948db524a099c32355eb6de62e51945b33aaea5d`
 - Prior Edition 6 artifact commit: `2418b876ad5a3aaee8ac6f3ef210fd072941d254`
 - Frozen owner-only Sites v1 reference: preserved privately and unchanged
-- Local working-tree status: Phases 0–6 of the four-layer implementation are complete as operating infrastructure but are not committed, pushed or deployed
-- Local Phase 0–6 artifact SHA-256: `f26b69a8c0adfb164e86da74eccde3b34d55c5cb2716270fe50c00af64d6b8b0`; the deployed Pages artifact remains the frozen hash above
+- Public status: Phases 0–6 of the four-layer implementation are committed, pushed and deployed; private state and output remain local and ignored
 
 ## Source-of-truth boundary
 
-Edition 7 remains ready as an auditable research source of truth. The local working tree now implements the atomic evidence ledger, current-state/freshness spine, private decision ledger, provisional independent forecast, Kalshi-only execution layer, immutable weekly state and the public/private learning loop. It is not yet a validated forecast or model-driven wagering system.
+The published Phase 0–6 edition is an auditable research source of truth. It implements the atomic evidence ledger, current-state/freshness spine, provisional independent forecast, Kalshi-only execution layer, immutable weekly state and the public side of the learning loop. The private decision ledger and private learning views remain local. The overall system is not yet a validated forecast or model-driven wagering system.
 
 - Evidence layer: atomic-ledger ready. All visible scored and preview summaries are generated from 972 claims, 270 disposed source blocks and 506 normalized people. Forty-two time-sensitive preseason claims are stale for current use and remain visibly reviewable rather than silently treated as current.
 - Forecast layer: provisional lab implemented; `schedule-sim-v1.0.1` produces exact 0–17 win distributions from 100,000 coherent 2026 schedule draws. It is market-independent and distinct from the ordinal profile, but is not decision eligible because calibration and current-adjustment gates fail.
 - Market layer: Kalshi execution-aware. It captures all full books, walks 1/10/100-contract depth, applies a versioned fee and reserve, expires capture-time quotes, tracks movement and requires two-capture persistence. Zero model rows are action eligible while the forecast is provisional.
 - Decision/portfolio layer: local MVP implemented with a hash-chained append-only ledger, manual lifecycle entry, deterministic thesis/position/exposure/CLV views, and a separate ignored app. The canonical ledger is initialized with zero events; no account or order integration exists.
-- Operations: a generated manifest selects current public evidence, forecast, Kalshi execution, policy, readiness and learning records. The public workflow exposes Today, Opportunities, Team dossiers, Markets and Research; two content-addressed weekly states are frozen and verifiable. Real weekly source refreshes, real closes/outcomes and CI remain operating work.
+- Operations: a generated manifest selects current public evidence, forecast, Kalshi execution, policy, readiness and learning records. The public workflow exposes Today, Opportunities, Team dossiers, Markets and Research; two content-addressed weekly states are frozen and verifiable. A docs-only Pages deployment workflow is active; real weekly source refreshes, real closes/outcomes and full validation CI remain operating work.
 
 The full diagnosis and phased target architecture are in `META_REVIEW.md` and `FOUR_LAYER_IMPLEMENTATION_SPEC.md`; the locked forecast, market and operating methods are in `FORECAST_DESIGN.md`, `KALSHI_EXECUTION_DESIGN.md` and `PHASE6_DESIGN.md`. The current reproducible result is in `data/evidence/2026-evidence-ledger.json`, `data/evidence/2026-evidence-audit.json`, `data/audit/20260827T170147Z-decision-system-readiness.json`, `data/audit/validation-fcst-2026-preseason-bf554ba7c4aee595.json`, `data/forecasts/fcst-2026-preseason-bf554ba7c4aee595.json`, `data/markets/20260827T153038.207Z-kalshi-nfl-execution.json`, `data/current/public-manifest.json`, `data/current/weekly-index.json` and `data/current/learning-report.json`.
 
@@ -169,15 +172,15 @@ The residual is preserved as aggregate market incoherence rather than normalized
 - ESLint: passed from the configured site package
 - Full `npm run verify` stack: 12 checks passed, including deterministic evidence/forecast/learning/current rebuilds, immutable weekly-reference validation, redacted private-ledger materialization and private-app build in an isolated temporary directory
 - Standalone Vite build: passed; `docs/index.html` rebuilt from the generated current-state manifest
-- Offline/self-contained and privacy audit: passed; 162 prospective Git-visible files currently in scope, 4,327,766-byte artifact, inline scripts/styles, no external script or stylesheet dependency, 25 private identifiers/canaries tested with zero leaks and no prohibited public patterns
+- Offline/self-contained and privacy audit: passed; 163 prospective Git-visible files currently in scope, 4,327,766-byte artifact, inline scripts/styles, no external script or stylesheet dependency, 25 private identifiers/canaries tested with zero leaks and no prohibited public patterns
 - Private ledger: initialized empty, hash chain valid, zero theses and zero open positions; canonical files and app output confirmed ignored
 - Private local app: build passed with Today, Theses, Portfolio and Learning; the redacted fixture covers the full CLV/outcome/postmortem lifecycle while the canonical app remains empty
 - Local public report: Phase 6 verified at `127.0.0.1:8427/#opportunities`; Today shows 42 current-use reviews across 19 teams, the active weekly state, an expired Kalshi quote and zero learning observations
 - Desktop: passed across the five primary workflow destinations; Team dossiers keep independent model and Kalshi distributions separate, Opportunities is honestly disabled, and there is no error overlay or console warning/error
 - Mobile 390×844: passed with four full-width state cards, internally scrollable navigation and opportunity table, and no document-level horizontal overflow
 - Interaction/accessibility: passed for named native controls, workflow and nested Research navigation, active hash state, zero duplicate IDs and clean browser logs
-- Deployed HTTPS: passed with HTTP/2 200, HSTS, a byte-identical artifact, Edition 7/Aug. 27 content, 11 source cards, five preview cards, 32 analysis rows, 12 preview-ballot rows, five scanner rows, 15 tabs, six weight controls, 17 tail choices, zero document overflow, and clean browser logs
+- Deployed HTTPS: passed with HTTP/2 200, HSTS and byte-identical SHA-256 `f26b69a8c0adfb164e86da74eccde3b34d55c5cb2716270fe50c00af64d6b8b0`; the live HTML contains the Phase 6 workflow, Opportunities, Team dossiers and active weekly-state ID
 
 ## Next action
 
-Review the local Phase 6 workflow and implementation. If accepted, operate it: resolve the 42 current-use evidence reviews with sourced successor claims, capture a fresh Kalshi book before decisions, freeze a new game-week state, and append real closing-price/outcome observations only when they exist. Forecast promotion remains a separate version requiring preregistered calibration changes and sourced 32-team quarterback/material-availability adjustments; do not relax the observed gates. Do not commit, push or deploy until separately authorized.
+Operate the published Phase 6 system: resolve the 42 current-use evidence reviews with sourced successor claims, capture a fresh Kalshi book before decisions, freeze a new game-week state, and append real closing-price/outcome observations only when they exist. Forecast promotion remains a separate version requiring preregistered calibration changes and sourced 32-team quarterback/material-availability adjustments; do not relax the observed gates.

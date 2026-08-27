@@ -2,9 +2,9 @@
 
 An evidence-first study report built from six Action Network 2026 NFL ranking-podcast transcripts—quarterbacks, coaching staffs, offensive lines, skill positions, offenses, and defenses—plus five scoped team-preview episodes now covering all 32 teams. It preserves exact source rankings, team-level arguments, qualifiers, public source locators, transcription ambiguities, and clearly labeled synthesis.
 
-The current local edition keeps the six complete league-wide inputs separate from a provisional schedule forecast and a Kalshi-only execution layer. The five market-aware previews remain analysis weight 0 because their coverage and ranking schemes are incompatible; they enrich team profiles without entering the league score.
+The current public edition keeps the six complete league-wide inputs separate from a provisional schedule forecast and a Kalshi-only execution layer. The five market-aware previews remain analysis weight 0 because their coverage and ranking schemes are incompatible; they enrich team profiles without entering the league score.
 
-Phases 0–6 of `FOUR_LAYER_IMPLEMENTATION_SPEC.md` are implemented locally: a generated public current-state manifest, versioned policies and schemas, a 972-claim atomic evidence ledger, a market-independent provisional schedule simulation, full-book Kalshi execution math, a workflow-first public app, immutable weekly states and public/private learning contracts. The boundary remains strict: execution pricing is ready, but the forecast is not validated, so the Opportunity board is disabled and no model difference is action eligible. These local changes are not yet committed or deployed.
+Phases 0–6 of `FOUR_LAYER_IMPLEMENTATION_SPEC.md` are implemented and published: a generated public current-state manifest, versioned policies and schemas, a 972-claim atomic evidence ledger, a market-independent provisional schedule simulation, full-book Kalshi execution math, a workflow-first public app, immutable weekly states and public/private learning contracts. The boundary remains strict: execution pricing is ready, but the forecast is not validated, so the Opportunity board is disabled and no model difference is action eligible. The public artifact commit is `a29db1040065a0c139d175e3d0b2a44c80c32762`; private state remains local and ignored.
 
 ## Current edition
 
@@ -22,7 +22,7 @@ Phases 0–6 of `FOUR_LAYER_IMPLEMENTATION_SPEC.md` are implemented locally: a g
 - Learning loop: source-backed public Brier/log-loss/calibration/close-delta report is implemented and truthfully awaits its first settled observation
 - Private decision MVP: local-only append-only ledger and separate Today/Theses/Portfolio/Learning app with same-side close and CLV materialization; canonical ledger currently contains zero events
 - Publication surface: `docs/index.html`
-- Published report: https://longo1231.github.io/nfl-2026-outlook/ (still the frozen Edition 7 artifact until separately authorized publication)
+- Published report: https://longo1231.github.io/nfl-2026-outlook/ (Phase 0–6 workflow, deployed 2026-08-27)
 - Offline behavior: self-contained; no server, package installation, or network connection is required except to open outbound source links
 - Legacy reference: the prior owner-only Sites edition is preserved privately as a frozen v1 and is not part of this repository
 
@@ -125,6 +125,8 @@ npm --prefix site run build
 ```
 
 The standalone build inlines the React bundle, data, and CSS into `docs/index.html`.
+
+Pushes that change `docs/` deploy through `.github/workflows/deploy-pages.yml`. The workflow uploads only `docs/`, includes `.nojekyll`, uses GitHub's current Pages actions and allows the backend up to 30 minutes to complete. It can also be run manually from GitHub Actions.
 
 Run the reproducible offline/privacy gate after every build:
 

@@ -325,6 +325,7 @@ Charts are used only where they improve comparison: rank matrix, category profil
 - Keep any thesis, target-price, wager, position, balance, order, fill, exposure, CLV or postmortem data in the ignored `.private/decision-system/` layer. The generic app code and redacted fixtures may be public; canonical records and private build output may not.
 - Generate UI counts, weights, source metadata and coverage audits from canonical registries instead of maintaining parallel manual copies.
 - The React source builds through Vite into a single inlined `docs/index.html` for offline use and GitHub Pages.
+- GitHub Pages deploys only `docs/` through `.github/workflows/deploy-pages.yml`; the explicit workflow uses current GitHub Pages actions and a 30-minute backend timeout.
 - Publication excludes raw transcripts, private-library identifiers, private provenance, legacy Sites metadata, local paths, credentials, account data, positions, and personal commit details.
 
 Recommended project layout:
@@ -333,6 +334,7 @@ Recommended project layout:
 nfl-2026-outlook/
   AGENTS.md
   SPEC.md
+  .github/workflows/deploy-pages.yml     # public docs-only Pages deployment
   config/                               # versioned public system policies
   schemas/                              # public four-layer record contracts
   data/
@@ -380,6 +382,7 @@ The report is complete only when:
 - Every execution diagnostic uses exact thresholds and sides, reconciled displayed depth, a versioned fee rule, conservative break-even, capture time, movement, persistence and explicit failed gates.
 - All derived metrics reproduce from the checked data and carry the incomplete-model warning.
 - The self-contained report works offline and responsively, supports keyboard navigation, and has no blocking build/runtime errors.
+- The deployed HTTPS artifact is byte-identical to the committed `docs/index.html` and the Pages workflow records the source commit.
 - The Sources & QA tab publishes claim counts, completeness checks, source links, and timestamps.
 - The Decision System tab truthfully reports which evidence, forecast, market, decision and operating layers are ready, guarded or missing.
 - The private ledger rejects invalid hash chains and lifecycle events without a created thesis; redacted fixtures cover watch, pass, approval, order, fill, mark, close, outcome and postmortem flows.
