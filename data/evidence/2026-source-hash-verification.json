@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "verification_id": "source-hashes-2026-08-27-phase5",
+  "verified_at": "2026-08-27T16:10:00Z",
+  "method": "Local SHA-256 comparison against the immutable canonical snapshots; private paths are intentionally omitted.",
+  "sources": [
+    {"source_id": "qb", "sha256": "4599cad0ebb1eacd0045e172c33b2797b85d7af6a70be9772d6336d29f0ec85c"},
+    {"source_id": "coaching", "sha256": "77504bab4da5019f441e7b90730062cbff1d1e41d8dc5c321dd4446c69af7cb5"},
+    {"source_id": "ol", "sha256": "b97f5c4a0d93d8e14ff94eed1c686e0ea308099043df52f88d91ab004f40c2c0"},
+    {"source_id": "skill", "sha256": "0f8ea7ff8a98fd0b30b08e78b7ca1bf36ec6772296a7486a8b07a0c7e1b891be"},
+    {"source_id": "offense", "sha256": "1eb89c29aa90db83c181f543c713064c6f3a68725f9ddcb39cf4ef4615fd46b1"},
+    {"source_id": "defense", "sha256": "84fc0819682533cd017f14cbd31894c49dc8f5534d0facdd2ca10d160c795eb0"},
+    {"source_id": "nfc-east-ringer-wise-guys", "sha256": "09bf79231f0ddf9ede43f47fb12a2779d27de42bb6d38790a78bf2fdd6788edc"},
+    {"source_id": "action-afc-preview-part-1", "sha256": "16cecb7018e1346500649309763198d7fc8dcdc5dc59129df94c7a58636e7f22"},
+    {"source_id": "action-afc-preview-part-2", "sha256": "a03698474b4bf231bc0c3589552ece8d6aa79fa8fd5eaa691ec4456eb6941850"},
+    {"source_id": "nfc-north-ringer-wise-guys", "sha256": "a9887e6914b664bb9f8f3614598dd0d6fc9ea5140fbe9938dfbb61881f376e91"},
+    {"source_id": "action-nfc-preview-part-1", "sha256": "e78bf25fd5d085a7fd9395665220620e2b661e7dd03dabf8aef5230af0910e77"}
+  ]
+}

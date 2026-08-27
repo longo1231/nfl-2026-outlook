@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-08-27T13:52:18Z",
+  "edition": 7,
+  "artifact": {
+    "path": "docs/index.html",
+    "sha256": "42a3ec619851f1388b58b587948db524a099c32355eb6de62e51945b33aaea5d",
+    "matches_recorded_deployment": true,
+    "offline_self_contained": true
+  },
+  "verification": {
+    "root_tests_passed": 16,
+    "root_tests_failed": 0,
+    "typescript": "passed with site/tsconfig.json",
+    "eslint": "passed",
+    "standalone_rebuild_byte_identical": true,
+    "privacy_identifier_leaks": 0,
+    "prohibited_public_matches": 0
+  },
+  "note": "Immutable Phase 0 baseline captured before the shared manifest, freshness UI and private decision MVP were implemented."
+}

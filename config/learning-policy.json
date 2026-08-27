@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "policy_id": "learning-policy-2026.1",
+  "season": 2026,
+  "effective_at": "2026-08-27T16:30:09.794Z",
+  "probability_epsilon": 0.000001,
+  "calibration_bins": 10,
+  "required_dimensions": ["model_version", "evaluation_horizon", "confidence_bucket", "market_type"],
+  "allowed_horizons": ["preseason-close", "week-open-to-close", "decision-to-close"],
+  "allowed_confidence_buckets": ["unassigned", "low", "medium", "high"],
+  "private_clv_definition": "same-side closing probability minus average entry price",
+  "public_close_delta_definition": "same-side closing probability minus frozen model probability",
+  "note": "Public learning evaluates frozen model versions. Personal entry-price CLV remains in the ignored private decision system."
+}

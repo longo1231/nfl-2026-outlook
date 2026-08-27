@@ -5,11 +5,29 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
+    "evidence:migrate": "node scripts/migrate-evidence-ledger.mjs",
+    "evidence:finalize": "node scripts/finalize-evidence-coverage.mjs",
+    "evidence:build": "node scripts/build-evidence-views.mjs",
+    "current:build": "node scripts/build-current-state.mjs",
+    "weekly:freeze": "node scripts/freeze-weekly-state.mjs",
+    "learning:record": "node scripts/record-learning-observation.mjs",
+    "learning:build": "node scripts/build-learning-report.mjs",
+    "contracts:validate": "node scripts/validate-system-contracts.mjs",
+    "forecast:ingest": "node scripts/ingest-forecast-data.mjs",
+    "forecast:build": "node scripts/build-forecast.mjs",
     "market:build": "node scripts/build-market-snapshot.mjs",
     "kalshi:scan": "node scripts/scan-kalshi-nfl.mjs",
+    "kalshi:capture": "node scripts/capture-kalshi-execution.mjs",
     "analysis:audit": "node scripts/audit-profile-sensitivity.mjs",
     "system:audit": "node scripts/audit-decision-system.mjs",
     "artifact:audit": "node scripts/validate-public-artifact.mjs",
-    "report:build": "npm --prefix site run build:standalone"
+    "report:build": "npm --prefix site run build:standalone",
+    "decision:init": "node scripts/decision-ledger.mjs init",
+    "decision:template": "node scripts/decision-ledger.mjs template",
+    "decision:append": "node scripts/decision-ledger.mjs append",
+    "decision:validate": "node scripts/decision-ledger.mjs validate",
+    "decision:materialize": "node scripts/decision-ledger.mjs materialize",
+    "decision:build": "node scripts/decision-ledger.mjs materialize && npm --prefix site run build:decision",
+    "verify": "node scripts/verify-stack.mjs"
   }
 }

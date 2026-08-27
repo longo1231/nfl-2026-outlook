@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-27T16:10:00Z",
+  "ledger_id": "evidence-2026-ca6a8d83192f78a7",
+  "source_hash_verification_id": "source-hashes-2026-08-27-phase5",
+  "source_hashes_verified": 11,
+  "visible_baseline_sha256": "a40583f1bbc0af75c7fbade5bc38675905b0dd0d19a1b03332f5a08a22dfb760",
+  "generated_visible_sha256": "a40583f1bbc0af75c7fbade5bc38675905b0dd0d19a1b03332f5a08a22dfb760",
+  "visible_summary_parity": true,
+  "orphan_review": {
+    "embedded_summary_records": 224,
+    "generated_summary_records": 224,
+    "orphan_summary_records": 0
+  },
+  "block_dispositions": {
+    "captured": 247,
+    "non-substantive": 0,
+    "ambiguous": 23
+  },
+  "coverage": {
+    "editorial_sources": 11,
+    "scored_team_blocks": 192,
+    "preview_team_blocks": 32,
+    "ballot_blocks": 12,
+    "ambiguity_blocks": 23,
+    "claims_with_lineage": 972,
+    "claims_with_time_state": 972,
+    "claims_with_resolved_entities": 972,
+    "full_source_reviews": 11,
+    "unreviewed_substantive_blocks": 0
+  },
+  "freshness": {
+    "claim_count": 972,
+    "source_block_count": 270,
+    "entity_count": 506,
+    "status_counts": {
+      "active": 907,
+      "review_due": 0,
+      "stale": 42,
+      "superseded": 0,
+      "retracted": 0,
+      "ambiguous": 23
+    },
+    "class_counts": {
+      "immutable-source-opinion": 457,
+      "injury-or-availability": 101,
+      "methodology-or-ranking": 35,
+      "projection-or-contingency": 207,
+      "roster-role-or-depth": 132,
+      "transaction": 40
+    },
+    "time_sensitive_claims": 233,
+    "time_sensitive_with_review_and_stale_times": 233,
+    "teams": {
+      "ARI": {
+        "claims": 33,
+        "stale": 0,
+        "review_due": 0
+      },
+      "ATL": {
+        "claims": 36,
+        "stale": 0,
+        "review_due": 0
+      },
+      "BAL": {
+        "claims": 36,
+        "stale": 2,
+        "review_due": 0
+      },
+      "BUF": {
+        "claims": 38,
+        "stale": 0,
+        "review_due": 0
+      },
+      "CAR": {
+        "claims": 33,
+        "stale": 0,
+        "review_due": 0
+      },
+      "CHI": {
+        "claims": 42,
+        "stale": 0,
+        "review_due": 0
+      },
+      "CIN": {
+        "claims": 34,
+        "stale": 3,
+        "review_due": 0
+      },
+      "CLE": {
+        "claims": 29,
+        "stale": 2,
+        "review_due": 0
+      },
+      "DAL": {
+        "claims": 39,
+        "stale": 0,
+        "review_due": 0
+      },
+      "DEN": {
+        "claims": 34,
+        "stale": 0,
+        "review_due": 0
+      },
+      "DET": {
+        "claims": 39,
+        "stale": 2,
+        "review_due": 0
+      },
+      "GB": {
+        "claims": 37,
+        "stale": 3,
+        "review_due": 0
+      },
+      "HOU": {
+        "claims": 34,
+        "stale": 3,
+        "review_due": 0
+      },
+      "IND": {
+        "claims": 33,
+        "stale": 4,
+        "review_due": 0
+      },
+      "JAX": {
+        "claims": 33,
+        "stale": 2,
+        "review_due": 0
+      },
+      "KC": {
+        "claims": 35,
+        "stale": 2,
+        "review_due": 0
+      },
+      "LAC": {
+        "claims": 35,
+        "stale": 1,
+        "review_due": 0
+      },
+      "LAR": {
+        "claims": 43,
+        "stale": 0,
+        "review_due": 0
+      },
+      "LV": {
+        "claims": 30,
+        "stale": 2,
+        "review_due": 0
+      },
+      "MIA": {
+        "claims": 29,
+        "stale": 2,
+        "review_due": 0
+      },
+      "MIN": {
+        "claims": 43,
+        "stale": 0,
+        "review_due": 0
+      },
+      "NE": {
+        "claims": 35,
+        "stale": 3,
+        "review_due": 0
+      },
+      "NO": {
+        "claims": 37,
+        "stale": 0,
+        "review_due": 0
+      },
+      "NYG": {
+        "claims": 32,
+        "stale": 2,
+        "review_due": 0
+      },
+      "NYJ": {
+        "claims": 30,
+        "stale": 1,
+        "review_due": 0
+      },
+      "PHI": {
+        "claims": 37,
+        "stale": 2,
+        "review_due": 0
+      },
+      "PIT": {
+        "claims": 31,
+        "stale": 2,
+        "review_due": 0
+      },
+      "SEA": {
+        "claims": 39,
+        "stale": 0,
+        "review_due": 0
+      },
+      "SF": {
+        "claims": 39,
+        "stale": 0,
+        "review_due": 0
+      },
+      "TB": {
+        "claims": 38,
+        "stale": 0,
+        "review_due": 0
+      },
+      "TEN": {
+        "claims": 28,
+        "stale": 2,
+        "review_due": 0
+      },
+      "WAS": {
+        "claims": 32,
+        "stale": 2,
+        "review_due": 0
+      }
+    }
+  },
+  "retirement_gate": {
+    "parity_pass": true,
+    "orphan_review_pass": true,
+    "source_hash_pass": true,
+    "lineage_pass": true,
+    "time_state_pass": true,
+    "ready_to_retire_embedded_summaries": true
+  },
+  "audit_id": "evidence-audit-b99bc073b985d04e"
+}

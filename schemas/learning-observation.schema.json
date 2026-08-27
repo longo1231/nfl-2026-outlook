@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/learning-observation.schema.json",
+  "title": "Frozen public forecast and Kalshi outcome observation",
+  "type": "object",
+  "required": ["schema_version", "observation_id", "recorded_at", "season", "weekly_state_version_id", "model_version_id", "decision_market_snapshot_id", "closing_market_snapshot_id", "team_id", "contract_id", "market_type", "side", "threshold", "evaluation_horizon", "confidence_bucket", "model_probability", "closing_probability", "closing_quote_id", "closing_observed_at", "outcome", "settled_at", "source"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "observation_id": {"type": "string"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "season": {"type": "integer"},
+    "weekly_state_version_id": {"type": "string"},
+    "model_version_id": {"type": "string"},
+    "decision_market_snapshot_id": {"type": "string"},
+    "closing_market_snapshot_id": {"type": "string"},
+    "team_id": {"type": "string"},
+    "contract_id": {"type": "string"},
+    "market_type": {"type": "string"},
+    "side": {"enum": ["yes", "no"]},
+    "threshold": {"type": "integer", "minimum": 1, "maximum": 17},
+    "evaluation_horizon": {"type": "string"},
+    "confidence_bucket": {"type": "string"},
+    "model_probability": {"type": "number", "minimum": 0, "maximum": 1},
+    "closing_probability": {"type": "number", "minimum": 0, "maximum": 1},
+    "closing_quote_id": {"type": "string"},
+    "closing_observed_at": {"type": "string", "format": "date-time"},
+    "outcome": {"type": "integer", "minimum": 0, "maximum": 1},
+    "settled_at": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "required": ["venue_id", "close_source", "outcome_source"],
+      "properties": {
+        "venue_id": {"const": "kalshi"},
+        "close_source": {"type": "string"},
+        "outcome_source": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

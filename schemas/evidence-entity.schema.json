@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/evidence-entity.schema.json",
+  "title": "Evidence entity",
+  "type": "object",
+  "required": ["entity_id", "entity_type", "canonical_name", "aliases", "status"],
+  "properties": {
+    "entity_id": {"type": "string"},
+    "entity_type": {"enum": ["person"]},
+    "canonical_name": {"type": "string"},
+    "aliases": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["active", "ambiguous"]},
+    "ambiguity_note": {"type": ["string", "null"]}
+  }
+}

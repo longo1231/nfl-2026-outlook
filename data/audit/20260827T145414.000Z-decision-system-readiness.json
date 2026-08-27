@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-27T14:56:07.403Z",
+  "inputs": {
+    "sportsbook_snapshot": "2026-08-27T084329-0400-paired-win-totals.json",
+    "kalshi_snapshot": "20260827T124348.007Z-kalshi-nfl-win-ladders.json",
+    "forecast_version": "fcst-2026-preseason-bf554ba7c4aee595"
+  },
+  "intended_use": "Preseason futures research and the first weeks of the 2026 NFL regular season",
+  "decision_grain": "team × evidence source × as-of snapshot × market contract; the private ledger adds thesis × wager × quoted price × decision time",
+  "readiness_verdict": {
+    "auditable_research_source_of_truth": true,
+    "calibrated_forecast_source_of_truth": false,
+    "provisional_forecast_lab_ready": true,
+    "execution_and_portfolio_source_of_truth": false,
+    "private_decision_contract_ready": true,
+    "generated_current_state_ready": true,
+    "summary": "The corpus, eligibility contracts, provisional schedule simulation, market math, generated current-state manifest and local private decision contract are auditable. Forecast promotion, execution-aware pricing, atomic claim freshness and outcome feedback remain incomplete."
+  },
+  "quality_profile": {
+    "editorial_sources": 11,
+    "unique_editorial_source_ids": 11,
+    "scoring_sources": 6,
+    "complete_unique_1_to_32_contracts": 6,
+    "scoring_cells_expected": 192,
+    "scoring_cells_represented": 192,
+    "preview_sources": 5,
+    "preview_unique_teams": 32,
+    "preview_team_records": 32,
+    "preview_claim_fragments": 205,
+    "preview_ballots": 12,
+    "complete_preview_ballots": 7,
+    "partial_preview_ballots": 5,
+    "preview_team_records_with_claim_ids_and_locators": 0,
+    "preview_team_records_with_people_index": 0,
+    "market_snapshot_files_retained": 11,
+    "paired_sportsbook_teams": 32,
+    "sportsbook_multi_threshold_teams": 13,
+    "kalshi_complete_team_ladders": 32,
+    "kalshi_tail_contracts": 544,
+    "capture_mismatch_seconds": 19.007,
+    "kalshi_candidates_after_current_filters": 5,
+    "league_modeled_midpoint_wins": 271.08,
+    "league_midpoint_minus_272": -0.92,
+    "phase_0_to_3_contract_files_verified": 9,
+    "forecast_teams": 32,
+    "forecast_draws": 100000,
+    "forecast_holdout_brier": 0.239761,
+    "forecast_holdout_interval_coverage": 0.742188
+  },
+  "layer_status": {
+    "evidence": {
+      "status": "ready-with-documentation-debt",
+      "strengths": [
+        "immutable private source snapshots",
+        "sanitized public provenance",
+        "complete scoring contracts",
+        "all-team qualitative preview coverage"
+      ],
+      "gaps": [
+        "preview evidence is summarized rather than stored as atomic claim records",
+        "preview people and source locators are not normalized",
+        "claim-level effective dates and review dates are absent"
+      ]
+    },
+    "forecast": {
+      "status": "provisional",
+      "current_profile": "ordinal dependence-aware research ordering",
+      "independent_probability_distributions": true,
+      "outcome_trained_coefficients": true,
+      "uncertainty_intervals": true,
+      "backtest_or_holdout_validation": true,
+      "quantitative_promotion_gates_pass": false,
+      "current_adjustment_coverage_complete": false,
+      "decision_eligible": false
+    },
+    "market": {
+      "status": "usable-with-guardrails",
+      "append_only_snapshots": true,
+      "paired_same_book_devigging": true,
+      "complete_kalshi_tails": true,
+      "source_quote_age_exposed": false,
+      "fee_adjusted_edges": false,
+      "slippage_model": false,
+      "minimum_executable_size_filter": false,
+      "cross_snapshot_movement_view": false
+    },
+    "decision": {
+      "status": "local-mvp-implemented",
+      "private_thesis_ledger": true,
+      "append_only_hash_chain": true,
+      "target_and_limit_prices": true,
+      "catalysts_and_invalidation_rules": true,
+      "position_and_portfolio_exposure": true,
+      "pass_decisions_preserved": true,
+      "closing_line_value_and_outcomes": "event-contract-ready-no-live-feed",
+      "account_or_order_integration": false,
+      "canonical_private_records_read_by_public_audit": false
+    },
+    "operations": {
+      "status": "manifest-driven-and-tested",
+      "generated_current_snapshot_pointer": true,
+      "snapshot_freshness_ttl_and_stale_state": true,
+      "claim_level_freshness_complete": false,
+      "weekly_preseason_to_live_update_contract": false,
+      "continuous_integration_workflow": false,
+      "offline_self_contained_public_artifact": true
+    }
+  },
+  "highest_priority_remediations": [
+    {
+      "priority": 1,
+      "action": "Calibrate the provisional schedule model and add sourced quarterback and material availability adjustments for all 32 teams.",
+      "reason": "The independent exact-win distributions are reproducible, but the preregistered calibration gate and current-adjustment coverage gate block validated promotion."
+    },
+    {
+      "priority": 1,
+      "action": "Normalize preview evidence into atomic claims with people, locators, polarity, confidence and effective dates.",
+      "reason": "The specification promises auditable claim-level lineage, but current preview team summaries cannot be mechanically traced to exact source blocks."
+    },
+    {
+      "priority": 1,
+      "action": "Make the market scanner execution-aware with fees, minimum size/notional, quote age, movement persistence and best available executable price.",
+      "reason": "The current pre-fee edge filter can surface one-contract or otherwise non-actionable rows and does not prove an edge survived long enough to trade."
+    },
+    {
+      "priority": 2,
+      "action": "Build a weekly update and calibration loop using closing prices, outcomes, Brier/log loss and CLV by evidence/model version.",
+      "reason": "Learned weights require historical out-of-sample evidence; without feedback, the system cannot distinguish useful priors from persuasive narratives."
+    },
+    {
+      "priority": 2,
+      "action": "Finish canonical registry generation and add continuous integration gates.",
+      "reason": "Current files are selected through one generated manifest, but weights, edition labels and some source metadata still exist in parallel code and data structures."
+    }
+  ]
+}

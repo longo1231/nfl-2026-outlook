@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, statSync } from "node:fs";
 
-const trackedFiles = execFileSync("git", ["ls-files"], { encoding: "utf8" })
+const trackedFiles = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard"], { encoding: "utf8" })
   .trim()
   .split("\n")
   .filter(Boolean)
@@ -9,6 +9,8 @@ const trackedFiles = execFileSync("git", ["ls-files"], { encoding: "utf8" })
     !path.startsWith(".private/") &&
     !path.startsWith("data/transcripts/") &&
     !path.startsWith("data/audio/") &&
+    !path.includes("node_modules/") &&
+    !path.includes("standalone-dist/") &&
     existsSync(path) &&
     statSync(path).isFile(),
   );
@@ -42,6 +44,14 @@ if (existsSync(privateManifestPath)) {
 
   privateIdentifiersTested = identifiers.length;
   privateIdentifierLeaks = identifiers.filter((value) => publicCorpus.includes(value)).length;
+}
+
+const privateDecisionCanaryPath = ".private/decision-system/privacy-canaries.json";
+if (existsSync(privateDecisionCanaryPath)) {
+  const canaries = JSON.parse(readFileSync(privateDecisionCanaryPath, "utf8"));
+  const values = Array.isArray(canaries.values) ? canaries.values.filter(value => typeof value === "string" && value.length > 0) : [];
+  privateIdentifiersTested += values.length;
+  privateIdentifierLeaks += values.filter(value => publicCorpus.includes(value) || artifact.includes(value)).length;
 }
 
 const artifactChecks = {

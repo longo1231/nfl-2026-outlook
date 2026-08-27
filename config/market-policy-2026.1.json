@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "policy_id": "market-policy-2026.1",
+  "season": 2026,
+  "research_watchlist": {
+    "minimum_gross_edge_cents": 5,
+    "maximum_spread_cents": 12,
+    "requires_positive_displayed_size": true
+  },
+  "action_eligibility": {
+    "maximum_capture_mismatch_seconds": 30,
+    "maximum_capture_age_seconds": 300,
+    "minimum_persistent_captures": 2,
+    "minimum_persistence_spacing_seconds": 120,
+    "maximum_persistence_spacing_seconds": 900,
+    "requires_full_size_at_executable_price": true,
+    "requires_versioned_fee_schedule": true,
+    "requires_positive_net_edge": true,
+    "requires_validated_forecast_for_model_comparison": true,
+    "minimum_notional": null
+  },
+  "note": "Frozen Phase 1 cross-market policy retained for historical manifests. It is superseded by market-policy-2026.2."
+}

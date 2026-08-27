@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/forecast-version.schema.json",
+  "title": "Versioned probabilistic forecast",
+  "type": "object",
+  "required": ["schema_version", "forecast_version_id", "season", "model_id", "model_state", "as_of", "generated_at", "code_version", "code_fingerprint", "input_versions", "policy_version", "seed", "draws", "fit_summary", "simulation_summary", "teams", "validation_report_id", "validation_report_path", "decision_eligible", "warnings"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "forecast_version_id": {"type": "string"},
+    "season": {"type": "integer"},
+    "model_id": {"type": "string"},
+    "model_state": {"enum": ["research", "provisional", "validated"]},
+    "as_of": {"type": "string", "format": "date-time"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "code_version": {"type": "string"},
+    "code_fingerprint": {"type": "string"},
+    "input_versions": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+    "policy_version": {"type": "string"},
+    "seed": {"type": "integer"},
+    "draws": {"type": "integer", "minimum": 1},
+    "fit_summary": {"type": "object"},
+    "simulation_summary": {"type": "object"},
+    "teams": {
+      "type": "array",
+      "minItems": 32,
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "required": ["team_id", "strength_mean_points", "strength_sd_points", "win_probability_mass", "expected_wins", "median_wins", "interval_80"],
+        "properties": {
+          "team_id": {"type": "string"},
+          "strength_mean_points": {"type": "number"},
+          "strength_sd_points": {"type": "number", "minimum": 0},
+          "win_probability_mass": {"type": "array", "minItems": 18, "maxItems": 18, "items": {"type": "number", "minimum": 0, "maximum": 1}},
+          "expected_wins": {"type": "number", "minimum": 0, "maximum": 17},
+          "median_wins": {"type": "integer", "minimum": 0, "maximum": 17},
+          "interval_80": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 0, "maximum": 17}}
+        }
+      }
+    },
+    "validation_report_id": {"type": "string"},
+    "validation_report_path": {"type": "string"},
+    "decision_eligible": {"type": "boolean"},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

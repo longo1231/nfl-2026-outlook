@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/evidence-generated-views.schema.json",
+  "title": "Generated public evidence views",
+  "type": "object",
+  "required": ["schema_version", "ledger_id", "generated_at", "categories", "previews", "lineage"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "ledger_id": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "categories": {"type": "object"},
+    "previews": {"type": "object"},
+    "lineage": {"type": "object"}
+  }
+}

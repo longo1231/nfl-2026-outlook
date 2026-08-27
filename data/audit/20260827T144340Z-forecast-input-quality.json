@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "audit_id": "forecast-input-quality-20260827T144340Z",
+  "generated_at": "2026-08-27T14:43:40Z",
+  "intended_use": "market-independent preseason team-strength fitting and coherent 2026 schedule simulation",
+  "source_id": "nflverse-nfldata-games-0192370d",
+  "raw_sha256": "ef3f2a49c4b7739812763cd5a796c775cb0bf4b52f2fc3c74d4ef3d7fab39564",
+  "dataset_ids": [
+    "forecast-results-2010-2025-bf5e754ae255",
+    "forecast-schedule-2026-e5a0856c531b",
+    "forecast-market-benchmark-2022-2025-b51dac6565b7"
+  ],
+  "quality_valid": true,
+  "checks": {
+    "raw_rows": 7548,
+    "historical_completed_regular_season_games": 4175,
+    "historical_missing_result_rate": 0,
+    "historical_duplicate_game_ids": 0,
+    "normalized_invalid_team_ids": [],
+    "schedule_games": 272,
+    "schedule_duplicate_game_ids": 0,
+    "schedule_teams": 32,
+    "schedule_team_appearance_failures": [],
+    "schedule_week_min": 1,
+    "schedule_week_max": 18,
+    "schedule_market_fields_present": false,
+    "history_market_fields_present": false,
+    "evaluation_moneyline_coverage_rate": 1
+  },
+  "findings": [
+    {
+      "severity": "medium",
+      "confidence": "high",
+      "finding": "The 2022 regular season contains 271 completed games because Buffalo–Cincinnati was canceled and is not imputed.",
+      "impact": "Holdout season totals use actual completed games rather than forcing a 272nd result."
+    },
+    {
+      "severity": "medium",
+      "confidence": "high",
+      "finding": "Historical moneylines are complete for the holdout but their exact venue and timing are not strong enough to label as closing prices.",
+      "impact": "They are reported as an evaluation-only benchmark and are excluded from promotion requirements and model features."
+    },
+    {
+      "severity": "high",
+      "confidence": "high",
+      "finding": "Current 2026 quarterback and material availability adjustments are not yet sourced.",
+      "impact": "The forecast can be provisional but cannot be promoted to validated or decision-eligible."
+    }
+  ]
+}

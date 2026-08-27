@@ -2,6 +2,12 @@
 .private/
 data/transcripts/
 
+# Local decision-system state and output are always private. These explicit
+# patterns are defense in depth under the already ignored .private/ tree.
+.private/decision-system/
+.private/current/
+.private/forecast-scenarios/
+
 # Generated site and temporary build artifacts.
 **/node_modules/
 **/dist/

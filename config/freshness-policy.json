@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "policy_id": "freshness-2026.1",
+  "season": 2026,
+  "timezone": "America/New_York",
+  "canonical_timestamp_timezone": "UTC",
+  "evidence_classes": {
+    "immutable-source-opinion": {"review_after_seconds": null, "stale_after_seconds": null},
+    "methodology-or-ranking": {"review_after_seconds": null, "stale_after_seconds": null},
+    "roster-role-or-depth": {"review_after_seconds": 259200, "stale_after_seconds": 259200},
+    "injury-or-availability": {"review_after_seconds": 86400, "stale_after_seconds": 86400},
+    "transaction": {"review_after_seconds": null, "stale_after_seconds": null},
+    "projection-or-contingency": {"review_after_seconds": null, "stale_after_seconds": null}
+  },
+  "market": {
+    "capture_time_only_action_ttl_seconds": 300,
+    "source_time_action_ttl_seconds": 300
+  },
+  "forecast": {
+    "preseason_review_after_seconds": 604800,
+    "game_week_review_after_seconds": 86400
+  }
+}

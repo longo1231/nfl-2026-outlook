@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/weekly-state-version.schema.json",
+  "title": "Immutable NFL Outlook weekly state version",
+  "type": "object",
+  "required": ["schema_version", "weekly_state_version_id", "season", "period", "frozen_at", "content_fingerprint", "public_manifest", "evidence", "forecast", "market", "readiness", "policies"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "weekly_state_version_id": {"type": "string"},
+    "season": {"type": "integer"},
+    "period": {
+      "type": "object",
+      "required": ["kind", "week", "label"],
+      "properties": {
+        "kind": {"enum": ["preseason-prior", "game-week"]},
+        "week": {"type": ["integer", "null"], "minimum": 1, "maximum": 22},
+        "label": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "frozen_at": {"type": "string", "format": "date-time"},
+    "content_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "public_manifest": {"$ref": "#/$defs/reference"},
+    "evidence": {"$ref": "#/$defs/reference"},
+    "forecast": {"$ref": "#/$defs/reference"},
+    "market": {"$ref": "#/$defs/reference"},
+    "readiness": {"$ref": "#/$defs/reference"},
+    "policies": {"type": "array", "items": {"$ref": "#/$defs/reference"}}
+  },
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "required": ["id", "path", "sha256"],
+      "properties": {
+        "id": {"type": ["string", "null"]},
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

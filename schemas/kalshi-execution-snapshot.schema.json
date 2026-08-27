@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/kalshi-execution-snapshot.schema.json",
+  "title": "Kalshi NFL execution snapshot",
+  "type": "object",
+  "required": ["schema_version", "snapshot_id", "season", "captured_at_started", "captured_at", "stale_after", "source", "policy_version", "fee_schedule_id", "forecast_version_id", "forecast_state", "primary_reference_contract_count", "audit", "aggregates", "teams", "contracts", "orderbooks", "quotes", "diagnostics", "research_diagnostic_ids", "persistent_diagnostic_ids", "action_candidate_ids", "warnings"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "snapshot_id": {"type": "string", "pattern": "^kalshi-exec-"},
+    "season": {"const": 2026},
+    "captured_at_started": {"type": "string", "format": "date-time"},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "stale_after": {"type": "string", "format": "date-time"},
+    "source": {"type": "object"},
+    "policy_version": {"type": "string"},
+    "fee_schedule_id": {"type": "string"},
+    "forecast_version_id": {"type": "string"},
+    "forecast_state": {"enum": ["research", "provisional", "validated"]},
+    "primary_reference_contract_count": {"type": "number", "exclusiveMinimum": 0},
+    "audit": {"type": "object"},
+    "aggregates": {"type": "object"},
+    "teams": {"type": "object", "minProperties": 32, "maxProperties": 32},
+    "contracts": {"type": "array", "minItems": 544, "maxItems": 544},
+    "orderbooks": {"type": "array", "minItems": 544, "maxItems": 544},
+    "quotes": {"type": "array", "minItems": 1088, "maxItems": 1088},
+    "diagnostics": {"type": "array", "minItems": 1088, "maxItems": 1088},
+    "research_diagnostic_ids": {"type": "array", "items": {"type": "string"}},
+    "persistent_diagnostic_ids": {"type": "array", "items": {"type": "string"}},
+    "action_candidate_ids": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

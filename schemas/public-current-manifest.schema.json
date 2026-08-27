@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/public-current-manifest.schema.json",
+  "title": "NFL Outlook public current-state manifest",
+  "type": "object",
+  "required": ["schema_version", "manifest_id", "season", "generated_at", "policy_versions", "evidence", "forecast", "markets", "readiness", "warnings"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "manifest_id": {"type": "string", "minLength": 1},
+    "season": {"type": "integer"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "policy_versions": {
+      "type": "object",
+      "required": ["freshness", "forecast", "market", "sources", "learning"],
+      "properties": {
+        "freshness": {"type": "string"},
+        "forecast": {"type": "string"},
+        "market": {"type": "string"},
+        "sources": {"type": "string"},
+        "learning": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {"type": "object"},
+    "forecast": {
+      "type": "object",
+      "required": ["version_id", "path", "status", "as_of", "stale_after", "decision_eligible", "validation_report_id", "validation_report_path"],
+      "properties": {
+        "version_id": {"type": ["string", "null"]},
+        "path": {"type": ["string", "null"]},
+        "status": {"enum": ["missing", "research", "provisional", "validated"]},
+        "as_of": {"type": ["string", "null"], "format": "date-time"},
+        "stale_after": {"type": ["string", "null"], "format": "date-time"},
+        "decision_eligible": {"type": "boolean"},
+        "validation_report_id": {"type": ["string", "null"]},
+        "validation_report_path": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "markets": {
+      "type": "object",
+      "required": ["kalshi"],
+      "properties": {
+        "kalshi": {
+          "type": "object",
+          "required": ["snapshot_id", "path", "summary_path", "sha256", "summary_sha256", "captured_at", "stale_after", "source_time_confidence", "fee_schedule_id", "full_orderbook", "reference_contract_count", "research_qualified_diagnostics", "persistent_research_diagnostics", "action_eligible_candidates", "action_eligible"],
+          "properties": {
+            "snapshot_id": {"type": "string"},
+            "path": {"type": "string"},
+            "summary_path": {"type": "string"},
+            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "summary_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "captured_at": {"type": "string", "format": "date-time"},
+            "stale_after": {"type": "string", "format": "date-time"},
+            "source_time_confidence": {"enum": ["source-time", "capture-time-only"]},
+            "fee_schedule_id": {"type": "string"},
+            "full_orderbook": {"const": true},
+            "reference_contract_count": {"type": "number", "exclusiveMinimum": 0},
+            "research_qualified_diagnostics": {"type": "integer", "minimum": 0},
+            "persistent_research_diagnostics": {"type": "integer", "minimum": 0},
+            "action_eligible_candidates": {"type": "integer", "minimum": 0},
+            "action_eligible": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "readiness": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

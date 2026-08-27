@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "migration_id": "evidence-migration-2026.1",
+  "season": 2026,
+  "recorded_at": "2026-08-27T16:10:00Z",
+  "category_sources": {
+    "qb": {"manifest_key": "qb", "effective_at": "2026-08-27T12:38:05Z"},
+    "coaching": {"manifest_key": "coaching", "effective_at": "2026-08-27T12:38:05Z"},
+    "ol": {"manifest_key": "offensive-line", "effective_at": "2026-08-27T12:38:05Z"},
+    "skill": {"manifest_key": "skill-positions", "effective_at": "2026-08-27T12:38:05Z"},
+    "offense": {"manifest_key": "offense", "effective_at": "2026-08-27T12:38:05Z"},
+    "defense": {"manifest_key": "defense", "effective_at": "2026-08-27T12:38:05Z"}
+  },
+  "preview_sources": {
+    "nfc-east-ringer-wise-guys": {
+      "manifest_key": "nfc-east-ringer-wise-guys",
+      "effective_at": "2026-08-24T12:00:00Z",
+      "locator_confidence": "high",
+      "team_locators": {
+        "PHI": {"kind": "line-range", "start": 184, "end": 277, "related_ranges": [{"start": 660, "end": 668, "purpose": "exact-finish ballot"}]},
+        "DAL": {"kind": "line-range", "start": 278, "end": 377, "related_ranges": [{"start": 660, "end": 668, "purpose": "exact-finish ballot"}]},
+        "NYG": {"kind": "line-range", "start": 386, "end": 479, "related_ranges": [{"start": 660, "end": 668, "purpose": "exact-finish ballot"}]},
+        "WAS": {"kind": "line-range", "start": 480, "end": 659, "related_ranges": [{"start": 660, "end": 668, "purpose": "exact-finish ballot"}]}
+      },
+      "ballot_locator": {"kind": "line-range", "start": 660, "end": 668}
+    },
+    "action-afc-preview-part-1": {
+      "manifest_key": "action-afc-preview-part-1",
+      "effective_at": "2026-08-24T12:00:00Z",
+      "locator_confidence": "medium",
+      "locator_note": "Public timecodes derive from a machine working transcript checked against the hashed publisher audio; transcript names remain ambiguity-controlled.",
+      "team_locators": {
+        "KC": {"kind": "timecode-range", "start": "00:06:19.680", "end": "00:19:54.859"},
+        "LAC": {"kind": "timecode-range", "start": "00:19:54.860", "end": "00:30:26.859"},
+        "DEN": {"kind": "timecode-range", "start": "00:30:26.860", "end": "00:39:13.979"},
+        "LV": {"kind": "timecode-range", "start": "00:39:13.980", "end": "00:55:29.159"},
+        "BUF": {"kind": "timecode-range", "start": "00:55:29.160", "end": "01:06:24.499"},
+        "NE": {"kind": "timecode-range", "start": "01:06:24.500", "end": "01:16:20.259"},
+        "NYJ": {"kind": "timecode-range", "start": "01:16:20.260", "end": "01:24:26.839"},
+        "MIA": {"kind": "timecode-range", "start": "01:24:26.840", "end": "01:30:38.339"}
+      },
+      "ballot_locator": {"kind": "timecode-range", "start": "01:24:26.840", "end": "01:30:38.339"}
+    },
+    "action-afc-preview-part-2": {
+      "manifest_key": "action-afc-preview-part-2",
+      "effective_at": "2026-08-24T12:00:00Z",
+      "locator_confidence": "high",
+      "team_locators": {
+        "HOU": {"kind": "line-range", "start": 54, "end": 131},
+        "JAX": {"kind": "line-range", "start": 132, "end": 207},
+        "IND": {"kind": "line-range", "start": 208, "end": 289},
+        "TEN": {"kind": "line-range", "start": 290, "end": 399},
+        "BAL": {"kind": "line-range", "start": 400, "end": 465},
+        "CIN": {"kind": "line-range", "start": 466, "end": 509},
+        "PIT": {"kind": "line-range", "start": 510, "end": 567},
+        "CLE": {"kind": "line-range", "start": 568, "end": 620}
+      },
+      "ballot_locator": {"kind": "line-range", "start": 350, "end": 618}
+    },
+    "nfc-north-ringer-wise-guys": {
+      "manifest_key": "nfc-north-ringer-wise-guys",
+      "effective_at": "2026-08-26T12:00:00Z",
+      "locator_confidence": "high",
+      "team_locators": {
+        "DET": {"kind": "line-range", "start": 44, "end": 115, "related_ranges": [{"start": 426, "end": 460, "purpose": "exact-finish ballot"}]},
+        "GB": {"kind": "line-range", "start": 116, "end": 231, "related_ranges": [{"start": 426, "end": 460, "purpose": "exact-finish ballot"}]},
+        "CHI": {"kind": "line-range", "start": 232, "end": 283, "related_ranges": [{"start": 426, "end": 460, "purpose": "exact-finish ballot"}]},
+        "MIN": {"kind": "line-range", "start": 284, "end": 355, "related_ranges": [{"start": 426, "end": 460, "purpose": "exact-finish ballot"}]}
+      },
+      "ballot_locator": {"kind": "line-range", "start": 426, "end": 460}
+    },
+    "action-nfc-preview-part-1": {
+      "manifest_key": "action-nfc-preview-part-1",
+      "effective_at": "2026-08-26T12:00:00Z",
+      "locator_confidence": "high",
+      "team_locators": {
+        "SEA": {"kind": "line-range", "start": 58, "end": 91},
+        "LAR": {"kind": "line-range", "start": 92, "end": 167},
+        "SF": {"kind": "line-range", "start": 168, "end": 239},
+        "ARI": {"kind": "line-range", "start": 240, "end": 303},
+        "TB": {"kind": "line-range", "start": 304, "end": 351},
+        "ATL": {"kind": "line-range", "start": 352, "end": 445},
+        "NO": {"kind": "line-range", "start": 446, "end": 487},
+        "CAR": {"kind": "line-range", "start": 488, "end": 552}
+      },
+      "ballot_locator": {"kind": "line-range", "start": 304, "end": 351}
+    }
+  },
+  "supplemental_people": [
+    {"name": "Raheem Palmer", "aliases": ["Palmer", "Raheem"]},
+    {"name": "Anthony Dabbundo", "aliases": ["Dabbundo"]},
+    {"name": "Joe House", "aliases": ["House"]},
+    {"name": "Evan Abrams", "aliases": ["Abrams"]},
+    {"name": "Stuckey", "aliases": []},
+    {"name": "Sean Koerner", "aliases": ["Koerner"]}
+  ]
+}

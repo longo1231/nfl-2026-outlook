@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/evidence-claim.schema.json",
+  "title": "Atomic evidence claim",
+  "type": "object",
+  "required": ["claim_id", "season", "source_id", "source_block_id", "source_locator", "team_ids", "entity_ids", "category", "claim_type", "paraphrase", "polarity", "confidence", "evidence_class", "source_event_at", "effective_at", "captured_at", "recorded_at", "review_due_at", "stale_after", "status", "supersedes", "ambiguity_note"],
+  "properties": {
+    "claim_id": {"type": "string"},
+    "season": {"type": "integer"},
+    "source_id": {"type": "string"},
+    "source_block_id": {"type": "string"},
+    "source_locator": {"type": ["object", "null"]},
+    "team_ids": {"type": "array", "items": {"type": "string"}},
+    "entity_ids": {"type": "array", "items": {"type": "string"}},
+    "category": {"type": "string"},
+    "claim_type": {"type": "string"},
+    "paraphrase": {"type": "string"},
+    "speaker": {"type": ["string", "null"]},
+    "polarity": {"enum": ["positive", "negative", "neutral", "conditional"]},
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "evidence_class": {"enum": ["immutable-source-opinion", "methodology-or-ranking", "roster-role-or-depth", "injury-or-availability", "transaction", "projection-or-contingency"]},
+    "qualifier": {"type": ["string", "null"]},
+    "source_event_at": {"type": ["string", "null"], "format": "date-time"},
+    "effective_at": {"type": "string", "format": "date-time"},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "review_due_at": {"type": ["string", "null"], "format": "date-time"},
+    "stale_after": {"type": ["string", "null"], "format": "date-time"},
+    "status": {"enum": ["active", "review_due", "stale", "superseded", "retracted", "ambiguous"]},
+    "supersedes": {"type": ["string", "null"]},
+    "ambiguity_note": {"type": ["string", "null"]}
+  }
+}

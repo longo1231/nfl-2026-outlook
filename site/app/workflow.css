@@ -1,0 +1,100 @@
+.primaryRail { justify-content: center; padding-inline: clamp(18px, 5vw, 78px); background: #132733; }
+.primaryRail button { min-width: 150px; color: #d7e0df; font-size: 10px; }
+.primaryRail button.active { color: #fff; }
+.researchRail { display: flex; gap: 0; overflow-x: auto; padding: 0 clamp(18px, 5vw, 78px); border-bottom: 1px solid var(--line); background: #e4e0d6; scrollbar-width: thin; }
+.researchRail button { flex: 0 0 auto; padding: 13px 15px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
+.researchRail button.active { border-bottom-color: var(--red); color: var(--ink); }
+
+.workflowHero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 34px 0 18px; border: 1px solid var(--line); background: var(--line); }
+.workflowHero article { display: grid; gap: 7px; min-height: 142px; padding: 23px; border-top: 5px solid var(--line); background: var(--card); }
+.workflowHero article.ready { border-top-color: var(--sage); }
+.workflowHero article.review,.workflowHero article.waiting { border-top-color: var(--gold); }
+.workflowHero article.blocked { border-top-color: var(--red); }
+.workflowHero span,.todayPanel header span,.todayLower article>span,.labBoard header span { color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.workflowHero strong { align-self: end; font-family: Georgia, serif; font-size: 31px; font-weight: 500; text-transform: capitalize; }
+.workflowHero small { color: var(--muted); font-size: 9px; line-height: 1.45; }
+
+.todayGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.todayPanel { border: 1px solid var(--line); background: var(--card); }
+.todayPanel header { display: flex; justify-content: space-between; gap: 20px; align-items: start; padding: 24px 25px 16px; }
+.todayPanel header h3,.todayLower h3,.labBoard header h3 { margin: 7px 0 0; font-family: Georgia, serif; font-size: 27px; font-weight: 500; }
+.todayPanel header button,.todayLower button,.opportunityActions button { border: 0; background: transparent; color: var(--red); font-size: 8px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.todayPanel>p { margin: 0; padding: 0 25px 20px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.todayPanel>div { border-top: 1px solid var(--line); }
+.todayPanel>div>button { display: grid; grid-template-columns: 45px minmax(120px, 1fr) 55px minmax(130px, auto); align-items: center; gap: 10px; width: 100%; padding: 12px 18px; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.todayPanel>div>button:first-child { border-top: 0; }
+.todayPanel>div>button:hover,.todayPanel>div>button:focus-visible { background: #eeeae0; }
+.todayPanel>div>button>b { color: var(--red); font-size: 10px; }
+.todayPanel>div>button>span { font-size: 10px; }
+.todayPanel>div>button>strong { font-family: Georgia, serif; font-size: 19px; font-weight: 500; text-align: right; }
+.todayPanel>div>button>small { color: var(--muted); font-size: 8px; text-align: right; }
+.todayLower { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 18px; }
+.todayLower article { min-height: 220px; padding: 25px; border: 1px solid var(--line); background: var(--card); }
+.todayLower p { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.todayLower small { color: var(--muted); font-size: 8px; line-height: 1.45; }
+.workflowWarnings { display: grid; grid-template-columns: 190px 1fr; gap: 25px; margin-top: 18px; padding: 22px 25px; background: var(--navy); color: white; }
+.workflowWarnings strong { font-family: Georgia, serif; font-size: 20px; font-weight: 500; }
+.workflowWarnings ul { margin: 0; padding-left: 17px; color: #c8d2d4; font-size: 9px; line-height: 1.55; }
+.workflowWarnings li+li { margin-top: 7px; }
+
+.opportunityLock { display: grid; grid-template-columns: 1fr 180px; gap: 30px; align-items: center; margin: 34px 0 18px; padding: 30px; background: var(--navy); color: white; border-top: 6px solid var(--red); }
+.opportunityLock>div>span { color: #e6b5a7; font-size: 9px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.opportunityLock>div>strong { display: block; margin-top: 8px; font-family: Georgia, serif; font-size: 38px; font-weight: 500; text-transform: capitalize; }
+.opportunityLock p { color: #c8d2d4; font-size: 11px; line-height: 1.6; }
+.opportunityLock>b { display: grid; place-items: center; min-height: 125px; border: 1px solid #52626a; font-family: Georgia, serif; font-size: 55px; font-weight: 500; }
+.opportunityLock>b small { display: block; color: #c8d2d4; font-family: sans-serif; font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.opportunityStats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 18px; border: 1px solid var(--line); background: var(--line); }
+.opportunityStats article { display: grid; gap: 6px; min-height: 95px; padding: 18px 22px; background: var(--card); }
+.opportunityStats strong { font-family: Georgia, serif; font-size: 29px; font-weight: 500; }
+.opportunityStats span { color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+.labBoard { border: 1px solid var(--line); background: var(--card); }
+.labBoard header { display: grid; grid-template-columns: 1fr minmax(300px, .8fr); gap: 30px; align-items: end; padding: 25px 28px; }
+.labBoard header p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.labBoardTable { overflow-x: auto; }
+.labBoardHead,.labBoardRow { display: grid; grid-template-columns: 60px 105px 85px 85px 85px 85px minmax(160px, 1fr); align-items: center; gap: 10px; min-width: 820px; }
+.labBoardHead { padding: 10px 16px; background: #182b3d; color: #fff; font-size: 8px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.labBoardRow { width: 100%; min-height: 57px; padding: 10px 16px; border: 0; border-top: 1px solid var(--line); background: var(--card); color: var(--ink); font-size: 10px; text-align: left; cursor: pointer; }
+.labBoardRow:hover,.labBoardRow:focus-visible { background: #eeeae0; }
+.labBoardRow>b { color: var(--gold); font-size: 8px; text-transform: uppercase; }
+.opportunityActions { display: flex; gap: 12px; margin-top: 16px; }
+.opportunityActions button { padding: 12px 16px; border: 1px solid var(--red); }
+
+.dossierSnapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 18px 0; border: 1px solid var(--line); background: var(--line); }
+.dossierSnapshot article { display: grid; gap: 7px; min-height: 115px; padding: 20px; background: var(--card); }
+.dossierSnapshot span,.dossierChange header span { color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.dossierSnapshot strong { align-self: end; font-family: Georgia, serif; font-size: 28px; font-weight: 500; }
+.dossierSnapshot strong.modelHigher { color: #27603a; }
+.dossierSnapshot strong.modelLower { color: #9a3128; }
+.dossierSnapshot small { color: var(--muted); font-size: 8px; line-height: 1.45; }
+.dossierChange { margin: 18px 0; border: 1px solid var(--line); background: var(--card); }
+.dossierChange header { display: flex; justify-content: space-between; gap: 25px; align-items: end; padding: 20px 23px; }
+.dossierChange h3 { margin: 6px 0 0; font-family: Georgia, serif; font-size: 23px; font-weight: 500; }
+.dossierChange header>small { max-width: 390px; color: var(--muted); font-size: 9px; line-height: 1.5; }
+.dossierChange>div { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-top: 1px solid var(--line); }
+.dossierChange>div>span { display: grid; gap: 6px; padding: 16px 20px; border-right: 1px solid var(--line); }
+.dossierChange>div strong { font-family: Georgia, serif; font-size: 20px; font-weight: 500; }
+.dossierChange>div small { color: var(--muted); font-size: 8px; }
+
+@media (max-width: 950px) {
+  .workflowHero,.dossierSnapshot { grid-template-columns: 1fr 1fr; }
+  .todayGrid { grid-template-columns: 1fr; }
+  .todayLower { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .primaryRail { justify-content: flex-start; }
+  .primaryRail button { min-width: 125px; }
+  .workflowHero,.todayLower,.opportunityStats,.dossierSnapshot { grid-template-columns: 1fr; }
+  .todayPanel header,.dossierChange header { align-items: flex-start; flex-direction: column; }
+  .todayPanel>div>button { grid-template-columns: 42px 1fr 52px; }
+  .todayPanel>div>button>small { grid-column: 2/4; text-align: left; }
+  .workflowWarnings,.opportunityLock,.labBoard header { grid-template-columns: 1fr; }
+  .opportunityLock>b { min-height: 90px; }
+  .opportunityActions { align-items: stretch; flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .todayPanel>div>button { grid-template-columns: 42px 1fr; }
+  .todayPanel>div>button>strong { text-align: left; }
+  .todayPanel>div>button>small { grid-column: 1/3; }
+}

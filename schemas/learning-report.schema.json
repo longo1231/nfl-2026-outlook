@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/learning-report.schema.json",
+  "title": "NFL Outlook public learning report",
+  "type": "object",
+  "required": ["schema_version", "report_id", "generated_at", "policy_id", "status", "observation_count", "overall", "groupings", "definitions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "report_id": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "policy_id": {"type": "string"},
+    "status": {"enum": ["awaiting_observations", "ready"]},
+    "observation_count": {"type": "integer", "minimum": 0},
+    "overall": {"type": ["object", "null"]},
+    "groupings": {"type": "object"},
+    "definitions": {"type": "object"}
+  },
+  "additionalProperties": false
+}

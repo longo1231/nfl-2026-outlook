@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "manifest_id": "public-2026-20260827T163009.794Z",
+  "season": 2026,
+  "generated_at": "2026-08-27T16:30:09.794Z",
+  "policy_versions": {
+    "freshness": "freshness-2026.1",
+    "forecast": "forecast-policy-2026.1",
+    "market": "market-policy-2026.2",
+    "sources": "source-registry-2026.2"
+  },
+  "evidence": {
+    "snapshot_id": "evidence-2026-ca6a8d83192f78a7",
+    "path": "data/evidence/2026-evidence-ledger.json",
+    "generated_view_path": "data/evidence/2026-generated-summaries.json",
+    "audit_path": "data/evidence/2026-evidence-audit.json",
+    "sha256": "98f26a292c4a4ac5da1829b58690bd3e07ed26cc39cf95ad770c8ff5b76ba24b",
+    "generated_view_sha256": "65465cfd1dbc52396ce5b26e6f52634ac3f6b6aaa92e320dff5ffac00beb4fab",
+    "captured_at": "2026-08-27T12:38:05.000Z",
+    "status": "review_due",
+    "claim_level_freshness_complete": true,
+    "claim_count": 972,
+    "source_block_count": 270,
+    "entity_count": 506,
+    "stale_claim_count": 42,
+    "ambiguous_claim_count": 23,
+    "visible_summary_parity": true,
+    "review_due_at": "2026-08-27T16:30:09.794Z",
+    "stale_after": null,
+    "note": "972 atomic claims have source-block lineage and time state. 42 time-sensitive preseason claims require a current-use review; their historical source meaning remains preserved."
+  },
+  "forecast": {
+    "version_id": "fcst-2026-preseason-bf554ba7c4aee595",
+    "path": "data/forecasts/fcst-2026-preseason-bf554ba7c4aee595.json",
+    "status": "provisional",
+    "as_of": "2026-08-27T14:54:14Z",
+    "stale_after": null,
+    "decision_eligible": false,
+    "validation_report_id": "validation-fcst-2026-preseason-bf554ba7c4aee595",
+    "validation_report_path": "data/audit/validation-fcst-2026-preseason-bf554ba7c4aee595.json"
+  },
+  "markets": {
+    "kalshi": {
+      "snapshot_id": "kalshi-exec-20260827T153038.207Z",
+      "path": "data/markets/20260827T153038.207Z-kalshi-nfl-execution.json",
+      "summary_path": "data/current/kalshi-execution-summary.json",
+      "sha256": "94020514d50964701738c9332e2f027c8c7303de1994fdb33cc224d7863d1e82",
+      "summary_sha256": "362c83eb0fe21718ff6d343e69c5b68e7979d38b7de0be50c0e525411a0b994f",
+      "captured_at": "2026-08-27T15:30:38.207Z",
+      "stale_after": "2026-08-27T15:35:38.207Z",
+      "source_time_confidence": "capture-time-only",
+      "fee_schedule_id": "kalshi-kxnflwins-fees-2026-07-07",
+      "full_orderbook": true,
+      "reference_contract_count": 100,
+      "research_qualified_diagnostics": 99,
+      "persistent_research_diagnostics": 99,
+      "action_eligible_candidates": 0,
+      "action_eligible": false
+    }
+  },
+  "readiness": {
+    "audit_id": "readiness-20260827T163009.794Z",
+    "path": "data/audit/20260827T163005Z-decision-system-readiness.json",
+    "status": "degraded"
+  },
+  "warnings": [
+    "The active provisional forecast is a lab output and is not decision eligible.",
+    "All 32 current quarterback and availability adjustments are explicit zero placeholders, not sourced estimates.",
+    "One or more preregistered quantitative promotion gates did not pass.",
+    "Provisional forecasts are lab outputs and cannot create automated action labels.",
+    "No playoff, conference or championship probabilities are produced in schedule-sim-v1.",
+    "42 time-sensitive evidence claims are stale for current use and should be reviewed before relying on roster or availability details.",
+    "Kalshi execution pricing is size- and fee-aware, but capture-time quotes expire after five minutes for action review.",
+    "No model-market row is action eligible while the independent forecast remains provisional.",
+    "Sportsbook snapshots are frozen historical Edition 7 evidence and are outside the active market pipeline."
+  ]
+}

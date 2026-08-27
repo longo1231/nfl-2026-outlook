@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/private-decision-event.schema.json",
+  "title": "Private append-only decision event",
+  "type": "object",
+  "required": ["schema_version", "event_id", "event_type", "entity_id", "occurred_at", "recorded_at", "actor", "previous_event_hash", "public_refs", "payload", "event_hash"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "event_id": {"type": "string"},
+    "event_type": {"enum": ["thesis.created", "thesis.revised", "thesis.invalidated", "decision.watch", "decision.pass", "decision.approve", "order.recorded", "fill.recorded", "position.marked", "closing_price.recorded", "position.closed", "outcome.recorded", "postmortem.recorded"]},
+    "entity_id": {"type": "string"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "actor": {"type": "string"},
+    "previous_event_hash": {"type": ["string", "null"]},
+    "public_refs": {"type": "object"},
+    "payload": {"type": "object"},
+    "event_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false
+}

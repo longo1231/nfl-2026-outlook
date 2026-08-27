@@ -1,0 +1,164 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-08-27T17:00:59.275Z",
+  "inputs": {
+    "kalshi_execution_snapshot": "20260827T153038.207Z-kalshi-nfl-execution.json",
+    "kalshi_snapshot_id": "kalshi-exec-20260827T153038.207Z",
+    "market_policy": "market-policy-2026.2",
+    "fee_schedule": "kalshi-kxnflwins-fees-2026-07-07",
+    "forecast_version": "fcst-2026-preseason-bf554ba7c4aee595"
+  },
+  "intended_use": "Kalshi-only preseason futures research and execution diagnostics for the 2026 NFL regular season",
+  "decision_grain": "team × Kalshi contract × side × requested size × captured order book; the private ledger adds thesis × decision × order/fill record",
+  "readiness_verdict": {
+    "auditable_research_source_of_truth": true,
+    "calibrated_forecast_source_of_truth": false,
+    "provisional_forecast_lab_ready": true,
+    "kalshi_execution_pricing_source_of_truth": true,
+    "model_driven_action_source_of_truth": false,
+    "private_decision_contract_ready": true,
+    "generated_current_state_ready": true,
+    "immutable_weekly_state_ready": true,
+    "learning_loop_contract_ready": true,
+    "summary": "The atomic evidence ledger, generated summaries, provisional schedule simulation, complete Kalshi execution, workflow UI, immutable weekly state and public/private learning contracts are auditable. No source-backed 2026 settlement observations exist yet, and the forecast remains provisional, so no model-driven action is eligible."
+  },
+  "quality_profile": {
+    "editorial_sources": 11,
+    "unique_editorial_source_ids": 11,
+    "scoring_sources": 6,
+    "complete_unique_1_to_32_contracts": 6,
+    "scoring_cells_expected": 192,
+    "scoring_cells_represented": 192,
+    "preview_sources": 5,
+    "preview_unique_teams": 32,
+    "preview_team_records": 32,
+    "preview_claim_fragments": 205,
+    "preview_ballots": 12,
+    "complete_preview_ballots": 7,
+    "partial_preview_ballots": 5,
+    "preview_team_records_with_claim_ids_and_locators": 32,
+    "preview_team_records_with_people_index": 30,
+    "atomic_source_blocks": 270,
+    "atomic_claims": 972,
+    "normalized_people_entities": 506,
+    "claims_with_lineage": 972,
+    "claims_with_time_state": 972,
+    "time_sensitive_claims": 233,
+    "stale_claims_requiring_current_use_review": 42,
+    "generated_visible_summary_parity": true,
+    "orphan_summary_records": 0,
+    "market_snapshot_files_retained": 13,
+    "kalshi_complete_team_ladders": 32,
+    "kalshi_tail_contracts": 544,
+    "kalshi_full_orderbooks": 544,
+    "normalized_kalshi_quotes": 1088,
+    "execution_scenarios": 3264,
+    "full_100_contract_quotes": 909,
+    "quotes_with_movement_history": 1088,
+    "research_qualified_diagnostics": 99,
+    "persistent_research_diagnostics": 99,
+    "action_eligible_candidates": 0,
+    "league_modeled_midpoint_wins": 271.389,
+    "league_midpoint_minus_272": -0.611,
+    "phase_0_to_6_contract_files_verified": 34,
+    "frozen_weekly_states": 1,
+    "active_weekly_state_version": "weekly-2026-preseason-prior-a98230ef1a077eff",
+    "public_learning_observations": 0,
+    "learning_report_status": "awaiting_observations",
+    "forecast_teams": 32,
+    "forecast_draws": 100000,
+    "forecast_holdout_brier": 0.239761,
+    "forecast_holdout_interval_coverage": 0.742188
+  },
+  "layer_status": {
+    "evidence": {
+      "status": "atomic-ledger-ready",
+      "strengths": [
+        "immutable private source snapshots",
+        "sanitized public provenance",
+        "complete scoring contracts",
+        "uniform atomic claims for every visible category and preview summary",
+        "normalized people and public-safe locators",
+        "claim-level freshness and ambiguity state",
+        "generated-view parity with the Edition 7 baseline"
+      ],
+      "gaps": [
+        "stale time-sensitive preseason claims require review before current use",
+        "weekly supersession workflow remains to be operated"
+      ]
+    },
+    "forecast": {
+      "status": "provisional",
+      "current_profile": "ordinal dependence-aware research ordering",
+      "independent_probability_distributions": true,
+      "outcome_trained_coefficients": true,
+      "uncertainty_intervals": true,
+      "backtest_or_holdout_validation": true,
+      "quantitative_promotion_gates_pass": false,
+      "current_adjustment_coverage_complete": false,
+      "decision_eligible": false
+    },
+    "market": {
+      "status": "kalshi-execution-aware",
+      "venue_scope": [
+        "kalshi"
+      ],
+      "sportsbook_forward_pipeline_enabled": false,
+      "append_only_snapshots": true,
+      "complete_kalshi_tails": true,
+      "full_orderbook_depth": true,
+      "source_quote_age_exposed": false,
+      "capture_time_freshness": true,
+      "versioned_fee_estimates": true,
+      "depth_aware_execution": true,
+      "full_requested_size_gate": true,
+      "cross_snapshot_movement_view": true,
+      "persistence_gate": true,
+      "model_action_eligible": false
+    },
+    "decision": {
+      "status": "local-learning-loop-ready",
+      "private_thesis_ledger": true,
+      "append_only_hash_chain": true,
+      "target_and_limit_prices": true,
+      "catalysts_and_invalidation_rules": true,
+      "position_and_portfolio_exposure": true,
+      "pass_decisions_preserved": true,
+      "closing_line_value_and_outcomes": "event-contract-ready-no-account-feed",
+      "same_side_closing_price_events": true,
+      "private_clv_materialization": true,
+      "outcome_and_postmortem_queue": true,
+      "account_or_order_integration": false,
+      "canonical_private_records_read_by_public_audit": false
+    },
+    "operations": {
+      "status": "weekly-workflow-and-learning-ready",
+      "generated_current_snapshot_pointer": true,
+      "snapshot_freshness_ttl_and_stale_state": true,
+      "claim_level_freshness_complete": true,
+      "weekly_preseason_to_live_update_contract": true,
+      "immutable_weekly_state_versions": true,
+      "workflow_first_public_navigation": true,
+      "public_learning_report": "awaiting_observations",
+      "continuous_integration_workflow": false,
+      "offline_self_contained_public_artifact": true
+    }
+  },
+  "highest_priority_remediations": [
+    {
+      "priority": 1,
+      "action": "Calibrate the provisional schedule model and add sourced quarterback and material availability adjustments for all 32 teams.",
+      "reason": "Execution pricing is now realistic, but the independent fair probabilities remain provisional and cannot authorize a wager."
+    },
+    {
+      "priority": 2,
+      "action": "Record source-backed closing prices and outcomes as the 2026 contracts settle.",
+      "reason": "The append-only contracts and metrics are implemented, but a truthful learning report must remain empty until real observations exist."
+    },
+    {
+      "priority": 2,
+      "action": "Finish canonical registry generation and add continuous integration gates.",
+      "reason": "Current files are selected through one generated manifest, but weights, edition labels and some source metadata still exist in parallel code and data structures."
+    }
+  ]
+}

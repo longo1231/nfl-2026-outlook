@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "fee_schedule_id": "kalshi-kxnflwins-fees-2026-07-07",
+  "venue_id": "kalshi",
+  "series_ticker": "KXNFLWINS",
+  "effective_at": "2026-07-07T00:00:00Z",
+  "retrieved_at": "2026-08-27T15:21:53Z",
+  "source_url": "https://kalshi-public-docs.s3.amazonaws.com/regulatory/notices/Kalshi%20Fee%20Schedule%20Filing%20for%20Posting.pdf",
+  "source_snapshot_path": "data/markets/sources/kalshi-fee-schedule-2026-07-07.pdf",
+  "source_snapshot_sha256": "254ad33c665d3a2105632bfb8d2fdf52fbd5020fc0c0b9dffc7c74fc0f0afce3",
+  "source_snapshot_bytes": 989601,
+  "series_fee_type": "quadratic",
+  "series_fee_multiplier": 1,
+  "taker": {
+    "rate": 0.07,
+    "multiplier": 1,
+    "formula": "ceil_0.0001(multiplier * rate * contracts * price * (1 - price))"
+  },
+  "maker": {
+    "rate": 0.0175,
+    "multiplier": 0,
+    "formula": "ceil_0.0001(multiplier * rate * contracts * price * (1 - price))"
+  },
+  "settlement_fee": 0,
+  "rounding": {
+    "trade_fee_increment_dollars": 0.0001,
+    "balance_rounding_increment_dollars": 0.01,
+    "pretrade_exact_net_fee_available": false,
+    "note": "Fill fragmentation can create sub-cent balance-rounding fees and later rebates. Pretrade estimates reserve up to one unreimbursed cent per order."
+  },
+  "scope_note": "KXNFLWINS is not listed as a non-standard series in the effective fee schedule. The live series endpoint reports quadratic fees with multiplier 1 and no scheduled fee changes at retrieval."
+}

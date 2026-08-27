@@ -8,8 +8,11 @@
   "scripts": {
     "dev": "vite --config vite.standalone.config.ts",
     "build": "npm run build:standalone",
+    "build:current": "node ../scripts/build-current-state.mjs",
     "build:standalone:vite": "vite build --config vite.standalone.config.ts",
-    "build:standalone": "npm run build:standalone:vite && node scripts/inline-standalone.mjs",
+    "build:standalone": "npm run build:current && npm run build:standalone:vite && node scripts/inline-standalone.mjs",
+    "dev:decision": "vite --config vite.decision.config.ts --host 127.0.0.1",
+    "build:decision": "vite build --config vite.decision.config.ts",
     "preview": "vite preview --config vite.standalone.config.ts",
     "lint": "eslint ."
   },

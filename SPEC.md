@@ -1,6 +1,6 @@
 # 2026 NFL Team Outlook — Report Specification
 
-Status: current through Edition 7
+Status: current through Edition 7 plus locally implemented four-layer Phases 0–3; local changes are not yet published
 Season: 2026 NFL regular season
 Primary audience: Stephen, for study, reference, and eventual futures-market triangulation
 Editorial sources: six complete Action Network ranking transcripts plus five scoped team-preview episodes covering all 32 teams, preserved as private immutable canonical snapshots with sanitized public provenance
@@ -156,64 +156,60 @@ For each editorial source:
 - **Orphan pass:** reread every source block not represented by a substantive claim.
 - **Report pass:** compare team cards and category summaries back to the claim ledger, never directly to memory.
 
-## 6. Current win-market data
+## 6. Current Kalshi execution data
 
-The market tab is a time-stamped snapshot, not a static season prediction.
+The active market pipeline is Kalshi-only and time-stamped. Sportsbook captures remain historical Edition 7 evidence, but no active policy, manifest, generated import, diagnostic or forward UI depends on them.
 
 ### 6.1 Required source hierarchy
 
-1. Prefer paired Over and Under prices from the same sportsbook at the same threshold and capture time.
-2. Prefer a complete same-book alternate-win-total ladder.
-3. When multiple books quote the same threshold, de-vig each book independently and use the median no-vig probability as consensus.
-4. Never combine an Over from one book with an Under from another into a paired probability.
-5. Preserve incomplete one-sided quotes as display-only evidence; do not use them for de-vigged probability.
-6. Preserve every snapshot rather than overwriting history.
-7. Use Kalshi's official `KXNFLWINS` API series for executable bid/ask ladders when available; collect all pages and retain source timestamps.
-8. Authentication may verify the connection read-only, but credential values, private-key paths, and account responses never enter public data or logs.
-
-Use public primary market pages or official market APIs when available. Store book, source URL, capture time in America/New_York, source update time when exposed, threshold, both prices, raw implied probabilities, hold, no-vig probabilities, and the derivation method.
+1. Use Kalshi's official public series, markets and full order-book endpoints for `KXNFLWINS`.
+2. Collect all 544 contracts and a complete book for each; fail rather than silently publish partial league coverage.
+3. Preserve every capture append-only and freeze one active snapshot through the generated manifest.
+4. Snapshot and hash the applicable contract terms and fee schedule before implementing or changing calculations.
+5. Label quote time `capture-time-only` when the endpoint exposes no source quote timestamp.
+6. Never request or persist account, balance, position, order or fill data. Public capture requires no authentication and cannot place an order.
 
 ### 6.2 Normalized market fields
 
-- team, conference, division
-- market type and venue/source
-- regular-season half-win threshold
-- Over and Under prices from the same book
-- raw implied probabilities, sportsbook hold, and proportional no-vig probabilities
-- observed and isotonic-adjusted tail probability `P(W >= k)`
-- observed 50% bound or bracket
-- expected wins only when all material tails support the tail-sum calculation
-- coverage status, confidence label, source-book count, and observed-threshold count
-- source URL, market timestamp, retrieval timestamp
-- stale/unavailable flag
-- executable Yes and No bid/ask, bid/ask size, spread, and ticker for exchange markets
-- raw and monotone bid, ask, and midpoint curves for complete ladders
-- exact-win probability mass for `W=0..17`, derived from adjacent monotone midpoint tails
-- league, conference, and division sums with a clear marginal-bound disclaimer
+- snapshot, contract, team and exact `wins_at_least` threshold IDs;
+- YES and NO side records with bid, derived ask, sizes, spread and full executable ask depth;
+- source, capture, record and stale times plus source-time confidence;
+- fee-schedule ID, policy ID and forecast-version ID;
+- execution scenarios for 1, 10 and 100 requested contracts;
+- per-level fills, volume-weighted price, worst price and reconciled filled/unfilled size;
+- formula fee, conservative rounding reserve, all-in cost, break-even and maximum profit;
+- like-for-like bid/ask/spread/size movement from the preceding snapshot;
+- raw and monotone Kalshi team tails, exact-win mass and derived team/group expected wins;
+- research gates, persistence, action gates, eligibility and every failed gate.
 
-No claim of betting value may be based on lines from mismatched retrieval times. Sparse ladders must not be stretched into false expected-win precision.
+### 6.3 Order-book, fee and depth rules
 
-### 6.3 Tail-curve and expectation rules
+- Derive a YES ask as `1 - NO bid` and a NO ask as `1 - YES bid`; retain the captured complementary book as provenance.
+- Sort executable asks from lowest to highest and consume visible levels until requested size is filled or exhausted.
+- Never extrapolate missing depth and never call a partial fill executable for the requested size.
+- Apply the active series taker fee to each fill level: `ceil_0.0001(0.07 × contracts × price × (1 - price))`.
+- Add the configured one-cent conservative pretrade reserve because exact fill-fragment balance rounding and later rebates cannot be known in advance.
+- Compute conservative break-even as `(position cost + formula fee + reserve) / filled contracts`.
+- Require scenarios to reconcile `filled + unfilled = requested` and prohibit overfills.
 
-- Sort observed `P(W >= k)` points by integer threshold `k`.
-- Audit that tails are non-increasing.
-- Repair only actual violations with weighted non-increasing isotonic regression while preserving raw values.
-- Derive adjacent probability mass as `P(W = k) = P(W >= k) - P(W >= k+1)` where consecutive tails exist.
-- For complete ladders, expose all 18 exact-win masses, require each to be nonnegative, require their sum to equal one, and require their probability-weighted mean to reproduce tail-sum expected wins.
-- Report `E[W] = sum(P(W >= k), k=1..17)` only with complete coverage.
-- Otherwise report an observed median bound/bracket, or a visibly labeled modeled estimate only if a bounded discrete model and confidence score are documented.
-- For a complete Kalshi ladder, weight midpoint observations by inverse spread, project bid, ask, and midpoint tails separately, and sum each 17-tail curve.
+### 6.4 Tail-curve and expectation rules
+
+- Sort observed `P(W >= k)` points by integer threshold `k` and preserve raw values.
+- Repair only actual monotonicity violations with weighted non-increasing isotonic regression.
+- Derive all 18 exact-win masses from adjacent tails and require nonnegative mass summing to one.
+- Report `E[W] = sum(P(W >= k), k=1..17)` only with all 17 tails.
 - Treat summed bid/ask curves as marginal market-width bounds, not confidence intervals or a jointly executable portfolio guarantee.
-- Audit the league midpoint against the 272-game ceiling without forcing normalization; preserve and disclose any residual.
+- Audit the league midpoint against the 272-game ceiling without forcing normalization.
 
-### 6.4 Cross-market scanner
+### 6.5 Diagnostic and action rules
 
-- Compare the sportsbook's paired, de-vigged probability only at the exact integer tail represented by a Kalshi contract.
-- Evaluate both Yes and No using the executable Kalshi ask for the chosen side, not a midpoint.
-- Record source timestamps for both venues and expose any mismatch.
-- Default display filters require at least 5¢ pre-fee edge, no more than 12¢ Kalshi spread, and available top-of-book size.
-- Show side, contract, sportsbook probability, Kalshi ask, pre-fee edge, spread, size, and timestamp provenance.
-- Exclude fees and slippage only with an explicit warning. Candidate rows are research prompts, not recommendations.
+- The active comparison is exact forecast-versus-Kalshi: same team, threshold, side, captured book and requested size.
+- The primary reference size is 100 contracts; 1 and 10 show scale sensitivity.
+- Research qualification requires a full 100-contract fill, spread no wider than 12 cents and at least a 5-cent forecast-minus-conservative-break-even difference.
+- Persistence requires two independently captured qualifying observations 2–15 minutes apart.
+- Capture-time observations expire for action review after five minutes.
+- A comparison cannot be action eligible unless the forecast is both `validated` and `decision_eligible=true`.
+- A provisional difference may appear only as a clearly labeled research diagnostic. It is not a wager recommendation.
 
 ## 7. Derived analysis
 
@@ -248,12 +244,12 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 
 ### 7.3 Analysis vs Market
 
-- Keep Podcast × Kalshi and the cross-market scanner as visibly separate modules on one dedicated tab.
+- Keep ordinal Podcast × Kalshi comparison separate from probability-versus-execution diagnostics.
 - Let the reader select any Kalshi tail from `P(W >= 1)` through `P(W >= 17)`.
 - For all 32 teams show weighted profile score/rank, equal-weight rank, Kalshi E[W]/rank, `P(W <= 6)`, selected tail probability/rank, tail gap, and distribution standard deviation.
 - Sort by absolute tail disagreement by default and link every row to the complete team evidence and density.
 - Label gaps as ordinal research prompts, not edges, bets, or podcast-implied probabilities.
-- The separate scanner remains market-versus-market: same-threshold sportsbook consensus versus executable Kalshi ask, with timestamp, fee, spread, size, and slippage caveats.
+- Execution diagnostics live in Win Markets and show exact side, size, depth-weighted price, fee, conservative break-even, movement, persistence and failed gates.
 - A third visibly separate module may compare exact or partial source-stated preview ballots with Kalshi tail order inside the same declared division scope. It must remain ordinal, weight 0, and explicitly market-aware.
 
 ### 7.4 Synthesis views
@@ -263,7 +259,7 @@ Derived metrics are intentionally simple, explainable, and recalculable when new
 - Cross-category tension: an asset praised in one category but limited by another category's weakness.
 - Conference/division landscape: clusters, relative strengths, and likely competitive pressure.
 - Market watchlist: largest market/profile gaps with plain-language reasons for and against treating the gap as meaningful.
-- Missing-dimension warning: defense is now represented. Special teams, an independent schedule model, and changing injury information remain absent; all composite views carry that warning.
+- Missing-dimension warning: defense, an independent schedule model and immutable weekly state are represented. Special teams, sourced current quarterback/injury adjustments, validated calibration and actual settled 2026 learning observations remain absent; all composite views carry that warning.
 
 Speaker opinion is never converted into false precision. Counts and ordinal transformations are navigation aids, while the source-linked qualitative claims remain primary.
 
@@ -273,27 +269,24 @@ The public report separates four layers and must never imply that one can substi
 
 1. **Evidence ledger:** immutable source lineage, exact contracts, atomic claims, people, confidence, locators, effective dates and review dates.
 2. **Forecast layer:** versioned probabilistic team outcomes with uncertainty, explicit priors/update rules and out-of-sample calibration. The current weighted podcast profile is an ordinal research index, not this layer.
-3. **Market layer:** append-only quotes, price/size/age, fees, slippage, movement, de-vigging and executable comparisons.
+3. **Market layer:** append-only Kalshi full books, price/size/age, versioned fees, depth, movement, persistence and executable comparisons.
 4. **Private decision/portfolio layer:** thesis, fair-price range, target/limit, catalyst, invalidation, stake/risk, positions, CLV and postmortem. This layer is ignored and never published.
 
-Edition 7 implements an explicit readiness view and machine-readable audit. It classifies the evidence and market infrastructure as usable with documented guardrails and the forecast and private decision layers as not yet implemented. A future source-of-truth claim requires as-of/freshness fields and supersession links for every mutable record.
+The local Phase 0–6 working tree implements versioned policies and schemas, a generated public current-state manifest, a uniform atomic evidence ledger, generated report views, claim-level freshness, a separate ignored private decision ledger, a provisional market-independent schedule simulation, Kalshi-only execution-aware pricing, immutable weekly states and public/private learning contracts. The evidence ledger contains 972 claims, 270 disposed source blocks and 506 normalized people; all 224 visible summary records match the Edition 7 baseline, and 42 time-sensitive claims are explicitly stale for current use. The forecast produces versioned exact-win distributions and a frozen holdout report but remains ineligible for decisions because calibration and current-adjustment coverage gates fail. The market layer includes depth, fees, movement and persistence, yet produces zero action candidates because it fails closed on forecast state. Public learning remains empty until source-backed closes settle; private lifecycle state can derive same-side CLV, outcome and postmortem queues without any public import of canonical private records.
 
 ## 8. Report information architecture
 
 The report is a responsive single-page study tool with persistent tab navigation, URL/hash state, keyboard-accessible controls, and print-friendly team/category views.
 
-### 8.1 Tabs
+### 8.1 Workflow navigation
 
-1. **Briefing** — season snapshot, key takeaways, category leaders/laggards, repeated themes, partial-method warning, and “where to study next.”
-2. **Decision System** — current readiness boundary, four-layer target architecture, quality-profile evidence and prioritized remediation.
-3. **League Matrix** — all 32 teams with sortable registered-category, weighted-profile, and market columns; conference/division filters.
-4. **Team Profiles** — searchable team cards showing every registered rank, people, source-derived positives/negatives/context, cross-category synthesis, and a responsive 0–17 exact-win density with modeled E[W] marker.
-5–10 currently. **Scored podcast categories** — one exact 1–32 evidence view per scoring category; navigation expands automatically as eligible categories are added.
-11. **Team Previews** — scoped sources, exact and partial ballots, market-aware/weight-0 labels, ambiguity ledgers, covered-team summaries, and scoped Kalshi order.
-12. **Win Markets** — AFC/NFC filters, league/conference/division modeled totals, complete Kalshi expected wins, density modes, bid/ask bounds, coverage, timestamps, and direct links to team distributions. It does not contain the cross-market scanner.
-13. **Analysis vs Market** — adjustable scored-category importance, equal-weight sensitivity, all-threshold Podcast × Kalshi disagreement table, scoped preview-ballot comparison, distribution-shape diagnostics, and a visibly separate cross-market scanner module.
-14. **Synthesis** — archetypes, reinforcing signals, tensions, balance, risk/upside evidence, conference patterns, and incomplete-model caveats.
-15. **Sources & QA** — episode/source cards, retrieval dates, eligibility and weights/rationales, methodology, definitions, claim/coverage statistics, exceptions, and data freshness.
+1. **Today** — layer readiness, stale/review-due evidence, forecast gates, market movement and age, frozen weekly state, learning status and public warnings.
+2. **Opportunities** — validated and executable candidates only. When validation fails, the board is visibly disabled and provisional differences remain separate lab diagnostics.
+3. **Team dossiers** — evidence profile, review debt, independent 0–17 forecast, Kalshi 0–17 curve, captured movement and every retained source argument.
+4. **Markets** — AFC/NFC filters, league/conference/division totals, complete Kalshi expected wins, bid/ask bounds, full-book coverage and the size/fee/movement/persistence lab.
+5. **Research library** — Briefing, Decision System, Forecast Lab, League Matrix, six scored category views, Team Previews, Analysis vs Market, Synthesis and Sources & QA.
+
+The separate ignored private app contains Today, Theses, Portfolio and Learning. No public workflow view imports it.
 
 ### 8.2 Interaction and study design
 
@@ -306,6 +299,7 @@ The report is a responsive single-page study tool with persistent tab navigation
 - Deep links preserve tab, team, and filter state.
 - Weight controls are generated from the category registry and update all profile/tail comparisons immediately without changing source evidence.
 - A visible “data through” timestamp appears on market and source tabs.
+- A report-wide state strip exposes evidence review debt, provisional/validated forecast state, action-stale market captures and local-only private decision capability from the generated manifest.
 
 ## 9. Visual direction
 
@@ -318,15 +312,17 @@ Charts are used only where they improve comparison: rank matrix, category profil
 - Keep raw snapshots, normalized source data, market snapshots, and UI code separate.
 - Generate the visible report from validated structured data.
 - Version market snapshots by retrieval date rather than overwriting history.
-- Keep one canonical public team registry with sportsbook aliases and Kalshi codes.
-- Keep Kalshi request signing isolated from public market normalization so tests never require live credentials.
-- Generate aggregate totals and scanner comparisons from the same immutable snapshot used by the report.
+- Keep one canonical public team registry with stable team IDs and Kalshi codes. Historical sportsbook aliases may remain for archived artifacts only.
+- Keep legacy Kalshi request signing isolated from the active public capture; Phase 4 market collection uses unauthenticated public endpoints.
+- Generate aggregate totals and execution diagnostics from the same immutable snapshot used by the report.
 - Add all editorial sources through one eligibility-aware registry. Scored category views and qualitative preview views derive separately from it.
 - Derived metrics specify included category IDs and recalculate automatically.
 - Put methodology/version metadata in the data payload so a later report can explain exactly what changed.
-- Generate a current-state manifest that selects one active source, forecast, sportsbook and exchange snapshot while retaining every historical snapshot.
+- Generate `data/current/public-manifest.json` deterministically from the newest matching source, readiness, forecast and Kalshi execution records; select only the model state authorized by the versioned forecast policy and never substitute market-implied distributions.
+- Snapshot and hash the pinned schedule/results source before normalization. Keep model results, the 2026 schedule and evaluation-only moneylines in separate artifacts so market fields cannot leak into fitting.
+- Build the active forecast from the locked 2018–2021 tuning and 2022–2025 holdout split in `FORECAST_DESIGN.md`; write exact-win distributions and validation reports append-only by version ID.
 - Give mutable evidence `effective_at`, `captured_at`, `review_due_at`, `stale_after`, `status` and `supersedes` fields; a report-wide data-through date is not sufficient.
-- Keep any thesis, target-price, wager, position, balance, order, fill, exposure, CLV or postmortem data in a separate ignored private layer.
+- Keep any thesis, target-price, wager, position, balance, order, fill, exposure, CLV or postmortem data in the ignored `.private/decision-system/` layer. The generic app code and redacted fixtures may be public; canonical records and private build output may not.
 - Generate UI counts, weights, source metadata and coverage audits from canonical registries instead of maintaining parallel manual copies.
 - The React source builds through Vite into a single inlined `docs/index.html` for offline use and GitHub Pages.
 - Publication excludes raw transcripts, private-library identifiers, private provenance, legacy Sites metadata, local paths, credentials, account data, positions, and personal commit details.
@@ -337,20 +333,30 @@ Recommended project layout:
 nfl-2026-outlook/
   AGENTS.md
   SPEC.md
+  config/                               # versioned public system policies
+  schemas/                              # public four-layer record contracts
   data/
+    current/public-manifest.json        # generated active public-state selector
     registry/teams.json
     sources/manifest.json
     transcripts/<private-source>.txt    # local-only, excluded from deployment
-    blocks/<category>.json
-    claims/<category>.json
+    evidence/2026-evidence-ledger.json
+    evidence/2026-generated-summaries.json
+    evidence/2026-evidence-audit.json
     rankings/<category>.json
     previews/2026-team-previews.json
     nfl/teams.json
+    forecast/sources/<pinned-source>.csv
+    forecast/inputs/<versioned-input>.json
+    forecasts/<forecast-version>.json
     markets/<retrieved-at>.json
     audit/coverage.json
   site/                                      # current interactive source and standalone builder
-    app or src/
+    app/                                # public Field Guide
+    decision/                           # generic local decision UI; no canonical records
     public/data/                        # validated, publishable data only
+  .private/decision-system/             # ignored ledger, materialized views and local app output
+  .private/current/                     # ignored private manifest
   docs/
     index.html                          # generated standalone Pages report
     .nojekyll
@@ -365,18 +371,20 @@ The report is complete only when:
 - All transcript blocks have a disposition and all ambiguity is visible.
 - Each category has a verified, unique 1–32 ranking.
 - All named people and substantive claims are represented and source-linked.
-- Current paired win-market data covers all 32 teams or explicitly marks unavoidable gaps.
-- Every displayed no-vig probability traces to a same-book pair or a median of independently de-vigged same-threshold pairs.
+- Current Kalshi execution data contains all 544 KXNFLWINS contracts and one full book per contract.
+- Every derived ask traces to the complementary captured bid book.
 - Tail curves are monotone after audit and any required isotonic adjustment.
 - Expected wins are shown only where the observed or documented model coverage supports them.
 - Complete Kalshi ladders preserve raw and adjusted bid, ask, and midpoint curves plus coverage and monotonicity audits.
 - Conference/division totals reproduce exactly from team curves and carry the marginal-bound disclaimer.
-- Cross-market candidates use executable asks, exact thresholds, visible filters, source timestamps, and pre-fee/slippage caveats.
+- Every execution diagnostic uses exact thresholds and sides, reconciled displayed depth, a versioned fee rule, conservative break-even, capture time, movement, persistence and explicit failed gates.
 - All derived metrics reproduce from the checked data and carry the incomplete-model warning.
 - The self-contained report works offline and responsively, supports keyboard navigation, and has no blocking build/runtime errors.
 - The Sources & QA tab publishes claim counts, completeness checks, source links, and timestamps.
 - The Decision System tab truthfully reports which evidence, forecast, market, decision and operating layers are ready, guarded or missing.
-- Market candidates cannot enter a future action list without fee-adjusted edge, minimum executable size, quote age and persistence; rows lacking those fields remain research watchlist items.
+- The private ledger rejects invalid hash chains and lifecycle events without a created thesis; redacted fixtures cover watch, pass, approval, order, fill, mark, close, outcome and postmortem flows.
+- The public build graph has no import path to canonical private state, and the privacy audit scans prospective Git-visible files plus randomized local decision canaries.
+- Market candidates cannot enter an action list without fee-adjusted edge, complete requested size, quote age, persistence and a validated decision-eligible forecast; rows failing any gate remain research diagnostics.
 - Learned coefficients cannot be described as learned without historical training data, out-of-sample validation and recorded calibration metrics.
 - Raw transcript text, private-library identifiers, legacy Sites metadata, local paths, credentials, account data, private positions, and personal commit details are absent from the repository and deployed artifact.
 
@@ -385,5 +393,5 @@ The report is complete only when:
 - “Upcoming season” means the 2026 NFL regular season.
 - Action Network rankings are presented faithfully, even when another current source disagrees.
 - Current roster/news context may be used to resolve identity or explain a transcription ambiguity, but it cannot replace or quietly “correct” the podcast's stated view.
-- The default composite uses disclosed 25/15/11/8/11/30 reasoned priors with a fixed 55-point offensive-family budget; defense is present, equal weight is sensitivity only, and special teams plus an independent schedule model remain missing.
+- The default composite uses disclosed 25/15/11/8/11/30 reasoned priors with a fixed 55-point offensive-family budget; defense is present, equal weight is sensitivity only, and the profile remains separate from the now-implemented provisional schedule model. Special teams and validated current-context calibration remain missing.
 - Market lines are a research input, not financial advice or an instruction to place a wager.

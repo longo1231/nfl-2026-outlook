@@ -1,98 +1,58 @@
 # 2026 NFL Outlook Field Guide — next phase
 
-Status: Edition 7 source and decision-system integration published and verified through 2026-08-27; exact publication details are finalized in `CHECKPOINT.md`.
+Status: Phases 0–6 are implemented locally through 2026-08-27. The GitHub Pages report remains the frozen Edition 7 publication until Stephen separately authorizes commit and deployment. Exact active files and verification state are recorded in `CHECKPOINT.md`.
 
-## Completed source expansion
+## Completed system
 
-- Read the governing project files and configured Readwise workflow completely before private-library access.
-- Verified the full recent non-feed library across new, later, shortlist and archive.
-- Confirmed one unique unincorporated 2026 NFL episode: `2026 NFC Betting Preview | Part 1`, published Aug. 26, 2026; no duplicate title or publisher episode and no other relevant recent unincorporated transcript were present.
-- Privately snapshotted and hashed the complete creator transcript before interpretation.
-- Source discovery, acquisition, verification and extraction were read-only. After incorporation, the new item was moved to archive under Stephen's explicit authorization; it remains unopened and no other Reader field changed.
-- Corrected provenance history to record the separate user-authorized post-integration archive of the ten Edition 6 sources—six moved and four were already archived—and the newly incorporated NFC Part 1 source on 2026-08-27. No content, tag, highlight, note or metadata other than location changed.
+- Phase 0 preserved the published Edition 7 baseline and added one full verification command.
+- Phase 1 added validated policies, schemas, freshness and one generated current-state manifest.
+- Phase 2 added the ignored hash-chained private ledger and separate local app. The canonical ledger remains empty.
+- Phase 3 added the market-independent schedule simulator and frozen validation report. The forecast remains provisional because ECE is `0.043943` versus the locked `0.040000` maximum and sourced current-adjustment coverage is `0/32`.
+- Phase 4 added Kalshi-only full-book capture, depth-aware execution, fees, movement, persistence and fail-closed action eligibility.
+- Phase 5 migrated visible summaries into 972 atomic claims, 270 source blocks and 506 normalized people with exact parity and zero orphans.
+- Phase 6 added the Today/Opportunities/Team dossiers/Markets/Research workflow, immutable weekly state, public outcome-scoring contracts and private same-side CLV/postmortem materializations.
 
-## NFC Part 1 preview contract
+## Active state
 
-- Covers the NFC West and NFC South: Seattle, Los Angeles Rams, San Francisco, Arizona, Tampa Bay, Atlanta, New Orleans and Carolina.
-- Registered as a market-aware `team-preview` at analysis weight 0 because it supplies no NFC West order, only one winner-only NFC South ballot and no comparable conference-wide or league-wide contract.
-- Preserved Stuckey's explicit Tampa Bay NFC South winner pick as one partial ballot.
-- Did not infer any position from power ratings, projected wins, discussion order, futures prices, props or preferred wagers.
-- Added source-aware positive, concern and context evidence to all eight team profiles.
-- Disclosed speaker-handoff uncertainty, phonetic name variants, time-sensitive preseason availability and one garbled Saints passing-yard prop rather than reconstructing it.
-- The preview registry now contains five sources, 12 source-stated ballots and 32 unique covered teams. Seven ballots are complete and five are partial. Every preview remains scoring-ineligible and weight 0.
+- Evidence ledger: `data/evidence/2026-evidence-ledger.json`; 42 time-sensitive claims require current-use review across 19 teams.
+- Forecast: `data/forecasts/fcst-2026-preseason-bf554ba7c4aee595.json`; provisional and not decision eligible.
+- Kalshi execution: `data/markets/20260827T153038.207Z-kalshi-nfl-execution.json`; historical after its five-minute action window, with 99 persistent research diagnostics and zero action candidates.
+- Readiness audit: `data/audit/20260827T170147Z-decision-system-readiness.json`.
+- Weekly checkpoint: `weekly-2026-preseason-prior-3c7ab67d2d4db794`; two immutable preseason states are retained.
+- Learning report: `data/current/learning-report.json`; `awaiting_observations` with zero fabricated rows.
+- Private ledger: initialized and empty; no account, balance, order or position connection.
 
-## Scoring and weighting status
+## Phase 6 completion gate — passed as operating infrastructure
 
-- The six scored category defaults remain QB 25, Coaching 15, Offensive Line 11, Skill Positions 8, Offense 11 and Defense 30.
-- These are adjustable reasoned priors, not learned coefficients and not fitted to outcomes, sportsbook prices or Kalshi.
-- QB, line, skill and offense remain inside a fixed 55-point offensive-family budget. The offense episode stays an interaction/schedule overlay rather than an independent category-sized block.
-- Equal weight remains a deliberate sensitivity stress test.
-- Adding the preview changed no profile score or league rank.
+- A redacted historical lifecycle reconstructs through 13 immutable thesis, decision, fill, closing-price, close, outcome and postmortem events.
+- Weekly state files archive the exact public manifest and hash every selected evidence, forecast, market, readiness and policy file. Verification re-hashes every retained reference.
+- Public learning observations must reconcile the frozen weekly model and decision-time market with a retained same-side closing quote before they can be appended.
+- Public Brier, log loss, calibration and model-to-close groupings are implemented by model version, horizon, confidence and market type.
+- Private entry-price CLV, realized P&L and postmortem queues derive from the append-only local ledger.
+- The public workflow imports no private thesis, bankroll, exposure, order, fill, position or note state.
 
-## Fresh append-only market evidence
+## Next operating sequence
 
-Sportsbook:
+1. Review the 42 current-use evidence flags. Append sourced successors when the underlying roster, role or availability fact has changed; never rewrite the original source claim.
+2. Before using a materially refreshed state for a decision, run a new Kalshi capture, rebuild the current state and freeze a new game-week checkpoint.
+3. Record source-backed closing prices and settlements only when they exist. The learning report must remain empty before then.
+4. Operate the private Today/Theses/Portfolio/Learning loop manually and establish an encrypted backup policy before meaningful private state accumulates.
+5. Pursue forecast promotion as a separate version: source quarterback and material-availability adjustments for all 32 teams, preregister any calibration change and never retune on the frozen holdout.
+6. Add CI only after the local Phase 0–6 changes are reviewed and a publication commit is authorized.
 
-- Capture: `2026-08-27T08:43:29-04:00`
-- Snapshot: `data/markets/2026-08-27T084329-0400-paired-win-totals.json`
-- 32/32 teams with paired primary quotes; 13 teams with more than one observed threshold
-- Six named books; 90 exact sportsbook-side comparisons against Kalshi
+## Recurring commands
 
-Kalshi:
+- `npm run kalshi:capture` — append a new public full-book snapshot; never overwrites history.
+- `npm run current:build` — rebuild the current public pointers and workflow summary.
+- `npm run weekly:freeze -- game-week <N>` — freeze one immutable checkpoint after source and market review.
+- `npm run learning:record -- <observation.json>` — append one reconciled public close/outcome observation.
+- `npm run learning:build` — rebuild the public scoring report, including its truthful empty state.
+- `npm run decision:build` — materialize and build the ignored private application.
+- `npm run verify` — deterministic evidence, forecast, learning, current state, tests, contracts, public privacy/offline build and redacted private lifecycle.
 
-- Capture: `2026-08-27T12:43:48.007Z` (`2026-08-27T08:43:48.007-04:00`)
-- Snapshot: `data/markets/20260827T124348.007Z-kalshi-nfl-win-ladders.json`
-- 544 current-season open contracts; all 32 teams; all 17 tails per team
-- Read-only authentication verified; account response not persisted
-- 45 raw midpoint monotonicity violations; 115 midpoint points adjusted; every final curve monotone
-- Five rows passed the current 5¢ minimum pre-fee edge, 12¢ maximum spread and positive displayed-size filters
+## Publication boundary
 
-The captures are 19.007 seconds apart. The sportsbook source exposes capture time rather than per-quote age. Candidates remain pre-fee watchlist prompts; the current scanner has no minimum notional, quote-age or persistence requirement.
-
-## Derived audit
-
-- Weighted/equal and all-17-tail audit: `data/audit/20260827T124348.007Z-profile-market-sensitivity.json`
-- Decision-system readiness audit: `data/audit/20260827T124348.007Z-decision-system-readiness.json`
-- Weighted/equal sensitivity still has two teams moving at least five ranks: Baltimore moves seven and Houston five.
-- At the default 11-win tail, Detroit has the largest absolute rank gap at 15 places; 11 teams differ by at least six.
-- Preview-ballot comparisons contain 12 source-stated rows and compare partial ballots only over their stated positions.
-- Modeled Kalshi team midpoint sum: 271.080 wins; marginal bid/ask sum: 254.349–288.585.
-- The -0.920 residual below the 272-game ceiling is retained as aggregate market incoherence rather than normalized away.
-- Conference modeled midpoint sums: AFC 132.968 and NFC 138.112. All eight division totals reproduce from the 32 team curves.
-
-## Meta-review conclusion
-
-Edition 7 classifies the current system as:
-
-- **Auditable research source of truth:** ready.
-- **Market comparison layer:** usable with explicit execution guardrails.
-- **Calibrated forecast source of truth:** not implemented.
-- **Execution and portfolio source of truth:** not implemented; must remain private.
-
-The highest-priority gaps are:
-
-1. Private decision ledger: thesis, fair-price range, target/limit, catalyst, invalidation, confidence and risk.
-2. Current-state and freshness manifest: effective time, captured time, review due, stale-after, status and supersession.
-3. Separate calibrated forecast layer with uncertainty and historical holdout validation.
-4. Atomic preview claims with people, source locators, confidence and effective dates.
-5. Execution-aware scanner with fees, minimum size/notional, quote age, movement and persistence.
-6. Weekly update, CLV, outcome and calibration feedback loop.
-7. One canonical registry and generated CI-backed metadata to eliminate duplicated configuration.
-
-The full evidence, target architecture and phased roadmap are in `META_REVIEW.md`.
-
-## Next build sequence
-
-1. Design the ignored private decision-ledger schema and decide whether it renders as a separate local artifact or an ignored overlay. Separate local output is safer by default.
-2. Add the generated current-state/freshness manifest and stale-state UI before Week 1.
-3. Add an explicitly probabilistic forecast baseline without changing or relabeling the current ordinal research profile.
-4. Migrate preview summaries to atomic claims and generate the existing team summaries from them.
-5. Add market movement, fee/size/age/persistence gates and separate watchlist from action-list semantics.
-6. Freeze preseason priors, add weekly versioned updates and score forecasts/decisions against closing prices and outcomes.
-
-## Recurring publication gate
-
-- Refresh paired sportsbook and Kalshi snapshots together when price freshness matters; never overwrite history.
-- Ingest new previews only through the read-only source protocol; preserve partial ballots and never infer ranks.
-- Rerun content, market, readiness, privacy, offline, responsive, interaction, accessibility and deployed HTTPS checks for every edition.
+- Do not commit, push or deploy the Phase 0–6 working tree until Stephen separately authorizes publication.
 - Preserve the frozen owner-only Sites v1 reference.
+- Ingest private-library sources only through the configured read-only workflow.
+- No brokerage/exchange order placement or account integration is in scope.

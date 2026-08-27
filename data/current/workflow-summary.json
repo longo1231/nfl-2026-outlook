@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-27T17:01:52.566Z",
+  "public_manifest_id": "public-2026-20260827T170152.566Z-c3ec7be82da8",
+  "today": {
+    "evidence_review_claims": 42,
+    "evidence_review_teams": 19,
+    "top_evidence_reviews": [
+      {
+        "team_id": "IND",
+        "claims": 33,
+        "stale": 4,
+        "review_due": 0
+      },
+      {
+        "team_id": "CIN",
+        "claims": 34,
+        "stale": 3,
+        "review_due": 0
+      },
+      {
+        "team_id": "GB",
+        "claims": 37,
+        "stale": 3,
+        "review_due": 0
+      },
+      {
+        "team_id": "HOU",
+        "claims": 34,
+        "stale": 3,
+        "review_due": 0
+      },
+      {
+        "team_id": "NE",
+        "claims": 35,
+        "stale": 3,
+        "review_due": 0
+      },
+      {
+        "team_id": "BAL",
+        "claims": 36,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "CLE",
+        "claims": 29,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "DET",
+        "claims": 39,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "JAX",
+        "claims": 33,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "KC",
+        "claims": 35,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "LV",
+        "claims": 30,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "MIA",
+        "claims": 29,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "NYG",
+        "claims": 32,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "PHI",
+        "claims": 37,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "PIT",
+        "claims": 31,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "TEN",
+        "claims": 28,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "WAS",
+        "claims": 32,
+        "stale": 2,
+        "review_due": 0
+      },
+      {
+        "team_id": "LAC",
+        "claims": 35,
+        "stale": 1,
+        "review_due": 0
+      },
+      {
+        "team_id": "NYJ",
+        "claims": 30,
+        "stale": 1,
+        "review_due": 0
+      }
+    ],
+    "forecast_state": "provisional",
+    "forecast_decision_eligible": false,
+    "forecast_calibration_pass": false,
+    "forecast_current_adjustments": {
+      "pass": false,
+      "observed_teams": 0,
+      "required_teams": 32
+    },
+    "market_captured_at": "2026-08-27T15:30:38.207Z",
+    "market_stale_after": "2026-08-27T15:35:38.207Z",
+    "market_movement_rows": 1088,
+    "top_market_movers": [
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27BAL-13-no",
+        "team_id": "BAL",
+        "threshold": 13,
+        "side": "no",
+        "ask": 0.82,
+        "ask_change": -0.01,
+        "spread": 0.09
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27BAL-13-yes",
+        "team_id": "BAL",
+        "threshold": 13,
+        "side": "yes",
+        "ask": 0.27,
+        "ask_change": -0.01,
+        "spread": 0.09
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27CLE-4-no",
+        "team_id": "CLE",
+        "threshold": 4,
+        "side": "no",
+        "ask": 0.28,
+        "ask_change": 0.01,
+        "spread": 0.05
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27CLE-5-yes",
+        "team_id": "CLE",
+        "threshold": 5,
+        "side": "yes",
+        "ask": 0.64,
+        "ask_change": 0.01,
+        "spread": 0.04
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27CLE-7-yes",
+        "team_id": "CLE",
+        "threshold": 7,
+        "side": "yes",
+        "ask": 0.36,
+        "ask_change": 0.01,
+        "spread": 0.05
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27DEN-12-no",
+        "team_id": "DEN",
+        "threshold": 12,
+        "side": "no",
+        "ask": 0.79,
+        "ask_change": -0.01,
+        "spread": 0.09
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27DEN-12-yes",
+        "team_id": "DEN",
+        "threshold": 12,
+        "side": "yes",
+        "ask": 0.3,
+        "ask_change": 0.01,
+        "spread": 0.09
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27DET-10-no",
+        "team_id": "DET",
+        "threshold": 10,
+        "side": "no",
+        "ask": 0.35,
+        "ask_change": 0.01,
+        "spread": 0.05
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27HOU-11-no",
+        "team_id": "HOU",
+        "threshold": 11,
+        "side": "no",
+        "ask": 0.55,
+        "ask_change": 0.01,
+        "spread": 0.04
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27JAC-10-no",
+        "team_id": "JAX",
+        "threshold": 10,
+        "side": "no",
+        "ask": 0.55,
+        "ask_change": 0.01,
+        "spread": 0.05
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27NO-9-no",
+        "team_id": "NO",
+        "threshold": 9,
+        "side": "no",
+        "ask": 0.6,
+        "ask_change": 0.01,
+        "spread": 0.06
+      },
+      {
+        "quote_id": "qte-kalshi-exec-20260827T153038.207Z-KXNFLWINS-27NYG-5-no",
+        "team_id": "NYG",
+        "threshold": 5,
+        "side": "no",
+        "ask": 0.25,
+        "ask_change": -0.01,
+        "spread": 0.04
+      }
+    ],
+    "private_review_queue": "local-only-not-loaded",
+    "warnings": [
+      "The active provisional forecast is a lab output and is not decision eligible.",
+      "All 32 current quarterback and availability adjustments are explicit zero placeholders, not sourced estimates.",
+      "One or more preregistered quantitative promotion gates did not pass.",
+      "Provisional forecasts are lab outputs and cannot create automated action labels.",
+      "No playoff, conference or championship probabilities are produced in schedule-sim-v1.",
+      "42 time-sensitive evidence claims are stale for current use and should be reviewed before relying on roster or availability details.",
+      "Kalshi execution pricing is size- and fee-aware, but capture-time quotes expire after five minutes for action review.",
+      "No model-market row is action eligible while the independent forecast remains provisional.",
+      "Sportsbook snapshots are frozen historical Edition 7 evidence and are outside the active market pipeline."
+    ]
+  },
+  "opportunities": {
+    "status": "disabled",
+    "action_eligible_candidates": 0,
+    "research_diagnostics": 99,
+    "persistent_research_diagnostics": 99,
+    "disabled_reasons": [
+      "The independent forecast is provisional and cannot authorize a wager.",
+      "No model-market row passes every action gate.",
+      "The public app never reads private bankroll, exposure, order or fill state."
+    ]
+  },
+  "weekly": {
+    "schema_version": 1,
+    "generated_at": "2026-08-27T17:00:59.275Z",
+    "version_count": 2,
+    "latest_version_id": "weekly-2026-preseason-prior-3c7ab67d2d4db794",
+    "versions": [
+      {
+        "weekly_state_version_id": "weekly-2026-preseason-prior-a98230ef1a077eff",
+        "season": 2026,
+        "period": {
+          "kind": "preseason-prior",
+          "week": null,
+          "label": "Preseason prior"
+        },
+        "frozen_at": "2026-08-27T16:30:09.794Z",
+        "path": "data/weekly/weekly-2026-preseason-prior-a98230ef1a077eff.json",
+        "content_fingerprint": "a98230ef1a077eff5349dec95df1aacf79d6ddec3e9f15d4e0c7c1784fc22c73",
+        "public_manifest_id": "public-2026-20260827T163009.794Z",
+        "forecast_version_id": "fcst-2026-preseason-bf554ba7c4aee595",
+        "market_snapshot_id": "kalshi-exec-20260827T153038.207Z"
+      },
+      {
+        "weekly_state_version_id": "weekly-2026-preseason-prior-3c7ab67d2d4db794",
+        "season": 2026,
+        "period": {
+          "kind": "preseason-prior",
+          "week": null,
+          "label": "Phase 6 preseason prior"
+        },
+        "frozen_at": "2026-08-27T17:00:59.275Z",
+        "path": "data/weekly/weekly-2026-preseason-prior-3c7ab67d2d4db794.json",
+        "content_fingerprint": "3c7ab67d2d4db79443389b56d0b0feff4ec77ea058911644d08ad02536703665",
+        "public_manifest_id": "public-2026-20260827T170059.275Z-f780daea0818",
+        "forecast_version_id": "fcst-2026-preseason-bf554ba7c4aee595",
+        "market_snapshot_id": "kalshi-exec-20260827T153038.207Z"
+      }
+    ]
+  },
+  "learning": {
+    "schema_version": 1,
+    "report_id": "learning-2026-7170edca4f4f75bf",
+    "generated_at": "2026-08-27T16:30:09.794Z",
+    "policy_id": "learning-policy-2026.1",
+    "status": "awaiting_observations",
+    "observation_count": 0,
+    "overall": null,
+    "groupings": {
+      "model_version": [],
+      "evaluation_horizon": [],
+      "confidence_bucket": [],
+      "market_type": []
+    },
+    "definitions": {
+      "brier_score": "Mean squared error between the frozen probability and binary outcome; lower is better.",
+      "log_loss": "Mean negative log likelihood using the policy probability clamp; lower is better.",
+      "expected_calibration_error": "Absolute forecast-versus-outcome gap weighted across 10 equal-width probability bins.",
+      "model_to_close_probability_delta": "same-side closing probability minus frozen model probability",
+      "private_clv": "same-side closing probability minus average entry price"
+    }
+  }
+}

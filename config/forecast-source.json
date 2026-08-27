@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source_id": "nflverse-nfldata-games-0192370d",
+  "label": "nflverse nfldata games and schedules",
+  "repository": "https://github.com/nflverse/nfldata",
+  "source_commit": "0192370d78ba0cd9ddfb1ac19e3c5cbb2d6cef71",
+  "source_url": "https://raw.githubusercontent.com/nflverse/nfldata/0192370d78ba0cd9ddfb1ac19e3c5cbb2d6cef71/data/games.csv",
+  "documentation_url": "https://nflreadr.nflverse.com/reference/load_schedules.html",
+  "license": "CC-BY-4.0",
+  "retrieved_at": "2026-08-27T14:43:40Z",
+  "raw_path": "data/forecast/sources/nflverse-games-0192370d.csv",
+  "history_path": "data/forecast/inputs/results-2010-2025.json",
+  "schedule_path": "data/forecast/inputs/schedule-2026.json",
+  "market_benchmark_path": "data/forecast/inputs/market-benchmark-2022-2025.json",
+  "adjustments_path": "data/forecast/inputs/adjustments-2026.json"
+}

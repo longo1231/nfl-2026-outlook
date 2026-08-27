@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "season": 2026,
+  "period": {
+    "kind": "preseason-prior",
+    "week": null,
+    "label": "Preseason prior"
+  },
+  "frozen_at": "2026-08-27T16:30:09.794Z",
+  "public_manifest": {
+    "id": "public-2026-20260827T163009.794Z",
+    "path": "data/weekly/manifests/public-2026-20260827T163009.794Z.json",
+    "sha256": "9a494909e639dd806037bb466be8f6ad9271820e540ed66d25481217c9dcece2"
+  },
+  "evidence": {
+    "id": "evidence-2026-ca6a8d83192f78a7",
+    "path": "data/evidence/2026-evidence-ledger.json",
+    "sha256": "98f26a292c4a4ac5da1829b58690bd3e07ed26cc39cf95ad770c8ff5b76ba24b"
+  },
+  "forecast": {
+    "id": "fcst-2026-preseason-bf554ba7c4aee595",
+    "path": "data/forecasts/fcst-2026-preseason-bf554ba7c4aee595.json",
+    "sha256": "58feb9a4847284c4644f78822cb1aea48d06b35da0a19612beb955898b1cd972"
+  },
+  "market": {
+    "id": "kalshi-exec-20260827T153038.207Z",
+    "path": "data/markets/20260827T153038.207Z-kalshi-nfl-execution.json",
+    "sha256": "94020514d50964701738c9332e2f027c8c7303de1994fdb33cc224d7863d1e82"
+  },
+  "readiness": {
+    "id": "readiness-20260827T163009.794Z",
+    "path": "data/audit/20260827T163005Z-decision-system-readiness.json",
+    "sha256": "11da9a8faac0bd1645564a9a0a431ac168ea57b0865d37293a583d6bd10fac03"
+  },
+  "policies": [
+    {
+      "id": "freshness-2026.1",
+      "path": "config/freshness-policy.json",
+      "sha256": "7ab4ef00a2a8e5d5827c539a591e7dd82a0893e6a6a2cd67cd7abb6a3f4e308b"
+    },
+    {
+      "id": "forecast-policy-2026.1",
+      "path": "config/forecast-policy.json",
+      "sha256": "a7cbb3d3c0941e001f0936e0de2958bc89a2c25b70c27f2cf9509a2de6abe956"
+    },
+    {
+      "id": "market-policy-2026.2",
+      "path": "config/market-policy.json",
+      "sha256": "78b963619ce2cca1bdd2f6961ff288bfdf0fef79c41b43b8ca91bb5ec43a6e1e"
+    },
+    {
+      "id": "source-registry-2026.2",
+      "path": "config/source-registry.json",
+      "sha256": "4abc69e535fcb0545b2a736de265beef9abae88fcffea7131c6b26755a0eaa49"
+    },
+    {
+      "id": "learning-policy-2026.1",
+      "path": "config/learning-policy.json",
+      "sha256": "04b8b643e55ba6bf193ab9c83dc82c4c6f685719a9ffdb69f0405ef3796af814"
+    }
+  ],
+  "weekly_state_version_id": "weekly-2026-preseason-prior-a98230ef1a077eff",
+  "content_fingerprint": "a98230ef1a077eff5349dec95df1aacf79d6ddec3e9f15d4e0c7c1784fc22c73"
+}

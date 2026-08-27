@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "policy_id": "forecast-policy-2026.1",
+  "season": 2026,
+  "active_model_state": "provisional",
+  "allowed_model_states": ["research", "provisional", "validated"],
+  "market_prices_allowed_as_features": false,
+  "editorial_profile_role": "diagnostic-only-until-historical-holdout-improvement",
+  "opportunity_board_requires": "validated",
+  "required_validation_metrics": ["brier_score", "log_loss", "calibration", "interval_coverage"],
+  "model": {
+    "model_id": "schedule-sim-v1",
+    "code_version": "schedule-sim-v1.0.1",
+    "training_start_season": 2010,
+    "tuning_seasons": [2018, 2019, 2020, 2021],
+    "holdout_seasons": [2022, 2023, 2024, 2025],
+    "recency_half_life_grid": [1.5, 2.5, 4],
+    "ridge_penalty_grid": [4, 12, 36],
+    "margin_cap_grid": [21, 28],
+    "home_field_ridge_penalty": 1,
+    "tie_probability_method": "recency-weighted-empirical",
+    "offseason_drift_sd_points": 3,
+    "missing_context_sd_points": 1.5
+  },
+  "simulation": {
+    "production_draws": 100000,
+    "validation_draws": 25000,
+    "seed": 20260827,
+    "interval_probability": 0.8
+  },
+  "promotion": {
+    "minimum_holdout_seasons": 4,
+    "minimum_brier_improvement_vs_league": 0.01,
+    "requires_brier_no_worse_than_prior_record": true,
+    "requires_log_loss_no_worse_than_prior_record": true,
+    "maximum_expected_calibration_error": 0.04,
+    "minimum_interval_coverage": 0.72,
+    "maximum_interval_coverage": 0.88,
+    "requires_current_adjustment_coverage": true
+  },
+  "note": "Phase 3 preseason schedule simulation. Provisional output is lab-only until every promotion gate passes."
+}

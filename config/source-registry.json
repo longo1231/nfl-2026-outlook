@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "registry_id": "source-registry-2026.2",
+  "season": 2026,
+  "canonical_inputs": {
+    "team_registry": "data/nfl/teams.json",
+    "editorial_manifest": "data/sources/manifest.json",
+    "preview_registry": "data/previews/2026-team-previews.json",
+    "evidence_ledger": "data/evidence/2026-evidence-ledger.json",
+    "generated_evidence_views": "data/evidence/2026-generated-summaries.json",
+    "evidence_migration_audit": "data/evidence/2026-evidence-audit.json",
+    "ranking_directory": "data/rankings"
+  },
+  "public_safe_lineage": {
+    "allow_public_urls": true,
+    "allow_canonical_snapshot_checksums": true,
+    "allow_public_timecodes_or_line_ranges": true,
+    "allow_private_reader_ids": false,
+    "allow_private_filesystem_paths": false,
+    "allow_raw_transcript_payloads": false
+  }
+}

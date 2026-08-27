@@ -1,0 +1,23 @@
+.learningList { display: grid; gap: 16px; margin-top: 24px; }
+.learningList > article { border: 1px solid #d5d0c5; background: #f8f5ee; }
+.learningList header { display: flex; justify-content: space-between; gap: 24px; padding: 22px 24px; border-bottom: 1px solid #d5d0c5; }
+.learningList header span { color: #9a3128; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.learningList h3 { margin: 7px 0 0; font-family: Georgia, serif; font-size: 25px; font-weight: 500; }
+.learningList header > b { align-self: start; color: #45534c; font-size: 10px; text-transform: uppercase; }
+.learningList dl { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; }
+.learningList dl div { padding: 17px 20px; border-right: 1px solid #d5d0c5; }
+.learningList dl div:last-child { border-right: 0; }
+.learningList dt { color: #68716d; font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.learningList footer { display: flex; justify-content: space-between; gap: 20px; padding: 14px 24px; background: #e7e3da; color: #68716d; font-size: 9px; }
+
+@media (max-width: 800px) {
+  .learningList dl { grid-template-columns: 1fr 1fr; }
+  .learningList dl div { border-bottom: 1px solid #d5d0c5; }
+  .learningList footer { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .learningList header { align-items: flex-start; flex-direction: column; }
+  .learningList dl { grid-template-columns: 1fr; }
+  .learningList dl div { border-right: 0; }
+}

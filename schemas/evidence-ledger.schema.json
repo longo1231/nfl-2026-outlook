@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/evidence-ledger.schema.json",
+  "title": "2026 NFL Outlook atomic evidence ledger",
+  "type": "object",
+  "required": ["schema_version", "ledger_id", "migration_id", "season", "recorded_at", "freshness_policy_id", "source_hash_verification_id", "sources", "source_blocks", "claims", "entities"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "ledger_id": {"type": "string"},
+    "migration_id": {"type": "string"},
+    "season": {"const": 2026},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "freshness_policy_id": {"type": "string"},
+    "source_hash_verification_id": {"type": "string"},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "source_blocks": {"type": "array", "items": {"$ref": "evidence-source-block.schema.json"}},
+    "claims": {"type": "array", "items": {"$ref": "evidence-claim.schema.json"}},
+    "entities": {"type": "array", "items": {"$ref": "evidence-entity.schema.json"}}
+  }
+}

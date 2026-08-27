@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "policy_id": "market-policy-2026.2",
+  "season": 2026,
+  "venue_scope": ["kalshi"],
+  "series_scope": ["KXNFLWINS"],
+  "market_data": {
+    "full_orderbook_required": true,
+    "source_time_confidence": "capture-time-only",
+    "reference_contract_counts": [1, 10, 100],
+    "primary_reference_contract_count": 100
+  },
+  "research_diagnostic": {
+    "minimum_net_edge_cents": 5,
+    "maximum_spread_cents": 12,
+    "requires_full_reference_size": true
+  },
+  "persistence": {
+    "minimum_qualifying_captures": 2,
+    "minimum_spacing_seconds": 120,
+    "maximum_spacing_seconds": 900
+  },
+  "fee_schedule_id": "kalshi-kxnflwins-fees-2026-07-07",
+  "fee_rounding": {
+    "trade_fee_increment_dollars": 0.0001,
+    "maximum_unrebated_rounding_reserve_dollars": 0.01,
+    "use_conservative_reserve_for_break_even": true
+  },
+  "action_eligibility": {
+    "maximum_capture_age_seconds": 300,
+    "requires_full_size_at_executable_price": true,
+    "requires_versioned_fee_schedule": true,
+    "requires_positive_net_edge": true,
+    "requires_validated_forecast_for_model_comparison": true,
+    "requires_persistence": true,
+    "minimum_notional_dollars": null
+  },
+  "account_access": "none",
+  "order_placement_enabled": false,
+  "note": "Phase 4 is Kalshi-only. Sportsbook snapshots remain frozen historical evidence and do not enter current-state selection, diagnostics or action gates."
+}

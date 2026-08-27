@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/evidence-source-block.schema.json",
+  "title": "Evidence source block",
+  "type": "object",
+  "required": ["source_block_id", "season", "source_id", "source_sha256", "team_ids", "entity_ids", "source_locator", "locator_confidence", "disposition", "captured_at", "recorded_at"],
+  "properties": {
+    "source_block_id": {"type": "string"},
+    "season": {"type": "integer"},
+    "source_id": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "team_ids": {"type": "array", "items": {"type": "string"}},
+    "entity_ids": {"type": "array", "items": {"type": "string"}},
+    "source_locator": {"type": "object"},
+    "locator_confidence": {"enum": ["low", "medium", "high"]},
+    "disposition": {"enum": ["captured", "non-substantive", "ambiguous"]},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "ambiguity_note": {"type": ["string", "null"]},
+    "view_contract": {"type": ["object", "null"]}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://longo1231.github.io/nfl-2026-outlook/schemas/market-comparison.schema.json",
+  "title": "Market comparison",
+  "type": "object",
+  "required": ["comparison_id", "comparison_type", "input_quote_ids", "side", "gross_edge", "eligibility", "failed_gates", "generated_at"],
+  "properties": {
+    "comparison_id": {"type": "string"},
+    "comparison_type": {"enum": ["cross_market_watch", "model_market_candidate"]},
+    "input_quote_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "forecast_version_id": {"type": ["string", "null"]},
+    "side": {"type": "string"},
+    "gross_edge": {"type": ["number", "null"]},
+    "net_edge": {"type": ["number", "null"]},
+    "eligibility": {"type": "boolean"},
+    "action_eligible": {"type": "boolean"},
+    "research_qualified": {"type": "boolean"},
+    "requested_contracts": {"type": "number"},
+    "model_fair_probability": {"type": "number"},
+    "executable_price": {"type": ["number", "null"]},
+    "conservative_break_even_probability": {"type": ["number", "null"]},
+    "execution": {"type": "object"},
+    "persistence": {"type": "object"},
+    "failed_gates": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string", "format": "date-time"}
+  }
+}

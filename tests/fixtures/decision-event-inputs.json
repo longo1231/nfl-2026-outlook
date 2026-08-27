@@ -1,0 +1,162 @@
+[
+  {
+    "event_id": "evt_fixture_pass_created",
+    "event_type": "thesis.created",
+    "entity_id": "thesis_fixture_pass",
+    "occurred_at": "2026-08-27T14:00:00Z",
+    "recorded_at": "2026-08-27T14:00:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_watch"]},
+    "payload": {
+      "title": "Fictional pass fixture",
+      "team_id": "TST",
+      "market": {"venue_id": "fixture", "market_type": "regular-season-wins-tail", "side": "yes", "threshold": 9, "contract_id": "FIXTURE-YES-9"},
+      "thesis": "A completely fictional thesis used only to verify the private ledger contract.",
+      "contrary_case": "The fictional price already reflects the favorable scenario.",
+      "fair_price_range": {"low": 0.5, "high": 0.56, "basis": "manual fixture assumption"},
+      "target_price": 0.47,
+      "limit_price": 0.49,
+      "catalyst": "A fictional availability update.",
+      "invalidation": "The fictional starter is unavailable.",
+      "confidence": {"level": "medium", "rationale": "Fixture values exercise the contract without representing a real opinion."},
+      "risk_cap": {"amount": 0.5, "unit": "fixture-unit"},
+      "correlation_tags": ["fixture-team", "fixture-quarterback"],
+      "review_due_at": "2026-08-28T14:00:00Z"
+    }
+  },
+  {
+    "event_id": "evt_fixture_watch",
+    "event_type": "decision.watch",
+    "entity_id": "thesis_fixture_pass",
+    "occurred_at": "2026-08-27T14:01:00Z",
+    "recorded_at": "2026-08-27T14:01:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_watch"]},
+    "payload": {"reason": "The fictional price is above target.", "quoted_price": 0.51, "quoted_size": 20}
+  },
+  {
+    "event_id": "evt_fixture_pass",
+    "event_type": "decision.pass",
+    "entity_id": "thesis_fixture_pass",
+    "occurred_at": "2026-08-27T14:02:00Z",
+    "recorded_at": "2026-08-27T14:02:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_pass"]},
+    "payload": {"reason": "The fictional limit was not met.", "quoted_price": 0.51, "quoted_size": 20}
+  },
+  {
+    "event_id": "evt_fixture_open_created",
+    "event_type": "thesis.created",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:03:00Z",
+    "recorded_at": "2026-08-27T14:03:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_position"]},
+    "payload": {
+      "title": "Fictional completed-position fixture",
+      "team_id": "TST",
+      "market": {"venue_id": "fixture", "market_type": "regular-season-wins-tail", "side": "no", "threshold": 7, "contract_id": "FIXTURE-NO-7"},
+      "thesis": "A second fictional thesis exercises approval, fill, close, outcome and review events.",
+      "contrary_case": "The fictional downside may already be fully priced.",
+      "fair_price_range": {"low": 0.6, "high": 0.66, "basis": "manual fixture assumption"},
+      "target_price": 0.54,
+      "limit_price": 0.56,
+      "catalyst": "A fictional depth-chart confirmation.",
+      "invalidation": "The fictional player returns without limitation.",
+      "confidence": {"level": "high", "rationale": "Fixture confidence is not a real forecast."},
+      "risk_cap": {"amount": 1, "unit": "fixture-unit"},
+      "correlation_tags": ["fixture-team", "fixture-division"],
+      "review_due_at": "2026-08-29T14:00:00Z"
+    }
+  },
+  {
+    "event_id": "evt_fixture_revised",
+    "event_type": "thesis.revised",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:04:00Z",
+    "recorded_at": "2026-08-27T14:04:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_position"]},
+    "payload": {"changes": {"limit_price": 0.55}, "reason": "The fictional execution allowance narrowed."}
+  },
+  {
+    "event_id": "evt_fixture_approved",
+    "event_type": "decision.approve",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:05:00Z",
+    "recorded_at": "2026-08-27T14:05:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_position"]},
+    "payload": {"reason": "The fictional price met the revised limit.", "quoted_price": 0.54, "quoted_size": 10}
+  },
+  {
+    "event_id": "evt_fixture_order",
+    "event_type": "order.recorded",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:06:00Z",
+    "recorded_at": "2026-08-27T14:06:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_position"]},
+    "payload": {"price": 0.54, "size": 10, "order_status": "filled-manually-recorded"}
+  },
+  {
+    "event_id": "evt_fixture_fill",
+    "event_type": "fill.recorded",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:07:00Z",
+    "recorded_at": "2026-08-27T14:07:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_position"]},
+    "payload": {"price": 0.54, "size": 10}
+  },
+  {
+    "event_id": "evt_fixture_mark",
+    "event_type": "position.marked",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:08:00Z",
+    "recorded_at": "2026-08-27T14:08:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_mark"]},
+    "payload": {"price": 0.58}
+  },
+  {
+    "event_id": "evt_fixture_close",
+    "event_type": "position.closed",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2026-08-27T14:09:00Z",
+    "recorded_at": "2026-08-27T14:09:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_close"]},
+    "payload": {"price": 0.58, "size": 10, "reason": "Fixture close verifies the event lifecycle."}
+  },
+  {
+    "event_id": "evt_fixture_closing_price",
+    "event_type": "closing_price.recorded",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2027-01-18T04:59:00Z",
+    "recorded_at": "2027-01-18T04:59:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": ["quote_fixture_official_close"]},
+    "payload": {"price": 0.6, "observed_at": "2027-01-18T04:58:00Z", "source_quote_id": "quote_fixture_official_close", "horizon": "decision-to-close"}
+  },
+  {
+    "event_id": "evt_fixture_outcome",
+    "event_type": "outcome.recorded",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2027-01-18T05:01:00Z",
+    "recorded_at": "2027-01-18T05:01:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": []},
+    "payload": {"result": "fixture-resolved-no"}
+  },
+  {
+    "event_id": "evt_fixture_postmortem",
+    "event_type": "postmortem.recorded",
+    "entity_id": "thesis_fixture_position",
+    "occurred_at": "2027-01-18T05:02:00Z",
+    "recorded_at": "2027-01-18T05:02:01Z",
+    "actor": "fixture",
+    "public_refs": {"public_manifest_id": "public-2026-edition-7", "evidence_snapshot_id": "evidence-2026-edition-7", "forecast_version_id": null, "quote_ids": []},
+    "payload": {"summary": "The fictional fixture confirms that outcomes and process review do not rewrite the original decision."}
+  }
+]

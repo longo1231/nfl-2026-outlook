@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-27T17:00:59.275Z",
+  "version_count": 2,
+  "latest_version_id": "weekly-2026-preseason-prior-3c7ab67d2d4db794",
+  "versions": [
+    {
+      "weekly_state_version_id": "weekly-2026-preseason-prior-a98230ef1a077eff",
+      "season": 2026,
+      "period": {
+        "kind": "preseason-prior",
+        "week": null,
+        "label": "Preseason prior"
+      },
+      "frozen_at": "2026-08-27T16:30:09.794Z",
+      "path": "data/weekly/weekly-2026-preseason-prior-a98230ef1a077eff.json",
+      "content_fingerprint": "a98230ef1a077eff5349dec95df1aacf79d6ddec3e9f15d4e0c7c1784fc22c73",
+      "public_manifest_id": "public-2026-20260827T163009.794Z",
+      "forecast_version_id": "fcst-2026-preseason-bf554ba7c4aee595",
+      "market_snapshot_id": "kalshi-exec-20260827T153038.207Z"
+    },
+    {
+      "weekly_state_version_id": "weekly-2026-preseason-prior-3c7ab67d2d4db794",
+      "season": 2026,
+      "period": {
+        "kind": "preseason-prior",
+        "week": null,
+        "label": "Phase 6 preseason prior"
+      },
+      "frozen_at": "2026-08-27T17:00:59.275Z",
+      "path": "data/weekly/weekly-2026-preseason-prior-3c7ab67d2d4db794.json",
+      "content_fingerprint": "3c7ab67d2d4db79443389b56d0b0feff4ec77ea058911644d08ad02536703665",
+      "public_manifest_id": "public-2026-20260827T170059.275Z-f780daea0818",
+      "forecast_version_id": "fcst-2026-preseason-bf554ba7c4aee595",
+      "market_snapshot_id": "kalshi-exec-20260827T153038.207Z"
+    }
+  ]
+}

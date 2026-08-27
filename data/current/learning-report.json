@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "report_id": "learning-2026-7170edca4f4f75bf",
+  "generated_at": "2026-08-27T16:30:09.794Z",
+  "policy_id": "learning-policy-2026.1",
+  "status": "awaiting_observations",
+  "observation_count": 0,
+  "overall": null,
+  "groupings": {
+    "model_version": [],
+    "evaluation_horizon": [],
+    "confidence_bucket": [],
+    "market_type": []
+  },
+  "definitions": {
+    "brier_score": "Mean squared error between the frozen probability and binary outcome; lower is better.",
+    "log_loss": "Mean negative log likelihood using the policy probability clamp; lower is better.",
+    "expected_calibration_error": "Absolute forecast-versus-outcome gap weighted across 10 equal-width probability bins.",
+    "model_to_close_probability_delta": "same-side closing probability minus frozen model probability",
+    "private_clv": "same-side closing probability minus average entry price"
+  }
+}
