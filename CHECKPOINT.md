@@ -11,10 +11,12 @@ Maintain an auditable 2026 NFL research source of truth, compare its eligible ev
 - Editorial and market evidence through: 2026-08-27
 - Public repository: https://github.com/longo1231/nfl-2026-outlook
 - GitHub Pages URL: https://longo1231.github.io/nfl-2026-outlook/
-- Edition 7 artifact commit: pending publication record
-- Edition 7 deployment-record commit: pending publication record
-- GitHub Pages workflow result: pending publication record
-- Deployed HTTPS verification: pending publication record
+- Edition 7 artifact commit: `95596c22f9206c442266d6e7271fb57421be5924`
+- Edition 7 deployment-record commit: this record commit; exact hash is carried by Git history and the release handoff because a commit cannot contain its own hash
+- GitHub Pages workflow result: legacy Pages build `1178503494` for the exact artifact commit, status `built`, created `2026-08-27T13:10:51Z`, completed `2026-08-27T13:11:12Z`, duration 21.744 seconds, no error
+- GitHub Pages build API: https://api.github.com/repos/longo1231/nfl-2026-outlook/pages/builds/1178503494
+- Deployed HTTPS verification: passed at `2026-08-27T13:12:56Z` (`2026-08-27T09:12:56-04:00`)
+- Deployed artifact SHA-256: `42a3ec619851f1388b58b587948db524a099c32355eb6de62e51945b33aaea5d` (byte-for-byte equal to `docs/index.html`)
 - Prior Edition 6 artifact commit: `2418b876ad5a3aaee8ac6f3ef210fd072941d254`
 - Frozen owner-only Sites v1 reference: preserved privately and unchanged
 
@@ -119,8 +121,8 @@ The residual is preserved as aggregate market incoherence rather than normalized
 - Desktop 1440×1000: passed with 15 navigation tabs and zero document overflow
 - Mobile 390×844: passed with responsive cards, intentionally scrollable labeled tables, and zero document overflow
 - Interaction/accessibility: passed for named native controls, equal/default weight actions, tail selection, preview-to-profile navigation, one named navigation, zero unnamed buttons/links, zero duplicate IDs, and clean browser logs
-- Deployed HTTPS: pending publication record
+- Deployed HTTPS: passed with HTTP/2 200, HSTS, a byte-identical artifact, Edition 7/Aug. 27 content, 11 source cards, five preview cards, 32 analysis rows, 12 preview-ballot rows, five scanner rows, 15 tabs, six weight controls, 17 tail choices, zero document overflow, and clean browser logs
 
 ## Next action
 
-Publish Edition 7, record the exact artifact and deployment commits plus Pages result, and then begin the private decision ledger and time-aware freshness manifest before adding a calibrated forecast layer.
+Begin the private decision ledger and time-aware freshness manifest before adding a calibrated forecast layer.

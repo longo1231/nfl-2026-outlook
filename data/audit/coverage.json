@@ -131,17 +131,17 @@
       "document_overflow_pixels": 0,
       "semantic_control_audit_pass": true,
       "browser_console_errors": 0,
-      "deployed_pages_pass": false,
+      "deployed_pages_pass": true,
       "deployed_url": "https://longo1231.github.io/nfl-2026-outlook/",
-      "artifact_commit": null,
-      "artifact_sha256": null,
-      "deployment_record_commit": null,
-      "workflow_result": null,
-      "workflow_url": null,
-      "deployed_verified_at": null,
-      "deployed_artifact_byte_equal": false,
-      "http_status": null,
-      "https_enforced": null
+      "artifact_commit": "95596c22f9206c442266d6e7271fb57421be5924",
+      "artifact_sha256": "42a3ec619851f1388b58b587948db524a099c32355eb6de62e51945b33aaea5d",
+      "deployment_record_commit": "self (exact hash carried by Git history and release handoff)",
+      "workflow_result": "GitHub Pages legacy build 1178503494: built",
+      "workflow_url": "https://api.github.com/repos/longo1231/nfl-2026-outlook/pages/builds/1178503494",
+      "deployed_verified_at": "2026-08-27T13:12:56Z",
+      "deployed_artifact_byte_equal": true,
+      "http_status": 200,
+      "https_enforced": true
     }
   },
   "known_transcript_exceptions": [

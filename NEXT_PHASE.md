@@ -1,6 +1,6 @@
 # 2026 NFL Outlook Field Guide — next phase
 
-Status: Edition 7 source and decision-system integration through 2026-08-27; publication details are finalized in `CHECKPOINT.md` after deployment.
+Status: Edition 7 source and decision-system integration published and verified through 2026-08-27; exact publication details are finalized in `CHECKPOINT.md`.
 
 ## Completed source expansion
 
